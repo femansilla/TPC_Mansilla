@@ -3,3 +3,13 @@
 ################################################################################
 
 /Business/bin/Debug
+/Business/obj/Debug
+/ViewsApp/obj/Debug
+/ViewsApp/bin/Debug
+/Domain/obj/Debug
+/Domain/bin/Debug
+/Data/obj/Debug
+/Data/bin/Debug
+/conectionDB/obj/Debug
+/conectionDB/bin/Debug
+/.vs/conectionDB/v15/Server/sqlite3/db.lock
