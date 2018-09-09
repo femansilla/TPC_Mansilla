@@ -10,25 +10,31 @@ namespace Business
 {
     public class ProductoController
     {
-        
+        //La teoria dice que aca tengo que instanciar un obj de mi clase
+        //ProductoServices para usar los metodos que conectan a la base... pero no me esta saliendo
+        //Ya se que no es la metodologia que planteaste, pero me llevo mejor con esta...
+        //y en la ventana de la vista, tengo ganas de al insertar, voy a insertar la descripcion, y ademas quiero guardar
+        //una imagen, que me recomendas que copie la imagen a una carpeta especifa de la app
+        //y que me lleve path a la base?
         public void AgregarProducto(Producto prd)
         {
-            
+            //insert de un producto.
         }
         public void EditarProducto()
         {
-
+            //update de un producto
         }
         public void EliminarProducto()
         {
-
+            //eliminar un producto
         }
         public void GetProducto()
         {
-
+            //traer un producto
         }
         public void GetProductos()
         {
+            //aca quiero traerme la lista de todos los productos
             var alga = "";
         }
     }
