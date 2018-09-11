@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    class ProductoServices
+    public class ProductoServices
     {
+        
         private static DESA _data;
         public List<SP_Get_All_Productos_Result> GETALLPRODUCTOS()
         {
