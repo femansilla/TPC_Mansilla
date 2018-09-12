@@ -9,7 +9,7 @@ namespace Data
     public class ProductoServices
     {
         
-        private static DESA _data;
+        private static DESA _data = new DESA();
         public List<SP_Get_All_Productos_Result> GETALLPRODUCTOS()
         {
             return _data.SP_Get_All_Productos().ToList();

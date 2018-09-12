@@ -14,7 +14,7 @@ namespace ViewsApp
 {
     public partial class FormAgregarProducto : Form
     {
-        private static ProductoController controller;
+        private static ProductoController controller = new ProductoController();
         public FormAgregarProducto()
         {
             InitializeComponent();

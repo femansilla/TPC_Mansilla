@@ -13,7 +13,7 @@ namespace ViewsApp
 {
     public partial class ListaProductos : Form
     {
-        private static ProductoController controller;
+        private static ProductoController controller = new ProductoController();
         public ListaProductos()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace ViewsApp
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            new FormAgregarProducto();
+            new FormAgregarProducto().Show();
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
