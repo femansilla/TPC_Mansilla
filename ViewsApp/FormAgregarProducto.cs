@@ -14,7 +14,7 @@ namespace ViewsApp
 {
     public partial class FormAgregarProducto : Form
     {
-        private static ProductoController controller = new ProductoController();
+        private ProductoController controller = new ProductoController();
         public FormAgregarProducto()
         {
             InitializeComponent();
@@ -29,7 +29,11 @@ namespace ViewsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Application.UseWaitCursor = true;
             controller.AgregarProducto(getProducto());
+            Application.UseWaitCursor = false;
+            this.textBox1.Clear();
+            MessageBox.Show("Producto agregado correctamente.");
         }
     }
 }
