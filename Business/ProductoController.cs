@@ -10,7 +10,7 @@ namespace Business
 {
     public class ProductoController
     {
-        ProductoServices asd = new ProductoServices();
+        ProductoServices _productoServices = new ProductoServices();
         //La teoria dice que aca tengo que instanciar un obj de mi clase
         //ProductoServices para usar los metodos que conectan a la base... pero no me esta saliendo
         //Ya se que no es la metodologia que planteaste, pero me llevo mejor con esta...
@@ -19,7 +19,7 @@ namespace Business
         //y que me lleve path a la base?
         public void AgregarProducto(Producto prd)
         {
-            asd.InsertProducto(prd.Descripcion);
+            _productoServices.InsertProducto(prd.Descripcion);
             //insert de un producto.
         }
         public void EditarProducto()
@@ -34,10 +34,19 @@ namespace Business
         {
             //traer un producto
         }
-        public void GetProductos()
+        public List<Producto> GetProductos()
         {
             //aca quiero traerme la lista de todos los productos
-            var alga = "";
+            var alga = _productoServices.GETALLPRODUCTOS();
+            List<Producto> ret = new List<Producto>();
+            foreach (var prd in alga)
+            {
+                Producto prdRet = new Producto() {
+                    Descripcion = prd.Descripcion
+                };
+                ret.Add(prdRet);
+            }
+            return ret;
         }
     }
 }

@@ -26,7 +26,16 @@ namespace ViewsApp
 
         private void ListaProductos_Load(object sender, EventArgs e)
         {
-            controller.GetProductos();
+            var a = controller.GetProductos();
+            List<frmProducto> lista = new List<frmProducto>();
+            foreach (var item in a)
+            {
+                frmProducto frmView = new frmProducto()
+                {
+                    Descripcion = item.Descripcion
+                };
+                lista.Add(frmView);
+            }
         }
     }
 }

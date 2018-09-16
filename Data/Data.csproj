@@ -72,6 +72,7 @@
     <Compile Include="SP_Get_Producto_byID_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="UsuarioServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DESA.edmx">

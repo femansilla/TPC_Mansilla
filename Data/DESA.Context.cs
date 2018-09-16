@@ -50,5 +50,18 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto", descripcionParameter);
         }
+    
+        public virtual ObjectResult<string> SP_validateUser(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_validateUser", usernameParameter, passwordParameter);
+        }
     }
 }

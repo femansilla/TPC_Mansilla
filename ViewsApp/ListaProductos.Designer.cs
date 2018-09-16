@@ -31,8 +31,6 @@
             this.btnEditarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEditarProducto
@@ -63,28 +61,18 @@
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(29, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // ListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 432);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnEditarProducto);
             this.Controls.Add(this.btnBorrarProducto);
             this.Controls.Add(this.btnAgregarProducto);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ListaProductos";
             this.Text = "ListaProductos";
             this.Load += new System.EventHandler(this.ListaProductos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -93,6 +81,5 @@
         private System.Windows.Forms.Button btnEditarProducto;
         private System.Windows.Forms.Button btnBorrarProducto;
         private System.Windows.Forms.Button btnAgregarProducto;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

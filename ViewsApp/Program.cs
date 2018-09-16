@@ -16,7 +16,7 @@ namespace ViewsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListaProductos());
+            Application.Run(new inicioForm());
         }
     }
 }
