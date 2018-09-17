@@ -36,6 +36,12 @@ namespace ViewsApp
                 };
                 lista.Add(frmView);
             }
+            dgvProductos.DataSource = a;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
