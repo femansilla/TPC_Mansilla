@@ -25,7 +25,7 @@ namespace ViewsApp
 
         private void btnGestionProductos_Click(object sender, EventArgs e)
         {
-            new ListaProductos().Show();
+            new ListaProductosForm().Show();
             this.Hide();
         }
     }

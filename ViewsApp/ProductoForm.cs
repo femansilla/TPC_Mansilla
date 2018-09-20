@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace ViewsApp
 {
-    public partial class frmProducto : Form
+    public partial class ProductoForm : Form
     {
         public string Descripcion { get; set; }
-        public frmProducto()
+        public ProductoForm()
         {
             InitializeComponent();
         }

@@ -11,26 +11,26 @@ using Business;
 
 namespace ViewsApp
 {
-    public partial class ListaProductos : Form
+    public partial class ListaProductosForm : Form
     {
         private static ProductoController controller = new ProductoController();
-        public ListaProductos()
+        public ListaProductosForm()
         {
             InitializeComponent();
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            new FormAgregarProducto().Show();
+            new AgregarProductoForm().Show();
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
         {
             var a = controller.GetProductos();
-            List<frmProducto> lista = new List<frmProducto>();
+            List<ProductoForm> lista = new List<ProductoForm>();
             foreach (var item in a)
             {
-                frmProducto frmView = new frmProducto()
+                ProductoForm frmView = new ProductoForm()
                 {
                     Descripcion = item.Descripcion
                 };

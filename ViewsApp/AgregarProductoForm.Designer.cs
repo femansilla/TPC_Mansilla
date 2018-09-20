@@ -1,6 +1,6 @@
 ﻿namespace ViewsApp
 {
-    partial class FormAgregarProducto
+    partial class AgregarProductoForm
     {
         /// <summary>
         /// Required designer variable.

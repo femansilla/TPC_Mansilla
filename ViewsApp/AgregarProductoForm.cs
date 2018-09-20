@@ -12,10 +12,10 @@ using Business;
 
 namespace ViewsApp
 {
-    public partial class FormAgregarProducto : Form
+    public partial class AgregarProductoForm : Form
     {
         private ProductoController controller = new ProductoController();
-        public FormAgregarProducto()
+        public AgregarProductoForm()
         {
             InitializeComponent();
         }

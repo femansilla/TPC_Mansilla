@@ -13,5 +13,9 @@ namespace Domain
         [DisplayName("Nombre de producto")]
         public string Descripcion { get; set; }
         public string Imagen { get; set; }
+
+        public int ProductType { get; set; }
+        public int Categoria { get; set; }
+
     }
 }
