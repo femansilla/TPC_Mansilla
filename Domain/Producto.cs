@@ -9,12 +9,15 @@ namespace Domain
 {
     public class Producto
     {
+        [DisplayName("Codigo")]
         public int IDProducto { get; set; }
-        [DisplayName("Nombre de producto")]
+        [DisplayName("Descripcion producto")]
         public string Descripcion { get; set; }
         public string Imagen { get; set; }
 
+        [DisplayName("Tipo")]
         public int ProductType { get; set; }
+        [DisplayName("Categoria")]
         public int Categoria { get; set; }
 
     }

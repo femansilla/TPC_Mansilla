@@ -9,10 +9,13 @@ namespace Domain
 {
     public class Usuario
     {
+        [DisplayName("Codigo")]
         public int IDUser { get; set; }
-        public string UserNamer { get; set; }
+        [DisplayName("Id usuario")]
+        public string UserName { get; set; }
         public string Password { get; set; }
 
+        [DisplayName("Tipo")]
         public int UserType { get; set; }
     }
 }
