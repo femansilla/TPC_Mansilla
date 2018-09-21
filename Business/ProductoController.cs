@@ -30,13 +30,13 @@ namespace Business
         {
             //eliminar un producto
         }
-        public void GetProducto()
+        public void GetProducto(int id)
         {
             //traer un producto
         }
         public List<Producto> GetProductos()
         {
-            //aca quiero traerme la lista de todos los productos
+            //traer todos los productos
             var alga = _productoServices.GETALLPRODUCTOS();
             List<Producto> ret = new List<Producto>();
             foreach (var prd in alga)

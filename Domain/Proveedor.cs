@@ -20,5 +20,7 @@ namespace Domain
 
         [DisplayName("Tipo")]
         public int ProveedorType { get; set; }
+
+        public Direccion Direccion { get; set; }
     }
 }

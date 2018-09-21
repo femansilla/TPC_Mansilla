@@ -17,8 +17,16 @@ namespace Domain
         public string Apellido { get; set; }
         [DisplayName("CUIT")]
         public string CUIT { get; set; }
+        [DisplayName("Sexo")]
+        public bool Sex { get; set; }
+        [DisplayName("Fecha de Nacimiento")]
+        public DateTime FechaNac { get; set; }
+        [DisplayName("Correo electronico")]
+        public string email { get; set; }
 
         [DisplayName("Tipo")]
         public int ClientType { get; set; }
+
+        public Direccion Direccion { get; set; }
     }
 }

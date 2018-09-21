@@ -17,5 +17,7 @@ namespace Domain
 
         [DisplayName("Tipo")]
         public int UserType { get; set; }
+
+        public Direccion Direccion { get; set; }
     }
 }
