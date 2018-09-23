@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ViewsApp
 {
-    public partial class FormListaUsuarios : Form
+    public partial class FormListaUsuariosForm : Form
     {
-        public FormListaUsuarios()
+        public FormListaUsuariosForm()
         {
             InitializeComponent();
         }

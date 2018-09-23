@@ -19,7 +19,7 @@ namespace ViewsApp
 
         private void btnGestionUsuarios_Click(object sender, EventArgs e)
         {
-            new FormListaUsuarios().Show();
+            new FormListaUsuariosForm().Show();
             this.Hide();
         }
 
@@ -50,6 +50,12 @@ namespace ViewsApp
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnGestionProveedores_Click(object sender, EventArgs e)
+        {
+            new ListaProveedoresForm().Show();
+            this.Hide();
         }
     }
 }

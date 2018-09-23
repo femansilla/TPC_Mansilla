@@ -34,6 +34,7 @@
             this.btnControlStock = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnGestionProveedores = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGestionUsuarios
@@ -42,7 +43,7 @@
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(151, 34);
             this.btnGestionUsuarios.TabIndex = 0;
-            this.btnGestionUsuarios.Text = "Gestion de usuarios";
+            this.btnGestionUsuarios.Text = "Gestion usuarios";
             this.btnGestionUsuarios.UseVisualStyleBackColor = true;
             this.btnGestionUsuarios.Click += new System.EventHandler(this.btnGestionUsuarios_Click);
             // 
@@ -52,7 +53,7 @@
             this.btnGestionProductos.Name = "btnGestionProductos";
             this.btnGestionProductos.Size = new System.Drawing.Size(151, 34);
             this.btnGestionProductos.TabIndex = 1;
-            this.btnGestionProductos.Text = "Gestion de productos";
+            this.btnGestionProductos.Text = "Gestion productos";
             this.btnGestionProductos.UseVisualStyleBackColor = true;
             this.btnGestionProductos.Click += new System.EventHandler(this.btnGestionProductos_Click);
             // 
@@ -62,13 +63,13 @@
             this.btnGestionClientes.Name = "btnGestionClientes";
             this.btnGestionClientes.Size = new System.Drawing.Size(151, 34);
             this.btnGestionClientes.TabIndex = 2;
-            this.btnGestionClientes.Text = "Gestion de clientes";
+            this.btnGestionClientes.Text = "Gestion clientes";
             this.btnGestionClientes.UseVisualStyleBackColor = true;
             this.btnGestionClientes.Click += new System.EventHandler(this.btnGestionClientes_Click);
             // 
             // btnControlStock
             // 
-            this.btnControlStock.Location = new System.Drawing.Point(36, 150);
+            this.btnControlStock.Location = new System.Drawing.Point(36, 190);
             this.btnControlStock.Name = "btnControlStock";
             this.btnControlStock.Size = new System.Drawing.Size(151, 34);
             this.btnControlStock.TabIndex = 3;
@@ -96,11 +97,22 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnGestionProveedores
+            // 
+            this.btnGestionProveedores.Location = new System.Drawing.Point(36, 150);
+            this.btnGestionProveedores.Name = "btnGestionProveedores";
+            this.btnGestionProveedores.Size = new System.Drawing.Size(151, 34);
+            this.btnGestionProveedores.TabIndex = 6;
+            this.btnGestionProveedores.Text = "Gestion proveedores";
+            this.btnGestionProveedores.UseVisualStyleBackColor = true;
+            this.btnGestionProveedores.Click += new System.EventHandler(this.btnGestionProveedores_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 346);
+            this.Controls.Add(this.btnGestionProveedores);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnControlStock);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Button btnControlStock;
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnGestionProveedores;
     }
 }

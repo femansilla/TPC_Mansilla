@@ -21,7 +21,7 @@ namespace ViewsApp
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            new AgregarProductoForm().Show();
+            new FichaProductoForm().Show();
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)

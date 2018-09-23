@@ -64,11 +64,17 @@
     <Compile Include="FichaUsuarioForm.Designer.cs">
       <DependentUpon>FichaUsuarioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListaUsuarios.cs">
+    <Compile Include="FormListaUsuariosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListaUsuarios.Designer.cs">
-      <DependentUpon>FormListaUsuarios.cs</DependentUpon>
+    <Compile Include="FormListaUsuariosForm.Designer.cs">
+      <DependentUpon>FormListaUsuariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaProveedoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaProveedoresForm.Designer.cs">
+      <DependentUpon>ListaProveedoresForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductoForm.cs">
       <SubType>Form</SubType>
@@ -94,11 +100,11 @@
     <Compile Include="ListaProductosForm.Designer.cs">
       <DependentUpon>ListaProductosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AgregarProductoForm.cs">
+    <Compile Include="FichaProductoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AgregarProductoForm.Designer.cs">
-      <DependentUpon>AgregarProductoForm.cs</DependentUpon>
+    <Compile Include="FichaProductoForm.Designer.cs">
+      <DependentUpon>FichaProductoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,8 +126,11 @@
     <EmbeddedResource Include="FichaUsuarioForm.resx">
       <DependentUpon>FichaUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormListaUsuarios.resx">
-      <DependentUpon>FormListaUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="FormListaUsuariosForm.resx">
+      <DependentUpon>FormListaUsuariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaProveedoresForm.resx">
+      <DependentUpon>ListaProveedoresForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductoForm.resx">
       <DependentUpon>ProductoForm.cs</DependentUpon>
@@ -135,8 +144,8 @@
     <EmbeddedResource Include="ListaProductosForm.resx">
       <DependentUpon>ListaProductosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AgregarProductoForm.resx">
-      <DependentUpon>AgregarProductoForm.cs</DependentUpon>
+    <EmbeddedResource Include="FichaProductoForm.resx">
+      <DependentUpon>FichaProductoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
