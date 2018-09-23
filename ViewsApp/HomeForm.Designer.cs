@@ -33,6 +33,7 @@
             this.btnGestionClientes = new System.Windows.Forms.Button();
             this.btnControlStock = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGestionUsuarios
@@ -63,6 +64,7 @@
             this.btnGestionClientes.TabIndex = 2;
             this.btnGestionClientes.Text = "Gestion de clientes";
             this.btnGestionClientes.UseVisualStyleBackColor = true;
+            this.btnGestionClientes.Click += new System.EventHandler(this.btnGestionClientes_Click);
             // 
             // btnControlStock
             // 
@@ -72,6 +74,7 @@
             this.btnControlStock.TabIndex = 3;
             this.btnControlStock.Text = "Control de stock";
             this.btnControlStock.UseVisualStyleBackColor = true;
+            this.btnControlStock.Click += new System.EventHandler(this.btnControlStock_Click);
             // 
             // btnVentas
             // 
@@ -81,18 +84,32 @@
             this.btnVentas.TabIndex = 4;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(339, 289);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(151, 34);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "Salir";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 346);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnControlStock);
             this.Controls.Add(this.btnGestionClientes);
             this.Controls.Add(this.btnGestionProductos);
             this.Controls.Add(this.btnGestionUsuarios);
+            this.Location = new System.Drawing.Point(200, 100);
             this.Name = "HomeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "HomeForm";
             this.ResumeLayout(false);
 
@@ -105,5 +122,6 @@
         private System.Windows.Forms.Button btnGestionClientes;
         private System.Windows.Forms.Button btnControlStock;
         private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Button btnExit;
     }
 }

@@ -66,6 +66,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Name = "inicioForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "inicioForm";
             this.ResumeLayout(false);
             this.PerformLayout();

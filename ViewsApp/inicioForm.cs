@@ -20,8 +20,8 @@ namespace ViewsApp
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            string usr = this.txtUserName.Text;
-            string pass = this.txtPassword.Text;
+            string usr = this.txtUserName.Text.Trim();
+            string pass = this.txtPassword.Text.Trim();
             bool val = controller.iniciarSesion(usr, pass);
             if (!val)
                 MessageBox.Show("Usuario o clave incorrecto. \r\nVerifique por favor.");

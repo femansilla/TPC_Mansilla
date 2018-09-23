@@ -16,5 +16,11 @@ namespace ViewsApp
         {
             InitializeComponent();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new HomeForm().Show();
+        }
     }
 }

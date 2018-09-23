@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{40D6ED16-58A5-4486-B09B-732E70C3ABE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{6CB37587-AAED-4004-A960-E68A09501600}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "Data\DAO.csproj", "{6CB37587-AAED-4004-A960-E68A09501600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

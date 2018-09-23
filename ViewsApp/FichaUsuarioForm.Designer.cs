@@ -213,6 +213,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "FichaUsuarioForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FichaUsuarioForm";
             this.ResumeLayout(false);
             this.PerformLayout();

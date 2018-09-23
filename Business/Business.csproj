@@ -45,9 +45,9 @@
     <Compile Include="UsuarioController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
+    <ProjectReference Include="..\Data\DAO.csproj">
       <Project>{6cb37587-aaed-4004-a960-e68a09501600}</Project>
-      <Name>Data</Name>
+      <Name>DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{fa784401-cd4c-41b7-afac-a661a1393d3e}</Project>

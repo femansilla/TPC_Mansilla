@@ -35,5 +35,10 @@ namespace ViewsApp
             this.textBox1.Clear();
             MessageBox.Show("Producto agregado correctamente.");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

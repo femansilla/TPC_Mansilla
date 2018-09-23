@@ -13,6 +13,8 @@ namespace Domain
         public int IDProducto { get; set; }
         [DisplayName("Descripcion producto")]
         public string Descripcion { get; set; }
+        [DisplayName("Precio producto")]
+        public float Precio { get; set; }
         public string Imagen { get; set; }
 
         [DisplayName("Tipo")]

@@ -16,5 +16,11 @@ namespace ViewsApp
         {
             InitializeComponent();
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            new HomeForm().Show();
+            this.Hide();
+        }
     }
 }

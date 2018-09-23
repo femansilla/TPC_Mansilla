@@ -28,5 +28,28 @@ namespace ViewsApp
             new ListaProductosForm().Show();
             this.Hide();
         }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            new VentasForm().Show();
+            this.Hide();
+        }
+
+        private void btnGestionClientes_Click(object sender, EventArgs e)
+        {
+            new ListaClientesForm().Show();
+            this.Hide();
+        }
+
+        private void btnControlStock_Click(object sender, EventArgs e)
+        {
+            new StockForm().Show();
+            this.Hide();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
