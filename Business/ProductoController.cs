@@ -39,10 +39,12 @@ namespace Business
             //traer todos los productos
             var alga = _productoServices.GETALLPRODUCTOS();
             List<Producto> ret = new List<Producto>();
+            int i = 1;
             foreach (var prd in alga)
             {
                 Producto prdRet = new Producto() {
-                    Descripcion = prd.Descripcion
+                    Descripcion = prd.Descripcion,
+                    IDProducto = i++
                 };
                 ret.Add(prdRet);
             }

@@ -11,9 +11,9 @@ namespace Domain
     {
         [DisplayName("Codigo")]
         public int IDProducto { get; set; }
-        [DisplayName("Descripcion producto")]
+        [DisplayName("Descripcion")]
         public string Descripcion { get; set; }
-        [DisplayName("Precio producto")]
+        [DisplayName("Precio")]
         public float Precio { get; set; }
         public string Imagen { get; set; }
 
