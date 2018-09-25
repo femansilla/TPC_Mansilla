@@ -7,26 +7,17 @@ using System.ComponentModel;
 
 namespace Domain
 {
-    public class Cliente
+    public class Cliente : Persona
     {
         [DisplayName("Codigo")]
         public int ID { get; set; }
-        [DisplayName("Nombre")]
-        public string Nombre { get; set; }
-        [DisplayName("Apellido")]
-        public string Apellido { get; set; }
-        [DisplayName("CUIT")]
-        public string CUIT { get; set; }
-        [DisplayName("Sexo")]
-        public bool Sex { get; set; }
-        [DisplayName("Fecha de Nacimiento")]
-        public DateTime FechaNac { get; set; }
-        [DisplayName("Correo electronico")]
+
+        [DisplayName("Email")]
         public string email { get; set; }
 
         [DisplayName("Tipo")]
-        public int ClientType { get; set; }
-
-        public Direccion Direccion { get; set; }
+        public int ClientType { get; set; }    
+            
+        public List<Direccion> Direccion { get; set; }
     }
 }
