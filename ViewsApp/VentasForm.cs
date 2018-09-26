@@ -19,15 +19,16 @@ namespace ViewsApp
         public VentasForm()
         {
             var a = controller.GetProductos();
-            //List<ProductoForm> lista = new List<ProductoForm>();
-            //foreach (var item in a)
-            //{
-            //    ProductoForm frmView = new ProductoForm()
-            //    {
-            //        Descripcion = item.Descripcion
-            //    };
-            //    (frmView);
-            //}
+
+            List<ProductoForm> lista = new List<ProductoForm>();
+            foreach (var item in a)
+            {
+                ProductoForm frmView = new ProductoForm()
+                {
+                    Descripcion = item.Descripcion
+                };
+                flProducts.Controls.Add(frmView);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

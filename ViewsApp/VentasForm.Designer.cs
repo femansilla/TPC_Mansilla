@@ -89,9 +89,9 @@
             // 
             // flProducts
             // 
-            this.flProducts.Location = new System.Drawing.Point(13, 12);
+            this.flProducts.Location = new System.Drawing.Point(13, 13);
             this.flProducts.Name = "flProducts";
-            this.flProducts.Size = new System.Drawing.Size(567, 426);
+            this.flProducts.Size = new System.Drawing.Size(567, 386);
             this.flProducts.TabIndex = 8;
             // 
             // VentasForm
