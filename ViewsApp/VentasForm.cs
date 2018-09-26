@@ -7,14 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
+using Domain;
+
 
 namespace ViewsApp
 {
     public partial class VentasForm : Form
     {
+        private readonly ProductoController controller = new ProductoController();
         public VentasForm()
         {
-            InitializeComponent();
+            var a = controller.GetProductos();
+            //List<ProductoForm> lista = new List<ProductoForm>();
+            //foreach (var item in a)
+            //{
+            //    ProductoForm frmView = new ProductoForm()
+            //    {
+            //        Descripcion = item.Descripcion
+            //    };
+            //    (frmView);
+            //}
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -22,5 +35,6 @@ namespace ViewsApp
             this.Hide();
             new HomeForm().Show();
         }
+        
     }
 }

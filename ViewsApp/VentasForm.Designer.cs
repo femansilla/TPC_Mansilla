@@ -33,7 +33,7 @@
             this.dgvVentaActual = new System.Windows.Forms.DataGridView();
             this.txtTotLabel = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lvProductos = new System.Windows.Forms.ListView();
+            this.flProducts = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentaActual)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,21 +87,19 @@
             this.textBox2.Size = new System.Drawing.Size(146, 20);
             this.textBox2.TabIndex = 7;
             // 
-            // lvProductos
+            // flProducts
             // 
-            this.lvProductos.Location = new System.Drawing.Point(13, 12);
-            this.lvProductos.Name = "lvProductos";
-            this.lvProductos.Size = new System.Drawing.Size(567, 426);
-            this.lvProductos.TabIndex = 8;
-            this.lvProductos.UseCompatibleStateImageBehavior = false;
-            this.lvProductos.View = System.Windows.Forms.View.Details;
+            this.flProducts.Location = new System.Drawing.Point(13, 12);
+            this.flProducts.Name = "flProducts";
+            this.flProducts.Size = new System.Drawing.Size(567, 426);
+            this.flProducts.TabIndex = 8;
             // 
             // VentasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lvProductos);
+            this.Controls.Add(this.flProducts);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtTotLabel);
             this.Controls.Add(this.dgvVentaActual);
@@ -121,6 +119,6 @@
         private System.Windows.Forms.DataGridView dgvVentaActual;
         private System.Windows.Forms.TextBox txtTotLabel;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListView lvProductos;
+        private System.Windows.Forms.FlowLayoutPanel flProducts;
     }
 }

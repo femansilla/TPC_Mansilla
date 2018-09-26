@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteServices.cs" />
+    <Compile Include="VentaServices.cs" />
     <Compile Include="DESA.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -66,6 +68,7 @@
     </Compile>
     <Compile Include="ProductoServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorServices.cs" />
     <Compile Include="SP_Get_All_Productos_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>

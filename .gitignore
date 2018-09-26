@@ -16,3 +16,4 @@
 /.vs/conectionDB/v14
 .vs/
 *.suo
+*.Config
