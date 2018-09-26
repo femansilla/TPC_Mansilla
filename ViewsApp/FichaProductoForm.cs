@@ -14,31 +14,48 @@ namespace ViewsApp
 {
     public partial class FichaProductoForm : Form
     {
-        private ProductoController controller = new ProductoController();
+        private ProductoController _productoController = new ProductoController();
+
         public FichaProductoForm()
         {
             InitializeComponent();
+            btnActualizar.Hide();
+            lblIdProduct.Visible = false;
+        }
+        public FichaProductoForm(int id)
+        {
+            InitializeComponent();
+            btnGuardar.Hide();
+            lblIdProduct.Visible = false;
+            lblIdProduct.Text = id.ToString();
+            var prd = _productoController.GetProducto(id);
+            txtDescripcion.Text = prd.Descripcion;
         }
         public Producto getProducto()
         {
             return new Producto()
             {
-                Descripcion = textBox1.Text
+                Descripcion = txtDescripcion.Text
             };
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Application.UseWaitCursor = true;
-            controller.AgregarProducto(getProducto());
+            _productoController.AgregarProducto(getProducto());
             Application.UseWaitCursor = false;
-            this.textBox1.Clear();
+            this.txtDescripcion.Clear();
             MessageBox.Show("Producto agregado correctamente.");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            _productoController.EditarProducto(txtDescripcion.Text, int.Parse(lblIdProduct.Text));
         }
     }
 }

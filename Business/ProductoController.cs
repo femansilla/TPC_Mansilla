@@ -10,33 +10,31 @@ namespace Business
 {
     public class ProductoController
     {
-        ProductoServices _productoServices = new ProductoServices();
-        //La teoria dice que aca tengo que instanciar un obj de mi clase
-        //ProductoServices para usar los metodos que conectan a la base... pero no me esta saliendo
-        //Ya se que no es la metodologia que planteaste, pero me llevo mejor con esta...
-        //y en la ventana de la vista, tengo ganas de al insertar, voy a insertar la descripcion, y ademas quiero guardar
-        //una imagen, que me recomendas que copie la imagen a una carpeta especifa de la app
-        //y que me lleve path a la base?
+        private readonly ProductoServices _productoServices = new ProductoServices();
+        
         public void AgregarProducto(Producto prd)
         {
             _productoServices.InsertProducto(prd.Descripcion);
-            //insert de un producto.
         }
-        public void EditarProducto()
+        public void EditarProducto(string descripcion, int id)
         {
-            //update de un producto
+            _productoServices.ActualizarProducto(descripcion, id);
         }
-        public void EliminarProducto()
+        public void EliminarProducto(int id)
         {
-            //eliminar un producto
+            _productoServices.DeleteProducto(id);
         }
-        public void GetProducto(int id)
+        public Producto GetProducto(int id)
         {
-            //traer un producto
+            var prd = _productoServices.getProductoByID(id);
+            return new Producto()
+            {
+                IDProducto = prd.ID,
+                Descripcion = prd.Descripcion
+            };
         }
         public List<Producto> GetProductos()
         {
-            //traer todos los productos
             var alga = _productoServices.GETALLPRODUCTOS();
             List<Producto> ret = new List<Producto>();
             int i = 1;

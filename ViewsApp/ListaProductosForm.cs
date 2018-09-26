@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using Domain;
 
 namespace ViewsApp
 {
@@ -21,7 +22,7 @@ namespace ViewsApp
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            new FichaProductoForm().Show();
+            new FichaProductoForm().ShowDialog();
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
@@ -48,6 +49,16 @@ namespace ViewsApp
         {
             this.Hide();
             new HomeForm().Show();
+        }
+
+        private void btnEditarProducto_Click(object sender, EventArgs e)
+        {
+            var productoSelected = new Producto();
+            foreach (DataGridViewRow row in dgvProductos.SelectedRows)
+            {
+                productoSelected = (Producto)row.DataBoundItem;             
+            }
+            new FichaProductoForm(productoSelected.IDProducto).ShowDialog();            
         }
     }
 }

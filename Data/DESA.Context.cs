@@ -63,5 +63,27 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_validateUser", usernameParameter, passwordParameter);
         }
+    
+        public virtual int SP_update_Descripcion_Producto(string descripcion, Nullable<int> idProducto)
+        {
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_update_Descripcion_Producto", descripcionParameter, idProductoParameter);
+        }
+    
+        public virtual int SP_Delete_Producto(Nullable<int> idProducto)
+        {
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Producto", idProductoParameter);
+        }
     }
 }

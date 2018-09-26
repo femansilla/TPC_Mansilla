@@ -8,7 +8,8 @@ namespace Data
 {
     public class ProductoServices
     {
-        private static DESA _data = new DESA();
+        private readonly DESA _data = new DESA();
+
         public List<SP_Get_All_Productos_Result> GETALLPRODUCTOS()
         {
             return _data.SP_Get_All_Productos().ToList();
@@ -22,6 +23,16 @@ namespace Data
         public void InsertProducto(string Descripcion)
         {
             _data.SP_Insert_Producto(Descripcion);
+        }
+
+        public void DeleteProducto(int id)
+        {
+            _data.SP_Delete_Producto(id);
+        }
+
+        public void ActualizarProducto(string Descripcion, int idProducto)
+        {
+            _data.SP_update_Descripcion_Producto(Descripcion, idProducto);
         }
 
     }

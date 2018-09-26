@@ -47,6 +47,7 @@
             this.btnEditarProducto.TabIndex = 6;
             this.btnEditarProducto.Text = "Editar";
             this.btnEditarProducto.UseVisualStyleBackColor = true;
+            this.btnEditarProducto.Click += new System.EventHandler(this.btnEditarProducto_Click);
             // 
             // btnBorrarProducto
             // 
