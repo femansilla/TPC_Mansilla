@@ -27,38 +27,33 @@ namespace ViewsApp
 
         private void ListaProductos_Load(object sender, EventArgs e)
         {
-            var a = controller.GetProductos();
-            List<ProductoForm> lista = new List<ProductoForm>();
-            foreach (var item in a)
-            {
-                ProductoForm frmView = new ProductoForm()
-                {
-                    Descripcion = item.Descripcion
-                };
-                lista.Add(frmView);
-            }
-            dgvProductos.DataSource = a;
+            LoadProducts();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void LoadProducts()
         {
-
+            dgvProductos.DataSource = controller.GetProductos();
         }
-
+      
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Dispose(false);
             new HomeForm().Show();
         }
 
         private void btnEditarProducto_Click(object sender, EventArgs e)
         {
-            var productoSelected = new Producto();
-            foreach (DataGridViewRow row in dgvProductos.SelectedRows)
-            {
-                productoSelected = (Producto)row.DataBoundItem;             
-            }
-            new FichaProductoForm(productoSelected.IDProducto).ShowDialog();            
+            Producto productoSelected = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+            FichaProductoForm editProduct = new FichaProductoForm(productoSelected.IDProducto);
+            editProduct.FormClosed += editProduct_FormClosed;
+            editProduct.Show();
+        }
+
+        void editProduct_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form frm = sender as Form;
+            if (frm.DialogResult == DialogResult.OK)
+                LoadProducts();
         }
     }
 }

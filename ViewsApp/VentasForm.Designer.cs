@@ -34,6 +34,7 @@
             this.txtTotLabel = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.flProducts = new System.Windows.Forms.FlowLayoutPanel();
+            this.lvProducts = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentaActual)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,14 +92,24 @@
             // 
             this.flProducts.Location = new System.Drawing.Point(13, 13);
             this.flProducts.Name = "flProducts";
-            this.flProducts.Size = new System.Drawing.Size(567, 386);
+            this.flProducts.Size = new System.Drawing.Size(567, 90);
             this.flProducts.TabIndex = 8;
+            // 
+            // lvProducts
+            // 
+            this.lvProducts.Location = new System.Drawing.Point(13, 146);
+            this.lvProducts.Name = "lvProducts";
+            this.lvProducts.Size = new System.Drawing.Size(567, 210);
+            this.lvProducts.TabIndex = 9;
+            this.lvProducts.UseCompatibleStateImageBehavior = false;
+            this.lvProducts.View = System.Windows.Forms.View.Details;
             // 
             // VentasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lvProducts);
             this.Controls.Add(this.flProducts);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtTotLabel);
@@ -120,5 +131,6 @@
         private System.Windows.Forms.TextBox txtTotLabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.FlowLayoutPanel flProducts;
+        private System.Windows.Forms.ListView lvProducts;
     }
 }

@@ -20,31 +20,31 @@ namespace ViewsApp
         private void btnGestionUsuarios_Click(object sender, EventArgs e)
         {
             new FormListaUsuariosForm().Show();
-            this.Hide();
+            this.Dispose(false);
         }
 
         private void btnGestionProductos_Click(object sender, EventArgs e)
         {
             new ListaProductosForm().Show();
-            this.Hide();
+            this.Dispose(false);
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
             new VentasForm().Show();
-            this.Hide();
+            this.Dispose(false);
         }
 
         private void btnGestionClientes_Click(object sender, EventArgs e)
         {
             new ListaClientesForm().Show();
-            this.Hide();
+            this.Dispose(false);
         }
 
         private void btnControlStock_Click(object sender, EventArgs e)
         {
             new StockForm().Show();
-            this.Hide();
+            this.Dispose(false);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace ViewsApp
         private void btnGestionProveedores_Click(object sender, EventArgs e)
         {
             new ListaProveedoresForm().Show();
-            this.Hide();
+            this.Dispose(false);
         }
     }
 }

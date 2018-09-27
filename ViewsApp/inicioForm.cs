@@ -28,7 +28,7 @@ namespace ViewsApp
             else
             {
                 new HomeForm().Show();
-                this.Hide();
+                this.Dispose(false);
             }
                 
         }

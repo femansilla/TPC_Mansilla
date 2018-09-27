@@ -35,10 +35,10 @@ namespace ViewsApp
                     
                 };
                 frmView.TopLevel = false;
-                //Controls.Add(frmView);
                 flProducts.Controls.Add(frmView);
                 frmView.Show();
-                //Controls.Add(frmView);
+                //lvProducts.Controls.Add(frmView);
+                //frmView.Show();
             }
         }
 

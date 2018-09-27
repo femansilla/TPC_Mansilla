@@ -22,6 +22,7 @@ namespace ViewsApp
             btnActualizar.Hide();
             lblIdProduct.Visible = false;
         }
+
         public FichaProductoForm(int id)
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace ViewsApp
             var prd = _productoController.GetProducto(id);
             txtDescripcion.Text = prd.Descripcion;
         }
+
         public Producto getProducto()
         {
             return new Producto()
@@ -46,10 +48,13 @@ namespace ViewsApp
             Application.UseWaitCursor = false;
             this.txtDescripcion.Clear();
             MessageBox.Show("Producto agregado correctamente.");
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
