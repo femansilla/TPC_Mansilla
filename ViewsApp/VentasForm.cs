@@ -18,6 +18,12 @@ namespace ViewsApp
         private readonly ProductoController controller = new ProductoController();
         public VentasForm()
         {
+            InitializeComponent();
+            CargarProductosEnForm();        
+        }
+
+        private void CargarProductosEnForm()
+        {
             var a = controller.GetProductos();
 
             List<ProductoForm> lista = new List<ProductoForm>();
@@ -26,8 +32,13 @@ namespace ViewsApp
                 ProductoForm frmView = new ProductoForm()
                 {
                     Descripcion = item.Descripcion
+                    
                 };
+                frmView.TopLevel = false;
+                //Controls.Add(frmView);
                 flProducts.Controls.Add(frmView);
+                frmView.Show();
+                //Controls.Add(frmView);
             }
         }
 
