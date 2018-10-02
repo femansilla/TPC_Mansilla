@@ -19,7 +19,7 @@ namespace ViewsApp
 
         private void btnGestionUsuarios_Click(object sender, EventArgs e)
         {
-            new FormListaUsuariosForm().Show();
+            new ListaUsuariosForm().Show();
             this.Dispose(false);
         }
 

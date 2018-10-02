@@ -12,9 +12,21 @@ namespace Domain
 {
     public partial class FichaUsuarioForm : Form
     {
+        private int iDUser;
+
         public FichaUsuarioForm()
         {
             InitializeComponent();
+        }
+
+        public FichaUsuarioForm(int iDUser)
+        {
+            this.iDUser = iDUser;
+        }
+
+        private void FichaUsuarioForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

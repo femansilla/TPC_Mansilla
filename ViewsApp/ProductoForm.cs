@@ -17,5 +17,10 @@ namespace ViewsApp
         {
             InitializeComponent();
         }
+
+        public void setLblDescripcion()
+        {
+            label1.Text = Descripcion;
+        }
     }
 }

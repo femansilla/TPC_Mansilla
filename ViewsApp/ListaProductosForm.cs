@@ -14,7 +14,7 @@ namespace ViewsApp
 {
     public partial class ListaProductosForm : Form
     {
-        private readonly ProductoController controller = new ProductoController();
+        private readonly ProductoController _productoController = new ProductoController();
         public ListaProductosForm()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace ViewsApp
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             new FichaProductoForm().ShowDialog();
+            LoadProducts();
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace ViewsApp
 
         public void LoadProducts()
         {
-            dgvProductos.DataSource = controller.GetProductos();
+            dgvProductos.DataSource = _productoController.GetProductos();
         }
       
         private void btnVolver_Click(object sender, EventArgs e)
@@ -54,6 +55,14 @@ namespace ViewsApp
             Form frm = sender as Form;
             if (frm.DialogResult == DialogResult.OK)
                 LoadProducts();
+        }
+
+        private void dgvProductos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Producto productoSelected = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+            FichaProductoForm editProduct = new FichaProductoForm(productoSelected.IDProducto);
+            editProduct.FormClosed += editProduct_FormClosed;
+            editProduct.Show();
         }
     }
 }

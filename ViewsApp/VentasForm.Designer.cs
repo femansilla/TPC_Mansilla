@@ -118,6 +118,7 @@
             this.Controls.Add(this.btnAceptar);
             this.Name = "VentasForm";
             this.Text = "VentasForm";
+            this.Load += new System.EventHandler(this.VentasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentaActual)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

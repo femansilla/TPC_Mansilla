@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Domain
 {
-    public class Usuario
+    public class Usuario : Persona
     {
         [DisplayName("Codigo")]
         public int IDUser { get; set; }
@@ -17,7 +17,5 @@ namespace Domain
 
         [DisplayName("Tipo")]
         public int UserType { get; set; }
-
-        public Direccion Direccion { get; set; }
     }
 }

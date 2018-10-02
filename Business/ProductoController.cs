@@ -29,7 +29,7 @@ namespace Business
             var prd = _productoServices.getProductoByID(id);
             return new Producto()
             {
-                IDProducto = prd.ID,
+                IDProducto = (int)prd.Id,
                 Descripcion = prd.Descripcion
             };
         }

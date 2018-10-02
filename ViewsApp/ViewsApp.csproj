@@ -64,11 +64,11 @@
     <Compile Include="FichaUsuarioForm.Designer.cs">
       <DependentUpon>FichaUsuarioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListaUsuariosForm.cs">
+    <Compile Include="ListaUsuariosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListaUsuariosForm.Designer.cs">
-      <DependentUpon>FormListaUsuariosForm.cs</DependentUpon>
+    <Compile Include="ListaUsuariosForm.Designer.cs">
+      <DependentUpon>ListaUsuariosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaProveedoresForm.cs">
       <SubType>Form</SubType>
@@ -88,11 +88,11 @@
     <Compile Include="HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="inicioForm.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="inicioForm.Designer.cs">
-      <DependentUpon>inicioForm.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaProductosForm.cs">
       <SubType>Form</SubType>
@@ -126,8 +126,8 @@
     <EmbeddedResource Include="FichaUsuarioForm.resx">
       <DependentUpon>FichaUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormListaUsuariosForm.resx">
-      <DependentUpon>FormListaUsuariosForm.cs</DependentUpon>
+    <EmbeddedResource Include="ListaUsuariosForm.resx">
+      <DependentUpon>ListaUsuariosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaProveedoresForm.resx">
       <DependentUpon>ListaProveedoresForm.cs</DependentUpon>
@@ -138,8 +138,8 @@
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="inicioForm.resx">
-      <DependentUpon>inicioForm.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaProductosForm.resx">
       <DependentUpon>ListaProductosForm.cs</DependentUpon>

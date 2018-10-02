@@ -17,6 +17,9 @@ namespace Business
             return _usuarioServices.ExistUser(username, password);
         }
 
-
+        public List<Usuario> GetAllUsuarios()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

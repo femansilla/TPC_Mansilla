@@ -22,7 +22,7 @@ namespace Data
 
         public void InsertProducto(string Descripcion)
         {
-            _data.SP_Insert_Producto(Descripcion);
+            _data.SP_Insert_Producto(Descripcion, 1, 2);
         }
 
         public void DeleteProducto(int id)

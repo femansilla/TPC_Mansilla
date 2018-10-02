@@ -1,6 +1,6 @@
 ﻿namespace ViewsApp
 {
-    partial class inicioForm
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.

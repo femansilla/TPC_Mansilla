@@ -11,10 +11,10 @@ namespace Domain
     {
         [DisplayName("Codigo")]
         public int ID { get; set; }
-
         [DisplayName("Tipo")]
         public int ProveedorType { get; set; }
 
-        public List<Direccion> Direccion { get; set; }
+        [DisplayName("Email")]
+        public List<string> email { get; set; }
     }
 }

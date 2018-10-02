@@ -19,7 +19,6 @@ namespace ViewsApp
         public VentasForm()
         {
             InitializeComponent();
-            CargarProductosEnForm();        
         }
 
         private void CargarProductosEnForm()
@@ -31,10 +30,10 @@ namespace ViewsApp
             {
                 ProductoForm frmView = new ProductoForm()
                 {
-                    Descripcion = item.Descripcion
-                    
+                    Descripcion = item.Descripcion                   
                 };
                 frmView.TopLevel = false;
+                frmView.setLblDescripcion();
                 flProducts.Controls.Add(frmView);
                 frmView.Show();
                 //lvProducts.Controls.Add(frmView);
@@ -47,6 +46,10 @@ namespace ViewsApp
             this.Hide();
             new HomeForm().Show();
         }
-        
+
+        private void VentasForm_Load(object sender, EventArgs e)
+        {
+            CargarProductosEnForm();
+        }
     }
 }

@@ -13,7 +13,9 @@ namespace Data
     
     public partial class SP_Get_All_Productos_Result
     {
-        public int ID { get; set; }
+        public long Id { get; set; }
         public string Descripcion { get; set; }
+        public int CategoriaCode { get; set; }
+        public int TypeCode { get; set; }
     }
 }

@@ -28,6 +28,28 @@ namespace Data
         }
     
     
+        public virtual ObjectResult<string> SP_validateUser(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_validateUser", usernameParameter, passwordParameter);
+        }
+    
+        public virtual int SP_Delete_Producto(Nullable<int> idProducto)
+        {
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Producto", idProductoParameter);
+        }
+    
         public virtual ObjectResult<SP_Get_All_Productos_Result> SP_Get_All_Productos()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Productos_Result>("SP_Get_All_Productos");
@@ -40,28 +62,6 @@ namespace Data
                 new ObjectParameter("IDPRODUCTO", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Producto_byID_Result>("SP_Get_Producto_byID", iDPRODUCTOParameter);
-        }
-    
-        public virtual int SP_Insert_Producto(string descripcion)
-        {
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto", descripcionParameter);
-        }
-    
-        public virtual ObjectResult<string> SP_validateUser(string username, string password)
-        {
-            var usernameParameter = username != null ?
-                new ObjectParameter("username", username) :
-                new ObjectParameter("username", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_validateUser", usernameParameter, passwordParameter);
         }
     
         public virtual int SP_update_Descripcion_Producto(string descripcion, Nullable<int> idProducto)
@@ -77,13 +77,21 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_update_Descripcion_Producto", descripcionParameter, idProductoParameter);
         }
     
-        public virtual int SP_Delete_Producto(Nullable<int> idProducto)
+        public virtual int SP_Insert_Producto(string descripcion, Nullable<int> categoriaCode, Nullable<int> typeCode)
         {
-            var idProductoParameter = idProducto.HasValue ?
-                new ObjectParameter("idProducto", idProducto) :
-                new ObjectParameter("idProducto", typeof(int));
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Producto", idProductoParameter);
+            var categoriaCodeParameter = categoriaCode.HasValue ?
+                new ObjectParameter("CategoriaCode", categoriaCode) :
+                new ObjectParameter("CategoriaCode", typeof(int));
+    
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("TypeCode", typeCode) :
+                new ObjectParameter("TypeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto", descripcionParameter, categoriaCodeParameter, typeCodeParameter);
         }
     }
 }

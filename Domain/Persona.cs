@@ -19,5 +19,7 @@ namespace Domain
         public bool Sex { get; set; }
         [DisplayName("Fecha de Nacimiento")]
         public DateTime FechaNac { get; set; }
+
+        public List<Direccion> Direccion { get; set; }
     }
 }

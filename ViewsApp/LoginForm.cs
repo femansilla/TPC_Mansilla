@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using Business;
 namespace ViewsApp
 {
-    public partial class inicioForm : Form
+    public partial class LoginForm : Form
     {
         private UsuarioController controller = new UsuarioController();
-        public inicioForm()
+        public LoginForm()
         {
             InitializeComponent();
         }
