@@ -30,19 +30,23 @@ namespace Business
             return new Producto()
             {
                 IDProducto = (int)prd.Id,
-                Descripcion = prd.Descripcion
+                Descripcion = prd.Descripcion,
+                ProductType = prd.ProductType,
+                Categoria = prd.Categoria
             };
         }
         public List<Producto> GetProductos()
         {
-            var alga = _productoServices.GETALLPRODUCTOS();
+            var alga = _productoServices.GetAllProductos();
             List<Producto> ret = new List<Producto>();
             int i = 1;
             foreach (var prd in alga)
             {
                 Producto prdRet = new Producto() {
+                    IDProducto = (int)prd.Id,
                     Descripcion = prd.Descripcion,
-                    IDProducto = i++
+                    ProductType = prd.ProductType,
+                    Categoria = prd.Categoria
                 };
                 ret.Add(prdRet);
             }

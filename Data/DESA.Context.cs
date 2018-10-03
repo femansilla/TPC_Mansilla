@@ -50,20 +50,6 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Producto", idProductoParameter);
         }
     
-        public virtual ObjectResult<SP_Get_All_Productos_Result> SP_Get_All_Productos()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Productos_Result>("SP_Get_All_Productos");
-        }
-    
-        public virtual ObjectResult<SP_Get_Producto_byID_Result> SP_Get_Producto_byID(Nullable<int> iDPRODUCTO)
-        {
-            var iDPRODUCTOParameter = iDPRODUCTO.HasValue ?
-                new ObjectParameter("IDPRODUCTO", iDPRODUCTO) :
-                new ObjectParameter("IDPRODUCTO", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Producto_byID_Result>("SP_Get_Producto_byID", iDPRODUCTOParameter);
-        }
-    
         public virtual int SP_update_Descripcion_Producto(string descripcion, Nullable<int> idProducto)
         {
             var descripcionParameter = descripcion != null ?
@@ -92,6 +78,20 @@ namespace Data
                 new ObjectParameter("TypeCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto", descripcionParameter, categoriaCodeParameter, typeCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_All_Productos_Result> SP_Get_All_Productos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Productos_Result>("SP_Get_All_Productos");
+        }
+    
+        public virtual ObjectResult<SP_Get_Producto_byID_Result> SP_Get_Producto_byID(Nullable<int> iDPRODUCTO)
+        {
+            var iDPRODUCTOParameter = iDPRODUCTO.HasValue ?
+                new ObjectParameter("IDPRODUCTO", iDPRODUCTO) :
+                new ObjectParameter("IDPRODUCTO", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Producto_byID_Result>("SP_Get_Producto_byID", iDPRODUCTOParameter);
         }
     }
 }

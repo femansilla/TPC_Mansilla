@@ -18,9 +18,9 @@ namespace Domain
         public string Imagen { get; set; }
 
         [DisplayName("Tipo")]
-        public int ProductType { get; set; }
+        public string ProductType { get; set; }
         [DisplayName("Categoria")]
-        public int Categoria { get; set; }
+        public string Categoria { get; set; }
 
     }
 }

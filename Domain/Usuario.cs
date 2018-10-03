@@ -16,6 +16,6 @@ namespace Domain
         public string Password { get; set; }
 
         [DisplayName("Tipo")]
-        public int UserType { get; set; }
+        public string UserType { get; set; }
     }
 }

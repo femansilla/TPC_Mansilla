@@ -38,10 +38,6 @@
           <FunctionImport Name="SP_Delete_Producto">
           <Parameter Name="idProducto" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SP_Get_All_Productos" ReturnType="Collection(DESAModel.SP_Get_All_Productos_Result)" />
-          <FunctionImport Name="SP_Get_Producto_byID" ReturnType="Collection(DESAModel.SP_Get_Producto_byID_Result)">
-          <Parameter Name="IDPRODUCTO" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="SP_update_Descripcion_Producto">
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="idProducto" Mode="In" Type="Int32" />
@@ -51,18 +47,22 @@
             <Parameter Name="CategoriaCode" Mode="In" Type="Int32" />
             <Parameter Name="TypeCode" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="SP_Get_All_Productos" ReturnType="Collection(DESAModel.SP_Get_All_Productos_Result)" />
+          <FunctionImport Name="SP_Get_Producto_byID" ReturnType="Collection(DESAModel.SP_Get_Producto_byID_Result)">
+            <Parameter Name="IDPRODUCTO" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_Get_All_Productos_Result">
           <Property Type="Int64" Name="Id" Nullable="false" />
           <Property Type="String" Name="Descripcion" Nullable="false" />
-          <Property Type="Int32" Name="CategoriaCode" Nullable="false" />
-          <Property Type="Int32" Name="TypeCode" Nullable="false" />
+          <Property Type="String" Name="Categoria" Nullable="true" />
+          <Property Type="String" Name="ProductType" Nullable="true" />
         </ComplexType>
         <ComplexType Name="SP_Get_Producto_byID_Result">
           <Property Type="Int64" Name="Id" Nullable="false" />
           <Property Type="String" Name="Descripcion" Nullable="false" />
-          <Property Type="Int32" Name="CategoriaCode" Nullable="false" />
-          <Property Type="Int32" Name="TypeCode" Nullable="false" />
+          <Property Type="String" Name="Categoria" Nullable="true" />
+          <Property Type="String" Name="ProductType" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -72,13 +72,15 @@
         <EntityContainerMapping StorageEntityContainer="DESAModelStoreContainer" CdmEntityContainer="DESA" >
           <FunctionImportMapping FunctionImportName="SP_validateUser" FunctionName="DESAModel.Store.SP_validateUser" />
           <FunctionImportMapping FunctionImportName="SP_Delete_Producto" FunctionName="DESAModel.Store.SP_Delete_Producto" />
+          <FunctionImportMapping FunctionImportName="SP_update_Descripcion_Producto" FunctionName="DESAModel.Store.SP_update_Descripcion_Producto" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_Producto" FunctionName="DESAModel.Store.SP_Insert_Producto" />
           <FunctionImportMapping FunctionImportName="SP_Get_All_Productos" FunctionName="DESAModel.Store.SP_Get_All_Productos">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Productos_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="CategoriaCode" ColumnName="CategoriaCode" />
-                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -87,13 +89,11 @@
               <ComplexTypeMapping TypeName="DESAModel.SP_Get_Producto_byID_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="CategoriaCode" ColumnName="CategoriaCode" />
-                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_update_Descripcion_Producto" FunctionName="DESAModel.Store.SP_update_Descripcion_Producto" />
-          <FunctionImportMapping FunctionImportName="SP_Insert_Producto" FunctionName="DESAModel.Store.SP_Insert_Producto" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

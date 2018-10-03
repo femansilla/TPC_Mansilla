@@ -10,7 +10,7 @@ namespace Data
     {
         private readonly DESA _data = new DESA();
 
-        public List<SP_Get_All_Productos_Result> GETALLPRODUCTOS()
+        public List<SP_Get_All_Productos_Result> GetAllProductos()
         {
             return _data.SP_Get_All_Productos().ToList();
         }

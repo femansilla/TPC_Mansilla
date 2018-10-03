@@ -14,5 +14,30 @@ namespace Data
             var val = _data.SP_validateUser(user, password).FirstOrDefault();
             return (!string.IsNullOrEmpty(val)) ? bool.Parse(_data.SP_validateUser(user, password).FirstOrDefault()) : false;
         }
+
+        public List<object> GetAllUsuarios()
+        {
+            return new List<object>();
+        }
+
+        public void getUserByID(int UserCode)
+        {
+            
+        }
+
+        public void InsertProducto(string Descripcion)
+        {
+            //insert representante, calcular userid
+        }
+
+        public void DeleteUser(int UserCode)
+        {
+            
+        }
+
+        public void ActualizarUsuario(int UserCode)
+        {
+            
+        }
     }
 }
