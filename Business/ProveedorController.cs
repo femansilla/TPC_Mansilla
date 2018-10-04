@@ -14,19 +14,19 @@ namespace Business
 
         public void AgregarProducto(Producto prd)
         {
-            _proveedorServices.InsertProducto(prd.Descripcion);
+            _proveedorServices.InsertProveedor(prd.Descripcion);
         }
         public void EditarProducto(string descripcion, int id)
         {
-            _proveedorServices.ActualizarProducto(descripcion, id);
+            _proveedorServices.ActualizarProveedor(descripcion, id);
         }
         public void EliminarProducto(int id)
         {
-            _proveedorServices.DeleteProducto(id);
+            _proveedorServices.DeleteProveedor(id);
         }
         public Producto GetProducto(int id)
         {
-            var prd = _proveedorServices.getProductoByID(id);
+            var prd = _proveedorServices.getProveedorByID(id);
             return new Producto()
             {
                 IDProducto = (int)prd.Id,
@@ -35,7 +35,7 @@ namespace Business
                 Categoria = prd.Categoria
             };
         }
-        public List<Producto> GetProductos()
+        public List<Producto> GetProveedores()
         {
             var alga = _proveedorServices.GetAllProductos();
             List<Producto> ret = new List<Producto>();

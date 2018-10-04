@@ -12,19 +12,19 @@ namespace Business
     {
         private readonly ClienteServices _clienteServices = new ClienteServices();
 
-        public void AgregarProducto(Producto prd)
+        public void AgregarCliente(Producto prd)
         {
             _clienteServices.InsertProducto(prd.Descripcion);
         }
-        public void EditarProducto(string descripcion, int id)
+        public void EditarCliente(string descripcion, int id)
         {
             _clienteServices.ActualizarProducto(descripcion, id);
         }
-        public void EliminarProducto(int id)
+        public void EliminarCliente(int id)
         {
             _clienteServices.DeleteProducto(id);
         }
-        public Producto GetProducto(int id)
+        public Producto GetCliente(int id)
         {
             var prd = _clienteServices.getProductoByID(id);
             return new Producto()
@@ -35,7 +35,7 @@ namespace Business
                 Categoria = prd.Categoria
             };
         }
-        public List<Producto> GetProductos()
+        public List<Producto> GetClientes()
         {
             var alga = _clienteServices.GetAllProductos();
             List<Producto> ret = new List<Producto>();

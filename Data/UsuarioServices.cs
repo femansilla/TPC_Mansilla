@@ -25,7 +25,7 @@ namespace Data
             
         }
 
-        public void InsertProducto(string Descripcion)
+        public void InsertUser(string Descripcion)
         {
             //insert representante, calcular userid
         }
@@ -35,7 +35,7 @@ namespace Data
             
         }
 
-        public void ActualizarUsuario(int UserCode)
+        public void ActualizarUser(int UserCode)
         {
             
         }
