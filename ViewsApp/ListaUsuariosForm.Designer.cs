@@ -29,40 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaUsuariosForm));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dgListaUsr = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.dgvListaUsr = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgListaUsr)).BeginInit();
+            this.btnSearch = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsr)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(333, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtSearch.Location = new System.Drawing.Point(16, 16);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(443, 25);
+            this.txtSearch.TabIndex = 0;
             // 
-            // dgListaUsr
+            // dgvListaUsr
             // 
-            this.dgListaUsr.AllowUserToAddRows = false;
-            this.dgListaUsr.AllowUserToDeleteRows = false;
-            this.dgListaUsr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgListaUsr.Location = new System.Drawing.Point(12, 52);
-            this.dgListaUsr.Name = "dgListaUsr";
-            this.dgListaUsr.ReadOnly = true;
-            this.dgListaUsr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgListaUsr.Size = new System.Drawing.Size(776, 322);
-            this.dgListaUsr.TabIndex = 2;
+            this.dgvListaUsr.AllowUserToAddRows = false;
+            this.dgvListaUsr.AllowUserToDeleteRows = false;
+            this.dgvListaUsr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaUsr.Location = new System.Drawing.Point(16, 68);
+            this.dgvListaUsr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvListaUsr.Name = "dgvListaUsr";
+            this.dgvListaUsr.ReadOnly = true;
+            this.dgvListaUsr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaUsr.Size = new System.Drawing.Size(1035, 421);
+            this.dgvListaUsr.TabIndex = 2;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(12, 397);
+            this.btnAgregar.Location = new System.Drawing.Point(16, 519);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(87, 32);
+            this.btnAgregar.Size = new System.Drawing.Size(116, 42);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -70,9 +73,10 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(105, 397);
+            this.btnEditar.Location = new System.Drawing.Point(140, 519);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(84, 32);
+            this.btnEditar.Size = new System.Drawing.Size(112, 42);
             this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -80,9 +84,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(195, 397);
+            this.btnEliminar.Location = new System.Drawing.Point(260, 519);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(86, 32);
+            this.btnEliminar.Size = new System.Drawing.Size(115, 42);
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -90,40 +95,45 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(702, 397);
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.btnVolver.Location = new System.Drawing.Point(936, 519);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(86, 32);
+            this.btnVolver.Size = new System.Drawing.Size(115, 42);
             this.btnVolver.TabIndex = 6;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(351, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 25);
-            this.button1.TabIndex = 9;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(468, 12);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(31, 33);
+            this.btnSearch.TabIndex = 9;
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // ListaUsuariosForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 441);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1067, 577);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.dgListaUsr);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dgvListaUsr);
+            this.Controls.Add(this.txtSearch);
+            this.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ListaUsuariosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgListaUsr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,12 +141,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dgListaUsr;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.DataGridView dgvListaUsr;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

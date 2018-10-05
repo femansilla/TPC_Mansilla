@@ -16,7 +16,7 @@ namespace Business
         {
             _stockServices.InsertProducto(prd.Descripcion);
         }
-        public void EditarProducto(string descripcion, int id)
+        public void EditarStock(string descripcion, int id)
         {
             _stockServices.ActualizarProducto(descripcion, id);
         }

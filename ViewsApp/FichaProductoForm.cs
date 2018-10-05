@@ -48,13 +48,11 @@ namespace ViewsApp
             Application.UseWaitCursor = false;
             this.txtDescripcion.Clear();
             MessageBox.Show("Producto agregado correctamente.");
-            DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
             this.Close();
         }
 

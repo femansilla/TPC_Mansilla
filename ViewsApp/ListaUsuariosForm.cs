@@ -34,7 +34,7 @@ namespace ViewsApp
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Usuario usuariooSelected = (Usuario)dgListaUsr.CurrentRow.DataBoundItem;
+            Usuario usuariooSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
             FichaUsuarioForm editUser = new FichaUsuarioForm(usuariooSelected.IDUser);
             editUser.FormClosed += editUser_FormClosed;
             editUser.Show();
@@ -54,7 +54,7 @@ namespace ViewsApp
 
         public void LoadUsuarios()
         {
-            dgListaUsr.DataSource = _usuarioController.GetAllUsuarios();
+            dgvListaUsr.DataSource = _usuarioController.GetAllUsuarios();
         }
     }
 }

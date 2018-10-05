@@ -35,37 +35,42 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(12, 214);
+            this.txtUserName.Location = new System.Drawing.Point(16, 280);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(206, 20);
+            this.txtUserName.Size = new System.Drawing.Size(273, 25);
             this.txtUserName.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 253);
+            this.txtPassword.Location = new System.Drawing.Point(16, 331);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(206, 20);
+            this.txtPassword.Size = new System.Drawing.Size(273, 25);
             this.txtPassword.TabIndex = 1;
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(144, 304);
+            this.btnIniciar.Location = new System.Drawing.Point(192, 398);
+            this.btnIniciar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(74, 32);
+            this.btnIniciar.Size = new System.Drawing.Size(99, 42);
             this.btnIniciar.TabIndex = 2;
             this.btnIniciar.Text = "Entrar";
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
-            // inicioForm
+            // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 348);
+            this.ClientSize = new System.Drawing.Size(304, 455);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
-            this.Name = "inicioForm";
+            this.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "inicioForm";
             this.ResumeLayout(false);

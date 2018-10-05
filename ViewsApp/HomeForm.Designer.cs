@@ -39,9 +39,10 @@
             // 
             // btnGestionUsuarios
             // 
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(36, 30);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(48, 39);
+            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
-            this.btnGestionUsuarios.Size = new System.Drawing.Size(151, 34);
+            this.btnGestionUsuarios.Size = new System.Drawing.Size(201, 44);
             this.btnGestionUsuarios.TabIndex = 0;
             this.btnGestionUsuarios.Text = "Gestion usuarios";
             this.btnGestionUsuarios.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // 
             // btnGestionProductos
             // 
-            this.btnGestionProductos.Location = new System.Drawing.Point(36, 70);
+            this.btnGestionProductos.Location = new System.Drawing.Point(48, 92);
+            this.btnGestionProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGestionProductos.Name = "btnGestionProductos";
-            this.btnGestionProductos.Size = new System.Drawing.Size(151, 34);
+            this.btnGestionProductos.Size = new System.Drawing.Size(201, 44);
             this.btnGestionProductos.TabIndex = 1;
             this.btnGestionProductos.Text = "Gestion productos";
             this.btnGestionProductos.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@
             // 
             // btnGestionClientes
             // 
-            this.btnGestionClientes.Location = new System.Drawing.Point(36, 110);
+            this.btnGestionClientes.Location = new System.Drawing.Point(48, 144);
+            this.btnGestionClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGestionClientes.Name = "btnGestionClientes";
-            this.btnGestionClientes.Size = new System.Drawing.Size(151, 34);
+            this.btnGestionClientes.Size = new System.Drawing.Size(201, 44);
             this.btnGestionClientes.TabIndex = 2;
             this.btnGestionClientes.Text = "Gestion clientes";
             this.btnGestionClientes.UseVisualStyleBackColor = true;
@@ -69,9 +72,10 @@
             // 
             // btnControlStock
             // 
-            this.btnControlStock.Location = new System.Drawing.Point(36, 190);
+            this.btnControlStock.Location = new System.Drawing.Point(48, 248);
+            this.btnControlStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnControlStock.Name = "btnControlStock";
-            this.btnControlStock.Size = new System.Drawing.Size(151, 34);
+            this.btnControlStock.Size = new System.Drawing.Size(201, 44);
             this.btnControlStock.TabIndex = 3;
             this.btnControlStock.Text = "Control de stock";
             this.btnControlStock.UseVisualStyleBackColor = true;
@@ -79,9 +83,10 @@
             // 
             // btnVentas
             // 
-            this.btnVentas.Location = new System.Drawing.Point(36, 289);
+            this.btnVentas.Location = new System.Drawing.Point(48, 378);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Size = new System.Drawing.Size(151, 34);
+            this.btnVentas.Size = new System.Drawing.Size(201, 44);
             this.btnVentas.TabIndex = 4;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = true;
@@ -89,9 +94,10 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(339, 289);
+            this.btnExit.Location = new System.Drawing.Point(452, 378);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(151, 34);
+            this.btnExit.Size = new System.Drawing.Size(201, 44);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Salir";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -99,9 +105,10 @@
             // 
             // btnGestionProveedores
             // 
-            this.btnGestionProveedores.Location = new System.Drawing.Point(36, 150);
+            this.btnGestionProveedores.Location = new System.Drawing.Point(48, 196);
+            this.btnGestionProveedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGestionProveedores.Name = "btnGestionProveedores";
-            this.btnGestionProveedores.Size = new System.Drawing.Size(151, 34);
+            this.btnGestionProveedores.Size = new System.Drawing.Size(201, 44);
             this.btnGestionProveedores.TabIndex = 6;
             this.btnGestionProveedores.Text = "Gestion proveedores";
             this.btnGestionProveedores.UseVisualStyleBackColor = true;
@@ -109,9 +116,9 @@
             // 
             // HomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 346);
+            this.ClientSize = new System.Drawing.Size(669, 452);
             this.Controls.Add(this.btnGestionProveedores);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnVentas);
@@ -119,7 +126,9 @@
             this.Controls.Add(this.btnGestionClientes);
             this.Controls.Add(this.btnGestionProductos);
             this.Controls.Add(this.btnGestionUsuarios);
+            this.Font = new System.Drawing.Font("Arial", 11.25F);
             this.Location = new System.Drawing.Point(200, 100);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "HomeForm";

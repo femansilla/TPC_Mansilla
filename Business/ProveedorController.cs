@@ -12,7 +12,7 @@ namespace Business
     {
         private readonly ProveedorServices _proveedorServices = new ProveedorServices();
 
-        public void AgregarProducto(Producto prd)
+        public void AgregarProveedor(Producto prd)
         {
             _proveedorServices.InsertProveedor(prd.Descripcion);
         }
@@ -24,7 +24,8 @@ namespace Business
         {
             _proveedorServices.DeleteProveedor(id);
         }
-        public Producto GetProducto(int id)
+
+        public Producto GetProveedor(int id)
         {
             var prd = _proveedorServices.getProveedorByID(id);
             return new Producto()
@@ -37,7 +38,7 @@ namespace Business
         }
         public List<Producto> GetProveedores()
         {
-            var alga = _proveedorServices.GetAllProductos();
+            var alga = _proveedorServices.GetAllProveedores();
             List<Producto> ret = new List<Producto>();
             int i = 1;
             foreach (var prd in alga)
