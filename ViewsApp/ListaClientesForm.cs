@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
+using Domain;
 
 namespace ViewsApp
 {
     public partial class ListaClientesForm : Form
     {
+        private readonly ClienteController _clienteController = new ClienteController();
+
         public ListaClientesForm()
         {
             InitializeComponent();

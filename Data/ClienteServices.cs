@@ -8,6 +8,8 @@ namespace Data
 {
     public class ClienteServices
     {
+        private static DESA _data = new DESA();
+
         public void InsertCliente(string descripcion)
         {
             //_data.SP_Insert_Cliente(Descripcion, 1, 2);
@@ -32,10 +34,9 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public object GetAllCliente()
+        public List<SP_Get_All_Clientes_Result> GetAllClientes()
         {
-            //return _data.SP_Get_All_Clientes().ToList();
-            throw new NotImplementedException();
+            return _data.SP_Get_All_Clientes().ToList();
         }
     }
 }

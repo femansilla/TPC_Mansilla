@@ -21,5 +21,11 @@ namespace Business
         {
             throw new NotImplementedException();
         }
+
+        public List<UserTypes> GetAllUserTypes()
+        {
+            List<UserTypes> list  = (List<UserTypes>)_usuarioServices.GetAllUserTypes();
+            return list;
+        }
     }
 }

@@ -23,5 +23,7 @@ namespace Domain
 
         [DisplayName("Departamento")]
         public int Departamento { get; set; }
+        [DisplayName("Piso")]
+        public int Piso { get; set; }
     }
 }

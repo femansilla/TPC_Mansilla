@@ -12,9 +12,9 @@ namespace Business
     {
         private readonly ClienteServices _clienteServices = new ClienteServices();
 
-        public void AgregarCliente(Producto prd)
+        public void AgregarCliente(Cliente client)
         {
-            _clienteServices.InsertCliente(prd.Descripcion);
+            _clienteServices.InsertCliente("");
         }
         public void EditarCliente(string descripcion, int id)
         {
@@ -24,31 +24,30 @@ namespace Business
         {
             _clienteServices.DeleteCliente(id);
         }
-        public Producto GetCliente(int id)
+        public Cliente GetCliente(int id)
         {
             var prd = _clienteServices.getClienteByID(id);
-            return new Producto()
-            {
-                IDProducto = (int)prd.Id,
-                Descripcion = prd.Descripcion,
-                ProductType = prd.ProductType,
-                Categoria = prd.Categoria
-            };
+            return new Cliente()
+            /*{
+            //    IDProducto = (int)prd.Id,
+            //    Descripcion = prd.Descripcion,
+            //    ProductType = prd.ProductType,
+            //    Categoria = prd.Categoria
+            }*/;
         }
-        public List<Producto> GetClientes()
+        public List<Cliente> GetClientes()
         {
-            var alga = _clienteServices.GetAllCliente();
-            List<Producto> ret = new List<Producto>();
-            int i = 1;
+            var alga = _clienteServices.GetAllClientes();
+            List<Cliente> ret = new List<Cliente>();
             foreach (var prd in alga)
             {
-                Producto prdRet = new Producto()
-                {
-                    IDProducto = (int)prd.Id,
-                    Descripcion = prd.Descripcion,
-                    ProductType = prd.ProductType,
-                    Categoria = prd.Categoria
-                };
+                Cliente prdRet = new Cliente()
+                /*{
+                //    IDProducto = (int)prd.Id,
+                //    Descripcion = prd.Descripcion,
+                //    ProductType = prd.ProductType,
+                //    Categoria = prd.Categoria
+                }*/;
                 ret.Add(prdRet);
             }
             return ret;

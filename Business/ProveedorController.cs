@@ -12,9 +12,9 @@ namespace Business
     {
         private readonly ProveedorServices _proveedorServices = new ProveedorServices();
 
-        public void AgregarProveedor(Producto prd)
+        public void AgregarProveedor(Proveedor prov)
         {
-            _proveedorServices.InsertProveedor(prd.Descripcion);
+            _proveedorServices.InsertProveedor("");
         }
         public void EditarProducto(string descripcion, int id)
         {
@@ -25,31 +25,30 @@ namespace Business
             _proveedorServices.DeleteProveedor(id);
         }
 
-        public Producto GetProveedor(int id)
+        public Proveedor GetProveedor(int id)
         {
             var prd = _proveedorServices.getProveedorByID(id);
-            return new Producto()
-            {
-                IDProducto = (int)prd.Id,
-                Descripcion = prd.Descripcion,
-                ProductType = prd.ProductType,
-                Categoria = prd.Categoria
-            };
+            return new Proveedor()
+            /*{
+            //    IDProducto = (int)prd.Id,
+            //    Descripcion = prd.Descripcion,
+            //    ProductType = prd.ProductType,
+            //    Categoria = prd.Categoria
+            }*/;
         }
-        public List<Producto> GetProveedores()
+        public List<Proveedor> GetProveedores()
         {
             var alga = _proveedorServices.GetAllProveedores();
-            List<Producto> ret = new List<Producto>();
-            int i = 1;
+            List<Proveedor> ret = new List<Proveedor>();
             foreach (var prd in alga)
             {
-                Producto prdRet = new Producto()
-                {
-                    IDProducto = (int)prd.Id,
-                    Descripcion = prd.Descripcion,
-                    ProductType = prd.ProductType,
-                    Categoria = prd.Categoria
-                };
+                Proveedor prdRet = new Proveedor()
+                /*{
+                //    IDProducto = (int)prd.Id,
+                //    Descripcion = prd.Descripcion,
+                //    ProductType = prd.ProductType,
+                //    Categoria = prd.Categoria
+                }*/;
                 ret.Add(prdRet);
             }
             return ret;

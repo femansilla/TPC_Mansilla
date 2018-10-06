@@ -52,5 +52,20 @@ namespace Business
             }
             return ret;
         }
+
+        public List<CategoriasProductos> GetAllCategorias()
+        {
+            var list = _productoServices.GetAllCategorias();
+            List<CategoriasProductos> retList = new List<CategoriasProductos>();
+            foreach (var item in list)
+            {
+                retList.Add(new CategoriasProductos()
+                            {
+                                Code = item.Code,
+                                Descripcion = item.Descripcion
+                            });
+            }
+            return retList;
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace Data
 {
     public class ProveedorServices
     {
+        private static DESA _data = new DESA();
+        
         public void InsertProveedor(string descripcion)
         {
             //_data.SP_Insert_Proveedor(Descripcion, 1, 2);
@@ -32,10 +34,9 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public object GetAllProveedores()
+        public List<SP_Get_All_Proveedores_Result> GetAllProveedores()
         {
-            //return _data.SP_Get_All_Proveedores().ToList();
-            throw new NotImplementedException();
+            return _data.SP_Get_All_Proveedores().ToList();
         }
     }
 }

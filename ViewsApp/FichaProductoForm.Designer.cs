@@ -36,7 +36,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblIdProduct = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
@@ -45,7 +45,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(739, 531);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 30);
             this.btnGuardar.TabIndex = 0;
@@ -56,7 +56,7 @@
             // btnExaminar
             // 
             this.btnExaminar.Location = new System.Drawing.Point(132, 352);
-            this.btnExaminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExaminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(189, 30);
             this.btnExaminar.TabIndex = 1;
@@ -86,7 +86,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(129, 58);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(369, 25);
             this.txtDescripcion.TabIndex = 4;
@@ -94,7 +94,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(631, 531);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 30);
             this.btnCancel.TabIndex = 5;
@@ -105,7 +105,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Location = new System.Drawing.Point(739, 531);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(100, 30);
             this.btnActualizar.TabIndex = 6;
@@ -123,14 +123,14 @@
             this.lblIdProduct.TabIndex = 7;
             this.lblIdProduct.Text = "IdProducto";
             // 
-            // comboBox1
+            // cmbCategorias
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(132, 119);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(367, 25);
-            this.comboBox1.TabIndex = 8;
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(132, 119);
+            this.cmbCategorias.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(367, 25);
+            this.cmbCategorias.TabIndex = 8;
             // 
             // label3
             // 
@@ -156,7 +156,7 @@
             // 
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(129, 188);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(159, 104);
             this.checkedListBox1.TabIndex = 11;
@@ -169,7 +169,7 @@
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbCategorias);
             this.Controls.Add(this.lblIdProduct);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnCancel);
@@ -179,7 +179,7 @@
             this.Controls.Add(this.btnExaminar);
             this.Controls.Add(this.btnGuardar);
             this.Font = new System.Drawing.Font("Arial", 11.25F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FichaProductoForm";
             this.Text = "FormAgregarProducto";
             this.ResumeLayout(false);
@@ -197,7 +197,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label lblIdProduct;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox checkedListBox1;

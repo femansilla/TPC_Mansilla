@@ -93,5 +93,43 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Producto_byID_Result>("SP_Get_Producto_byID", iDPRODUCTOParameter);
         }
+    
+        public virtual ObjectResult<SP_get_all_userTypes_Result> SP_get_all_userTypes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_get_all_userTypes_Result>("SP_get_all_userTypes");
+        }
+    
+        public virtual ObjectResult<SP_Get_All_Clientes_Result> SP_Get_All_Clientes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Clientes_Result>("SP_Get_All_Clientes");
+        }
+    
+        public virtual ObjectResult<SP_Get_All_Proveedores_Result> SP_Get_All_Proveedores()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Proveedores_Result>("SP_Get_All_Proveedores");
+        }
+    
+        public virtual ObjectResult<SP_Get_All_CategoriasProducts_Result> SP_Get_All_CategoriasProducts()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_CategoriasProducts_Result>("SP_Get_All_CategoriasProducts");
+        }
+    
+        public virtual ObjectResult<SP_Get_Cliente_ByID_Result> SP_Get_Cliente_ByID(Nullable<int> clientCode)
+        {
+            var clientCodeParameter = clientCode.HasValue ?
+                new ObjectParameter("ClientCode", clientCode) :
+                new ObjectParameter("ClientCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Cliente_ByID_Result>("SP_Get_Cliente_ByID", clientCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Proveedor_ByID_Result> SP_Get_Proveedor_ByID(Nullable<int> proveedorCode)
+        {
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("ProveedorCode", proveedorCode) :
+                new ObjectParameter("ProveedorCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Proveedor_ByID_Result>("SP_Get_Proveedor_ByID", proveedorCodeParameter);
+        }
     }
 }

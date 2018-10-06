@@ -8,9 +8,19 @@
         <Function Name="SP_Delete_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idProducto" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Get_All_CategoriasProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Get_All_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Get_All_Proveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_get_all_userTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Get_Cliente_ByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Get_Producto_byID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDPRODUCTO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Get_Proveedor_ByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProveedorCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Insert_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
@@ -49,7 +59,17 @@
           </FunctionImport>
           <FunctionImport Name="SP_Get_All_Productos" ReturnType="Collection(DESAModel.SP_Get_All_Productos_Result)" />
           <FunctionImport Name="SP_Get_Producto_byID" ReturnType="Collection(DESAModel.SP_Get_Producto_byID_Result)">
-            <Parameter Name="IDPRODUCTO" Mode="In" Type="Int32" />
+          <Parameter Name="IDPRODUCTO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_get_all_userTypes" ReturnType="Collection(DESAModel.SP_get_all_userTypes_Result)" />
+          <FunctionImport Name="SP_Get_All_Clientes" ReturnType="Collection(DESAModel.SP_Get_All_Clientes_Result)" />
+          <FunctionImport Name="SP_Get_All_Proveedores" ReturnType="Collection(DESAModel.SP_Get_All_Proveedores_Result)" />
+          <FunctionImport Name="SP_Get_All_CategoriasProducts" ReturnType="Collection(DESAModel.SP_Get_All_CategoriasProducts_Result)" />
+          <FunctionImport Name="SP_Get_Cliente_ByID" ReturnType="Collection(DESAModel.SP_Get_Cliente_ByID_Result)">
+            <Parameter Name="ClientCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_Proveedor_ByID" ReturnType="Collection(DESAModel.SP_Get_Proveedor_ByID_Result)">
+            <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_Get_All_Productos_Result">
@@ -63,6 +83,50 @@
           <Property Type="String" Name="Descripcion" Nullable="false" />
           <Property Type="String" Name="Categoria" Nullable="true" />
           <Property Type="String" Name="ProductType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_get_all_userTypes_Result">
+          <Property Type="Int32" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_All_Clientes_Result">
+          <Property Type="Int32" Name="code" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="String" Name="CUIT" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ClientType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_All_Proveedores_Result">
+          <Property Type="Int32" Name="code" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="String" Name="CUIT" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ProveedorType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_All_CategoriasProducts_Result">
+          <Property Type="Int32" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_Cliente_ByID_Result">
+          <Property Type="Int32" Name="code" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="String" Name="CUIT" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ClientType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_Proveedor_ByID_Result">
+          <Property Type="Int32" Name="code" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="String" Name="CUIT" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ProveedorType" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -91,6 +155,74 @@
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Categoria" ColumnName="Categoria" />
                 <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_get_all_userTypes" FunctionName="DESAModel.Store.sp_get_all_userTypes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_get_all_userTypes_Result">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_All_Clientes" FunctionName="DESAModel.Store.SP_Get_All_Clientes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Clientes_Result">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_All_Proveedores" FunctionName="DESAModel.Store.SP_Get_All_Proveedores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Proveedores_Result">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="ProveedorType" ColumnName="ProveedorType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_All_CategoriasProducts" FunctionName="DESAModel.Store.SP_Get_All_CategoriasProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_CategoriasProducts_Result">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_Cliente_ByID" FunctionName="DESAModel.Store.SP_Get_Cliente_ByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_Cliente_ByID_Result">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_Proveedor_ByID" FunctionName="DESAModel.Store.SP_Get_Proveedor_ByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_Proveedor_ByID_Result">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="ProveedorType" ColumnName="ProveedorType" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

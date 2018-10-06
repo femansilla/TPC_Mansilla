@@ -46,23 +46,16 @@ namespace ViewsApp
         {
             Producto productoSelected = (Producto)dgvProductos.CurrentRow.DataBoundItem;
             FichaProductoForm editProduct = new FichaProductoForm(productoSelected.IDProducto);
-            editProduct.FormClosed += editProduct_FormClosed;
-            editProduct.Show();
-        }
-
-        void editProduct_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form frm = sender as Form;
-            if (frm.DialogResult == DialogResult.OK)
-                LoadProducts();
+            editProduct.ShowDialog();
+            LoadProducts();
         }
 
         private void dgvProductos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Producto productoSelected = (Producto)dgvProductos.CurrentRow.DataBoundItem;
             FichaProductoForm editProduct = new FichaProductoForm(productoSelected.IDProducto);
-            editProduct.FormClosed += editProduct_FormClosed;
-            editProduct.Show();
+            editProduct.ShowDialog();
+            LoadProducts();
         }
     }
 }

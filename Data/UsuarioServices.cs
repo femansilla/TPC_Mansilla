@@ -41,5 +41,10 @@ namespace Data
         {
             //_data.SP_update_Descripcion_Usuario(Descripcion, idUsuario);
         }
+
+        public IList<SP_get_all_userTypes_Result> GetAllUserTypes()
+        {
+            return _data.SP_get_all_userTypes().ToList();
+        }
     }
 }

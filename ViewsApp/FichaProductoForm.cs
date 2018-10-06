@@ -19,6 +19,7 @@ namespace ViewsApp
         public FichaProductoForm()
         {
             InitializeComponent();
+            CargarComboCategorias();
             btnActualizar.Hide();
             lblIdProduct.Visible = false;
         }
@@ -29,8 +30,10 @@ namespace ViewsApp
             btnGuardar.Hide();
             lblIdProduct.Visible = false;
             lblIdProduct.Text = id.ToString();
+            CargarComboCategorias();
             var prd = _productoController.GetProducto(id);
             txtDescripcion.Text = prd.Descripcion;
+            cmbCategorias.SelectedValue = 3;
         }
 
         public Producto getProducto()
@@ -49,6 +52,14 @@ namespace ViewsApp
             this.txtDescripcion.Clear();
             MessageBox.Show("Producto agregado correctamente.");
             this.Close();
+        }
+
+        private void CargarComboCategorias()
+        {
+            cmbCategorias.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategorias.DataSource = _productoController.GetAllCategorias();
+            cmbCategorias.DisplayMember = "Descripcion";
+            cmbCategorias.ValueMember = "Code";
         }
 
         private void button3_Click(object sender, EventArgs e)

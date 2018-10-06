@@ -35,5 +35,9 @@ namespace Data
             _data.SP_update_Descripcion_Producto(Descripcion, idProducto);
         }
 
+        public List<SP_Get_All_CategoriasProducts_Result> GetAllCategorias()
+        {
+            return _data.SP_Get_All_CategoriasProducts().ToList();
+        }
     }
 }
