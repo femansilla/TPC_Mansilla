@@ -11,7 +11,7 @@ namespace Business
     public class ProductoController
     {
         private readonly ProductoServices _productoServices = new ProductoServices();
-        
+
         public void AgregarProducto(Producto prd)
         {
             _productoServices.InsertProducto(prd.Descripcion);
@@ -39,7 +39,6 @@ namespace Business
         {
             var alga = _productoServices.GetAllProductos();
             List<Producto> ret = new List<Producto>();
-            int i = 1;
             foreach (var prd in alga)
             {
                 Producto prdRet = new Producto() {
