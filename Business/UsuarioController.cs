@@ -19,12 +19,46 @@ namespace Business
 
         public List<Usuario> GetAllUsuarios()
         {
-            throw new NotImplementedException();
+            var listUser = _usuarioServices.GetAllUsuarios();
+            List<Usuario> retList  = new List<Usuario>();
+            foreach (var u in listUser)
+            {
+                retList.Add(new Usuario()
+                {
+                    IDUser = u.UserId,
+                    Apellido = u.Apellido,
+                    Nombre = u.Nombre,
+                    FechaNac = u.FechaNac,
+                    Sex = (u.Sexo == "M") ? true : false,
+                    SexDescription = (u.Sexo == "M") ? "Masculino" : "Femenino",
+                    UserName = u.userName,
+                    UserType = u.UserType
+                });
+            }
+            return retList;
+        }
+
+        public Usuario GetUsuarioById(int userCode)
+        {
+            var getuser = _usuarioServices.GetUserByID(userCode);
+            return new Usuario()
+            {
+                IDUser = getuser.UserId,
+                Apellido = getuser.Apellido,
+                Nombre = getuser.Nombre,
+                FechaNac = getuser.FechaNac,
+                Sex = (getuser.Sexo == "M") ? true : false,
+                SexDescription = (getuser.Sexo == "M") ? "Masculino" : "Femenino",
+                UserName = getuser.userName,
+                UserType = getuser.UserType
+            };
         }
 
         public List<UserTypes> GetAllUserTypes()
         {
-            List<UserTypes> list  = (List<UserTypes>)_usuarioServices.GetAllUserTypes();
+            List<UserTypes> list = new List<UserTypes>();
+            foreach (var item in _usuarioServices.GetAllUserTypes())
+                list.Add(new UserTypes() { Code = item.Code, Descripcion = item.Descripcion });
             return list;
         }
     }

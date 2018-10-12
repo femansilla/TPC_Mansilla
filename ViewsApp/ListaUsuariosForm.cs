@@ -19,6 +19,7 @@ namespace ViewsApp
         public ListaUsuariosForm()
         {
             InitializeComponent();
+            LoadUsuarios();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -29,32 +30,43 @@ namespace ViewsApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            new FichaUsuarioForm().ShowDialog();
+            LoadUsuarios();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Usuario usuariooSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
-            FichaUsuarioForm editUser = new FichaUsuarioForm(usuariooSelected.IDUser);
-            editUser.FormClosed += editUser_FormClosed;
-            editUser.Show();
+            Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
+            new FichaUsuarioForm(usuarioSelected.IDUser).ShowDialog();
+            LoadUsuarios();
         }
-
-        void editUser_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form frm = sender as Form;
-            if (frm.DialogResult == DialogResult.OK)
-                LoadUsuarios();
-        }
-
+        
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
         }
 
         public void LoadUsuarios()
         {
             dgvListaUsr.DataSource = _usuarioController.GetAllUsuarios();
+            dgvListaUsr.Columns["Password"].Visible = false;
+            dgvListaUsr.Columns["CUIT"].Visible = false;
+            dgvListaUsr.Columns["Sex"].Visible = false;
+
+            dgvListaUsr.Columns["IDUser"].DisplayIndex = 0;
+            dgvListaUsr.Columns["Nombre"].DisplayIndex = 1;
+            dgvListaUsr.Columns["Apellido"].DisplayIndex = 2;
+            dgvListaUsr.Columns["SexDescription"].DisplayIndex = 3;
+            dgvListaUsr.Columns["FechaNac"].DisplayIndex = 4;
+            dgvListaUsr.Columns["UserName"].DisplayIndex = 5;
+            dgvListaUsr.Columns["UserType"].DisplayIndex = 6;
+        }
+
+        private void dgvListaUsr_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
+            new FichaUsuarioForm(usuarioSelected.IDUser).ShowDialog();
+            LoadUsuarios();
         }
     }
 }

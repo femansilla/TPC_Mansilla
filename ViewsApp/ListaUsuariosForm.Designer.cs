@@ -42,7 +42,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(16, 16);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(443, 25);
             this.txtSearch.TabIndex = 0;
@@ -53,17 +53,18 @@
             this.dgvListaUsr.AllowUserToDeleteRows = false;
             this.dgvListaUsr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaUsr.Location = new System.Drawing.Point(16, 68);
-            this.dgvListaUsr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvListaUsr.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListaUsr.Name = "dgvListaUsr";
             this.dgvListaUsr.ReadOnly = true;
             this.dgvListaUsr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaUsr.Size = new System.Drawing.Size(1035, 421);
             this.dgvListaUsr.TabIndex = 2;
+            this.dgvListaUsr.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaUsr_CellContentDoubleClick);
             // 
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(16, 519);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(116, 42);
             this.btnAgregar.TabIndex = 3;
@@ -74,7 +75,7 @@
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(140, 519);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(112, 42);
             this.btnEditar.TabIndex = 4;
@@ -85,7 +86,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(260, 519);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(115, 42);
             this.btnEliminar.TabIndex = 5;
@@ -97,7 +98,7 @@
             // 
             this.btnVolver.Font = new System.Drawing.Font("Arial", 11.25F);
             this.btnVolver.Location = new System.Drawing.Point(936, 519);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(115, 42);
             this.btnVolver.TabIndex = 6;
@@ -109,10 +110,10 @@
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(468, 12);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Location = new System.Drawing.Point(467, 16);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(31, 33);
+            this.btnSearch.Size = new System.Drawing.Size(26, 25);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
@@ -129,7 +130,7 @@
             this.Controls.Add(this.dgvListaUsr);
             this.Controls.Add(this.txtSearch);
             this.Font = new System.Drawing.Font("Arial", 11.25F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ListaUsuariosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

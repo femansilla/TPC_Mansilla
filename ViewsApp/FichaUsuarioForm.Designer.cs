@@ -1,4 +1,4 @@
-﻿namespace Domain
+﻿namespace ViewsApp
 {
     partial class FichaUsuarioForm
     {
@@ -44,7 +44,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvDomicilios = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblDomicilio = new System.Windows.Forms.Label();
+            this.btnAddDomicilio = new System.Windows.Forms.Button();
+            this.btnDelDomicilio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +105,7 @@
             // 
             this.cmbPerfilType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPerfilType.FormattingEnabled = true;
-            this.cmbPerfilType.Location = new System.Drawing.Point(189, 336);
+            this.cmbPerfilType.Location = new System.Drawing.Point(190, 370);
             this.cmbPerfilType.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPerfilType.Name = "cmbPerfilType";
             this.cmbPerfilType.Size = new System.Drawing.Size(325, 26);
@@ -113,7 +115,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 339);
+            this.label4.Location = new System.Drawing.Point(33, 373);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 18);
@@ -161,7 +163,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(31, 304);
+            this.label7.Location = new System.Drawing.Point(32, 338);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 18);
@@ -170,8 +172,9 @@
             // 
             // lblUsuarioID
             // 
+            this.lblUsuarioID.Enabled = false;
             this.lblUsuarioID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioID.Location = new System.Drawing.Point(188, 304);
+            this.lblUsuarioID.Location = new System.Drawing.Point(189, 338);
             this.lblUsuarioID.Margin = new System.Windows.Forms.Padding(4);
             this.lblUsuarioID.Name = "lblUsuarioID";
             this.lblUsuarioID.ReadOnly = true;
@@ -190,18 +193,19 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(308, 370);
+            this.btnCancelar.Location = new System.Drawing.Point(283, 404);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 43);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(428, 370);
+            this.btnAceptar.Location = new System.Drawing.Point(403, 404);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(112, 43);
@@ -216,24 +220,51 @@
             this.dgvDomicilios.Name = "dgvDomicilios";
             this.dgvDomicilios.Size = new System.Drawing.Size(479, 116);
             this.dgvDomicilios.TabIndex = 21;
+            this.dgvDomicilios.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilios_CellContentDoubleClick);
             // 
-            // label5
+            // lblDomicilio
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 160);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 18);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Domicilio";
+            this.lblDomicilio.AutoSize = true;
+            this.lblDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDomicilio.Location = new System.Drawing.Point(32, 160);
+            this.lblDomicilio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDomicilio.Name = "lblDomicilio";
+            this.lblDomicilio.Size = new System.Drawing.Size(70, 18);
+            this.lblDomicilio.TabIndex = 22;
+            this.lblDomicilio.Text = "Domicilio";
+            // 
+            // btnAddDomicilio
+            // 
+            this.btnAddDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDomicilio.Location = new System.Drawing.Point(35, 304);
+            this.btnAddDomicilio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddDomicilio.Name = "btnAddDomicilio";
+            this.btnAddDomicilio.Size = new System.Drawing.Size(88, 26);
+            this.btnAddDomicilio.TabIndex = 23;
+            this.btnAddDomicilio.Text = "Agregar";
+            this.btnAddDomicilio.UseVisualStyleBackColor = true;
+            this.btnAddDomicilio.Click += new System.EventHandler(this.btnAddDomicilio_Click);
+            // 
+            // btnDelDomicilio
+            // 
+            this.btnDelDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelDomicilio.Location = new System.Drawing.Point(131, 304);
+            this.btnDelDomicilio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelDomicilio.Name = "btnDelDomicilio";
+            this.btnDelDomicilio.Size = new System.Drawing.Size(87, 26);
+            this.btnDelDomicilio.TabIndex = 24;
+            this.btnDelDomicilio.Text = "Eliminar";
+            this.btnDelDomicilio.UseVisualStyleBackColor = true;
+            this.btnDelDomicilio.Click += new System.EventHandler(this.btnDelDomicilio_Click);
             // 
             // FichaUsuarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 423);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(551, 462);
+            this.Controls.Add(this.btnDelDomicilio);
+            this.Controls.Add(this.btnAddDomicilio);
+            this.Controls.Add(this.lblDomicilio);
             this.Controls.Add(this.dgvDomicilios);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
@@ -255,7 +286,6 @@
             this.Name = "FichaUsuarioForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FichaUsuarioForm";
-            this.Load += new System.EventHandler(this.FichaUsuarioForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -280,6 +310,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvDomicilios;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblDomicilio;
+        private System.Windows.Forms.Button btnAddDomicilio;
+        private System.Windows.Forms.Button btnDelDomicilio;
     }
 }

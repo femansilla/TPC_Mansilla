@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomicilioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DomicilioForm.Designer.cs">
+      <DependentUpon>DomicilioForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenericForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     <Compile Include="VentasForm.Designer.cs">
       <DependentUpon>VentasForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DomicilioForm.resx">
+      <DependentUpon>DomicilioForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GenericForm.resx">
       <DependentUpon>GenericForm.cs</DependentUpon>
     </EmbeddedResource>

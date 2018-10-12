@@ -65,6 +65,9 @@
     <Compile Include="SP_get_all_userTypes_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Get_All_Usuarios_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Get_Cliente_ByID_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
@@ -72,6 +75,9 @@
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Get_Proveedor_ByID_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_Usuario_byID_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="VentaServices.cs" />

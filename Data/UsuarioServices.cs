@@ -15,21 +15,24 @@ namespace Data
             return (!string.IsNullOrEmpty(val)) ? bool.Parse(_data.SP_validateUser(user, password).FirstOrDefault()) : false;
         }
 
-        public List<object> GetAllUsuarios()
+        public List<SP_Get_All_Usuarios_Result> GetAllUsuarios()
         {
-            //return _data.SP_Get_All_Usuarios().ToList();
-            return new List<object>();
+            return _data.SP_Get_All_Usuarios().ToList();
         }
 
-        public void getUserByID(int UserCode)
+        public SP_Get_Usuario_byID_Result GetUserByID(int UserCode)
         {
-            //return _data.SP_Get_Usuario_byID(IdUsuario).FirstOrDefault();
+            return _data.SP_Get_Usuario_byID(UserCode).FirstOrDefault();
         }
 
-        public void InsertUser(string Descripcion)
+        public void SaveRepresentative(int userCode, string nombre, string apellido, bool sex, DateTime fechaNac)
         {
             //insert representante, calcular userid
-            //_data.SP_Insert_Usuario(Descripcion, 1, 2);
+        }
+
+        private void SaveUser(int userCode, int userType)
+        {
+            //_data.SP_Insert_Usuario(userType);
         }
 
         public void DeleteUser(int UserCode)
@@ -42,7 +45,7 @@ namespace Data
             //_data.SP_update_Descripcion_Usuario(Descripcion, idUsuario);
         }
 
-        public IList<SP_get_all_userTypes_Result> GetAllUserTypes()
+        public List<SP_get_all_userTypes_Result> GetAllUserTypes()
         {
             return _data.SP_get_all_userTypes().ToList();
         }

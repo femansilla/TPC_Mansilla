@@ -131,5 +131,19 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Proveedor_ByID_Result>("SP_Get_Proveedor_ByID", proveedorCodeParameter);
         }
+    
+        public virtual ObjectResult<SP_Get_All_Usuarios_Result> SP_Get_All_Usuarios()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Usuarios_Result>("SP_Get_All_Usuarios");
+        }
+    
+        public virtual ObjectResult<SP_Get_Usuario_byID_Result> SP_Get_Usuario_byID(Nullable<int> userCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Usuario_byID_Result>("SP_Get_Usuario_byID", userCodeParameter);
+        }
     }
 }

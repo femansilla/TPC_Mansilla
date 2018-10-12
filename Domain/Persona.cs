@@ -15,8 +15,11 @@ namespace Domain
         public string Apellido { get; set; }
         [DisplayName("CUIT/ CUIL")]
         public string CUIT { get; set; }
-        [DisplayName("Sexo")]
+
         public bool Sex { get; set; }
+        [DisplayName("Sexo")]
+        public string SexDescription { get; set; }
+
         [DisplayName("Fecha de Nacimiento")]
         public DateTime FechaNac { get; set; }
 
