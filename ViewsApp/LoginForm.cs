@@ -28,8 +28,9 @@ namespace ViewsApp
                 MessageBox.Show("Usuario o clave incorrecto. \r\nVerifique por favor.");
             else
             {
-                new HomeForm().Show();
-                this.Dispose(false);
+                this.Close();
+                //new HomeForm().Show();
+                //this.Dispose(false);
             }
         }
 

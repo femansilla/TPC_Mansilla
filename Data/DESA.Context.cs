@@ -145,5 +145,73 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Usuario_byID_Result>("SP_Get_Usuario_byID", userCodeParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Insert_Representative(string nombre, string apellido, string sexo, Nullable<System.DateTime> fechaNac)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("Apellido", apellido) :
+                new ObjectParameter("Apellido", typeof(string));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var fechaNacParameter = fechaNac.HasValue ?
+                new ObjectParameter("FechaNac", fechaNac) :
+                new ObjectParameter("FechaNac", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Representative", nombreParameter, apellidoParameter, sexoParameter, fechaNacParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Insert_Direccion(string prov, string localidad, string calle, Nullable<int> calleAltura)
+        {
+            var provParameter = prov != null ?
+                new ObjectParameter("Prov", prov) :
+                new ObjectParameter("Prov", typeof(string));
+    
+            var localidadParameter = localidad != null ?
+                new ObjectParameter("Localidad", localidad) :
+                new ObjectParameter("Localidad", typeof(string));
+    
+            var calleParameter = calle != null ?
+                new ObjectParameter("Calle", calle) :
+                new ObjectParameter("Calle", typeof(string));
+    
+            var calleAlturaParameter = calleAltura.HasValue ?
+                new ObjectParameter("CalleAltura", calleAltura) :
+                new ObjectParameter("CalleAltura", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Direccion", provParameter, localidadParameter, calleParameter, calleAlturaParameter);
+        }
+    
+        public virtual int SP_Insert_Direccion_Usuario(Nullable<int> userCode, Nullable<int> direccionCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            var direccionCodeParameter = direccionCode.HasValue ?
+                new ObjectParameter("DireccionCode", direccionCode) :
+                new ObjectParameter("DireccionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Direccion_Usuario", userCodeParameter, direccionCodeParameter);
+        }
+    
+        public virtual int SP_Insert_User(Nullable<int> repCode, Nullable<int> userTypeCode)
+        {
+            var repCodeParameter = repCode.HasValue ?
+                new ObjectParameter("repCode", repCode) :
+                new ObjectParameter("repCode", typeof(int));
+    
+            var userTypeCodeParameter = userTypeCode.HasValue ?
+                new ObjectParameter("userTypeCode", userTypeCode) :
+                new ObjectParameter("userTypeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_User", repCodeParameter, userTypeCodeParameter);
+        }
     }
 }

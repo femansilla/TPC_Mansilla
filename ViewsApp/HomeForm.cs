@@ -57,5 +57,10 @@ namespace ViewsApp
             new ListaProveedoresForm().Show();
             this.Dispose(false);
         }
+
+        private void HomeForm_Load(object sender, EventArgs e)
+        {
+            //LoginForm login = new LoginForm();  
+        }
     }
 }

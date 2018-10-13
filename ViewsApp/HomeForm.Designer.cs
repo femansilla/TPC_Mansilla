@@ -40,7 +40,7 @@
             // btnGestionUsuarios
             // 
             this.btnGestionUsuarios.Location = new System.Drawing.Point(48, 39);
-            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(201, 44);
             this.btnGestionUsuarios.TabIndex = 0;
@@ -51,7 +51,7 @@
             // btnGestionProductos
             // 
             this.btnGestionProductos.Location = new System.Drawing.Point(48, 92);
-            this.btnGestionProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionProductos.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionProductos.Name = "btnGestionProductos";
             this.btnGestionProductos.Size = new System.Drawing.Size(201, 44);
             this.btnGestionProductos.TabIndex = 1;
@@ -62,7 +62,7 @@
             // btnGestionClientes
             // 
             this.btnGestionClientes.Location = new System.Drawing.Point(48, 144);
-            this.btnGestionClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionClientes.Name = "btnGestionClientes";
             this.btnGestionClientes.Size = new System.Drawing.Size(201, 44);
             this.btnGestionClientes.TabIndex = 2;
@@ -73,7 +73,7 @@
             // btnControlStock
             // 
             this.btnControlStock.Location = new System.Drawing.Point(48, 248);
-            this.btnControlStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnControlStock.Margin = new System.Windows.Forms.Padding(4);
             this.btnControlStock.Name = "btnControlStock";
             this.btnControlStock.Size = new System.Drawing.Size(201, 44);
             this.btnControlStock.TabIndex = 3;
@@ -84,7 +84,7 @@
             // btnVentas
             // 
             this.btnVentas.Location = new System.Drawing.Point(48, 378);
-            this.btnVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(4);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(201, 44);
             this.btnVentas.TabIndex = 4;
@@ -95,7 +95,7 @@
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(452, 378);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(201, 44);
             this.btnExit.TabIndex = 5;
@@ -106,7 +106,7 @@
             // btnGestionProveedores
             // 
             this.btnGestionProveedores.Location = new System.Drawing.Point(48, 196);
-            this.btnGestionProveedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionProveedores.Name = "btnGestionProveedores";
             this.btnGestionProveedores.Size = new System.Drawing.Size(201, 44);
             this.btnGestionProveedores.TabIndex = 6;
@@ -128,10 +128,11 @@
             this.Controls.Add(this.btnGestionUsuarios);
             this.Font = new System.Drawing.Font("Arial", 11.25F);
             this.Location = new System.Drawing.Point(200, 100);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "HomeForm";
+            this.Load += new System.EventHandler(this.HomeForm_Load);
             this.ResumeLayout(false);
 
         }

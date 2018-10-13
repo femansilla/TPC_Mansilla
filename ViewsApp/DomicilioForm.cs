@@ -23,14 +23,24 @@ namespace ViewsApp
         {
             return new Direccion()
             {
-                ID = int.Parse(lblCodeDireccion.Text),
+                ID = (lblCodeDireccion.Text == "") ? 0 : int.Parse(lblCodeDireccion.Text),
                 Provincia = txtProvincia.Text,
                 Localidad = txtLocalidad.Text,
                 Calle = txtCalle.Text,
-                Altura = int.Parse(txtCalle.Text),
-                Piso = int.Parse(txtPiso.Text),
-                Departamento = int.Parse(txtDpto.Text)
+                Altura = (txtCalle.Text == "") ? 0 : int.Parse(txtCalle.Text),
+                Piso = (txtPiso.Text == "") ? 0 : int.Parse(txtPiso.Text),
+                Departamento = (txtDpto.Text == "") ? 0 : int.Parse(txtDpto.Text)
             };
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }

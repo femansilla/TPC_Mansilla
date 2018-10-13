@@ -27,11 +27,11 @@ namespace ViewsApp
         {
             this.iDUser = iDUser;
             InitializeComponent();
-            CargarContenidoUsuario();
             CargarComboProfileType();
+            CargarContenidoUsuario();
+            
         }
 
-        
         private void CargarComboProfileType()
         {
             cmbPerfilType.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -52,20 +52,33 @@ namespace ViewsApp
             else
                 rdFemale.Checked = true;
             lblUsuarioID.Text = u.UserName;
+            cmbPerfilType.SelectedValue = 2;
         }
 
         private void btnAddDomicilio_Click(object sender, EventArgs e)
         {
             DomicilioForm formDomi = new DomicilioForm();
-            formDomi.Visible = false;
-            ShowDialog(formDomi);
+            formDomi.ShowDialog();
             ReLoadDgvDomicilio(formDomi);
+            formDomi.Close();
         }
 
         private void ReLoadDgvDomicilio(DomicilioForm FD)
         {
             var li = new List<Direccion>();
-            li.Add(FD.GetDomicilioIngresado());
+            var dataList = dgvDomicilios.DataSource as List<Direccion>;
+            if (dgvDomicilios.DataSource != null)
+            {
+                foreach (var domi in dataList)
+                {
+                    li.Add(domi);
+                }
+                li.Add(FD.GetDomicilioIngresado());
+            }
+            else
+            {
+                li.Add(FD.GetDomicilioIngresado());
+            }
             dgvDomicilios.DataSource = li;
         }
 

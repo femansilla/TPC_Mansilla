@@ -98,6 +98,7 @@
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -107,6 +108,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtProvincia
             // 
@@ -164,9 +166,8 @@
             this.lblCodeDireccion.AutoSize = true;
             this.lblCodeDireccion.Location = new System.Drawing.Point(420, 9);
             this.lblCodeDireccion.Name = "lblCodeDireccion";
-            this.lblCodeDireccion.Size = new System.Drawing.Size(45, 20);
+            this.lblCodeDireccion.Size = new System.Drawing.Size(0, 20);
             this.lblCodeDireccion.TabIndex = 14;
-            this.lblCodeDireccion.Text = "CODE";
             this.lblCodeDireccion.Visible = false;
             // 
             // DomicilioForm

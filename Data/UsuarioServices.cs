@@ -25,11 +25,14 @@ namespace Data
             return _data.SP_Get_Usuario_byID(UserCode).FirstOrDefault();
         }
 
-        public void SaveRepresentative(int userCode, string nombre, string apellido, bool sex, DateTime fechaNac)
+        public void SaveRepresentative(int userCode, string nombre, string apellido, bool sex, DateTime fechaNac,int userTypeCode)
         {
-            //insert representante, calcular userid
+            string sexo = (sex) ? "M" : "F";
+            userCode = int.Parse(_data.SP_Insert_Representative(nombre, apellido, sexo, fechaNac).ToString());
+            _data.SP_Insert_User(userCode, userTypeCode);
+            _data.SP_Insert_Direccion_Usuario(userCode, 2);
         }
-
+        
         private void SaveUser(int userCode, int userType)
         {
             //_data.SP_Insert_Usuario(userType);
