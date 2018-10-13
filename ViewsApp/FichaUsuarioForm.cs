@@ -15,6 +15,7 @@ namespace ViewsApp
     public partial class FichaUsuarioForm : Form
     {
         private int iDUser;
+        private DomicilioForm formDomi;
         private readonly UsuarioController _usuarioController = new UsuarioController();
 
         public FichaUsuarioForm()
@@ -36,7 +37,6 @@ namespace ViewsApp
         {
             cmbPerfilType.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPerfilType.Text = "Seleccione...";
-            var loqiesea = _usuarioController.GetAllUserTypes();
             cmbPerfilType.DataSource = _usuarioController.GetAllUserTypes();
             cmbPerfilType.DisplayMember = "Descripcion";
             cmbPerfilType.ValueMember = "Code";
@@ -52,12 +52,12 @@ namespace ViewsApp
             else
                 rdFemale.Checked = true;
             lblUsuarioID.Text = u.UserName;
-            cmbPerfilType.SelectedValue = 2;
+            cmbPerfilType.SelectedValue = u.UserType;
         }
 
         private void btnAddDomicilio_Click(object sender, EventArgs e)
         {
-            DomicilioForm formDomi = new DomicilioForm();
+            formDomi = new DomicilioForm();
             formDomi.ShowDialog();
             ReLoadDgvDomicilio(formDomi);
             formDomi.Close();
@@ -70,21 +70,22 @@ namespace ViewsApp
             if (dgvDomicilios.DataSource != null)
             {
                 foreach (var domi in dataList)
-                {
                     li.Add(domi);
-                }
                 li.Add(FD.GetDomicilioIngresado());
             }
             else
-            {
                 li.Add(FD.GetDomicilioIngresado());
-            }
             dgvDomicilios.DataSource = li;
         }
 
         private void btnDelDomicilio_Click(object sender, EventArgs e)
         {
-
+            var dataDGV = dgvDomicilios.DataSource as List<Direccion>;
+            if(dgvDomicilios.DataSource != null)
+                if(dataDGV.Count > 1)
+                    dataDGV.Remove((Direccion)dgvDomicilios.CurrentRow.DataBoundItem);
+            dgvDomicilios.DataSource = dataDGV;
+            dgvDomicilios.Refresh();
         }
 
         private void dgvDomicilios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

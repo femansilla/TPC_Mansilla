@@ -218,6 +218,7 @@
             this.dgvDomicilios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDomicilios.Location = new System.Drawing.Point(35, 181);
             this.dgvDomicilios.Name = "dgvDomicilios";
+            this.dgvDomicilios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDomicilios.Size = new System.Drawing.Size(479, 116);
             this.dgvDomicilios.TabIndex = 21;
             this.dgvDomicilios.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilios_CellContentDoubleClick);

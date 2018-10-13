@@ -164,7 +164,7 @@
             // lblCodeDireccion
             // 
             this.lblCodeDireccion.AutoSize = true;
-            this.lblCodeDireccion.Location = new System.Drawing.Point(420, 9);
+            this.lblCodeDireccion.Location = new System.Drawing.Point(455, 9);
             this.lblCodeDireccion.Name = "lblCodeDireccion";
             this.lblCodeDireccion.Size = new System.Drawing.Size(0, 20);
             this.lblCodeDireccion.TabIndex = 14;

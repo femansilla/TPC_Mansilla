@@ -5,8 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DESAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="SP_Delete_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Code" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Delete_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserCode" Type="int" Mode="In" />
+          <Parameter Name="DireccionCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Delete_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Delete_Representative" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Delete_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="repCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Get_All_CategoriasProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -54,6 +67,24 @@
         <Function Name="SP_update_Descripcion_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
           <Parameter Name="idProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Code" Type="int" Mode="In" />
+          <Parameter Name="Prov" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Localidad" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Calle" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CalleAltura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Representative" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userCode" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Sexo" Type="char" Mode="In" />
+          <Parameter Name="FechaNac" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="repCode" Type="int" Mode="In" />
+          <Parameter Name="userTypeCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_validateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="username" Type="varchar" Mode="In" />
@@ -118,6 +149,37 @@
           <FunctionImport Name="SP_Insert_User">
             <Parameter Name="repCode" Mode="In" Type="Int32" />
             <Parameter Name="userTypeCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Direccion_Usuario">
+            <Parameter Name="UserCode" Mode="In" Type="Int32" />
+            <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Representative">
+          <Parameter Name="userCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_User">
+          <Parameter Name="repCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Representative">
+            <Parameter Name="userCode" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido" Mode="In" Type="String" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_User">
+            <Parameter Name="repCode" Mode="In" Type="Int32" />
+            <Parameter Name="userTypeCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Direccion">
+            <Parameter Name="Code" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Direccion">
+            <Parameter Name="Code" Mode="In" Type="Int32" />
+            <Parameter Name="Prov" Mode="In" Type="String" />
+            <Parameter Name="Localidad" Mode="In" Type="String" />
+            <Parameter Name="Calle" Mode="In" Type="String" />
+            <Parameter Name="CalleAltura" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_Get_All_Productos_Result">
@@ -322,6 +384,13 @@
           <FunctionImportMapping FunctionImportName="SP_Insert_Direccion" FunctionName="DESAModel.Store.SP_Insert_Direccion" />
           <FunctionImportMapping FunctionImportName="SP_Insert_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Insert_Direccion_Usuario" />
           <FunctionImportMapping FunctionImportName="SP_Insert_User" FunctionName="DESAModel.Store.SP_Insert_User" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Delete_Direccion_Usuario" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_Representative" FunctionName="DESAModel.Store.SP_Delete_Representative" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_User" FunctionName="DESAModel.Store.SP_Delete_User" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Representative" FunctionName="DESAModel.Store.SP_Update_Representative" />
+          <FunctionImportMapping FunctionImportName="SP_Update_User" FunctionName="DESAModel.Store.SP_Update_User" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_Direccion" FunctionName="DESAModel.Store.SP_Delete_Direccion" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Direccion" FunctionName="DESAModel.Store.SP_Update_Direccion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

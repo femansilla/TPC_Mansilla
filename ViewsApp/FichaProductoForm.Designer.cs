@@ -122,7 +122,7 @@
             // lblIdProduct
             // 
             this.lblIdProduct.AutoSize = true;
-            this.lblIdProduct.Location = new System.Drawing.Point(509, 16);
+            this.lblIdProduct.Location = new System.Drawing.Point(449, 9);
             this.lblIdProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdProduct.Name = "lblIdProduct";
             this.lblIdProduct.Size = new System.Drawing.Size(78, 17);

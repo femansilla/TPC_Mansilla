@@ -213,5 +213,108 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_User", repCodeParameter, userTypeCodeParameter);
         }
+    
+        public virtual int SP_Delete_Direccion_Usuario(Nullable<int> userCode, Nullable<int> direccionCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            var direccionCodeParameter = direccionCode.HasValue ?
+                new ObjectParameter("DireccionCode", direccionCode) :
+                new ObjectParameter("DireccionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Direccion_Usuario", userCodeParameter, direccionCodeParameter);
+        }
+    
+        public virtual int SP_Delete_Representative(Nullable<int> userCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("userCode", userCode) :
+                new ObjectParameter("userCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Representative", userCodeParameter);
+        }
+    
+        public virtual int SP_Delete_User(Nullable<int> repCode)
+        {
+            var repCodeParameter = repCode.HasValue ?
+                new ObjectParameter("repCode", repCode) :
+                new ObjectParameter("repCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_User", repCodeParameter);
+        }
+    
+        public virtual int SP_Update_Representative(Nullable<int> userCode, string nombre, string apellido, string sexo, Nullable<System.DateTime> fechaNac)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("userCode", userCode) :
+                new ObjectParameter("userCode", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("Apellido", apellido) :
+                new ObjectParameter("Apellido", typeof(string));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var fechaNacParameter = fechaNac.HasValue ?
+                new ObjectParameter("FechaNac", fechaNac) :
+                new ObjectParameter("FechaNac", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Representative", userCodeParameter, nombreParameter, apellidoParameter, sexoParameter, fechaNacParameter);
+        }
+    
+        public virtual int SP_Update_User(Nullable<int> repCode, Nullable<int> userTypeCode)
+        {
+            var repCodeParameter = repCode.HasValue ?
+                new ObjectParameter("repCode", repCode) :
+                new ObjectParameter("repCode", typeof(int));
+    
+            var userTypeCodeParameter = userTypeCode.HasValue ?
+                new ObjectParameter("userTypeCode", userTypeCode) :
+                new ObjectParameter("userTypeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_User", repCodeParameter, userTypeCodeParameter);
+        }
+    
+        public virtual int SP_Delete_Direccion(Nullable<int> code)
+        {
+            var codeParameter = code.HasValue ?
+                new ObjectParameter("Code", code) :
+                new ObjectParameter("Code", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Direccion", codeParameter);
+        }
+    
+        public virtual int SP_Update_Direccion(Nullable<int> code, string prov, string localidad, string calle, Nullable<int> calleAltura)
+        {
+            var codeParameter = code.HasValue ?
+                new ObjectParameter("Code", code) :
+                new ObjectParameter("Code", typeof(int));
+    
+            var provParameter = prov != null ?
+                new ObjectParameter("Prov", prov) :
+                new ObjectParameter("Prov", typeof(string));
+    
+            var localidadParameter = localidad != null ?
+                new ObjectParameter("Localidad", localidad) :
+                new ObjectParameter("Localidad", typeof(string));
+    
+            var calleParameter = calle != null ?
+                new ObjectParameter("Calle", calle) :
+                new ObjectParameter("Calle", typeof(string));
+    
+            var calleAlturaParameter = calleAltura.HasValue ?
+                new ObjectParameter("CalleAltura", calleAltura) :
+                new ObjectParameter("CalleAltura", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Direccion", codeParameter, provParameter, localidadParameter, calleParameter, calleAlturaParameter);
+        }
     }
 }

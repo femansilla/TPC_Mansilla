@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain;
 
 namespace Data
 {
@@ -25,27 +26,24 @@ namespace Data
             return _data.SP_Get_Usuario_byID(UserCode).FirstOrDefault();
         }
 
-        public void SaveRepresentative(int userCode, string nombre, string apellido, bool sex, DateTime fechaNac,int userTypeCode)
+        public void SaveRepresentative(Usuario user, Direccion direc, int userTypeCode)
         {
-            string sexo = (sex) ? "M" : "F";
-            userCode = int.Parse(_data.SP_Insert_Representative(nombre, apellido, sexo, fechaNac).ToString());
-            _data.SP_Insert_User(userCode, userTypeCode);
-            _data.SP_Insert_Direccion_Usuario(userCode, 2);
+            string sexo = (user.Sex) ? "M" : "F";
+            user.IDUser = int.Parse(_data.SP_Insert_Representative(user.Nombre, user.Apellido, sexo, user.FechaNac).ToString());
+            _data.SP_Insert_User(user.IDUser, userTypeCode);
+            _data.SP_Insert_Direccion(direc.Provincia, direc.Localidad, direc.Calle, direc.Altura);
+            _data.SP_Insert_Direccion_Usuario(user.IDUser, 2);
         }
         
         private void SaveUser(int userCode, int userType)
         {
-            //_data.SP_Insert_Usuario(userType);
+            //_data.SP_Insert_Usuario(userCode, userType);
         }
 
         public void DeleteUser(int UserCode)
         {
-            //_data.SP_Delete_Usuario(id);
-        }
-
-        public void ActualizarUser(int UserCode)
-        {
-            //_data.SP_update_Descripcion_Usuario(Descripcion, idUsuario);
+            _data.SP_Delete_Representative(UserCode);
+            _data.SP_Delete_User(UserCode);
         }
 
         public List<SP_get_all_userTypes_Result> GetAllUserTypes()
