@@ -58,6 +58,18 @@
     <Compile Include="DomicilioForm.Designer.cs">
       <DependentUpon>DomicilioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FichaClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FichaClienteForm.Designer.cs">
+      <DependentUpon>FichaClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FichaProveedorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FichaProveedorForm.Designer.cs">
+      <DependentUpon>FichaProveedorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenericForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +146,12 @@
     </Compile>
     <EmbeddedResource Include="DomicilioForm.resx">
       <DependentUpon>DomicilioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FichaClienteForm.resx">
+      <DependentUpon>FichaClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FichaProveedorForm.resx">
+      <DependentUpon>FichaProveedorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GenericForm.resx">
       <DependentUpon>GenericForm.cs</DependentUpon>

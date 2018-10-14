@@ -15,11 +15,15 @@ namespace ViewsApp
     public partial class ListaUsuariosForm : Form
     {
         private readonly UsuarioController _usuarioController = new UsuarioController();
+        private List<Usuario> listaUsuarios = new List<Usuario>();
+
 
         public ListaUsuariosForm()
         {
             InitializeComponent();
             LoadUsuarios();
+            txtSearch.Text = "Buscar...";
+            listaUsuarios = dgvListaUsr.DataSource as List<Usuario>;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -61,6 +65,12 @@ namespace ViewsApp
             dgvListaUsr.Columns["FechaNac"].DisplayIndex = 3;
             dgvListaUsr.Columns["UserName"].DisplayIndex = 4;
             dgvListaUsr.Columns["UserType"].DisplayIndex = 5;
+
+            dgvListaUsr.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvListaUsr.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvListaUsr.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvListaUsr.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
 
         private void dgvListaUsr_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -68,6 +78,25 @@ namespace ViewsApp
             Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
             new FichaUsuarioForm(usuarioSelected.IDUser).ShowDialog();
             LoadUsuarios();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "")
+                dgvListaUsr.DataSource = listaUsuarios;
+            else if (txtSearch.Text != "Buscar...")
+            {
+                List<Usuario> lista;
+                lista = listaUsuarios.FindAll(m => m.Apellido.ToLower().Contains(txtSearch.Text.ToLower())
+                                                || m.Nombre.ToLower().Contains(txtSearch.Text.ToLower())
+                                                || m.Nombre.ToLower().Contains(txtSearch.Text.ToLower()));
+                dgvListaUsr.DataSource = lista;
+            }
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = "";
         }
     }
 }
