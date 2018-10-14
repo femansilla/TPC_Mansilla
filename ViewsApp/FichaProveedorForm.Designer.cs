@@ -142,9 +142,9 @@
             this.label7.Location = new System.Drawing.Point(19, 160);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 18);
+            this.label7.Size = new System.Drawing.Size(63, 18);
             this.label7.TabIndex = 35;
-            this.label7.Text = "ID Usuario";
+            this.label7.Text = "Cuit/Cuil";
             // 
             // label6
             // 

@@ -87,7 +87,7 @@
             // 
             this.dgvDomicilios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDomicilios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvDomicilios.Location = new System.Drawing.Point(12, 226);
+            this.dgvDomicilios.Location = new System.Drawing.Point(24, 217);
             this.dgvDomicilios.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.dgvDomicilios.MultiSelect = false;
             this.dgvDomicilios.Name = "dgvDomicilios";
@@ -142,9 +142,9 @@
             this.label7.Location = new System.Drawing.Point(11, 161);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 18);
+            this.label7.Size = new System.Drawing.Size(63, 18);
             this.label7.TabIndex = 54;
-            this.label7.Text = "ID Usuario";
+            this.label7.Text = "Cuit/Cuil";
             // 
             // label6
             // 
