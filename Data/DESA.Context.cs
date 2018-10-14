@@ -137,15 +137,6 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Usuarios_Result>("SP_Get_All_Usuarios");
         }
     
-        public virtual ObjectResult<SP_Get_Usuario_byID_Result> SP_Get_Usuario_byID(Nullable<int> userCode)
-        {
-            var userCodeParameter = userCode.HasValue ?
-                new ObjectParameter("UserCode", userCode) :
-                new ObjectParameter("UserCode", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Usuario_byID_Result>("SP_Get_Usuario_byID", userCodeParameter);
-        }
-    
         public virtual ObjectResult<Nullable<int>> SP_Insert_Representative(string nombre, string apellido, string sexo, Nullable<System.DateTime> fechaNac)
         {
             var nombreParameter = nombre != null ?
@@ -315,6 +306,33 @@ namespace Data
                 new ObjectParameter("CalleAltura", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Direccion", codeParameter, provParameter, localidadParameter, calleParameter, calleAlturaParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Usuario_byID_Result> SP_Get_Usuario_byID(Nullable<int> userCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Usuario_byID_Result>("SP_Get_Usuario_byID", userCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_All_Provincias_Result> SP_Get_All_Provincias()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Provincias_Result>("SP_Get_All_Provincias");
+        }
+    
+        public virtual int SP_Update_Direccion_Usuario(Nullable<int> userCode, Nullable<int> direccionCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            var direccionCodeParameter = direccionCode.HasValue ?
+                new ObjectParameter("DireccionCode", direccionCode) :
+                new ObjectParameter("DireccionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Direccion_Usuario", userCodeParameter, direccionCodeParameter);
         }
     }
 }

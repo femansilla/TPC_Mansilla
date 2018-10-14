@@ -26,20 +26,30 @@ namespace Data
             return _data.SP_Get_Usuario_byID(UserCode).FirstOrDefault();
         }
 
-        public void SaveRepresentative(Usuario user, Direccion direc, int userTypeCode)
+        public void SaveRepresentative(Usuario user)
         {
-            string sexo = (user.Sex) ? "M" : "F";
-            user.IDUser = int.Parse(_data.SP_Insert_Representative(user.Nombre, user.Apellido, sexo, user.FechaNac).ToString());
-            _data.SP_Insert_User(user.IDUser, userTypeCode);
-            _data.SP_Insert_Direccion(direc.Provincia, direc.Localidad, direc.Calle, direc.Altura);
-            _data.SP_Insert_Direccion_Usuario(user.IDUser, 2);
+            if (user.IDUser == 0 || user.IDUser == null)
+            {
+                user.IDUser = int.Parse(_data.SP_Insert_Representative(user.Nombre, user.Apellido, user.SexDescription, user.FechaNac).ToString());
+                _data.SP_Insert_User(user.IDUser, user.UserTypeCode);
+                foreach (var direc in user.DomicilioUser)
+                {
+                    int direccionCode = int.Parse(_data.SP_Insert_Direccion(direc.Provincia, direc.Localidad, direc.Calle, direc.Altura).ToString());
+                    _data.SP_Insert_Direccion_Usuario(user.IDUser, 2);
+                }    
+            }
+            else
+            {
+                _data.SP_Update_Representative(user.IDUser, user.Nombre, user.Apellido, user.SexDescription, user.FechaNac);
+                _data.SP_Update_User(user.IDUser, user.UserTypeCode);
+                foreach (var direc in user.DomicilioUser)
+                {
+                    _data.SP_Update_Direccion(direc.ID, direc.Provincia, direc.Localidad, direc.Calle, direc.Altura);
+                    _data.SP_Update_Direccion_Usuario(user.IDUser, direc.ID);
+                }
+            }
         }
         
-        private void SaveUser(int userCode, int userType)
-        {
-            //_data.SP_Insert_Usuario(userCode, userType);
-        }
-
         public void DeleteUser(int UserCode)
         {
             _data.SP_Delete_Representative(UserCode);

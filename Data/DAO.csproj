@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteServices.cs" />
+    <Compile Include="DomicilioServices.cs" />
     <Compile Include="SP_Get_All_CategoriasProducts_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
@@ -60,6 +61,9 @@
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Get_All_Proveedores_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_All_Provincias_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_get_all_userTypes_Result.cs">

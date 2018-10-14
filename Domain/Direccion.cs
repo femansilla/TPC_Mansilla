@@ -21,9 +21,9 @@ namespace Domain
         [DisplayName("Altura")]
         public int Altura { get; set; }
 
-        [DisplayName("Departamento")]
-        public int Departamento { get; set; }
         [DisplayName("Piso")]
         public int Piso { get; set; }
+        [DisplayName("Departamento")]
+        public int Departamento { get; set; }
     }
 }

@@ -17,5 +17,6 @@ namespace Domain
 
         [DisplayName("Tipo")]
         public string UserType { get; set; }
+        public int UserTypeCode { get; set; }
     }
 }

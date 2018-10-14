@@ -11,15 +11,9 @@ namespace Data
 {
     using System;
     
-    public partial class SP_Get_Usuario_byID_Result
+    public partial class SP_Get_All_Provincias_Result
     {
-        public int UserId { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Sexo { get; set; }
-        public System.DateTime FechaNac { get; set; }
-        public string userName { get; set; }
-        public Nullable<int> UserTypeCode { get; set; }
-        public string UserType { get; set; }
+        public int Code { get; set; }
+        public string Descripcion { get; set; }
     }
 }

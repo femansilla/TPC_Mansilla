@@ -23,6 +23,6 @@ namespace Domain
         [DisplayName("Fecha de Nacimiento")]
         public DateTime FechaNac { get; set; }
 
-        public List<Direccion> Direccion { get; set; }
+        public List<Direccion> DomicilioUser { get; set; }
     }
 }

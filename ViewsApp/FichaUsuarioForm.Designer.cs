@@ -212,11 +212,14 @@
             this.btnAceptar.TabIndex = 20;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // dgvDomicilios
             // 
             this.dgvDomicilios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDomicilios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDomicilios.Location = new System.Drawing.Point(35, 181);
+            this.dgvDomicilios.MultiSelect = false;
             this.dgvDomicilios.Name = "dgvDomicilios";
             this.dgvDomicilios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDomicilios.Size = new System.Drawing.Size(479, 116);
@@ -287,6 +290,7 @@
             this.Name = "FichaUsuarioForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FichaUsuarioForm";
+            this.Load += new System.EventHandler(this.FichaUsuarioForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

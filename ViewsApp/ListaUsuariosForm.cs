@@ -52,14 +52,15 @@ namespace ViewsApp
             dgvListaUsr.Columns["Password"].Visible = false;
             dgvListaUsr.Columns["CUIT"].Visible = false;
             dgvListaUsr.Columns["Sex"].Visible = false;
+            dgvListaUsr.Columns["UserTypeCode"].Visible = false;
+            dgvListaUsr.Columns["IDUser"].Visible = false;
 
-            dgvListaUsr.Columns["IDUser"].DisplayIndex = 0;
-            dgvListaUsr.Columns["Nombre"].DisplayIndex = 1;
-            dgvListaUsr.Columns["Apellido"].DisplayIndex = 2;
-            dgvListaUsr.Columns["SexDescription"].DisplayIndex = 3;
-            dgvListaUsr.Columns["FechaNac"].DisplayIndex = 4;
-            dgvListaUsr.Columns["UserName"].DisplayIndex = 5;
-            dgvListaUsr.Columns["UserType"].DisplayIndex = 6;
+            dgvListaUsr.Columns["Nombre"].DisplayIndex = 0;
+            dgvListaUsr.Columns["Apellido"].DisplayIndex = 1;
+            dgvListaUsr.Columns["SexDescription"].DisplayIndex = 2;
+            dgvListaUsr.Columns["FechaNac"].DisplayIndex = 3;
+            dgvListaUsr.Columns["UserName"].DisplayIndex = 4;
+            dgvListaUsr.Columns["UserType"].DisplayIndex = 5;
         }
 
         private void dgvListaUsr_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

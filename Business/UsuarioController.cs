@@ -11,6 +11,7 @@ namespace Business
     public class UsuarioController
     {
         private UsuarioServices _usuarioServices = new UsuarioServices();
+        private DomicilioServices _direccionServices = new DomicilioServices();
 
         public bool iniciarSesion(string username, string password)
         {
@@ -50,6 +51,7 @@ namespace Business
                 Sex = (getuser.Sexo == "M") ? true : false,
                 SexDescription = (getuser.Sexo == "M") ? "Masculino" : "Femenino",
                 UserName = getuser.userName,
+                UserTypeCode = (int)getuser.UserTypeCode,
                 UserType = getuser.UserType
             };
         }
@@ -60,6 +62,11 @@ namespace Business
             foreach (var item in _usuarioServices.GetAllUserTypes())
                 list.Add(new UserTypes() { Code = item.Code, Descripcion = item.Descripcion });
             return list;
+        }
+
+        public void SaveUser(Usuario user)
+        {
+            _usuarioServices.SaveRepresentative(user);
         }
     }
 }

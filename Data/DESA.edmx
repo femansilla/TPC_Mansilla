@@ -25,6 +25,7 @@
         <Function Name="SP_Get_All_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Proveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Get_All_Provincias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_get_all_userTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_Cliente_ByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -74,6 +75,10 @@
           <Parameter Name="Localidad" Type="varchar(max)" Mode="In" />
           <Parameter Name="Calle" Type="varchar(max)" Mode="In" />
           <Parameter Name="CalleAltura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserCode" Type="int" Mode="In" />
+          <Parameter Name="DireccionCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Update_Representative" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userCode" Type="int" Mode="In" />
@@ -127,9 +132,6 @@
           <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_All_Usuarios" ReturnType="Collection(DESAModel.SP_Get_All_Usuarios_Result)" />
-          <FunctionImport Name="SP_Get_Usuario_byID" ReturnType="Collection(DESAModel.SP_Get_Usuario_byID_Result)">
-          <Parameter Name="UserCode" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="SP_Insert_Representative" ReturnType="Collection(Int32)">
             <Parameter Name="Nombre" Mode="In" Type="String" />
             <Parameter Name="Apellido" Mode="In" Type="String" />
@@ -172,7 +174,7 @@
             <Parameter Name="userTypeCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Delete_Direccion">
-            <Parameter Name="Code" Mode="In" Type="Int32" />
+          <Parameter Name="Code" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Update_Direccion">
             <Parameter Name="Code" Mode="In" Type="Int32" />
@@ -180,6 +182,14 @@
             <Parameter Name="Localidad" Mode="In" Type="String" />
             <Parameter Name="Calle" Mode="In" Type="String" />
             <Parameter Name="CalleAltura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_Usuario_byID" ReturnType="Collection(DESAModel.SP_Get_Usuario_byID_Result)">
+          <Parameter Name="UserCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_All_Provincias" ReturnType="Collection(DESAModel.SP_Get_All_Provincias_Result)" />
+          <FunctionImport Name="SP_Update_Direccion_Usuario">
+            <Parameter Name="UserCode" Mode="In" Type="Int32" />
+            <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_Get_All_Productos_Result">
@@ -254,7 +264,12 @@
           <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
           <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
           <Property Type="String" Name="userName" Nullable="true" />
+          <Property Type="Int32" Name="UserTypeCode" Nullable="true" />
           <Property Type="String" Name="UserType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_All_Provincias_Result">
+          <Property Type="Int32" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -367,19 +382,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Get_Usuario_byID" FunctionName="DESAModel.Store.SP_Get_Usuario_byID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DESAModel.SP_Get_Usuario_byID_Result">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
-                <ScalarProperty Name="userName" ColumnName="userName" />
-                <ScalarProperty Name="UserType" ColumnName="UserType" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_Insert_Representative" FunctionName="DESAModel.Store.SP_Insert_Representative" />
           <FunctionImportMapping FunctionImportName="SP_Insert_Direccion" FunctionName="DESAModel.Store.SP_Insert_Direccion" />
           <FunctionImportMapping FunctionImportName="SP_Insert_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Insert_Direccion_Usuario" />
@@ -391,6 +393,29 @@
           <FunctionImportMapping FunctionImportName="SP_Update_User" FunctionName="DESAModel.Store.SP_Update_User" />
           <FunctionImportMapping FunctionImportName="SP_Delete_Direccion" FunctionName="DESAModel.Store.SP_Delete_Direccion" />
           <FunctionImportMapping FunctionImportName="SP_Update_Direccion" FunctionName="DESAModel.Store.SP_Update_Direccion" />
+          <FunctionImportMapping FunctionImportName="SP_Get_Usuario_byID" FunctionName="DESAModel.Store.SP_Get_Usuario_byID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_Usuario_byID_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="UserTypeCode" ColumnName="UserTypeCode" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_All_Provincias" FunctionName="DESAModel.Store.SP_Get_All_Provincias">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Provincias_Result">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Update_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Update_Direccion_Usuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
