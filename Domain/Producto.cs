@@ -20,5 +20,6 @@ namespace Domain
         [DisplayName("Categoria")]
         public string Categoria { get; set; }
         public string Imagen { get; set; }
+        public Stock StockProduct { get; set; }
     }
 }

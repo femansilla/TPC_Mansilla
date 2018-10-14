@@ -7,10 +7,12 @@ using System.ComponentModel;
 
 namespace Domain
 {
-    public class Provincia
+    public class Calle
     {
         public int Code { get; set; }
-        [DisplayName("Provincia")]
+        [DisplayName("Calle")]
         public string Descripcion { get; set; }
+        [DisplayName("Altura")]
+        public int Altura { get; set; }
     }
 }

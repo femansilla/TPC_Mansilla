@@ -224,6 +224,7 @@
             this.dgvDomicilios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDomicilios.Size = new System.Drawing.Size(479, 116);
             this.dgvDomicilios.TabIndex = 21;
+            this.dgvDomicilios.DataSourceChanged += new System.EventHandler(this.dgvDomicilios_DataSourceChanged);
             this.dgvDomicilios.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilios_CellContentDoubleClick);
             // 
             // lblDomicilio

@@ -86,19 +86,18 @@ namespace ViewsApp
             {
                 var dataDGV = dgvDomicilios.DataSource as List<Direccion>;
                 if(dgvDomicilios.DataSource != null)
-                    if(dataDGV.Count > 1)
+                {
+                    if (dataDGV.Count > 1)
                     {
                          dataDGV.Remove((Direccion)dgvDomicilios.CurrentRow.DataBoundItem);
+                         //dgvDomicilios.Rows.RemoveAt(dgvDomicilios.CurrentRow.Index);
                     }
+                }
                 dgvDomicilios.DataSource = dataDGV;
-                dgvDomicilios.Update();
-                dgvDomicilios.Refresh();
-
             }
             catch (Exception ex)
             {
-                ex.ToString();
-                throw;
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -137,7 +136,19 @@ namespace ViewsApp
         private void FichaUsuarioForm_Load(object sender, EventArgs e)
         {
             if(dgvDomicilios.DataSource != null)
+            {
                 dgvDomicilios.Columns["ID"].Visible = false;
+                btnDelDomicilio.Enabled = true;
+            }
+            else
+            {
+                btnDelDomicilio.Enabled = false;
+            }
+        }
+
+        private void dgvDomicilios_DataSourceChanged(object sender, EventArgs e)
+        {
+            btnDelDomicilio.Enabled = true;
         }
     }
 }

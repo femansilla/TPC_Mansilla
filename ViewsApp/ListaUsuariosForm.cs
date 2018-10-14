@@ -98,5 +98,10 @@ namespace ViewsApp
         {
             txtSearch.Text = "";
         }
+
+        private void ListaUsuariosForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

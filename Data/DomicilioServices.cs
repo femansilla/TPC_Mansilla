@@ -14,5 +14,15 @@ namespace Data
         {
             return _data.SP_Get_All_Provincias().ToList();
         }
+
+        public List<SP_Get_Localidad_Result> GetLocalidad(int selectedValue)
+        {
+            return _data.SP_Get_Localidad(selectedValue).ToList();
+        }
+
+        public List<SP_Get_Calle_Result> GetCalle(int selectedValue)
+        {
+            return _data.SP_Get_Calle(selectedValue).ToList();
+        }
     }
 }

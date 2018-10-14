@@ -334,5 +334,36 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Direccion_Usuario", userCodeParameter, direccionCodeParameter);
         }
+    
+        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Calle_Result> SP_Get_Calle(Nullable<int> provCode)
+        {
+            var provCodeParameter = provCode.HasValue ?
+                new ObjectParameter("ProvCode", provCode) :
+                new ObjectParameter("ProvCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Calle_Result>("SP_Get_Calle", provCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Localidad_Result> SP_Get_Localidad(Nullable<int> provCode)
+        {
+            var provCodeParameter = provCode.HasValue ?
+                new ObjectParameter("ProvCode", provCode) :
+                new ObjectParameter("ProvCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Localidad_Result>("SP_Get_Localidad", provCodeParameter);
+        }
     }
 }

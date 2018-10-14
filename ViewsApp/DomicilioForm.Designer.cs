@@ -92,7 +92,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(216, 193);
+            this.btnAceptar.Location = new System.Drawing.Point(309, 188);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 31);
             this.btnAceptar.TabIndex = 6;
@@ -102,7 +102,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(309, 193);
+            this.btnCancelar.Location = new System.Drawing.Point(216, 188);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(87, 31);
             this.btnCancelar.TabIndex = 7;
@@ -157,6 +157,7 @@
             this.cmbProvincias.Name = "cmbProvincias";
             this.cmbProvincias.Size = new System.Drawing.Size(299, 28);
             this.cmbProvincias.TabIndex = 15;
+            this.cmbProvincias.SelectedValueChanged += new System.EventHandler(this.cmbProvincias_SelectedValueChanged);
             this.cmbProvincias.TextChanged += new System.EventHandler(this.cmbProvincias_TextChanged);
             // 
             // cmbLocalidad
@@ -179,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 240);
+            this.ClientSize = new System.Drawing.Size(418, 229);
             this.Controls.Add(this.cmbCalle);
             this.Controls.Add(this.cmbLocalidad);
             this.Controls.Add(this.cmbProvincias);

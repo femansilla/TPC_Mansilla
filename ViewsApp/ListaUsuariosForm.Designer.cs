@@ -52,7 +52,7 @@
             this.dgvListaUsr.AllowUserToAddRows = false;
             this.dgvListaUsr.AllowUserToDeleteRows = false;
             this.dgvListaUsr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaUsr.Location = new System.Drawing.Point(16, 68);
+            this.dgvListaUsr.Location = new System.Drawing.Point(16, 46);
             this.dgvListaUsr.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListaUsr.Name = "dgvListaUsr";
             this.dgvListaUsr.ReadOnly = true;
@@ -63,10 +63,10 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(16, 519);
+            this.btnAgregar.Location = new System.Drawing.Point(16, 475);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(116, 42);
+            this.btnAgregar.Size = new System.Drawing.Size(116, 31);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -74,10 +74,10 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(140, 519);
+            this.btnEditar.Location = new System.Drawing.Point(140, 475);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(112, 42);
+            this.btnEditar.Size = new System.Drawing.Size(112, 31);
             this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -85,10 +85,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(260, 519);
+            this.btnEliminar.Location = new System.Drawing.Point(260, 475);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(115, 42);
+            this.btnEliminar.Size = new System.Drawing.Size(115, 31);
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -97,10 +97,10 @@
             // btnVolver
             // 
             this.btnVolver.Font = new System.Drawing.Font("Arial", 11.25F);
-            this.btnVolver.Location = new System.Drawing.Point(936, 519);
+            this.btnVolver.Location = new System.Drawing.Point(936, 475);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(115, 42);
+            this.btnVolver.Size = new System.Drawing.Size(115, 31);
             this.btnVolver.TabIndex = 6;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 577);
+            this.ClientSize = new System.Drawing.Size(1067, 520);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -122,6 +122,7 @@
             this.Name = "ListaUsuariosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.ListaUsuariosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

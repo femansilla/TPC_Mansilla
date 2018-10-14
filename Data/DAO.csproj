@@ -72,7 +72,13 @@
     <Compile Include="SP_Get_All_Usuarios_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Get_Calle_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Get_Cliente_ByID_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_Localidad_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Get_Producto_byID_Result.cs">

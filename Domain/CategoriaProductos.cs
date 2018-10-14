@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class StockServices
+    public class CategoriaProductos
     {
+        public int Code { get; set; }
+        public string Descripcion { get; set; }
     }
 }

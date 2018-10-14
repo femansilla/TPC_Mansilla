@@ -52,13 +52,13 @@ namespace Business
             return ret;
         }
 
-        public List<CategoriasProductos> GetAllCategorias()
+        public List<CategoriaProductos> GetAllCategorias()
         {
             var list = _productoServices.GetAllCategorias();
-            List<CategoriasProductos> retList = new List<CategoriasProductos>();
+            List<CategoriaProductos> retList = new List<CategoriaProductos>();
             foreach (var item in list)
             {
-                retList.Add(new CategoriasProductos()
+                retList.Add(new CategoriaProductos()
                             {
                                 Code = item.Code,
                                 Descripcion = item.Descripcion
