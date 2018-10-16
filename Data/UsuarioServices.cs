@@ -49,7 +49,13 @@ namespace Data
                 }
             }
         }
-        
+
+        public object GetDomiciliosUsuario(int iDUser)
+        {
+            ///_data.SP_Get_DomiciliosByUser(iDUser);
+            return new object();
+        }
+
         public void DeleteUser(int UserCode)
         {
             _data.SP_Delete_Representative(UserCode);

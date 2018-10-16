@@ -56,6 +56,12 @@ namespace Business
             };
         }
 
+        public object GetDomiciliosUsuario(int iDUser)
+        {
+            var domicilios = _usuarioServices.GetDomiciliosUsuario(iDUser);
+            return new List<Direccion>();
+        }
+
         public List<UserTypes> GetAllUserTypes()
         {
             List<UserTypes> list = new List<UserTypes>();
