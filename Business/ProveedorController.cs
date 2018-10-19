@@ -53,5 +53,15 @@ namespace Business
             }
             return ret;
         }
+
+        public List<Proveedor> GetAllProveedores()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EliminarUsuario(int iD)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

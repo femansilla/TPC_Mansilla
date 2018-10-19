@@ -46,6 +46,7 @@
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -56,6 +57,7 @@
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAgregar
             // 
@@ -66,6 +68,7 @@
             this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgvClientes
             // 
@@ -79,6 +82,7 @@
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(1035, 421);
             this.dgvClientes.TabIndex = 8;
+            this.dgvClientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentDoubleClick);
             // 
             // txtSearch
             // 
@@ -87,6 +91,8 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(443, 25);
             this.txtSearch.TabIndex = 6;
+            this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnVolver
             // 
@@ -116,6 +122,7 @@
             this.Name = "ListaClientesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientesForm";
+            this.Load += new System.EventHandler(this.ListaClientesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

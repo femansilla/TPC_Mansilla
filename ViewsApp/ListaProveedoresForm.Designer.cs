@@ -58,6 +58,7 @@
             this.btnEliminar.TabIndex = 18;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -68,6 +69,7 @@
             this.btnEditar.TabIndex = 17;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAgregar
             // 
@@ -78,6 +80,7 @@
             this.btnAgregar.TabIndex = 16;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgvProveedores
             // 
@@ -91,6 +94,7 @@
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(1035, 421);
             this.dgvProveedores.TabIndex = 15;
+            this.dgvProveedores.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentDoubleClick);
             // 
             // txtSearch
             // 
@@ -99,6 +103,8 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(443, 25);
             this.txtSearch.TabIndex = 13;
+            this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // ListaProveedoresForm
             // 
@@ -116,6 +122,7 @@
             this.Name = "ListaProveedoresForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListaProveedoresForm";
+            this.Load += new System.EventHandler(this.ListaProveedoresForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

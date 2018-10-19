@@ -26,31 +26,12 @@ namespace ViewsApp
             listaUsuarios = dgvListaUsr.DataSource as List<Usuario>;
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void ListaUsuariosForm_Load(object sender, EventArgs e)
         {
-            this.Dispose(false);
-            new HomeForm().Show();
+
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            new FichaUsuarioForm().ShowDialog();
-            LoadUsuarios();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
-            new FichaUsuarioForm(usuarioSelected.IDUser).ShowDialog();
-            LoadUsuarios();
-        }
-        
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
-        }
-
-        public void LoadUsuarios()
+        private void LoadUsuarios()
         {
             dgvListaUsr.DataSource = _usuarioController.GetAllUsuarios();
             dgvListaUsr.Columns["Password"].Visible = false;
@@ -73,11 +54,39 @@ namespace ViewsApp
 
         }
 
-        private void dgvListaUsr_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Dispose(false);
+            new HomeForm().Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            new FichaUsuarioForm().ShowDialog();
+            LoadUsuarios();
+        }
+
+        private void editUser()
         {
             Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
             new FichaUsuarioForm(usuarioSelected.IDUser).ShowDialog();
             LoadUsuarios();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            editUser();
+        }
+
+        private void dgvListaUsr_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            editUser();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
+            _usuarioController.EliminarUsuario(usuarioSelected.IDUser);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -99,9 +108,5 @@ namespace ViewsApp
             txtSearch.Text = "";
         }
 
-        private void ListaUsuariosForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

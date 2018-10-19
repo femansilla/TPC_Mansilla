@@ -12,10 +12,16 @@ namespace ViewsApp
 {
     public partial class FichaProveedorForm : Form
     {
+        private int iD;
+
         public FichaProveedorForm()
         {
             InitializeComponent();
         }
 
+        public FichaProveedorForm(int iD)
+        {
+            this.iD = iD;
+        }
     }
 }

@@ -11,8 +11,9 @@ namespace Domain
     {
         [DisplayName("Codigo")]
         public int ID { get; set; }
+        public int ProveedorTypeCode { get; set; }
         [DisplayName("Tipo")]
-        public int ProveedorType { get; set; }
+        public string ProveedorTypeDescripcion { get; set; }
 
         [DisplayName("Email")]
         public List<string> email { get; set; }

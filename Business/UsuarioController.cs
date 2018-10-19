@@ -74,5 +74,10 @@ namespace Business
         {
             _usuarioServices.SaveRepresentative(user);
         }
+
+        public void EliminarUsuario(int iDUser)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
