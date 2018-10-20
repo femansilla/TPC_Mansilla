@@ -62,5 +62,11 @@ namespace ViewsApp
         {
             //LoginForm login = new LoginForm();  
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new ProveedorTypesForm().Show();
+            this.Dispose(false);
+        }
     }
 }

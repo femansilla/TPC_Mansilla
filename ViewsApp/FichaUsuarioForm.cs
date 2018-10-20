@@ -22,7 +22,7 @@ namespace ViewsApp
         {
             InitializeComponent();
             CargarComboProfileType();
-            dgvDomicilios.Columns["ID"].Visible = false;
+            //dgvDomicilios.Columns["ID"].Visible = false;
         }
 
         public FichaUsuarioForm(int iDUser)
@@ -86,15 +86,33 @@ namespace ViewsApp
         {
             try
             {
-                
+                var dataDGV = dgvDomicilios.DataSource as List<Direccion>;
+                if(dgvDomicilios.DataSource != null)
+                {
+                    if (dataDGV.Count > 1)
                          dataDGV.Remove((Direccion)dgvDomicilios.CurrentRow.DataBoundItem);
+                         //dgvDomicilios.Rows.RemoveAt(dgvDomicilios.CurrentRow.Index);
+                }
                 dgvDomicilios.DataSource = null;
                 dgvDomicilios.DataSource = dataDGV;
+                //ReLoadDgvDomicilio(dataDGV);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void ReLoadDgvDomicilio(List<Direccion> li)
+        {
+            var dataList = dgvDomicilios.DataSource as List<Direccion>;
+            if (dgvDomicilios.DataSource != null)
+            {
+                foreach (var domi in dataList)
+                    li.Add(domi);
+            }
+            dgvDomicilios.DataSource = li;
+            dgvDomicilios.Columns["ID"].Visible = false;
         }
 
         private void dgvDomicilios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -103,20 +121,6 @@ namespace ViewsApp
             formDomi.ShowDialog();
             ReLoadDgvDomicilio(formDomi);
             formDomi.Close();
-        }
-
-        private bool ValidateDGV()
-        {
-            var dataDGV = dgvDomicilios.DataSource as List<Direccion>;
-            bool ret = false;
-            if (dgvDomicilios.DataSource != null)
-            {
-                if (dataDGV.Count > 1)
-                    ret = true;
-                else
-                    ret = false;
-            }
-            return ret;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -151,12 +155,13 @@ namespace ViewsApp
                 btnDelDomicilio.Enabled = true;
             }
             else
+            {
                 btnDelDomicilio.Enabled = false;
+            }
         }
 
         private void dgvDomicilios_DataSourceChanged(object sender, EventArgs e)
         {
-            if(!ValidateDGV)
             btnDelDomicilio.Enabled = true;
         }
     }

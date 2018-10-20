@@ -77,7 +77,7 @@ namespace Business
 
         public void EliminarUsuario(int iDUser)
         {
-            throw new NotImplementedException();
+            _usuarioServices.DeleteUser(iDUser);
         }
     }
 }

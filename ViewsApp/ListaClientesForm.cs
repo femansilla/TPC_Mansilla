@@ -15,10 +15,15 @@ namespace ViewsApp
     public partial class ListaClientesForm : Form
     {
         private readonly ClienteController _clienteController = new ClienteController();
+        private List<Cliente> listaClientes = new List<Cliente>();
 
         public ListaClientesForm()
         {
             InitializeComponent();
+            LoadClientes();
+            txtSearch.Text = "Buscar...";
+            listaClientes = dgvClientes.DataSource as List<Cliente>;
+
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -34,24 +39,24 @@ namespace ViewsApp
 
         private void LoadClientes()
         {
-            dgvListaUsr.DataSource = _usuarioController.GetAllUsuarios();
-            dgvListaUsr.Columns["Password"].Visible = false;
-            dgvListaUsr.Columns["CUIT"].Visible = false;
-            dgvListaUsr.Columns["Sex"].Visible = false;
-            dgvListaUsr.Columns["UserTypeCode"].Visible = false;
-            dgvListaUsr.Columns["IDUser"].Visible = false;
+            dgvClientes.DataSource = _clienteController.GetAllClientes();
+            dgvClientes.Columns["email"].Visible = false;
+            dgvClientes.Columns["Sex"].Visible = false;
+            dgvClientes.Columns["ClientType"].Visible = false;
+            dgvClientes.Columns["ID"].Visible = false;
 
-            dgvListaUsr.Columns["Nombre"].DisplayIndex = 0;
-            dgvListaUsr.Columns["Apellido"].DisplayIndex = 1;
-            dgvListaUsr.Columns["SexDescription"].DisplayIndex = 2;
-            dgvListaUsr.Columns["FechaNac"].DisplayIndex = 3;
-            dgvListaUsr.Columns["UserName"].DisplayIndex = 4;
-            dgvListaUsr.Columns["UserType"].DisplayIndex = 5;
+            dgvClientes.Columns["Nombre"].DisplayIndex = 0;
+            dgvClientes.Columns["Apellido"].DisplayIndex = 1;
+            dgvClientes.Columns["CUIT"].DisplayIndex = 2;
+            dgvClientes.Columns["SexDescription"].DisplayIndex = 3;
+            dgvClientes.Columns["FechaNac"].DisplayIndex = 4;
+            dgvClientes.Columns["SexDescription"].DisplayIndex = 5;
+            dgvClientes.Columns["ClientTypeDescripcion"].DisplayIndex = 6;
 
-            dgvListaUsr.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvListaUsr.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvListaUsr.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvListaUsr.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvClientes.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvClientes.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvClientes.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvClientes.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
 
@@ -60,36 +65,45 @@ namespace ViewsApp
 
         }
 
-        private void editProveedor()
+        private void editCliente()
         {
-            Proveedor proveedorSelected = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-            new FichaProveedorForm(proveedorSelected.ID).ShowDialog();
-            LoadProveedoores();
+            Cliente proveedorSelected = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+            new FichaClienteForm(proveedorSelected.ID).ShowDialog();
+            LoadClientes();
         }
 
         private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            editCliente();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            editCliente();
+        }
 
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Cliente clienteSelected = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+            _clienteController.EliminarCliente(clienteSelected.ID);
         }
 
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)
         {
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
+            txtSearch.Text = "";
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtSearch.Text == "")
+                dgvClientes.DataSource = listaClientes;
+            else if (txtSearch.Text != "Buscar...")
+            {
+                List<Cliente> lista;
+                lista = listaClientes.FindAll(m => m.Apellido.ToLower().Contains(txtSearch.Text.ToLower()));
+                dgvClientes.DataSource = lista;
+            }
         }
     }
 }

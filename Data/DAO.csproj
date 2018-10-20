@@ -63,6 +63,9 @@
     <Compile Include="SP_Get_All_Proveedores_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Get_All_ProveedorTypes_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Get_All_Provincias_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
@@ -82,6 +85,9 @@
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Get_Producto_byID_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_ProveedorType_ByID_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Get_Proveedor_ByID_Result.cs">

@@ -25,6 +25,14 @@ namespace Business
             _proveedorServices.DeleteProveedor(id);
         }
 
+        public List<ProveedorType> GetAllTypes()
+        {
+            List<ProveedorType> retList = new List<ProveedorType>();
+            foreach(var type in _proveedorServices.GetAllTypes())
+                retList.Add(new ProveedorType() { Code = type.Code, Descripcion = type.Descripcion });
+            return retList;
+        }
+
         public Proveedor GetProveedor(int id)
         {
             var prd = _proveedorServices.getProveedorByID(id);
@@ -36,6 +44,12 @@ namespace Business
             //    Categoria = prd.Categoria
             }*/;
         }
+
+        public void SaveType(ProveedorType type)
+        {
+            _proveedorServices.SaveType(type);
+        }
+
         public List<Proveedor> GetProveedores()
         {
             var alga = _proveedorServices.GetAllProveedores();
@@ -52,6 +66,11 @@ namespace Business
                 ret.Add(prdRet);
             }
             return ret;
+        }
+
+        public void EliminarType(int code)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Proveedor> GetAllProveedores()

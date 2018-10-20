@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain;
 
 namespace Data
 {
@@ -28,6 +29,16 @@ namespace Data
             throw new NotImplementedException();
         }
 
+        public IList<SP_Get_All_ProveedorTypes_Result> GetAllTypes()
+        {
+            return _data.SP_Get_All_ProveedorTypes().ToList();
+        }
+
+        public void EliminarProveedorType(int id)
+        {
+            _data.SP_Delete_ProveedorType(id);
+        }
+
         public object getProveedorByID(int id)
         {
             //return _data.SP_Get_Proveedor_byID(IdProveedor).FirstOrDefault();
@@ -37,6 +48,18 @@ namespace Data
         public List<SP_Get_All_Proveedores_Result> GetAllProveedores()
         {
             return _data.SP_Get_All_Proveedores().ToList();
+        }
+
+        public void SaveType(ProveedorType type)
+        {
+            if(type.Code != 0)
+            {
+                _data.SP_Update_ProveedorType(type.Code, type.Descripcion);
+            }
+            else
+            {
+                _data.SP_Insert_ProveedorType(type.Descripcion);
+            }
         }
     }
 }

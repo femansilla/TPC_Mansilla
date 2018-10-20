@@ -35,6 +35,12 @@ namespace Business
             //    Categoria = prd.Categoria
             }*/;
         }
+
+        public object GetAllClientes()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Cliente> GetClientes()
         {
             var alga = _clienteServices.GetAllClientes();

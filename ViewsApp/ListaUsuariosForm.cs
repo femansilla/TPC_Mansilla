@@ -87,6 +87,7 @@ namespace ViewsApp
         {
             Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
             _usuarioController.EliminarUsuario(usuarioSelected.IDUser);
+            LoadUsuarios();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

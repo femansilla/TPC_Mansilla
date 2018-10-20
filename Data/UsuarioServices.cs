@@ -30,7 +30,8 @@ namespace Data
         {
             if (user.IDUser == 0 || user.IDUser == null)
             {
-                user.IDUser = int.Parse(_data.SP_Insert_Representative(user.Nombre, user.Apellido, user.SexDescription, user.FechaNac).ToString());
+                var retCode = _data.SP_Insert_Representative(user.Nombre, user.Apellido, user.SexDescription, user.FechaNac).FirstOrDefault();
+                user.IDUser = int.Parse(retCode.ToString());
                 _data.SP_Insert_User(user.IDUser, user.UserTypeCode);
                 foreach (var direc in user.DomicilioUser)
                 {

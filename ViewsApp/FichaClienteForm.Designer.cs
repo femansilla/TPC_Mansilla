@@ -190,9 +190,9 @@
             this.label4.Location = new System.Drawing.Point(11, 474);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 18);
+            this.label4.Size = new System.Drawing.Size(37, 18);
             this.label4.TabIndex = 50;
-            this.label4.Text = "Perfil";
+            this.label4.Text = "Tipo";
             // 
             // cmbPerfilType
             // 

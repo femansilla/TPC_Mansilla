@@ -365,5 +365,50 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Localidad_Result>("SP_Get_Localidad", provCodeParameter);
         }
+    
+        public virtual ObjectResult<SP_Get_All_ProveedorTypes_Result> SP_Get_All_ProveedorTypes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_ProveedorTypes_Result>("SP_Get_All_ProveedorTypes");
+        }
+    
+        public virtual int SP_Update_ProveedorType(Nullable<int> typeCode, string descripcion)
+        {
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("typeCode", typeCode) :
+                new ObjectParameter("typeCode", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_ProveedorType", typeCodeParameter, descripcionParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_ProveedorType_ByID_Result> SP_Get_ProveedorType_ByID(Nullable<int> typeCode)
+        {
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("typeCode", typeCode) :
+                new ObjectParameter("typeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_ProveedorType_ByID_Result>("SP_Get_ProveedorType_ByID", typeCodeParameter);
+        }
+    
+        public virtual int SP_Delete_ProveedorType(Nullable<int> typeCode)
+        {
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("typeCode", typeCode) :
+                new ObjectParameter("typeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_ProveedorType", typeCodeParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Insert_ProveedorType(string descripcion)
+        {
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_ProveedorType", descripcionParameter);
+        }
     }
 }
