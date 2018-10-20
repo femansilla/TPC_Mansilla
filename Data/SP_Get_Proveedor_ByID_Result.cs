@@ -13,12 +13,13 @@ namespace Data
     
     public partial class SP_Get_Proveedor_ByID_Result
     {
-        public int code { get; set; }
+        public int Code { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string CUIT { get; set; }
         public string Sexo { get; set; }
         public System.DateTime FechaNac { get; set; }
+        public string CUIT { get; set; }
+        public Nullable<int> TypeCode { get; set; }
         public string ProveedorType { get; set; }
     }
 }

@@ -12,37 +12,70 @@ namespace Business
     {
         private readonly ProveedorServices _proveedorServices = new ProveedorServices();
 
-        public void AgregarProveedor(Proveedor prov)
+        public List<Proveedor> GetAllProveedores()
         {
-            _proveedorServices.InsertProveedor("");
-        }
-        public void EditarProducto(string descripcion, int id)
-        {
-            _proveedorServices.ActualizarProveedor(descripcion, id);
-        }
-        public void EliminarProducto(int id)
-        {
-            _proveedorServices.DeleteProveedor(id);
-        }
-
-        public List<ProveedorType> GetAllTypes()
-        {
-            List<ProveedorType> retList = new List<ProveedorType>();
-            foreach(var type in _proveedorServices.GetAllTypes())
-                retList.Add(new ProveedorType() { Code = type.Code, Descripcion = type.Descripcion });
+            var listProv = _proveedorServices.GetAllProveedores();
+            List<Proveedor> retList = new List<Proveedor>();
+            foreach (var p in listProv)
+            {
+                retList.Add(new Proveedor()
+                {
+                    ID = p.Code,
+                    Apellido = p.Apellido,
+                    Nombre = p.Nombre,
+                    FechaNac = p.FechaNac,
+                    Sex = (p.Sexo == "M") ? true : false,
+                    SexDescription = (p.Sexo == "M") ? "Masculino" : "Femenino",
+                    CUIT = p.CUIT,
+                    ProveedorTypeCode = (int)p.TypeCode,
+                    ProveedorTypeDescripcion = p.ProveedorType
+                });
+            }
             return retList;
         }
 
         public Proveedor GetProveedor(int id)
         {
-            var prd = _proveedorServices.getProveedorByID(id);
+            var p = _proveedorServices.GetProveedorByID(id);
             return new Proveedor()
-            /*{
-            //    IDProducto = (int)prd.Id,
-            //    Descripcion = prd.Descripcion,
-            //    ProductType = prd.ProductType,
-            //    Categoria = prd.Categoria
-            }*/;
+            {
+                ID = p.Code,
+                Apellido = p.Apellido,
+                Nombre = p.Nombre,
+                FechaNac = p.FechaNac,
+                Sex = (p.Sexo == "M") ? true : false,
+                SexDescription = (p.Sexo == "M") ? "Masculino" : "Femenino",
+                CUIT = p.CUIT,
+                ProveedorTypeCode = (int)p.TypeCode,
+                ProveedorTypeDescripcion = p.ProveedorType
+            };
+        }
+        
+        public void GuardarProveedor(Proveedor prov)
+        {
+            _proveedorServices.SaveProveedor(prov);
+        }
+
+        public void EliminarProveedor(int id)
+        {
+            _proveedorServices.EliminarProveedor(id);
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public void EliminarType(int code)
+        {
+            _proveedorServices.EliminarProveedorType(code);
+        }
+        
+        public List<ProveedorType> GetAllTypes()
+        {
+            List<ProveedorType> retList = new List<ProveedorType>();
+            foreach (var type in _proveedorServices.GetAllTypes())
+                retList.Add(new ProveedorType() { Code = type.Code, Descripcion = type.Descripcion });
+            return retList;
         }
 
         public void SaveType(ProveedorType type)
@@ -50,37 +83,7 @@ namespace Business
             _proveedorServices.SaveType(type);
         }
 
-        public List<Proveedor> GetProveedores()
-        {
-            var alga = _proveedorServices.GetAllProveedores();
-            List<Proveedor> ret = new List<Proveedor>();
-            foreach (var prd in alga)
-            {
-                Proveedor prdRet = new Proveedor()
-                /*{
-                //    IDProducto = (int)prd.Id,
-                //    Descripcion = prd.Descripcion,
-                //    ProductType = prd.ProductType,
-                //    Categoria = prd.Categoria
-                }*/;
-                ret.Add(prdRet);
-            }
-            return ret;
-        }
 
-        public void EliminarType(int code)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Proveedor> GetAllProveedores()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EliminarUsuario(int iD)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

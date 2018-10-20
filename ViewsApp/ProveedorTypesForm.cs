@@ -82,6 +82,7 @@ namespace ViewsApp
             {
                 ProveedorType typeSelected = (ProveedorType)dgvDescripcion.CurrentRow.DataBoundItem;
                 _proveedorController.EliminarType(typeSelected.Code);
+                CargarTypes();
             }
         }
 

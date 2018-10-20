@@ -15,6 +15,9 @@
         <Function Name="SP_Delete_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idProducto" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Delete_Proveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProveedorCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Delete_ProveedorType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="typeCode" Type="int" Mode="In" />
         </Function>
@@ -72,6 +75,13 @@
           <Parameter Name="CategoriaCode" Type="int" Mode="In" />
           <Parameter Name="TypeCode" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Insert_Proveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Sexo" Type="char" Mode="In" />
+          <Parameter Name="FechaNac" Type="date" Mode="In" />
+          <Parameter Name="Cuit" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="SP_Insert_ProveedorType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
         </Function>
@@ -80,6 +90,10 @@
           <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
           <Parameter Name="Sexo" Type="char" Mode="In" />
           <Parameter Name="FechaNac" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_Insert_TipoProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prvCode" Type="int" Mode="In" />
+          <Parameter Name="prvTypeCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Insert_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="repCode" Type="int" Mode="In" />
@@ -100,6 +114,14 @@
           <Parameter Name="UserCode" Type="int" Mode="In" />
           <Parameter Name="DireccionCode" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Update_Proveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="proveedorCode" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Sexo" Type="char" Mode="In" />
+          <Parameter Name="FechaNac" Type="date" Mode="In" />
+          <Parameter Name="Cuit" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="SP_Update_ProveedorType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="typeCode" Type="int" Mode="In" />
           <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
@@ -110,6 +132,10 @@
           <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
           <Parameter Name="Sexo" Type="char" Mode="In" />
           <Parameter Name="FechaNac" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_TipoProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prvCode" Type="int" Mode="In" />
+          <Parameter Name="prvTypeCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Update_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="repCode" Type="int" Mode="In" />
@@ -147,13 +173,9 @@
           </FunctionImport>
           <FunctionImport Name="SP_get_all_userTypes" ReturnType="Collection(DESAModel.SP_get_all_userTypes_Result)" />
           <FunctionImport Name="SP_Get_All_Clientes" ReturnType="Collection(DESAModel.SP_Get_All_Clientes_Result)" />
-          <FunctionImport Name="SP_Get_All_Proveedores" ReturnType="Collection(DESAModel.SP_Get_All_Proveedores_Result)" />
           <FunctionImport Name="SP_Get_All_CategoriasProducts" ReturnType="Collection(DESAModel.SP_Get_All_CategoriasProducts_Result)" />
           <FunctionImport Name="SP_Get_Cliente_ByID" ReturnType="Collection(DESAModel.SP_Get_Cliente_ByID_Result)">
           <Parameter Name="ClientCode" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="SP_Get_Proveedor_ByID" ReturnType="Collection(DESAModel.SP_Get_Proveedor_ByID_Result)">
-          <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_All_Usuarios" ReturnType="Collection(DESAModel.SP_Get_All_Usuarios_Result)" />
           <FunctionImport Name="SP_Insert_Representative" ReturnType="Collection(Int32)">
@@ -237,7 +259,37 @@
           <Parameter Name="typeCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Insert_ProveedorType" ReturnType="Collection(Int32)">
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
+          <Parameter Name="Descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_Proveedor" ReturnType="Collection(Int32)">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido" Mode="In" Type="String" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+            <Parameter Name="Cuit" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_TipoProveedor">
+            <Parameter Name="prvCode" Mode="In" Type="Int32" />
+            <Parameter Name="prvTypeCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Proveedor">
+            <Parameter Name="proveedorCode" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido" Mode="In" Type="String" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+            <Parameter Name="Cuit" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Proveedor">
+          <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_Proveedor_ByID" ReturnType="Collection(DESAModel.SP_Get_Proveedor_ByID_Result)">
+          <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_All_Proveedores" ReturnType="Collection(DESAModel.SP_Get_All_Proveedores_Result)" />
+          <FunctionImport Name="SP_Update_TipoProveedor">
+            <Parameter Name="prvCode" Mode="In" Type="Int32" />
+            <Parameter Name="prvTypeCode" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_Get_All_Productos_Result">
@@ -265,15 +317,6 @@
           <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
           <Property Type="String" Name="ClientType" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="SP_Get_All_Proveedores_Result">
-          <Property Type="Int32" Name="code" Nullable="false" />
-          <Property Type="String" Name="Nombre" Nullable="false" />
-          <Property Type="String" Name="Apellido" Nullable="false" />
-          <Property Type="String" Name="CUIT" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
-          <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
-          <Property Type="String" Name="ProveedorType" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="SP_Get_All_CategoriasProducts_Result">
           <Property Type="Int32" Name="Code" Nullable="false" />
           <Property Type="String" Name="Descripcion" Nullable="false" />
@@ -286,15 +329,6 @@
           <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
           <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
           <Property Type="String" Name="ClientType" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="SP_Get_Proveedor_ByID_Result">
-          <Property Type="Int32" Name="code" Nullable="false" />
-          <Property Type="String" Name="Nombre" Nullable="false" />
-          <Property Type="String" Name="Apellido" Nullable="false" />
-          <Property Type="String" Name="CUIT" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
-          <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
-          <Property Type="String" Name="ProveedorType" Nullable="true" />
         </ComplexType>
         <ComplexType Name="SP_Get_All_Usuarios_Result">
           <Property Type="Int32" Name="UserId" Nullable="false" />
@@ -334,6 +368,26 @@
         <ComplexType Name="SP_Get_ProveedorType_ByID_Result">
           <Property Type="Int32" Name="Code" Nullable="false" />
           <Property Type="String" Name="Descripcion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_Proveedor_ByID_Result">
+          <Property Type="Int32" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CUIT" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="TypeCode" Nullable="true" />
+          <Property Type="String" Name="ProveedorType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_All_Proveedores_Result">
+          <Property Type="Int32" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CUIT" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="TypeCode" Nullable="true" />
+          <Property Type="String" Name="ProveedorType" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -386,19 +440,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Get_All_Proveedores" FunctionName="DESAModel.Store.SP_Get_All_Proveedores">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Proveedores_Result">
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
-                <ScalarProperty Name="ProveedorType" ColumnName="ProveedorType" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_Get_All_CategoriasProducts" FunctionName="DESAModel.Store.SP_Get_All_CategoriasProducts">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_CategoriasProducts_Result">
@@ -417,19 +458,6 @@
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
                 <ScalarProperty Name="ClientType" ColumnName="ClientType" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Get_Proveedor_ByID" FunctionName="DESAModel.Store.SP_Get_Proveedor_ByID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DESAModel.SP_Get_Proveedor_ByID_Result">
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
-                <ScalarProperty Name="ProveedorType" ColumnName="ProveedorType" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -516,6 +544,39 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_Delete_ProveedorType" FunctionName="DESAModel.Store.SP_Delete_ProveedorType" />
           <FunctionImportMapping FunctionImportName="SP_Insert_ProveedorType" FunctionName="DESAModel.Store.SP_Insert_ProveedorType" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_Proveedor" FunctionName="DESAModel.Store.SP_Insert_Proveedor" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_TipoProveedor" FunctionName="DESAModel.Store.SP_Insert_TipoProveedor" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Proveedor" FunctionName="DESAModel.Store.SP_Update_Proveedor" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_Proveedor" FunctionName="DESAModel.Store.SP_Delete_Proveedor" />
+          <FunctionImportMapping FunctionImportName="SP_Get_Proveedor_ByID" FunctionName="DESAModel.Store.SP_Get_Proveedor_ByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_Proveedor_ByID_Result">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="ProveedorType" ColumnName="ProveedorType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_All_Proveedores" FunctionName="DESAModel.Store.SP_Get_All_Proveedores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Proveedores_Result">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="ProveedorType" ColumnName="ProveedorType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Update_TipoProveedor" FunctionName="DESAModel.Store.SP_Update_TipoProveedor" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

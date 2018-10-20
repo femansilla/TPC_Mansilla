@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMProductosProveedorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMProductosProveedorForm.Designer.cs">
+      <DependentUpon>ABMProductosProveedorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogoProductoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoProductoForm.Designer.cs">
+      <DependentUpon>CatalogoProductoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DomicilioForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +174,12 @@
     <Compile Include="VentasForm.Designer.cs">
       <DependentUpon>VentasForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ABMProductosProveedorForm.resx">
+      <DependentUpon>ABMProductosProveedorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoProductoForm.resx">
+      <DependentUpon>CatalogoProductoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DomicilioForm.resx">
       <DependentUpon>DomicilioForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -11,43 +11,40 @@ namespace Data
     {
         private static DESA _data = new DESA();
         
-        public void InsertProveedor(string descripcion)
+        public List<SP_Get_All_Proveedores_Result> GetAllProveedores()
         {
-            //_data.SP_Insert_Proveedor(Descripcion, 1, 2);
-            throw new NotImplementedException();
+            return _data.SP_Get_All_Proveedores().ToList();
         }
 
-        public void ActualizarProveedor(string descripcion, int id)
+        public void SaveProveedor(Proveedor prv)
         {
-            //_data.SP_update_Descripcion_Proveedor(Descripcion, idProveedor);
-            throw new NotImplementedException();
+            if (prv.ID != 0)
+            {
+                _data.SP_Update_Proveedor(prv.ID, prv.Nombre, prv.Apellido, prv.SexDescription, prv.FechaNac, prv.CUIT);
+                _data.SP_Update_TipoProveedor(prv.ID, prv.ProveedorTypeCode);
+
+            }
+            else
+            {
+                var insertCode = _data.SP_Insert_Proveedor(prv.Nombre, prv.Apellido, prv.SexDescription, prv.FechaNac, prv.CUIT).FirstOrDefault();
+                _data.SP_Insert_TipoProveedor(insertCode, prv.ProveedorTypeCode);
+
+            }
         }
 
-        public void DeleteProveedor(int id)
+        public SP_Get_Proveedor_ByID_Result GetProveedorByID(int id)
         {
-            //_data.SP_Delete_Proveedor(id);
-            throw new NotImplementedException();
+            return _data.SP_Get_Proveedor_ByID(id).FirstOrDefault();
+        }
+
+        public void EliminarProveedor(int iD)
+        {
+            _data.SP_Delete_Proveedor(iD);
         }
 
         public IList<SP_Get_All_ProveedorTypes_Result> GetAllTypes()
         {
             return _data.SP_Get_All_ProveedorTypes().ToList();
-        }
-
-        public void EliminarProveedorType(int id)
-        {
-            _data.SP_Delete_ProveedorType(id);
-        }
-
-        public object getProveedorByID(int id)
-        {
-            //return _data.SP_Get_Proveedor_byID(IdProveedor).FirstOrDefault();
-            throw new NotImplementedException();
-        }
-
-        public List<SP_Get_All_Proveedores_Result> GetAllProveedores()
-        {
-            return _data.SP_Get_All_Proveedores().ToList();
         }
 
         public void SaveType(ProveedorType type)
@@ -60,6 +57,11 @@ namespace Data
             {
                 _data.SP_Insert_ProveedorType(type.Descripcion);
             }
+        }
+
+        public void EliminarProveedorType(int id)
+        {
+            _data.SP_Delete_ProveedorType(id);
         }
     }
 }

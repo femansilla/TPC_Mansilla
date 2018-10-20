@@ -30,7 +30,7 @@ namespace ViewsApp
             this.iDUser = iDUser;
             InitializeComponent();
             CargarComboProfileType();
-            CargarContenidoUsuario();
+            CargarDatosUsuario();
         }
 
         private void CargarComboProfileType()
@@ -41,7 +41,8 @@ namespace ViewsApp
             cmbPerfilType.DisplayMember = "Descripcion";
             cmbPerfilType.ValueMember = "Code";
         }
-        private void CargarContenidoUsuario()
+
+        private void CargarDatosUsuario()
         {
             Usuario u = _usuarioController.GetUsuarioById(iDUser);
             txtApellido.Text = u.Apellido;

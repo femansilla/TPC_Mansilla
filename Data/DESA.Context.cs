@@ -104,11 +104,6 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Clientes_Result>("SP_Get_All_Clientes");
         }
     
-        public virtual ObjectResult<SP_Get_All_Proveedores_Result> SP_Get_All_Proveedores()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Proveedores_Result>("SP_Get_All_Proveedores");
-        }
-    
         public virtual ObjectResult<SP_Get_All_CategoriasProducts_Result> SP_Get_All_CategoriasProducts()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_CategoriasProducts_Result>("SP_Get_All_CategoriasProducts");
@@ -121,15 +116,6 @@ namespace Data
                 new ObjectParameter("ClientCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Cliente_ByID_Result>("SP_Get_Cliente_ByID", clientCodeParameter);
-        }
-    
-        public virtual ObjectResult<SP_Get_Proveedor_ByID_Result> SP_Get_Proveedor_ByID(Nullable<int> proveedorCode)
-        {
-            var proveedorCodeParameter = proveedorCode.HasValue ?
-                new ObjectParameter("ProveedorCode", proveedorCode) :
-                new ObjectParameter("ProveedorCode", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Proveedor_ByID_Result>("SP_Get_Proveedor_ByID", proveedorCodeParameter);
         }
     
         public virtual ObjectResult<SP_Get_All_Usuarios_Result> SP_Get_All_Usuarios()
@@ -409,6 +395,109 @@ namespace Data
                 new ObjectParameter("Descripcion", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_ProveedorType", descripcionParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Insert_Proveedor(string nombre, string apellido, string sexo, Nullable<System.DateTime> fechaNac, string cuit)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("Apellido", apellido) :
+                new ObjectParameter("Apellido", typeof(string));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var fechaNacParameter = fechaNac.HasValue ?
+                new ObjectParameter("FechaNac", fechaNac) :
+                new ObjectParameter("FechaNac", typeof(System.DateTime));
+    
+            var cuitParameter = cuit != null ?
+                new ObjectParameter("Cuit", cuit) :
+                new ObjectParameter("Cuit", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Proveedor", nombreParameter, apellidoParameter, sexoParameter, fechaNacParameter, cuitParameter);
+        }
+    
+        public virtual int SP_Insert_TipoProveedor(Nullable<int> prvCode, Nullable<int> prvTypeCode)
+        {
+            var prvCodeParameter = prvCode.HasValue ?
+                new ObjectParameter("prvCode", prvCode) :
+                new ObjectParameter("prvCode", typeof(int));
+    
+            var prvTypeCodeParameter = prvTypeCode.HasValue ?
+                new ObjectParameter("prvTypeCode", prvTypeCode) :
+                new ObjectParameter("prvTypeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_TipoProveedor", prvCodeParameter, prvTypeCodeParameter);
+        }
+    
+        public virtual int SP_Update_Proveedor(Nullable<int> proveedorCode, string nombre, string apellido, string sexo, Nullable<System.DateTime> fechaNac, string cuit)
+        {
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("proveedorCode", proveedorCode) :
+                new ObjectParameter("proveedorCode", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("Apellido", apellido) :
+                new ObjectParameter("Apellido", typeof(string));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var fechaNacParameter = fechaNac.HasValue ?
+                new ObjectParameter("FechaNac", fechaNac) :
+                new ObjectParameter("FechaNac", typeof(System.DateTime));
+    
+            var cuitParameter = cuit != null ?
+                new ObjectParameter("Cuit", cuit) :
+                new ObjectParameter("Cuit", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Proveedor", proveedorCodeParameter, nombreParameter, apellidoParameter, sexoParameter, fechaNacParameter, cuitParameter);
+        }
+    
+        public virtual int SP_Delete_Proveedor(Nullable<int> proveedorCode)
+        {
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("ProveedorCode", proveedorCode) :
+                new ObjectParameter("ProveedorCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Proveedor", proveedorCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Proveedor_ByID_Result> SP_Get_Proveedor_ByID(Nullable<int> proveedorCode)
+        {
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("ProveedorCode", proveedorCode) :
+                new ObjectParameter("ProveedorCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Proveedor_ByID_Result>("SP_Get_Proveedor_ByID", proveedorCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_All_Proveedores_Result> SP_Get_All_Proveedores()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Proveedores_Result>("SP_Get_All_Proveedores");
+        }
+    
+        public virtual int SP_Update_TipoProveedor(Nullable<int> prvCode, Nullable<int> prvTypeCode)
+        {
+            var prvCodeParameter = prvCode.HasValue ?
+                new ObjectParameter("prvCode", prvCode) :
+                new ObjectParameter("prvCode", typeof(int));
+    
+            var prvTypeCodeParameter = prvTypeCode.HasValue ?
+                new ObjectParameter("prvTypeCode", prvTypeCode) :
+                new ObjectParameter("prvTypeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_TipoProveedor", prvCodeParameter, prvTypeCodeParameter);
         }
     }
 }

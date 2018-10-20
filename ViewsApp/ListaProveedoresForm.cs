@@ -21,6 +21,7 @@ namespace ViewsApp
         {
             InitializeComponent();
             txtSearch.Text = "Buscar...";
+            LoadProveedoores();
             listaProveedores = dgvProveedores.DataSource as List<Proveedor>;
         }
 
@@ -42,7 +43,7 @@ namespace ViewsApp
             dgvProveedores.Columns["ID"].Visible = false;
             dgvProveedores.Columns["Sex"].Visible = false;
             dgvProveedores.Columns["ProveedorTypeCode"].Visible = false;
-            dgvProveedores.Columns["email"].Visible = false;
+            //dgvProveedores.Columns["email"].Visible = false;
 
             dgvProveedores.Columns["CUIT"].DisplayIndex = 0;
             dgvProveedores.Columns["Nombre"].DisplayIndex = 1;
@@ -88,7 +89,7 @@ namespace ViewsApp
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Proveedor proveedorSelected = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-            _proveedorController.EliminarUsuario(proveedorSelected.ID);
+            _proveedorController.EliminarProveedor(proveedorSelected.ID);
         }
 
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)
