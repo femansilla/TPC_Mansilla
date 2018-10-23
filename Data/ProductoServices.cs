@@ -39,5 +39,10 @@ namespace Data
         {
             return _data.SP_Get_All_CategoriasProducts().ToList();
         }
+
+        public List<SP_Get_Catalogo_ByProveedor_Result> GetCatalogoByProveedor(int provCode)
+        {
+            return _data.SP_Get_Catalogo_ByProveedor(provCode).ToList();
+        }
     }
 }

@@ -499,5 +499,14 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_TipoProveedor", prvCodeParameter, prvTypeCodeParameter);
         }
+    
+        public virtual ObjectResult<SP_Get_Catalogo_ByProveedor_Result> SP_Get_Catalogo_ByProveedor(Nullable<int> proveedorCode)
+        {
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("ProveedorCode", proveedorCode) :
+                new ObjectParameter("ProveedorCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Catalogo_ByProveedor_Result>("SP_Get_Catalogo_ByProveedor", proveedorCodeParameter);
+        }
     }
 }

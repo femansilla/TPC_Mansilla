@@ -35,6 +35,21 @@ namespace Business
                 Categoria = prd.Categoria
             };
         }
+
+        public List<ProductoDescripcion> GetCatalogoByProveedor(int provCode)
+        {
+            var Catalogo = _productoServices.GetCatalogoByProveedor(provCode);
+            List<ProductoDescripcion> retCatalog = new List<ProductoDescripcion>();
+            foreach (var p in Catalogo)
+            {
+                retCatalog.Add(new ProductoDescripcion() {
+                    Code = p.code,
+                    Descripcion = p.Descripcion
+                });
+            }
+            return retCatalog;
+        }
+
         public List<Producto> GetProductos()
         {
             var alga = _productoServices.GetAllProductos();

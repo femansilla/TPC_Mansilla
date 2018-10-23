@@ -22,4 +22,11 @@ namespace Domain
         public string Imagen { get; set; }
         public Stock StockProduct { get; set; }
     }
+
+    public class ProductoDescripcion
+    {
+        public int Code { get; set; }
+        [DisplayName("Descripcion")]
+        public string Descripcion { get; set; }
+    }
 }

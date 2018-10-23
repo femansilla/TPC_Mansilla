@@ -78,6 +78,9 @@
     <Compile Include="SP_Get_Calle_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Get_Catalogo_ByProveedor_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Get_Cliente_ByID_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>

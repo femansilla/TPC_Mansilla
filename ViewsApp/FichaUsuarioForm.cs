@@ -96,7 +96,7 @@ namespace ViewsApp
                 }
                 dgvDomicilios.DataSource = null;
                 dgvDomicilios.DataSource = dataDGV;
-                //ReLoadDgvDomicilio(dataDGV);
+                dgvDomicilios.Columns["ID"].Visible = false;
             }
             catch (Exception ex)
             {
