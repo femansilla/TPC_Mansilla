@@ -43,7 +43,7 @@
             // 
             // btnGestionUsuarios
             // 
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(48, 38);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(13, 13);
             this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(116, 44);
@@ -54,7 +54,7 @@
             // 
             // btnGestionProductos
             // 
-            this.btnGestionProductos.Location = new System.Drawing.Point(48, 92);
+            this.btnGestionProductos.Location = new System.Drawing.Point(13, 67);
             this.btnGestionProductos.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionProductos.Name = "btnGestionProductos";
             this.btnGestionProductos.Size = new System.Drawing.Size(116, 44);
@@ -65,7 +65,7 @@
             // 
             // btnGestionClientes
             // 
-            this.btnGestionClientes.Location = new System.Drawing.Point(48, 144);
+            this.btnGestionClientes.Location = new System.Drawing.Point(13, 119);
             this.btnGestionClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionClientes.Name = "btnGestionClientes";
             this.btnGestionClientes.Size = new System.Drawing.Size(116, 44);
@@ -76,7 +76,7 @@
             // 
             // btnControlStock
             // 
-            this.btnControlStock.Location = new System.Drawing.Point(48, 248);
+            this.btnControlStock.Location = new System.Drawing.Point(13, 223);
             this.btnControlStock.Margin = new System.Windows.Forms.Padding(4);
             this.btnControlStock.Name = "btnControlStock";
             this.btnControlStock.Size = new System.Drawing.Size(116, 44);
@@ -87,7 +87,7 @@
             // 
             // btnVentas
             // 
-            this.btnVentas.Location = new System.Drawing.Point(48, 378);
+            this.btnVentas.Location = new System.Drawing.Point(13, 395);
             this.btnVentas.Margin = new System.Windows.Forms.Padding(4);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(116, 44);
@@ -98,7 +98,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(452, 378);
+            this.btnExit.Location = new System.Drawing.Point(542, 395);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(116, 44);
@@ -109,7 +109,7 @@
             // 
             // btnGestionProveedores
             // 
-            this.btnGestionProveedores.Location = new System.Drawing.Point(48, 196);
+            this.btnGestionProveedores.Location = new System.Drawing.Point(13, 171);
             this.btnGestionProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionProveedores.Name = "btnGestionProveedores";
             this.btnGestionProveedores.Size = new System.Drawing.Size(116, 44);
@@ -139,7 +139,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(172, 196);
+            this.button1.Location = new System.Drawing.Point(137, 171);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 44);

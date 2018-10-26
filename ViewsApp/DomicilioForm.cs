@@ -56,11 +56,6 @@ namespace ViewsApp
             Hide();
         }
 
-        private void txtDpto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CargarComboProvincias()
         {
             cmbProvincias.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -95,6 +90,11 @@ namespace ViewsApp
             if (list != null)
                 if (list.Contains(new Provincia() { Descripcion = cmbProvincias.Text }))
                     cmbProvincias.DataSource = list.Where(m => m.Descripcion.ToLower().Contains(cmbProvincias.Text.ToLower())).ToList();
+        }
+
+        private void txtDpto_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void cmbProvincias_SelectedValueChanged(object sender, EventArgs e)
