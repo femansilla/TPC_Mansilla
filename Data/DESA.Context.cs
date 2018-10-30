@@ -80,20 +80,6 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto", descripcionParameter, categoriaCodeParameter, typeCodeParameter);
         }
     
-        public virtual ObjectResult<SP_Get_All_Productos_Result> SP_Get_All_Productos()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Productos_Result>("SP_Get_All_Productos");
-        }
-    
-        public virtual ObjectResult<SP_Get_Producto_byID_Result> SP_Get_Producto_byID(Nullable<int> iDPRODUCTO)
-        {
-            var iDPRODUCTOParameter = iDPRODUCTO.HasValue ?
-                new ObjectParameter("IDPRODUCTO", iDPRODUCTO) :
-                new ObjectParameter("IDPRODUCTO", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Producto_byID_Result>("SP_Get_Producto_byID", iDPRODUCTOParameter);
-        }
-    
         public virtual ObjectResult<SP_get_all_userTypes_Result> SP_get_all_userTypes()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_get_all_userTypes_Result>("SP_get_all_userTypes");
@@ -507,6 +493,20 @@ namespace Data
                 new ObjectParameter("ProveedorCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Catalogo_ByProveedor_Result>("SP_Get_Catalogo_ByProveedor", proveedorCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_All_Productos_Result> SP_Get_All_Productos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Productos_Result>("SP_Get_All_Productos");
+        }
+    
+        public virtual ObjectResult<SP_Get_Producto_byID_Result> SP_Get_Producto_byID(Nullable<int> iDPRODUCTO)
+        {
+            var iDPRODUCTOParameter = iDPRODUCTO.HasValue ?
+                new ObjectParameter("IDPRODUCTO", iDPRODUCTO) :
+                new ObjectParameter("IDPRODUCTO", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Producto_byID_Result>("SP_Get_Producto_byID", iDPRODUCTOParameter);
         }
     }
 }
