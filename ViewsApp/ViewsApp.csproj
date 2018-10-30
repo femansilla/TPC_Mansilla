@@ -137,6 +137,12 @@
     <Compile Include="OperacionForm.Designer.cs">
       <DependentUpon>OperacionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductoCompraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductoCompraForm.Designer.cs">
+      <DependentUpon>ProductoCompraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,11 +187,11 @@
     <Compile Include="ProveedorTypesForm.Designer.cs">
       <DependentUpon>ProveedorTypesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockForm.cs">
+    <Compile Include="ListaComprasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockForm.Designer.cs">
-      <DependentUpon>StockForm.cs</DependentUpon>
+    <Compile Include="ListaComprasForm.Designer.cs">
+      <DependentUpon>ListaComprasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ValidarSalidaForm.cs">
       <SubType>Form</SubType>
@@ -232,6 +238,9 @@
     <EmbeddedResource Include="OperacionForm.resx">
       <DependentUpon>OperacionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductoCompraForm.resx">
+      <DependentUpon>ProductoCompraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductoForm.resx">
       <DependentUpon>ProductoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,8 +272,8 @@
     <EmbeddedResource Include="ProveedorTypesForm.resx">
       <DependentUpon>ProveedorTypesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockForm.resx">
-      <DependentUpon>StockForm.cs</DependentUpon>
+    <EmbeddedResource Include="ListaComprasForm.resx">
+      <DependentUpon>ListaComprasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ValidarSalidaForm.resx">
       <DependentUpon>ValidarSalidaForm.cs</DependentUpon>

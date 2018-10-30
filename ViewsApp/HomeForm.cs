@@ -43,7 +43,7 @@ namespace ViewsApp
 
         private void btnControlStock_Click(object sender, EventArgs e)
         {
-            new StockForm().Show();
+            new ListaComprasForm().Show();
             this.Dispose(false);
         }
 

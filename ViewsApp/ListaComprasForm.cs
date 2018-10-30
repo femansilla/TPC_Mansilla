@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ViewsApp
 {
-    public partial class StockForm : Form
+    public partial class ListaComprasForm : Form
     {
-        public StockForm()
+        public ListaComprasForm()
         {
             InitializeComponent();
         }
@@ -21,6 +21,11 @@ namespace ViewsApp
         {
             new HomeForm().Show();
             this.Hide();
+        }
+
+        private void CompraForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

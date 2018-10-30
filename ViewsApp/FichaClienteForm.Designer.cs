@@ -41,7 +41,7 @@
             this.rdFemale = new System.Windows.Forms.RadioButton();
             this.rdMale = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbPerfilType = new System.Windows.Forms.ComboBox();
+            this.cmbPriceList = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -87,7 +87,7 @@
             // 
             this.dgvDomicilios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDomicilios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvDomicilios.Location = new System.Drawing.Point(24, 217);
+            this.dgvDomicilios.Location = new System.Drawing.Point(14, 217);
             this.dgvDomicilios.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.dgvDomicilios.MultiSelect = false;
             this.dgvDomicilios.Name = "dgvDomicilios";
@@ -98,7 +98,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(441, 521);
+            this.btnAceptar.Location = new System.Drawing.Point(443, 509);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(92, 48);
@@ -109,7 +109,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(339, 521);
+            this.btnCancelar.Location = new System.Drawing.Point(341, 509);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(92, 48);
@@ -190,19 +190,19 @@
             this.label4.Location = new System.Drawing.Point(11, 474);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 18);
+            this.label4.Size = new System.Drawing.Size(112, 18);
             this.label4.TabIndex = 50;
-            this.label4.Text = "Tipo";
+            this.label4.Text = "Lista de precios";
             // 
-            // cmbPerfilType
+            // cmbPriceList
             // 
-            this.cmbPerfilType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPerfilType.FormattingEnabled = true;
-            this.cmbPerfilType.Location = new System.Drawing.Point(155, 471);
-            this.cmbPerfilType.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.cmbPerfilType.Name = "cmbPerfilType";
-            this.cmbPerfilType.Size = new System.Drawing.Size(378, 26);
-            this.cmbPerfilType.TabIndex = 49;
+            this.cmbPriceList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPriceList.FormattingEnabled = true;
+            this.cmbPriceList.Location = new System.Drawing.Point(155, 471);
+            this.cmbPriceList.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.cmbPriceList.Name = "cmbPriceList";
+            this.cmbPriceList.Size = new System.Drawing.Size(378, 26);
+            this.cmbPriceList.TabIndex = 49;
             // 
             // label3
             // 
@@ -259,7 +259,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 576);
+            this.ClientSize = new System.Drawing.Size(546, 566);
             this.Controls.Add(this.btnDelDomicilio);
             this.Controls.Add(this.btnAddDomicilio);
             this.Controls.Add(this.lblDomicilio);
@@ -273,7 +273,7 @@
             this.Controls.Add(this.rdFemale);
             this.Controls.Add(this.rdMale);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbPerfilType);
+            this.Controls.Add(this.cmbPriceList);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.label2);
@@ -304,7 +304,7 @@
         private System.Windows.Forms.RadioButton rdFemale;
         private System.Windows.Forms.RadioButton rdMale;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbPerfilType;
+        private System.Windows.Forms.ComboBox cmbPriceList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label2;
