@@ -91,7 +91,7 @@
             this.lblType.AutoSize = true;
             this.lblType.Location = new System.Drawing.Point(10, 21);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(65, 20);
+            this.lblType.Size = new System.Drawing.Size(77, 18);
             this.lblType.TabIndex = 61;
             this.lblType.Text = "Proveedor";
             this.lblType.Click += new System.EventHandler(this.label1_Click);
@@ -102,7 +102,7 @@
             this.comboBox1.Location = new System.Drawing.Point(89, 18);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(332, 28);
+            this.comboBox1.Size = new System.Drawing.Size(332, 26);
             this.comboBox1.TabIndex = 62;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -111,7 +111,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(8, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
+            this.label2.Size = new System.Drawing.Size(69, 18);
             this.label2.TabIndex = 63;
             this.label2.Text = "Producto";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -137,6 +137,7 @@
             this.btnAddDomicilio.TabIndex = 65;
             this.btnAddDomicilio.Text = "Agregar";
             this.btnAddDomicilio.UseVisualStyleBackColor = true;
+            this.btnAddDomicilio.Click += new System.EventHandler(this.btnAddDomicilio_Click);
             // 
             // dgvDomicilios
             // 
@@ -175,7 +176,7 @@
             // 
             // OperacionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 359);
             this.Controls.Add(this.button1);
@@ -190,7 +191,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dtFechaNac);
             this.Controls.Add(this.label3);
-            this.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "OperacionForm";
             this.Text = "OperacionForm";

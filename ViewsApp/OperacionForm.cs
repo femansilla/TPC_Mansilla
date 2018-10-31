@@ -41,5 +41,10 @@ namespace ViewsApp
         {
 
         }
+
+        private void btnAddDomicilio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
