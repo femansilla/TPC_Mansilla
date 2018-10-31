@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ClienteServices.cs" />
     <Compile Include="DomicilioServices.cs" />
+    <Compile Include="OperacionesServices.cs" />
     <Compile Include="SP_Get_All_CategoriasProducts_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>

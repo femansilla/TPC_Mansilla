@@ -16,7 +16,7 @@ namespace ViewsApp
     {
         private int iDUser;
         private DomicilioForm formDomi;
-        private readonly UsuarioController _usuarioController = new UsuarioController();
+        private readonly proveedorController _usuarioController = new proveedorController();
 
         public FichaUsuarioForm()
         {

@@ -14,7 +14,7 @@ namespace ViewsApp
 {
     public partial class ListaUsuariosForm : Form
     {
-        private readonly UsuarioController _usuarioController = new UsuarioController();
+        private readonly proveedorController _usuarioController = new proveedorController();
         private List<Usuario> listaUsuarios = new List<Usuario>();
 
 

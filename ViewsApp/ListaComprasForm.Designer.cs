@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.btnVolver = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCompras = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -48,13 +47,13 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // dataGridView1
+            // dgvCompras
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 45);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1043, 382);
-            this.dataGridView1.TabIndex = 14;
+            this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompras.Location = new System.Drawing.Point(11, 45);
+            this.dgvCompras.Name = "dgvCompras";
+            this.dgvCompras.Size = new System.Drawing.Size(1043, 382);
+            this.dgvCompras.TabIndex = 14;
             // 
             // txtSearch
             // 
@@ -66,23 +65,14 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(183, 434);
+            this.btnEliminar.Location = new System.Drawing.Point(100, 434);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(78, 31);
             this.btnEliminar.TabIndex = 18;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(100, 434);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 31);
-            this.btnEditar.TabIndex = 17;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -93,6 +83,7 @@
             this.btnAgregar.TabIndex = 16;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // ListaComprasForm
             // 
@@ -101,10 +92,9 @@
             this.ClientSize = new System.Drawing.Size(1062, 472);
             this.ControlBox = false;
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCompras);
             this.Controls.Add(this.btnVolver);
             this.Font = new System.Drawing.Font("Arial", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -112,7 +102,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockForm";
             this.Load += new System.EventHandler(this.CompraForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,10 +111,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCompras;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
     }
 }
