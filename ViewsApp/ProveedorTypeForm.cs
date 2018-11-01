@@ -11,18 +11,18 @@ using Domain;
 
 namespace ViewsApp
 {
-    public partial class ProveedorTypeForm : Form
+    public partial class productTypeForm : Form
     {
         private int code;
         public ProveedorType retType = new ProveedorType();
-        public ProveedorTypeForm()
+        public productTypeForm()
         {
             InitializeComponent();
             CancelButton = button2;
             this.code = 0;
         }
 
-        public ProveedorTypeForm(int code)
+        public productTypeForm(int code)
         {
             InitializeComponent();
             CancelButton = button2;

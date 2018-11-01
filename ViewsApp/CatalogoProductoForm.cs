@@ -15,7 +15,7 @@ namespace ViewsApp
     public partial class CatalogoProductoForm : Form
     {
         private int ProvCode;
-        private readonly ProductoController _productoController = new ProductoController();
+        private readonly ProveedorController _productoController = new ProveedorController();
 
 
         public CatalogoProductoForm()

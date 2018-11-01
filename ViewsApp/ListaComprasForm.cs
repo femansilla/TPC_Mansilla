@@ -15,8 +15,8 @@ namespace ViewsApp
     public partial class ListaComprasForm : Form
     {
         private readonly proveedorController _proveedorController = new proveedorController();
-        private readonly ProductoController _productoController = new ProductoController();
-        private readonly ProductoController _operacionesController = new ProductoController();
+        private readonly ProveedorController _productoController = new ProveedorController();
+        private readonly ProveedorController _operacionesController = new ProveedorController();
         private List<Compra> listaCompras = new List<Compra>();
 
         public ListaComprasForm()

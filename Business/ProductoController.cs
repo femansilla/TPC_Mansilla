@@ -49,7 +49,6 @@ namespace Business
             }
             return retCatalog;
         }
-
         public List<Producto> GetProductos()
         {
             var alga = _productoServices.GetAllProductos();
@@ -80,6 +79,24 @@ namespace Business
                             });
             }
             return retList;
+        }
+
+        public List<ProveedorType> GetAllTypes()
+        {
+            List<ProveedorType> retList = new List<ProveedorType>();
+            foreach (var type in _productoServices.GetAllTypes())
+                retList.Add(new ProveedorType() { Code = type.Code, Descripcion = type.Descripcion });
+            return retList;
+        }
+
+        public void SaveType(ProveedorType proveedorType)
+        {
+            _productoServices.SaveType(type);
+        }
+
+        public void EliminarType(int code)
+        {
+            _productoServices.EliminarProveedorType(code);
         }
     }
 }
