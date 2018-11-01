@@ -7,42 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain;
+using Business;
 
 namespace ViewsApp
 {
     public partial class OperacionForm : Form
     {
+        private OperacionesController _operacionController = new OperacionesController();
+        private proveedorController _proveedorController = new proveedorController();
+
         public OperacionForm()
         {
             InitializeComponent();
         }
 
-        private void OperacionForm_Load(object sender, EventArgs e)
+        private void CargarCombo()
+        {
+            cmbByType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbByType.DataSource = _proveedorController.GetAllProveedores();
+            cmbByType.DisplayMember = "Descripcion";
+            cmbByType.ValueMember = "Code";
+        }
+
+        private void btnAcept_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void btnAddProducto_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnDelProducto_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvDomicilios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnAddDomicilio_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
 
         }

@@ -8,7 +8,7 @@ using Data;
 
 namespace Business
 {
-    public class proveedorController
+    public class UsuarioController
     {
         private UsuarioServices _usuarioServices = new UsuarioServices();
         private DomicilioServices _direccionServices = new DomicilioServices();

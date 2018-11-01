@@ -14,7 +14,7 @@ namespace ViewsApp
 {
     public partial class FichaProductoForm : Form
     {
-        private ProveedorController _productoController = new ProveedorController();
+        private ProductoController _productoController = new ProductoController();
 
         public FichaProductoForm()
         {

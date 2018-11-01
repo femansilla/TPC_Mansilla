@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblType = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbByType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDelDomicilio = new System.Windows.Forms.Button();
-            this.btnAddDomicilio = new System.Windows.Forms.Button();
-            this.dgvDomicilios = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilios)).BeginInit();
+            this.btnDelProducto = new System.Windows.Forms.Button();
+            this.btnAddProducto = new System.Windows.Forms.Button();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnAcept = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dtFechaNac
+            // dtFecha
             // 
-            this.dtFechaNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaNac.Location = new System.Drawing.Point(609, 16);
-            this.dtFechaNac.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
-            this.dtFechaNac.Name = "dtFechaNac";
-            this.dtFechaNac.Size = new System.Drawing.Size(146, 24);
-            this.dtFechaNac.TabIndex = 58;
+            this.dtFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFecha.Location = new System.Drawing.Point(609, 16);
+            this.dtFecha.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(146, 24);
+            this.dtFecha.TabIndex = 58;
             // 
             // label3
             // 
@@ -94,17 +94,15 @@
             this.lblType.Size = new System.Drawing.Size(77, 18);
             this.lblType.TabIndex = 61;
             this.lblType.Text = "Proveedor";
-            this.lblType.Click += new System.EventHandler(this.label1_Click);
             // 
-            // comboBox1
+            // cmbByType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(89, 18);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(332, 26);
-            this.comboBox1.TabIndex = 62;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbByType.FormattingEnabled = true;
+            this.cmbByType.Location = new System.Drawing.Point(89, 18);
+            this.cmbByType.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.cmbByType.Name = "cmbByType";
+            this.cmbByType.Size = new System.Drawing.Size(332, 26);
+            this.cmbByType.TabIndex = 62;
             // 
             // label2
             // 
@@ -114,89 +112,89 @@
             this.label2.Size = new System.Drawing.Size(69, 18);
             this.label2.TabIndex = 63;
             this.label2.Text = "Producto";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // btnDelDomicilio
+            // btnDelProducto
             // 
-            this.btnDelDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelDomicilio.Location = new System.Drawing.Point(98, 268);
-            this.btnDelDomicilio.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.btnDelDomicilio.Name = "btnDelDomicilio";
-            this.btnDelDomicilio.Size = new System.Drawing.Size(72, 39);
-            this.btnDelDomicilio.TabIndex = 66;
-            this.btnDelDomicilio.Text = "Eliminar";
-            this.btnDelDomicilio.UseVisualStyleBackColor = true;
+            this.btnDelProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelProducto.Location = new System.Drawing.Point(98, 268);
+            this.btnDelProducto.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnDelProducto.Name = "btnDelProducto";
+            this.btnDelProducto.Size = new System.Drawing.Size(72, 39);
+            this.btnDelProducto.TabIndex = 66;
+            this.btnDelProducto.Text = "Eliminar";
+            this.btnDelProducto.UseVisualStyleBackColor = true;
+            this.btnDelProducto.Click += new System.EventHandler(this.btnDelProducto_Click);
             // 
-            // btnAddDomicilio
+            // btnAddProducto
             // 
-            this.btnAddDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDomicilio.Location = new System.Drawing.Point(14, 268);
-            this.btnAddDomicilio.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.btnAddDomicilio.Name = "btnAddDomicilio";
-            this.btnAddDomicilio.Size = new System.Drawing.Size(74, 39);
-            this.btnAddDomicilio.TabIndex = 65;
-            this.btnAddDomicilio.Text = "Agregar";
-            this.btnAddDomicilio.UseVisualStyleBackColor = true;
-            this.btnAddDomicilio.Click += new System.EventHandler(this.btnAddDomicilio_Click);
+            this.btnAddProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProducto.Location = new System.Drawing.Point(14, 268);
+            this.btnAddProducto.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnAddProducto.Name = "btnAddProducto";
+            this.btnAddProducto.Size = new System.Drawing.Size(74, 39);
+            this.btnAddProducto.TabIndex = 65;
+            this.btnAddProducto.Text = "Agregar";
+            this.btnAddProducto.UseVisualStyleBackColor = true;
+            this.btnAddProducto.Click += new System.EventHandler(this.btnAddProducto_Click);
             // 
-            // dgvDomicilios
+            // dgvProductos
             // 
-            this.dgvDomicilios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDomicilios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvDomicilios.Location = new System.Drawing.Point(12, 79);
-            this.dgvDomicilios.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.dgvDomicilios.MultiSelect = false;
-            this.dgvDomicilios.Name = "dgvDomicilios";
-            this.dgvDomicilios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDomicilios.Size = new System.Drawing.Size(743, 178);
-            this.dgvDomicilios.TabIndex = 64;
-            this.dgvDomicilios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilios_CellContentClick);
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvProductos.Location = new System.Drawing.Point(12, 79);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dgvProductos.MultiSelect = false;
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductos.Size = new System.Drawing.Size(743, 178);
+            this.dgvProductos.TabIndex = 64;
             // 
-            // button1
+            // btnAcept
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(674, 312);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 34);
-            this.button1.TabIndex = 68;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAcept.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcept.Location = new System.Drawing.Point(674, 312);
+            this.btnAcept.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAcept.Name = "btnAcept";
+            this.btnAcept.Size = new System.Drawing.Size(81, 34);
+            this.btnAcept.TabIndex = 68;
+            this.btnAcept.Text = "Aceptar";
+            this.btnAcept.UseVisualStyleBackColor = true;
+            this.btnAcept.Click += new System.EventHandler(this.btnAcept_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(585, 312);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 34);
-            this.button2.TabIndex = 67;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(585, 312);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(81, 34);
+            this.btnCancel.TabIndex = 67;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // OperacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 359);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnDelDomicilio);
-            this.Controls.Add(this.btnAddDomicilio);
-            this.Controls.Add(this.dgvDomicilios);
+            this.Controls.Add(this.btnAcept);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnDelProducto);
+            this.Controls.Add(this.btnAddProducto);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbByType);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.dtFechaNac);
+            this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "OperacionForm";
             this.Text = "OperacionForm";
-            this.Load += new System.EventHandler(this.OperacionForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,17 +202,17 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dtFechaNac;
+        private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbByType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDelDomicilio;
-        private System.Windows.Forms.Button btnAddDomicilio;
-        private System.Windows.Forms.DataGridView dgvDomicilios;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDelProducto;
+        private System.Windows.Forms.Button btnAddProducto;
+        private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.Button btnAcept;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
