@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain;
 
 namespace Data
 {
@@ -43,6 +44,27 @@ namespace Data
         public List<SP_Get_Catalogo_ByProveedor_Result> GetCatalogoByProveedor(int provCode)
         {
             return _data.SP_Get_Catalogo_ByProveedor(provCode).ToList();
+        }
+
+        public List<ProveedorType> GetAllTypes()
+        {
+            List<ProveedorType> retlist = new List<ProveedorType>();
+            foreach (var i in _data.SP_Get_All_ProductsTypes().ToList())
+                retlist.Add(new ProveedorType() { Code = i.Code, Descripcion = i.Descripcion });
+            return retlist;
+        }
+
+        public void SaveType(ProveedorType type)
+        {
+            if (type.Code != 0)
+                _data.SP_Update_ProductType(type.Code, type.Descripcion);
+            else
+                _data.SP_Insert_ProductType(type.Descripcion);
+        }
+
+        public void EliminarProductType(int code)
+        {
+            _data.SP_Delete_ProductType(code);
         }
     }
 }

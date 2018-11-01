@@ -15,7 +15,7 @@ namespace ViewsApp
     public partial class OperacionForm : Form
     {
         private OperacionesController _operacionController = new OperacionesController();
-        private proveedorController _proveedorController = new proveedorController();
+        private ProveedorController _proveedorController = new ProveedorController();
 
         public OperacionForm()
         {

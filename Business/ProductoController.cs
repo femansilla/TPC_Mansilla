@@ -89,14 +89,14 @@ namespace Business
             return retList;
         }
 
-        public void SaveType(ProveedorType proveedorType)
+        public void SaveType(ProveedorType type)
         {
             _productoServices.SaveType(type);
         }
 
         public void EliminarType(int code)
         {
-            _productoServices.EliminarProveedorType(code);
+            _productoServices.EliminarProductType(code);
         }
     }
 }

@@ -508,5 +508,50 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Producto_byID_Result>("SP_Get_Producto_byID", iDPRODUCTOParameter);
         }
+    
+        public virtual int SP_Delete_ProductType(Nullable<int> typeCode)
+        {
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("typeCode", typeCode) :
+                new ObjectParameter("typeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_ProductType", typeCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_All_ProductsTypes_Result> SP_Get_All_ProductsTypes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_ProductsTypes_Result>("SP_Get_All_ProductsTypes");
+        }
+    
+        public virtual ObjectResult<SP_Get_ProductType_Result> SP_Get_ProductType(Nullable<int> typeCode)
+        {
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("typeCode", typeCode) :
+                new ObjectParameter("typeCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_ProductType_Result>("SP_Get_ProductType", typeCodeParameter);
+        }
+    
+        public virtual int SP_Insert_ProductType(string descripcion)
+        {
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_ProductType", descripcionParameter);
+        }
+    
+        public virtual int SP_Update_ProductType(Nullable<int> typeCode, string descripcion)
+        {
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("typeCode", typeCode) :
+                new ObjectParameter("typeCode", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_ProductType", typeCodeParameter, descripcionParameter);
+        }
     }
 }
