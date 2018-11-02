@@ -61,7 +61,21 @@ namespace Business
             _proveedorServices.EliminarProveedor(id);
         }
 
-        
+        public List<ProveedorVM> GetAllProveedoresView()
+        {
+            var listProv = _proveedorServices.GetAllProveedores();
+            List<ProveedorVM> retList = new List<ProveedorVM>();
+            foreach (var p in listProv)
+            {
+                retList.Add(new ProveedorVM()
+                {
+                    Code = p.Code,
+                    Descripcion = p.CUIT + " | " +p.Apellido + ", " + p.Nombre
+                });
+            }
+            return retList;
+        }
+
         /// <summary>
         /// 
         /// </summary>

@@ -64,7 +64,7 @@ namespace ViewsApp
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             OperacionForm opCompra = new OperacionForm();
-            ShowDialog(opCompra);
+            opCompra.Show();
 
         }
 

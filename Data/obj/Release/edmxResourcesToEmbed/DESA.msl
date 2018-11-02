@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DESAModelStoreContainer" CdmEntityContainer="DESA">
+    <FunctionImportMapping FunctionImportName="SP_validateUser" FunctionName="DESAModel.Store.SP_validateUser" />
+    <FunctionImportMapping FunctionImportName="SP_Delete_Producto" FunctionName="DESAModel.Store.SP_Delete_Producto" />
+    <FunctionImportMapping FunctionImportName="SP_update_Descripcion_Producto" FunctionName="DESAModel.Store.SP_update_Descripcion_Producto" />
+    <FunctionImportMapping FunctionImportName="SP_Insert_Producto" FunctionName="DESAModel.Store.SP_Insert_Producto" />
+    <FunctionImportMapping FunctionImportName="SP_get_all_userTypes" FunctionName="DESAModel.Store.sp_get_all_userTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_get_all_userTypes_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_All_Clientes" FunctionName="DESAModel.Store.SP_Get_All_Clientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Clientes_Result">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_All_CategoriasProducts" FunctionName="DESAModel.Store.SP_Get_All_CategoriasProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_CategoriasProducts_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_Cliente_ByID" FunctionName="DESAModel.Store.SP_Get_Cliente_ByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_Cliente_ByID_Result">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_All_Usuarios" FunctionName="DESAModel.Store.SP_Get_All_Usuarios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Usuarios_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Insert_Representative" FunctionName="DESAModel.Store.SP_Insert_Representative" />
+    <FunctionImportMapping FunctionImportName="SP_Insert_Direccion" FunctionName="DESAModel.Store.SP_Insert_Direccion" />
+    <FunctionImportMapping FunctionImportName="SP_Insert_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Insert_Direccion_Usuario" />
+    <FunctionImportMapping FunctionImportName="SP_Insert_User" FunctionName="DESAModel.Store.SP_Insert_User" />
+    <FunctionImportMapping FunctionImportName="SP_Delete_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Delete_Direccion_Usuario" />
+    <FunctionImportMapping FunctionImportName="SP_Delete_Representative" FunctionName="DESAModel.Store.SP_Delete_Representative" />
+    <FunctionImportMapping FunctionImportName="SP_Delete_User" FunctionName="DESAModel.Store.SP_Delete_User" />
+    <FunctionImportMapping FunctionImportName="SP_Update_Representative" FunctionName="DESAModel.Store.SP_Update_Representative" />
+    <FunctionImportMapping FunctionImportName="SP_Update_User" FunctionName="DESAModel.Store.SP_Update_User" />
+    <FunctionImportMapping FunctionImportName="SP_Delete_Direccion" FunctionName="DESAModel.Store.SP_Delete_Direccion" />
+    <FunctionImportMapping FunctionImportName="SP_Update_Direccion" FunctionName="DESAModel.Store.SP_Update_Direccion" />
+    <FunctionImportMapping FunctionImportName="SP_Get_Usuario_byID" FunctionName="DESAModel.Store.SP_Get_Usuario_byID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_Usuario_byID_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="UserTypeCode" ColumnName="UserTypeCode" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_All_Provincias" FunctionName="DESAModel.Store.SP_Get_All_Provincias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Provincias_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Update_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Update_Direccion_Usuario" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DESAModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="SP_Get_Calle" FunctionName="DESAModel.Store.SP_Get_Calle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_Calle_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_Localidad" FunctionName="DESAModel.Store.SP_Get_Localidad">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_Localidad_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_All_ProveedorTypes" FunctionName="DESAModel.Store.SP_Get_All_ProveedorTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_ProveedorTypes_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Update_ProveedorType" FunctionName="DESAModel.Store.SP_Update_ProveedorType" />
+    <FunctionImportMapping FunctionImportName="SP_Get_ProveedorType_ByID" FunctionName="DESAModel.Store.SP_Get_ProveedorType_ByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_ProveedorType_ByID_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Delete_ProveedorType" FunctionName="DESAModel.Store.SP_Delete_ProveedorType" />
+    <FunctionImportMapping FunctionImportName="SP_Insert_ProveedorType" FunctionName="DESAModel.Store.SP_Insert_ProveedorType" />
+    <FunctionImportMapping FunctionImportName="SP_Insert_Proveedor" FunctionName="DESAModel.Store.SP_Insert_Proveedor" />
+    <FunctionImportMapping FunctionImportName="SP_Insert_TipoProveedor" FunctionName="DESAModel.Store.SP_Insert_TipoProveedor" />
+    <FunctionImportMapping FunctionImportName="SP_Update_Proveedor" FunctionName="DESAModel.Store.SP_Update_Proveedor" />
+    <FunctionImportMapping FunctionImportName="SP_Delete_Proveedor" FunctionName="DESAModel.Store.SP_Delete_Proveedor" />
+    <FunctionImportMapping FunctionImportName="SP_Get_Proveedor_ByID" FunctionName="DESAModel.Store.SP_Get_Proveedor_ByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_Proveedor_ByID_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+          <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+          <ScalarProperty Name="ProveedorType" ColumnName="ProveedorType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_All_Proveedores" FunctionName="DESAModel.Store.SP_Get_All_Proveedores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Proveedores_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+          <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+          <ScalarProperty Name="ProveedorType" ColumnName="ProveedorType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Update_TipoProveedor" FunctionName="DESAModel.Store.SP_Update_TipoProveedor" />
+    <FunctionImportMapping FunctionImportName="SP_Get_Catalogo_ByProveedor" FunctionName="DESAModel.Store.SP_Get_Catalogo_ByProveedor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_Catalogo_ByProveedor_Result">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_All_Productos" FunctionName="DESAModel.Store.SP_Get_All_Productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Productos_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_Producto_byID" FunctionName="DESAModel.Store.SP_Get_Producto_byID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_Producto_byID_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Delete_ProductType" FunctionName="DESAModel.Store.SP_Delete_ProductType" />
+    <FunctionImportMapping FunctionImportName="SP_Get_All_ProductsTypes" FunctionName="DESAModel.Store.SP_Get_All_ProductsTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_ProductsTypes_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_ProductType" FunctionName="DESAModel.Store.SP_Get_ProductType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESAModel.SP_Get_ProductType_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Insert_ProductType" FunctionName="DESAModel.Store.SP_Insert_ProductType" />
+    <FunctionImportMapping FunctionImportName="SP_Update_ProductType" FunctionName="DESAModel.Store.SP_Update_ProductType" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,14 @@
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\Data.dll.config
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\Data.dll
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\Data.pdb
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\Domain.dll
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\EntityFramework.dll
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\Domain.pdb
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\EntityFramework.xml
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\obj\Release\DAO.csprojAssemblyReference.cache
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\obj\Release\DAO.csproj.CoreCompileInputs.cache
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\obj\Release\DAO.csproj.CopyComplete
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\obj\Release\Data.dll
+C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Data\obj\Release\Data.pdb

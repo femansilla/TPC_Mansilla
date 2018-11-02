@@ -14,7 +14,7 @@ namespace ViewsApp
 {
     public partial class ListaProductosForm : Form
     {
-        private readonly ProveedorController _productoController = new ProveedorController();
+        private readonly ProductoController _productoController = new ProductoController();
         public ListaProductosForm()
         {
             InitializeComponent();

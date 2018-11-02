@@ -173,6 +173,12 @@
     <Compile Include="FichaProductoForm.Designer.cs">
       <DependentUpon>FichaProductoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductoOperacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductoOperacionForm.Designer.cs">
+      <DependentUpon>ProductoOperacionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FichaProductoForm.resx">
       <DependentUpon>FichaProductoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductoOperacionForm.resx">
+      <DependentUpon>ProductoOperacionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductTypeForm.resx">
       <DependentUpon>ProductTypeForm.cs</DependentUpon>

@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DESAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DESA" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_validateUser" ReturnType="Collection(String)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Delete_Producto">
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_update_Descripcion_Producto">
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Insert_Producto">
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="CategoriaCode" Mode="In" Type="Int32" />
+      <Parameter Name="TypeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_get_all_userTypes" ReturnType="Collection(DESAModel.SP_get_all_userTypes_Result)" />
+    <FunctionImport Name="SP_Get_All_Clientes" ReturnType="Collection(DESAModel.SP_Get_All_Clientes_Result)" />
+    <FunctionImport Name="SP_Get_All_CategoriasProducts" ReturnType="Collection(DESAModel.SP_Get_All_CategoriasProducts_Result)" />
+    <FunctionImport Name="SP_Get_Cliente_ByID" ReturnType="Collection(DESAModel.SP_Get_Cliente_ByID_Result)">
+      <Parameter Name="ClientCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_All_Usuarios" ReturnType="Collection(DESAModel.SP_Get_All_Usuarios_Result)" />
+    <FunctionImport Name="SP_Insert_Representative" ReturnType="Collection(Int32)">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Insert_Direccion" ReturnType="Collection(Int32)">
+      <Parameter Name="Prov" Mode="In" Type="String" />
+      <Parameter Name="Localidad" Mode="In" Type="String" />
+      <Parameter Name="Calle" Mode="In" Type="String" />
+      <Parameter Name="CalleAltura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Insert_Direccion_Usuario">
+      <Parameter Name="UserCode" Mode="In" Type="Int32" />
+      <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Insert_User">
+      <Parameter Name="repCode" Mode="In" Type="Int32" />
+      <Parameter Name="userTypeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Delete_Direccion_Usuario">
+      <Parameter Name="UserCode" Mode="In" Type="Int32" />
+      <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Delete_Representative">
+      <Parameter Name="userCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Delete_User">
+      <Parameter Name="repCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Update_Representative">
+      <Parameter Name="userCode" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Update_User">
+      <Parameter Name="repCode" Mode="In" Type="Int32" />
+      <Parameter Name="userTypeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Delete_Direccion">
+      <Parameter Name="Code" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Update_Direccion">
+      <Parameter Name="Code" Mode="In" Type="Int32" />
+      <Parameter Name="Prov" Mode="In" Type="String" />
+      <Parameter Name="Localidad" Mode="In" Type="String" />
+      <Parameter Name="Calle" Mode="In" Type="String" />
+      <Parameter Name="CalleAltura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_Usuario_byID" ReturnType="Collection(DESAModel.SP_Get_Usuario_byID_Result)">
+      <Parameter Name="UserCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_All_Provincias" ReturnType="Collection(DESAModel.SP_Get_All_Provincias_Result)" />
+    <FunctionImport Name="SP_Update_Direccion_Usuario">
+      <Parameter Name="UserCode" Mode="In" Type="Int32" />
+      <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_Calle" ReturnType="Collection(DESAModel.SP_Get_Calle_Result)">
+      <Parameter Name="ProvCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_Localidad" ReturnType="Collection(DESAModel.SP_Get_Localidad_Result)">
+      <Parameter Name="ProvCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_All_ProveedorTypes" ReturnType="Collection(DESAModel.SP_Get_All_ProveedorTypes_Result)" />
+    <FunctionImport Name="SP_Update_ProveedorType">
+      <Parameter Name="typeCode" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_ProveedorType_ByID" ReturnType="Collection(DESAModel.SP_Get_ProveedorType_ByID_Result)">
+      <Parameter Name="typeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Delete_ProveedorType">
+      <Parameter Name="typeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Insert_ProveedorType" ReturnType="Collection(Int32)">
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Insert_Proveedor" ReturnType="Collection(Int32)">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+      <Parameter Name="Cuit" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Insert_TipoProveedor">
+      <Parameter Name="prvCode" Mode="In" Type="Int32" />
+      <Parameter Name="prvTypeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Update_Proveedor">
+      <Parameter Name="proveedorCode" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+      <Parameter Name="Cuit" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Delete_Proveedor">
+      <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_Proveedor_ByID" ReturnType="Collection(DESAModel.SP_Get_Proveedor_ByID_Result)">
+      <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_All_Proveedores" ReturnType="Collection(DESAModel.SP_Get_All_Proveedores_Result)" />
+    <FunctionImport Name="SP_Update_TipoProveedor">
+      <Parameter Name="prvCode" Mode="In" Type="Int32" />
+      <Parameter Name="prvTypeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_Catalogo_ByProveedor" ReturnType="Collection(DESAModel.SP_Get_Catalogo_ByProveedor_Result)">
+      <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_All_Productos" ReturnType="Collection(DESAModel.SP_Get_All_Productos_Result)" />
+    <FunctionImport Name="SP_Get_Producto_byID" ReturnType="Collection(DESAModel.SP_Get_Producto_byID_Result)">
+      <Parameter Name="IDPRODUCTO" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Delete_ProductType">
+      <Parameter Name="typeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Get_All_ProductsTypes" ReturnType="Collection(DESAModel.SP_Get_All_ProductsTypes_Result)" />
+    <FunctionImport Name="SP_Get_ProductType" ReturnType="Collection(DESAModel.SP_Get_ProductType_Result)">
+      <Parameter Name="typeCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Insert_ProductType">
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Update_ProductType">
+      <Parameter Name="typeCode" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_get_all_userTypes_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_All_Clientes_Result">
+    <Property Type="Int32" Name="code" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Apellido" Nullable="false" />
+    <Property Type="String" Name="CUIT" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ClientType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_All_CategoriasProducts_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_Cliente_ByID_Result">
+    <Property Type="Int32" Name="code" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Apellido" Nullable="false" />
+    <Property Type="String" Name="CUIT" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ClientType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_All_Usuarios_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Apellido" Nullable="false" />
+    <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+    <Property Type="String" Name="userName" Nullable="true" />
+    <Property Type="String" Name="UserType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_Usuario_byID_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Apellido" Nullable="false" />
+    <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+    <Property Type="String" Name="userName" Nullable="true" />
+    <Property Type="Int32" Name="UserTypeCode" Nullable="true" />
+    <Property Type="String" Name="UserType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_All_Provincias_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_Calle_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_Localidad_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_All_ProveedorTypes_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_ProveedorType_ByID_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_Proveedor_ByID_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Apellido" Nullable="false" />
+    <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+    <Property Type="String" Name="CUIT" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="TypeCode" Nullable="true" />
+    <Property Type="String" Name="ProveedorType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_All_Proveedores_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Apellido" Nullable="false" />
+    <Property Type="String" Name="Sexo" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="FechaNac" Nullable="false" Precision="23" />
+    <Property Type="String" Name="CUIT" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="TypeCode" Nullable="true" />
+    <Property Type="String" Name="ProveedorType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_Catalogo_ByProveedor_Result">
+    <Property Type="Int32" Name="code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_All_Productos_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+    <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Categoria" Nullable="true" />
+    <Property Type="String" Name="ProductType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_Producto_byID_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+    <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Categoria" Nullable="true" />
+    <Property Type="String" Name="ProductType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_All_ProductsTypes_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_Get_ProductType_Result">
+    <Property Type="Int32" Name="Code" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" />
+  </ComplexType>
+</Schema>

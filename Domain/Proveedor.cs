@@ -18,4 +18,10 @@ namespace Domain
         [DisplayName("Email")]
         public List<string> email { get; set; }
     }
+
+    public class ProveedorVM
+    {
+        public int Code { get; set; }
+        public string Descripcion { get; set; }
+    }
 }

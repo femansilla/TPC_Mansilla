@@ -11,39 +11,44 @@ using Domain;
 
 namespace ViewsApp
 {
-    public partial class productTypeForm : Form
+    public partial class ProveedorTypeForm : Form
     {
         private int code;
         public ProveedorType retType = new ProveedorType();
-        public productTypeForm()
+        public ProveedorTypeForm()
         {
             InitializeComponent();
-            CancelButton = button2;
+            CancelButton = btnCancelar;
             this.code = 0;
         }
 
-        public productTypeForm(int code)
+        public ProveedorTypeForm(int code)
         {
             InitializeComponent();
-            CancelButton = button2;
+            CancelButton = btnCancelar;
             this.code = code;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             retType.Code = code;
-            retType.Descripcion = textBox1.Text;
+            retType.Descripcion = txtDescripcion.Text;
             DialogResult = DialogResult.OK;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
 
         private void ProveedorTypeForm_Load(object sender, EventArgs e)
         {
-            textBox1.Text = retType.Descripcion;
+            txtDescripcion.Text = retType.Descripcion;
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

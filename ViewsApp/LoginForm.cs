@@ -13,7 +13,7 @@ namespace ViewsApp
 {
     public partial class LoginForm : Form
     {
-        private proveedorController controller = new proveedorController();
+        private UsuarioController controller = new UsuarioController();
         public LoginForm()
         {
             InitializeComponent();

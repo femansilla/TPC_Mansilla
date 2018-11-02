@@ -29,7 +29,7 @@ namespace ViewsApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            productTypeForm frm = new productTypeForm();
+            ProveedorTypeForm frm = new ProveedorTypeForm();
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.OK)
             {
@@ -48,7 +48,7 @@ namespace ViewsApp
             if(dgvDescripcion.DataSource != null)
             {
                 ProveedorType typeSelected = (ProveedorType)dgvDescripcion.CurrentRow.DataBoundItem;
-                productTypeForm frm = new productTypeForm(typeSelected.Code);
+                ProveedorTypeForm frm = new ProveedorTypeForm(typeSelected.Code);
                 frm.retType.Descripcion = typeSelected.Descripcion;
                 DialogResult dr = frm.ShowDialog(this);
                 if (dr == DialogResult.OK)

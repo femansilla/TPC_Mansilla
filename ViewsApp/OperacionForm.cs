@@ -25,7 +25,7 @@ namespace ViewsApp
         private void CargarCombo()
         {
             cmbByType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbByType.DataSource = _proveedorController.GetAllProveedores();
+            cmbByType.DataSource = _proveedorController.GetAllProveedoresView();
             cmbByType.DisplayMember = "Descripcion";
             cmbByType.ValueMember = "Code";
         }
@@ -37,6 +37,7 @@ namespace ViewsApp
 
         private void btnAddProducto_Click(object sender, EventArgs e)
         {
+            ProductoCompraForm prdCmp = new ProductoCompraForm();
 
         }
 

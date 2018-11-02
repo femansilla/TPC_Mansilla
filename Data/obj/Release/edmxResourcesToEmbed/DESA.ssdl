@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DESAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="SP_Delete_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Delete_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserCode" Type="int" Mode="In" />
+    <Parameter Name="DireccionCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Delete_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idProducto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Delete_ProductType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Delete_Proveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProveedorCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Delete_ProveedorType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Delete_Representative" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Delete_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_All_CategoriasProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_All_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_All_Productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_All_ProductsTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_All_Proveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_All_ProveedorTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_All_Provincias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_get_all_userTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_All_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Get_Calle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProvCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_Catalogo_ByProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProveedorCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_Cliente_ByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_Localidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProvCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_Producto_byID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDPRODUCTO" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_ProductType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_Proveedor_ByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProveedorCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_ProveedorType_ByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_Usuario_byID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Prov" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Localidad" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Calle" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CalleAltura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserCode" Type="int" Mode="In" />
+    <Parameter Name="DireccionCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CategoriaCode" Type="int" Mode="In" />
+    <Parameter Name="TypeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_ProductType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_Proveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Sexo" Type="char" Mode="In" />
+    <Parameter Name="FechaNac" Type="date" Mode="In" />
+    <Parameter Name="Cuit" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_ProveedorType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_Representative" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Sexo" Type="char" Mode="In" />
+    <Parameter Name="FechaNac" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_TipoProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prvCode" Type="int" Mode="In" />
+    <Parameter Name="prvTypeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repCode" Type="int" Mode="In" />
+    <Parameter Name="userTypeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_update_Descripcion_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="idProducto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="int" Mode="In" />
+    <Parameter Name="Prov" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Localidad" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Calle" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CalleAltura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserCode" Type="int" Mode="In" />
+    <Parameter Name="DireccionCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_ProductType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeCode" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_Proveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proveedorCode" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Sexo" Type="char" Mode="In" />
+    <Parameter Name="FechaNac" Type="date" Mode="In" />
+    <Parameter Name="Cuit" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_ProveedorType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeCode" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_Representative" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userCode" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Sexo" Type="char" Mode="In" />
+    <Parameter Name="FechaNac" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_TipoProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prvCode" Type="int" Mode="In" />
+    <Parameter Name="prvTypeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repCode" Type="int" Mode="In" />
+    <Parameter Name="userTypeCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_validateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DESAModelStoreContainer" />
+</Schema>
