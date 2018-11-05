@@ -194,6 +194,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "OperacionForm";
             this.Text = "OperacionForm";
+            this.Load += new System.EventHandler(this.OperacionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -14,14 +14,16 @@ namespace ViewsApp
 {
     public partial class ListaComprasForm : Form
     {
-        private readonly ProveedorController _proveedorController = new ProveedorController();
-        private readonly ProveedorController _productoController = new ProveedorController();
         private readonly ProveedorController _operacionesController = new ProveedorController();
         private List<Compra> listaCompras = new List<Compra>();
 
         public ListaComprasForm()
         {
             InitializeComponent();
+        }
+
+        private void CompraForm_Load(object sender, EventArgs e)
+        {
             //LoadCompras();
             txtSearch.Text = "Buscar...";
             //listaCompras = dgvCompras.DataSource as List<Compra>;
@@ -56,20 +58,32 @@ namespace ViewsApp
             this.Hide();
         }
 
-        private void CompraForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             OperacionForm opCompra = new OperacionForm();
-            opCompra.Show();
+            opCompra.ShowDialog();
 
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var dataDGV = dgvCompras.DataSource as List<Direccion>;
+                if (dgvCompras.DataSource != null)
+                {
+                    if (dataDGV.Count > 1)
+                        dataDGV.Remove((Direccion)dgvCompras.CurrentRow.DataBoundItem);
+                    //dgvDomicilios.Rows.RemoveAt(dgvDomicilios.CurrentRow.Index);
+                }
+                dgvCompras.DataSource = null;
+                dgvCompras.DataSource = dataDGV;
+                dgvCompras.Columns["ID"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

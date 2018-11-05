@@ -45,12 +45,12 @@ namespace ViewsApp
                 {
                     _productoController.SaveType(new ProveedorType()
                     { Code = frm.retType.Code, Descripcion = frm.retType.Descripcion });
+                    CargarTypes();
                 }
                 else if (dr == DialogResult.Cancel)
                 {
                     frm.Close();
                 }
-                CargarTypes();
             }
         }
 

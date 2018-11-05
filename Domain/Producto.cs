@@ -14,7 +14,7 @@ namespace Domain
         [DisplayName("Descripcion")]
         public string Descripcion { get; set; }
         [DisplayName("Precio")]
-        public float Precio { get; set; }
+        public decimal Precio { get; set; }
         [DisplayName("Tipo")]
         public string ProductType { get; set; }
         [DisplayName("Categoria")]
@@ -28,5 +28,17 @@ namespace Domain
         public int Code { get; set; }
         [DisplayName("Descripcion")]
         public string Descripcion { get; set; }
+    }
+
+    public class ProductoOperacion
+    {
+        [DisplayName("Codigo")]
+        public int IDProducto { get; set; }
+        [DisplayName("Descripcion")]
+        public string Descripcion { get; set; }
+        [DisplayName("Precio")]
+        public decimal Precio { get; set; }
+        [DisplayName("Cantidad")]
+        public int Cantidad { get; set; }
     }
 }

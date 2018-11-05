@@ -8,7 +8,7 @@ namespace Domain
 {
     public class Compra : Operacion
     {
-        public List<Producto> ProductosCompra { get; set; }
-        public float Total { get; set; }
+        public List<ProductoOperacion> ProductosCompra { get; set; }
+        public decimal Total { get; set; }
     }
 }
