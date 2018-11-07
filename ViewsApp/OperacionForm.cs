@@ -28,29 +28,41 @@ namespace ViewsApp
         {
             InitializeComponent();
             this.code = code;
+            btnAcept.Enabled = false;
+            btnAddProducto.Enabled = false;
+            btnDelProducto.Enabled = false;
         }
 
         private void OperacionForm_Load(object sender, EventArgs e)
         {
-            CargarCombo();
+            CargarCombos();
         }
 
-        private void CargarCombo()
+        private void CargarCombos()
         {
             cmbByType.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbByType.DataSource = _proveedorController.GetAllProveedoresView();
             cmbByType.DisplayMember = "Descripcion";
             cmbByType.ValueMember = "Code";
+
+            cmbStatusOp.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStatusOp.DataSource = _operacionController.GetAllEstadosForCompra();
+            cmbStatusOp.DisplayMember = "Descripcion";
+            cmbStatusOp.ValueMember = "Code";
         }
 
         private void btnAcept_Click(object sender, EventArgs e)
         {
             Compra cmp = new Compra()
             {
-               CodigoOperacion = code,
-               TipoOperacion = "Compra",
-               ProductosCompra = listProducts,
-               
+                CodigoOperacion = code,
+                TipoOperacion = "Compra",
+                Fecha = dtFecha.Value,
+                Estado = cmbStatusOp.SelectedText,
+                Proveedor = cmbByType.SelectedText,
+                Referencia = txtReferencia.Text,
+                Importe = decimal.Parse(lblTotalOperacion.Text),
+                ProductosCompra = listProducts,
             };
             _operacionController.SaveCompra(cmp);
         }
@@ -65,11 +77,24 @@ namespace ViewsApp
                 listProducts.Add(frm.prdCmp);
                 dgvProductos.DataSource = null;
                 dgvProductos.DataSource = listProducts;
+                dgvProductos.Columns["IDProducto"].Visible = false;
+                CalcularTotalOperacion();
             }
             else if (dr == DialogResult.Cancel)
             {
                 frm.Close();
             }
+        }
+
+        private void CalcularTotalOperacion()
+        {
+            List<ProductoOperacion> calculateInside = dgvProductos.DataSource as List<ProductoOperacion>;
+            decimal tot = 0;
+            foreach (var i in calculateInside)
+            {
+                tot += i.Subtotal;
+            }
+            lblTotalOperacion.Text = "Total: " + tot.ToString();
         }
 
         private void btnDelProducto_Click(object sender, EventArgs e)
@@ -79,12 +104,14 @@ namespace ViewsApp
                 var dataDGV = dgvProductos.DataSource as List<ProductoOperacion>;
                 if (dgvProductos.DataSource != null)
                 {
+                    var selected = (ProductoOperacion)dgvProductos.CurrentRow.DataBoundItem;
                     if (dataDGV.Count > 1)
-                        dataDGV.Remove((ProductoOperacion)dgvProductos.CurrentRow.DataBoundItem);
+                        dataDGV.Remove(selected);
                 }
                 dgvProductos.DataSource = null;
                 dgvProductos.DataSource = dataDGV;
-                //dgvProductos.Columns["ID"].Visible = false;
+                dgvProductos.Columns["IDProducto"].Visible = false;
+                CalcularTotalOperacion();
             }
             catch (Exception ex)
             {
@@ -97,5 +124,9 @@ namespace ViewsApp
             this.Close();
         }
 
+        private void cmbByType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

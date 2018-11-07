@@ -8,7 +8,10 @@ namespace Domain
 {
     public class Compra : Operacion
     {
+        public string Proveedor { get; set; }
+        public string Referencia { get; set; }
+        public decimal Importe { get; set; }
+        public string Estado { get; set; }
         public List<ProductoOperacion> ProductosCompra { get; set; }
-        public decimal Total { get; set; }
     }
 }

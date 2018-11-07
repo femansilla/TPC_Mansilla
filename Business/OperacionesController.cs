@@ -17,5 +17,17 @@ namespace Business
             _operacionesServices.SaveCompra(cmp);
             return true;
         }
+
+        public List<Compra> GetAllCompras()
+        {
+            var list = _operacionesServices.GetAllCompras();
+
+            return new List<Compra>();
+        }
+
+        public List<ProveedorType> GetAllEstadosForCompra()
+        {
+            return _operacionesServices.GetAllEstadosForCompra();
+        }
     }
 }

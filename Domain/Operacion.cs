@@ -10,5 +10,7 @@ namespace Domain
     {
         public int CodigoOperacion { get; set; }
         public string TipoOperacion { get; set; }
+        public DateTime Fecha { get; set; }
+
     }
 }

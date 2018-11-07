@@ -38,7 +38,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(976, 434);
+            this.btnVolver.Location = new System.Drawing.Point(625, 434);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(78, 31);
@@ -52,7 +52,7 @@
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompras.Location = new System.Drawing.Point(11, 45);
             this.dgvCompras.Name = "dgvCompras";
-            this.dgvCompras.Size = new System.Drawing.Size(1043, 382);
+            this.dgvCompras.Size = new System.Drawing.Size(692, 382);
             this.dgvCompras.TabIndex = 14;
             // 
             // txtSearch
@@ -60,7 +60,7 @@
             this.txtSearch.Location = new System.Drawing.Point(12, 13);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(424, 25);
+            this.txtSearch.Size = new System.Drawing.Size(308, 25);
             this.txtSearch.TabIndex = 15;
             // 
             // btnEliminar
@@ -89,7 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 472);
+            this.ClientSize = new System.Drawing.Size(715, 472);
             this.ControlBox = false;
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
