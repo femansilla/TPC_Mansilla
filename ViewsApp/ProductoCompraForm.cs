@@ -43,6 +43,7 @@ namespace ViewsApp
             prdCmp.Descripcion = cmbProductos.Text;
             prdCmp.Cantidad = int.Parse(txtCant.Text);
             prdCmp.Precio = int.Parse(txtImporte.Text);
+            prdCmp.Subtotal = int.Parse(txtCant.Text) * decimal.Parse(txtImporte.Text);
             DialogResult = DialogResult.OK;
         }
 

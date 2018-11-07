@@ -40,5 +40,7 @@ namespace Domain
         public decimal Precio { get; set; }
         [DisplayName("Cantidad")]
         public int Cantidad { get; set; }
+        [DisplayName("Subtotal")]
+        public decimal Subtotal { get; set; }
     }
 }
