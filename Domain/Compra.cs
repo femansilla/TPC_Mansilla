@@ -15,10 +15,11 @@ namespace Domain
         public string Apellido { get; set; }
         [DisplayName("CUIT/ CUIL")]
         public string CUIT { get; set; }
-        public string Proveedor { get; set; }
         public string Referencia { get; set; }
         public decimal Importe { get; set; }
         public string Estado { get; set; }
         public List<ProductoOperacion> ProductosCompra { get; set; }
+        public int ProveedorCode { get; set; }
+        public int EstadoCode { get; set; }
     }
 }

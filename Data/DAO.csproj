@@ -58,6 +58,9 @@
     <Compile Include="SP_Get_All_Clientes_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Get_All_Compras_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Get_All_Productos_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
@@ -79,6 +82,9 @@
     <Compile Include="SP_Get_All_Usuarios_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Get_All_Ventas_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Get_Calle_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
@@ -89,6 +95,12 @@
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Get_Localidad_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_ProductosCompra_ByID_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_ProductosVenta_ByID_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Get_Producto_byID_Result.cs">

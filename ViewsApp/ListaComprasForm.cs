@@ -33,7 +33,7 @@ namespace ViewsApp
         {
             dgvCompras.DataSource = _operacionesController.GetAllCompras();
 
-            dgvCompras.Columns["Code"].DisplayIndex = 0;
+            dgvCompras.Columns["CodigoOperacion"].DisplayIndex = 0;
             dgvCompras.Columns["Proveedor"].DisplayIndex = 1;
             dgvCompras.Columns["Referencia"].DisplayIndex = 2;
             dgvCompras.Columns["Fecha"].DisplayIndex = 3;

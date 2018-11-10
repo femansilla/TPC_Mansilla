@@ -46,20 +46,21 @@ namespace ViewsApp
             cmbByType.ValueMember = "Code";
 
             cmbStatusOp.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStatusOp.DataSource = _operacionController.GetAllEstadosForCompra();
+            cmbStatusOp.DataSource = _operacionController.GetAllEstadosForOperacion();
             cmbStatusOp.DisplayMember = "Descripcion";
             cmbStatusOp.ValueMember = "Code";
         }
 
         private void btnAcept_Click(object sender, EventArgs e)
         {
+            var selected = (ProveedorType)cmbByType.SelectedItem;
             Compra cmp = new Compra()
             {
                 CodigoOperacion = code,
                 TipoOperacion = "Compra",
                 Fecha = dtFecha.Value,
                 Estado = cmbStatusOp.SelectedText,
-                Proveedor = cmbByType.SelectedText,
+                ProveedorCode = selected.Code,
                 Referencia = txtReferencia.Text,
                 Importe = decimal.Parse(lblTotalOperacion.Text),
                 ProductosCompra = listProducts,

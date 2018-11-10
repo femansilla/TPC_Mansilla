@@ -11,9 +11,90 @@ namespace Data
     {
         private static DESA _data = new DESA();
 
+        public IEnumerable<SP_Get_All_Compras_Result> GetAllCompras()
+        {
+            return _data.SP_Get_All_Compras().ToList();
+        }
+
+        public IEnumerable<SP_Get_All_Ventas_Result> GetAllVentas()
+        {
+            return _data.SP_Get_All_Ventas().ToList();
+        }
+
+        public List<ProductoOperacion> GetProductoByOperacion(string tipo, int code)
+        {
+            List<ProductoOperacion> retList = new List<ProductoOperacion>();
+            if (tipo != "Compra")
+            {
+                var list = _data.SP_Get_ProductosVenta_ByID(code).ToList();
+                foreach (var i in list)
+                {
+                    retList.Add(new ProductoOperacion()
+                    {
+                        Descripcion = i.Descripcion,
+                        Precio = i.ImporteUnidad,
+                        Cantidad = i.Cantidad,
+                        Subtotal = (i.Cantidad * i.ImporteUnidad)
+                    });
+                }
+
+            }
+            else
+            {
+                var list = _data.SP_Get_ProductosCompra_ByID(code).ToList();
+
+                foreach (var i in list)
+                {
+                    retList.Add(new ProductoOperacion()
+                    {
+                        Descripcion = i.Descripcion,
+                        Precio = i.ImporteUnidad,
+                        Cantidad = i.Cantidad,
+                        Subtotal = (i.Cantidad * i.ImporteUnidad)
+                    });
+                }
+            }
+            return retList;
+        }
+
         public void SaveCompra(Compra cmp)
         {
-            throw new NotImplementedException();
+            cmp.CodigoOperacion = _data.SP_Insert_Compra(cmp.ProveedorCode, cmp.Fecha, cmp.Referencia, cmp.EstadoCode).FirstOrDefault().Value;
+            CargarProductosEnOperacion(cmp.TipoOperacion, cmp.CodigoOperacion, cmp.ProductosCompra);
+        }
+
+        public void SaveVenta(Venta vts)
+        {
+            vts.CodigoOperacion = _data.SP_Insert_Venta(vts.ClienteCode, vts.Fecha, vts.Referencia, vts.EstadoCode).FirstOrDefault().Value;
+            CargarProductosEnOperacion(vts.TipoOperacion, vts.CodigoOperacion, vts.ProductosVenta);
+        }
+
+        public void CargarProductosEnOperacion(string tipo, int CodeOperacion, List<ProductoOperacion> prds)
+        {
+            if(tipo != "Compra")
+                foreach (var prd in prds)
+                    _data.SP_Insert_Producto_ByVenta(CodeOperacion, prd.IDProducto, prd.Precio, prd.Cantidad);
+            else
+                foreach (var prd in prds)
+                    _data.SP_Insert_Producto_ByCompra(CodeOperacion, prd.IDProducto, prd.Precio, prd.Cantidad);
+
+
+        }
+
+        public List<ProveedorType> GetAllEstadosForOperacion()
+        {
+            ProveedorType Estado1 = new ProveedorType() { Code = 1, Descripcion = "Ingresado" };
+            ProveedorType Estado2 = new ProveedorType() { Code = 1, Descripcion = "Procesado" };
+            ProveedorType Estado3 = new ProveedorType() { Code = 1, Descripcion = "Pagado" };
+            ProveedorType Estado4 = new ProveedorType() { Code = 1, Descripcion = "Cancelado" };
+
+            List<ProveedorType> retList = new List<ProveedorType>();
+            retList.Add(Estado1);
+            retList.Add(Estado2);
+            retList.Add(Estado3);
+            retList.Add(Estado4);
+
+            return retList;
         }
     }
 }

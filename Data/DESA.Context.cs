@@ -553,5 +553,117 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_ProductType", typeCodeParameter, descripcionParameter);
         }
+    
+        public virtual ObjectResult<SP_Get_All_Compras_Result> SP_Get_All_Compras()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Compras_Result>("SP_Get_All_Compras");
+        }
+    
+        public virtual ObjectResult<SP_Get_All_Ventas_Result> SP_Get_All_Ventas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Ventas_Result>("SP_Get_All_Ventas");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Insert_Compra(Nullable<int> proveedorCode, Nullable<System.DateTime> date, string referencia, Nullable<int> estado)
+        {
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("ProveedorCode", proveedorCode) :
+                new ObjectParameter("ProveedorCode", typeof(int));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("Date", date) :
+                new ObjectParameter("Date", typeof(System.DateTime));
+    
+            var referenciaParameter = referencia != null ?
+                new ObjectParameter("Referencia", referencia) :
+                new ObjectParameter("Referencia", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Compra", proveedorCodeParameter, dateParameter, referenciaParameter, estadoParameter);
+        }
+    
+        public virtual int SP_Insert_Producto_ByCompra(Nullable<int> compraCode, Nullable<int> productoCode, Nullable<decimal> importeUnidad, Nullable<int> cantidad)
+        {
+            var compraCodeParameter = compraCode.HasValue ?
+                new ObjectParameter("CompraCode", compraCode) :
+                new ObjectParameter("CompraCode", typeof(int));
+    
+            var productoCodeParameter = productoCode.HasValue ?
+                new ObjectParameter("ProductoCode", productoCode) :
+                new ObjectParameter("ProductoCode", typeof(int));
+    
+            var importeUnidadParameter = importeUnidad.HasValue ?
+                new ObjectParameter("ImporteUnidad", importeUnidad) :
+                new ObjectParameter("ImporteUnidad", typeof(decimal));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("Cantidad", cantidad) :
+                new ObjectParameter("Cantidad", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto_ByCompra", compraCodeParameter, productoCodeParameter, importeUnidadParameter, cantidadParameter);
+        }
+    
+        public virtual int SP_Insert_Producto_ByVenta(Nullable<int> ventaCode, Nullable<int> productoCode, Nullable<decimal> importeUnidad, Nullable<int> cantidad)
+        {
+            var ventaCodeParameter = ventaCode.HasValue ?
+                new ObjectParameter("VentaCode", ventaCode) :
+                new ObjectParameter("VentaCode", typeof(int));
+    
+            var productoCodeParameter = productoCode.HasValue ?
+                new ObjectParameter("ProductoCode", productoCode) :
+                new ObjectParameter("ProductoCode", typeof(int));
+    
+            var importeUnidadParameter = importeUnidad.HasValue ?
+                new ObjectParameter("ImporteUnidad", importeUnidad) :
+                new ObjectParameter("ImporteUnidad", typeof(decimal));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("Cantidad", cantidad) :
+                new ObjectParameter("Cantidad", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto_ByVenta", ventaCodeParameter, productoCodeParameter, importeUnidadParameter, cantidadParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Insert_Venta(Nullable<int> clienteCode, Nullable<System.DateTime> date, string referencia, Nullable<int> estado)
+        {
+            var clienteCodeParameter = clienteCode.HasValue ?
+                new ObjectParameter("ClienteCode", clienteCode) :
+                new ObjectParameter("ClienteCode", typeof(int));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("Date", date) :
+                new ObjectParameter("Date", typeof(System.DateTime));
+    
+            var referenciaParameter = referencia != null ?
+                new ObjectParameter("Referencia", referencia) :
+                new ObjectParameter("Referencia", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Venta", clienteCodeParameter, dateParameter, referenciaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_ProductosCompra_ByID_Result> SP_Get_ProductosCompra_ByID(Nullable<int> operacionCode)
+        {
+            var operacionCodeParameter = operacionCode.HasValue ?
+                new ObjectParameter("operacionCode", operacionCode) :
+                new ObjectParameter("operacionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_ProductosCompra_ByID_Result>("SP_Get_ProductosCompra_ByID", operacionCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_ProductosVenta_ByID_Result> SP_Get_ProductosVenta_ByID(Nullable<int> operacionCode)
+        {
+            var operacionCodeParameter = operacionCode.HasValue ?
+                new ObjectParameter("operacionCode", operacionCode) :
+                new ObjectParameter("operacionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_ProductosVenta_ByID_Result>("SP_Get_ProductosVenta_ByID", operacionCodeParameter);
+        }
     }
 }
