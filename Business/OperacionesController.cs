@@ -41,10 +41,39 @@ namespace Business
                     Importe = i.TotalCompra,
                     Estado = i.Estado,
                     ProductosCompra = _operacionesServices.GetProductoByOperacion("Compra", i.Code),
-                    EstadoCode = i.Estado
                 });
             }
             return retList;
+        }
+
+        public Operacion GetOperacion(string tipo, int code)
+        {
+            if(tipo != "Compra")
+            {
+                SP_Get_Venta_Result op = _operacionesServices.GetOperacion(tipo, code) as SP_Get_Venta_Result;
+                return new Venta()
+                {
+                    ClienteCode = (int)op.clientCode,
+                    Fecha = op.date,
+                    Referencia = op.referencia,
+                    ProductosVenta = _operacionesServices.GetProductoByOperacion("Venta", code),
+                    EstadoCode = (int)op.estado,
+                    UsuarioRealizoAccion = op.user
+                };
+            }
+            else
+            {
+                SP_Get_Compra_Result op = _operacionesServices.GetOperacion(tipo, code) as SP_Get_Compra_Result;
+                return new Compra()
+                {
+                    ProveedorCode = op.proveedorCode,
+                    Fecha = op.date,
+                    Referencia = op.referencia,
+                    ProductosCompra = _operacionesServices.GetProductoByOperacion("Compra", code),
+                    EstadoCode = (int)op.estado,
+                    UsuarioRealizoAccion = op.user
+                };
+            }
         }
 
         public List<Venta> GetAllVentas()
@@ -65,6 +94,14 @@ namespace Business
             return retList;
         }
 
+        public void CancelarOperacion(string tipo, int operacionCode)
+        {
+            _operacionesServices.UpdateOperacion(tipo, operacionCode, 4);
+        }
+        public void ModificarEstadoOperacion(string tipo, int operacionCode, int estadoCode)
+        {
+            _operacionesServices.UpdateOperacion(tipo, operacionCode, estadoCode);
+        }
         public List<ProveedorType> GetAllEstadosForOperacion()
         {
             return _operacionesServices.GetAllEstadosForOperacion();

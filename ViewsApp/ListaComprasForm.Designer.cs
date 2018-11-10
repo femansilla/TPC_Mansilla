@@ -54,6 +54,7 @@
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.Size = new System.Drawing.Size(692, 382);
             this.dgvCompras.TabIndex = 14;
+            this.dgvCompras.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellContentDoubleClick);
             // 
             // txtSearch
             // 
@@ -70,7 +71,7 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(78, 31);
             this.btnEliminar.TabIndex = 18;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Cancelar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -89,6 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(715, 472);
             this.ControlBox = false;
             this.Controls.Add(this.btnEliminar);
@@ -100,7 +102,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ListaComprasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StockForm";
+            this.Text = "ListaCompraForm";
             this.Load += new System.EventHandler(this.CompraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
             this.ResumeLayout(false);

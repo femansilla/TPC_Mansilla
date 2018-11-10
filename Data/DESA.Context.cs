@@ -307,19 +307,6 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Direccion_Usuario", userCodeParameter, direccionCodeParameter);
         }
     
-        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
-        }
-    
         public virtual ObjectResult<SP_Get_Calle_Result> SP_Get_Calle(Nullable<int> provCode)
         {
             var provCodeParameter = provCode.HasValue ?
@@ -564,7 +551,7 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Ventas_Result>("SP_Get_All_Ventas");
         }
     
-        public virtual ObjectResult<Nullable<int>> SP_Insert_Compra(Nullable<int> proveedorCode, Nullable<System.DateTime> date, string referencia, Nullable<int> estado)
+        public virtual ObjectResult<Nullable<int>> SP_Insert_Compra(Nullable<int> proveedorCode, Nullable<System.DateTime> date, string referencia, Nullable<int> estadoCode, Nullable<int> userCode)
         {
             var proveedorCodeParameter = proveedorCode.HasValue ?
                 new ObjectParameter("ProveedorCode", proveedorCode) :
@@ -578,11 +565,15 @@ namespace Data
                 new ObjectParameter("Referencia", referencia) :
                 new ObjectParameter("Referencia", typeof(string));
     
-            var estadoParameter = estado.HasValue ?
-                new ObjectParameter("Estado", estado) :
-                new ObjectParameter("Estado", typeof(int));
+            var estadoCodeParameter = estadoCode.HasValue ?
+                new ObjectParameter("EstadoCode", estadoCode) :
+                new ObjectParameter("EstadoCode", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Compra", proveedorCodeParameter, dateParameter, referenciaParameter, estadoParameter);
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Compra", proveedorCodeParameter, dateParameter, referenciaParameter, estadoCodeParameter, userCodeParameter);
         }
     
         public virtual int SP_Insert_Producto_ByCompra(Nullable<int> compraCode, Nullable<int> productoCode, Nullable<decimal> importeUnidad, Nullable<int> cantidad)
@@ -627,7 +618,7 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto_ByVenta", ventaCodeParameter, productoCodeParameter, importeUnidadParameter, cantidadParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> SP_Insert_Venta(Nullable<int> clienteCode, Nullable<System.DateTime> date, string referencia, Nullable<int> estado)
+        public virtual ObjectResult<Nullable<int>> SP_Insert_Venta(Nullable<int> clienteCode, Nullable<System.DateTime> date, string referencia, Nullable<int> estadoCode, Nullable<int> userCode)
         {
             var clienteCodeParameter = clienteCode.HasValue ?
                 new ObjectParameter("ClienteCode", clienteCode) :
@@ -641,11 +632,15 @@ namespace Data
                 new ObjectParameter("Referencia", referencia) :
                 new ObjectParameter("Referencia", typeof(string));
     
-            var estadoParameter = estado.HasValue ?
-                new ObjectParameter("Estado", estado) :
-                new ObjectParameter("Estado", typeof(int));
+            var estadoCodeParameter = estadoCode.HasValue ?
+                new ObjectParameter("EstadoCode", estadoCode) :
+                new ObjectParameter("EstadoCode", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Venta", clienteCodeParameter, dateParameter, referenciaParameter, estadoParameter);
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Venta", clienteCodeParameter, dateParameter, referenciaParameter, estadoCodeParameter, userCodeParameter);
         }
     
         public virtual ObjectResult<SP_Get_ProductosCompra_ByID_Result> SP_Get_ProductosCompra_ByID(Nullable<int> operacionCode)
@@ -664,6 +659,50 @@ namespace Data
                 new ObjectParameter("operacionCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_ProductosVenta_ByID_Result>("SP_Get_ProductosVenta_ByID", operacionCodeParameter);
+        }
+    
+        public virtual int SP_Update_Compra(Nullable<int> compraCode, Nullable<int> estadoCode)
+        {
+            var compraCodeParameter = compraCode.HasValue ?
+                new ObjectParameter("CompraCode", compraCode) :
+                new ObjectParameter("CompraCode", typeof(int));
+    
+            var estadoCodeParameter = estadoCode.HasValue ?
+                new ObjectParameter("estadoCode", estadoCode) :
+                new ObjectParameter("estadoCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Compra", compraCodeParameter, estadoCodeParameter);
+        }
+    
+        public virtual int SP_Update_Venta(Nullable<int> ventaCode, Nullable<int> estadoCode)
+        {
+            var ventaCodeParameter = ventaCode.HasValue ?
+                new ObjectParameter("VentaCode", ventaCode) :
+                new ObjectParameter("VentaCode", typeof(int));
+    
+            var estadoCodeParameter = estadoCode.HasValue ?
+                new ObjectParameter("estadoCode", estadoCode) :
+                new ObjectParameter("estadoCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Venta", ventaCodeParameter, estadoCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Compra_Result> SP_Get_Compra(Nullable<int> operacionCode)
+        {
+            var operacionCodeParameter = operacionCode.HasValue ?
+                new ObjectParameter("operacionCode", operacionCode) :
+                new ObjectParameter("operacionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Compra_Result>("SP_Get_Compra", operacionCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Venta_Result> SP_Get_Venta(Nullable<int> operacionCode)
+        {
+            var operacionCodeParameter = operacionCode.HasValue ?
+                new ObjectParameter("operacionCode", operacionCode) :
+                new ObjectParameter("operacionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Venta_Result>("SP_Get_Venta", operacionCodeParameter);
         }
     }
 }

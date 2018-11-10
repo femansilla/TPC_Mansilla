@@ -18,19 +18,46 @@ namespace ViewsApp
         private ProveedorController _proveedorController = new ProveedorController();
         List<ProductoOperacion> listProducts = new List<ProductoOperacion>();
         int code;
+        string tipo;
 
         public OperacionForm()
         {
             InitializeComponent();
         }
 
-        public OperacionForm(int code)
+        public OperacionForm(string tipo, int code)
         {
             InitializeComponent();
+            this.tipo = tipo;
             this.code = code;
-            btnAcept.Enabled = false;
-            btnAddProducto.Enabled = false;
-            btnDelProducto.Enabled = false;
+            this.Enabled = false;
+            CargarOperacion();
+            cmbStatusOp.Enabled = true;
+            btnAcept.Enabled = true;
+        }
+
+        private void CargarOperacion()
+        {
+            if (tipo.Equals("Compra"))
+            {
+                Compra op = _operacionController.GetOperacion("Compra", code) as Compra;
+                txtReferencia.Text = op.Referencia;
+                cmbByType.SelectedValue = op.ProveedorCode;
+                dtFecha.Value = op.Fecha;
+                dgvProductos.DataSource = op.ProductosCompra;
+                CalcularTotalOperacion();
+                cmbStatusOp.SelectedValue = op.EstadoCode;
+            }
+            else
+            {
+                Venta op = _operacionController.GetOperacion("Compra", code) as Venta;
+                txtReferencia.Text = op.Referencia;
+                cmbByType.SelectedValue = op.ClienteCode;
+                dtFecha.Value = op.Fecha;
+                dgvProductos.DataSource = op.ProductosVenta;
+                CalcularTotalOperacion();
+                cmbStatusOp.SelectedValue = op.EstadoCode;
+            }
         }
 
         private void OperacionForm_Load(object sender, EventArgs e)
@@ -54,18 +81,27 @@ namespace ViewsApp
         private void btnAcept_Click(object sender, EventArgs e)
         {
             var selected = (ProveedorType)cmbByType.SelectedItem;
-            Compra cmp = new Compra()
+            var selectedEstado = (ProveedorType)cmbStatusOp.SelectedItem;
+            string total = lblTotalOperacion.Text;
+            if (code != 0)
             {
-                CodigoOperacion = code,
-                TipoOperacion = "Compra",
-                Fecha = dtFecha.Value,
-                Estado = cmbStatusOp.SelectedText,
-                ProveedorCode = selected.Code,
-                Referencia = txtReferencia.Text,
-                Importe = decimal.Parse(lblTotalOperacion.Text),
-                ProductosCompra = listProducts,
-            };
-            _operacionController.SaveCompra(cmp);
+                _operacionController.ModificarEstadoOperacion("Compra", code, selected.Code);
+            }
+            else
+            {
+                Compra cmp = new Compra()
+                {
+                    CodigoOperacion = code,
+                    TipoOperacion = "Compra",
+                    Fecha = dtFecha.Value,
+                    EstadoCode = selectedEstado.Code,
+                    ProveedorCode = selected.Code,
+                    Referencia = txtReferencia.Text,
+                    Importe = decimal.Parse(total.Substring(7)),
+                    ProductosCompra = listProducts,
+                };
+                _operacionController.SaveCompra(cmp);
+            }
         }
 
         private void btnAddProducto_Click(object sender, EventArgs e)

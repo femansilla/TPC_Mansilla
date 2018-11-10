@@ -21,5 +21,7 @@ namespace Domain
         public List<ProductoOperacion> ProductosCompra { get; set; }
         public int ProveedorCode { get; set; }
         public int EstadoCode { get; set; }
+        public string UsuarioRealizoAccion { get; set; }
+        public string Proveedor { get { return CUIT + " - " + Apellido + ", " + Nombre; } }
     }
 }

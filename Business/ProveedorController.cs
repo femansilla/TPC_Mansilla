@@ -61,13 +61,13 @@ namespace Business
             _proveedorServices.EliminarProveedor(id);
         }
 
-        public List<ProveedorVM> GetAllProveedoresView()
+        public List<ProveedorType> GetAllProveedoresView()
         {
             var listProv = _proveedorServices.GetAllProveedores();
-            List<ProveedorVM> retList = new List<ProveedorVM>();
+            List<ProveedorType> retList = new List<ProveedorType>();
             foreach (var p in listProv)
             {
-                retList.Add(new ProveedorVM()
+                retList.Add(new ProveedorType()
                 {
                     Code = p.Code,
                     Descripcion = p.CUIT + " | " +p.Apellido + ", " + p.Nombre

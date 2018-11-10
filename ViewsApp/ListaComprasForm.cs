@@ -63,12 +63,16 @@ namespace ViewsApp
         {
             try
             {
-                var dataDGV = dgvCompras.DataSource as List<Direccion>;
+                var dataDGV = dgvCompras.DataSource as List<Compra>;
+                var selected = (Compra)dgvCompras.CurrentRow.DataBoundItem;
                 if (dgvCompras.DataSource != null)
                 {
                     if (dataDGV.Count > 1)
-                        dataDGV.Remove((Direccion)dgvCompras.CurrentRow.DataBoundItem);
-                    //dgvDomicilios.Rows.RemoveAt(dgvDomicilios.CurrentRow.Index);
+                    {
+                        dataDGV.Remove(selected);
+                        _operacionesController.CancelarOperacion("Compra", selected.CodigoOperacion);
+                        dgvCompras.Rows.RemoveAt(dgvCompras.CurrentRow.Index);
+                    }
                 }
                 dgvCompras.DataSource = null;
                 dgvCompras.DataSource = dataDGV;
@@ -77,6 +81,13 @@ namespace ViewsApp
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void dgvCompras_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var selected = (Compra)dgvCompras.CurrentRow.DataBoundItem;
+            OperacionForm opCompra = new OperacionForm("Compra" ,selected.CodigoOperacion);
+            opCompra.ShowDialog();
         }
     }
 }

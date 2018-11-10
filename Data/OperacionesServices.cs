@@ -57,16 +57,36 @@ namespace Data
             return retList;
         }
 
+        public object GetOperacion(string tipo, int code)
+        {
+            if(tipo != "Compra")
+                return _data.SP_Get_Venta(code).FirstOrDefault();
+            else
+                return _data.SP_Get_Compra(code).FirstOrDefault();
+        }
+
         public void SaveCompra(Compra cmp)
         {
-            cmp.CodigoOperacion = _data.SP_Insert_Compra(cmp.ProveedorCode, cmp.Fecha, cmp.Referencia, cmp.EstadoCode).FirstOrDefault().Value;
+            cmp.CodigoOperacion = _data.SP_Insert_Compra(cmp.ProveedorCode, cmp.Fecha, cmp.Referencia, cmp.EstadoCode, 1).FirstOrDefault().Value;
             CargarProductosEnOperacion(cmp.TipoOperacion, cmp.CodigoOperacion, cmp.ProductosCompra);
         }
 
         public void SaveVenta(Venta vts)
         {
-            vts.CodigoOperacion = _data.SP_Insert_Venta(vts.ClienteCode, vts.Fecha, vts.Referencia, vts.EstadoCode).FirstOrDefault().Value;
+            vts.CodigoOperacion = _data.SP_Insert_Venta(vts.ClienteCode, vts.Fecha, vts.Referencia, vts.EstadoCode, 1).FirstOrDefault().Value;
             CargarProductosEnOperacion(vts.TipoOperacion, vts.CodigoOperacion, vts.ProductosVenta);
+        }
+
+        public void UpdateOperacion(string tipo, int operacionCode, int estadoCode)
+        {
+            if (tipo != "Compra")
+            {
+                _data.SP_Update_Compra(operacionCode, estadoCode);
+            }            
+            else         
+            {             
+                _data.SP_Update_Venta(operacionCode, estadoCode);
+            }
         }
 
         public void CargarProductosEnOperacion(string tipo, int CodeOperacion, List<ProductoOperacion> prds)
