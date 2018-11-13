@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,16 +31,20 @@ namespace ViewsApp
             {
                 ProductoForm frmView = new ProductoForm()
                 {
-                    Descripcion = item.Descripcion                   
+                    Code = item.IDProducto,
+                    Descripcion = item.Descripcion,
+                    Precio = item.Precio
                 };
                 frmView.TopLevel = false;
-                frmView.setLblDescripcion();
-                flProducts.Controls.Add(frmView);
+                frmView.SetearImagen(item.ImagenByte);
+                Products.Controls.Add(frmView);
                 frmView.Show();
                 //lvProducts.Controls.Add(frmView);
                 //frmView.Show();
             }
         }
+
+        
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

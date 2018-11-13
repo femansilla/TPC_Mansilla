@@ -23,7 +23,7 @@ namespace Data
 
         public void InsertProducto(string Descripcion)
         {
-            _data.SP_Insert_Producto(Descripcion, 1, 2);
+            var code = _data.SP_Insert_Producto(Descripcion, 1, 2);
         }
 
         public void DeleteProducto(int id)
@@ -65,6 +65,11 @@ namespace Data
         public void EliminarProductType(int code)
         {
             _data.SP_Delete_ProductType(code);
+        }
+
+        public byte[] GetImagenProducto(int code)
+        {
+            return _data.SP_Get_Imagen_ByProducto(code).FirstOrDefault();
         }
     }
 }

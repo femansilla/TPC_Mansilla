@@ -30,7 +30,7 @@ namespace ViewsApp
             InitializeComponent();
             this.tipo = tipo;
             this.code = code;
-            this.Enabled = false;
+            //this.Enabled = false;
             CargarOperacion();
             cmbStatusOp.Enabled = true;
             btnAcept.Enabled = true;
@@ -83,6 +83,7 @@ namespace ViewsApp
             var selected = (ProveedorType)cmbByType.SelectedItem;
             var selectedEstado = (ProveedorType)cmbStatusOp.SelectedItem;
             string total = lblTotalOperacion.Text;
+            //var totalNum = decimal.Parse(total.Substring(7));
             if (code != 0)
             {
                 _operacionController.ModificarEstadoOperacion("Compra", code, selected.Code);

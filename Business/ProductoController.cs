@@ -74,7 +74,8 @@ namespace Business
                     IDProducto = (int)prd.Id,
                     Descripcion = prd.Descripcion,
                     ProductType = prd.ProductType,
-                    Categoria = prd.Categoria
+                    Categoria = prd.Categoria,
+                    ImagenByte = _productoServices.GetImagenProducto((int)prd.Id)
                 };
                 ret.Add(prdRet);
             }

@@ -704,5 +704,14 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Venta_Result>("SP_Get_Venta", operacionCodeParameter);
         }
+    
+        public virtual ObjectResult<byte[]> SP_Get_Imagen_ByProducto(Nullable<int> productoCode)
+        {
+            var productoCodeParameter = productoCode.HasValue ?
+                new ObjectParameter("ProductoCode", productoCode) :
+                new ObjectParameter("ProductoCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<byte[]>("SP_Get_Imagen_ByProducto", productoCodeParameter);
+        }
     }
 }

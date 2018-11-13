@@ -41,11 +41,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbTypeProduct = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtImagen = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -61,13 +62,14 @@
             // 
             // btnExaminar
             // 
-            this.btnExaminar.Location = new System.Drawing.Point(129, 214);
+            this.btnExaminar.Location = new System.Drawing.Point(392, 214);
             this.btnExaminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnExaminar.Name = "btnExaminar";
-            this.btnExaminar.Size = new System.Drawing.Size(189, 30);
+            this.btnExaminar.Size = new System.Drawing.Size(106, 30);
             this.btnExaminar.TabIndex = 1;
             this.btnExaminar.Text = "Examinar archivo...";
             this.btnExaminar.UseVisualStyleBackColor = true;
+            this.btnExaminar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnExaminar_MouseClick);
             // 
             // label1
             // 
@@ -177,14 +179,6 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Stock";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(129, 148);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(369, 25);
-            this.textBox1.TabIndex = 13;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(129, 181);
@@ -212,21 +206,39 @@
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnAceptar
             // 
-            this.button2.Location = new System.Drawing.Point(280, 261);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 36);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Aceptar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAceptar.Location = new System.Drawing.Point(280, 261);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(106, 36);
+            this.btnAceptar.TabIndex = 17;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(129, 148);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(369, 25);
+            this.textBox1.TabIndex = 13;
+            // 
+            // txtImagen
+            // 
+            this.txtImagen.Location = new System.Drawing.Point(129, 219);
+            this.txtImagen.Margin = new System.Windows.Forms.Padding(4);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.ReadOnly = true;
+            this.txtImagen.Size = new System.Drawing.Size(257, 25);
+            this.txtImagen.TabIndex = 18;
             // 
             // FichaProductoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 317);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtImagen);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox2);
@@ -268,10 +280,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbTypeProduct;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtImagen;
     }
 }

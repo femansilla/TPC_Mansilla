@@ -67,7 +67,8 @@ namespace Data
 
         public void SaveCompra(Compra cmp)
         {
-            cmp.CodigoOperacion = _data.SP_Insert_Compra(cmp.ProveedorCode, cmp.Fecha, cmp.Referencia, cmp.EstadoCode, 1).FirstOrDefault().Value;
+            var code = _data.SP_Insert_Compra(cmp.ProveedorCode, cmp.Fecha, cmp.Referencia, cmp.EstadoCode, 1).FirstOrDefault();
+            cmp.CodigoOperacion = (int)code;
             CargarProductosEnOperacion(cmp.TipoOperacion, cmp.CodigoOperacion, cmp.ProductosCompra);
         }
 
@@ -104,9 +105,9 @@ namespace Data
         public List<ProveedorType> GetAllEstadosForOperacion()
         {
             ProveedorType Estado1 = new ProveedorType() { Code = 1, Descripcion = "Ingresado" };
-            ProveedorType Estado2 = new ProveedorType() { Code = 1, Descripcion = "Procesado" };
-            ProveedorType Estado3 = new ProveedorType() { Code = 1, Descripcion = "Pagado" };
-            ProveedorType Estado4 = new ProveedorType() { Code = 1, Descripcion = "Cancelado" };
+            ProveedorType Estado2 = new ProveedorType() { Code = 2, Descripcion = "Procesado" };
+            ProveedorType Estado3 = new ProveedorType() { Code = 3, Descripcion = "Pagado" };
+            ProveedorType Estado4 = new ProveedorType() { Code = 4, Descripcion = "Cancelado" };
 
             List<ProveedorType> retList = new List<ProveedorType>();
             retList.Add(Estado1);

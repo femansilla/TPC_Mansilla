@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
 using Business;
+using System.IO;
 
 namespace ViewsApp
 {
@@ -70,6 +71,16 @@ namespace ViewsApp
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             _productoController.EditarProducto(txtDescripcion.Text, int.Parse(lblIdProduct.Text));
+        }
+
+        private void btnExaminar_MouseClick(object sender, MouseEventArgs e)
+        {
+            //OpenFileDialog para que abra la ventanita que te deja buscar
+            OpenFileDialog file = new OpenFileDialog();
+            file.ShowDialog();
+            //Path.GetFullPath es para saber la dirección completa y poder guardarla.
+            //para usarla tuve que incluir System.IO
+            txtImagen.Text = Path.GetFullPath(file.FileName);
         }
     }
 }
