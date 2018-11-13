@@ -38,7 +38,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(970, 505);
+            this.btnAceptar.Location = new System.Drawing.Point(1045, 504);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(80, 45);
@@ -48,7 +48,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(882, 505);
+            this.btnCancelar.Location = new System.Drawing.Point(957, 504);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 45);
@@ -63,14 +63,14 @@
             this.dgvVentaActual.AllowUserToDeleteRows = false;
             this.dgvVentaActual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentaActual.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvVentaActual.Location = new System.Drawing.Point(785, 13);
+            this.dgvVentaActual.Location = new System.Drawing.Point(770, 13);
             this.dgvVentaActual.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVentaActual.MultiSelect = false;
             this.dgvVentaActual.Name = "dgvVentaActual";
             this.dgvVentaActual.ReadOnly = true;
             this.dgvVentaActual.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvVentaActual.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVentaActual.Size = new System.Drawing.Size(269, 450);
+            this.dgvVentaActual.Size = new System.Drawing.Size(355, 450);
             this.dgvVentaActual.TabIndex = 5;
             // 
             // lblTotalOperacion
@@ -89,12 +89,14 @@
             this.Products.Name = "Products";
             this.Products.Size = new System.Drawing.Size(751, 450);
             this.Products.TabIndex = 77;
+            this.Products.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Products_MouseClick);
+            this.Products.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Products_MouseDown);
             // 
             // VentasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.ClientSize = new System.Drawing.Size(1138, 562);
             this.Controls.Add(this.Products);
             this.Controls.Add(this.lblTotalOperacion);
             this.Controls.Add(this.dgvVentaActual);

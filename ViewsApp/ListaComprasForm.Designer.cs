@@ -52,6 +52,7 @@
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompras.Location = new System.Drawing.Point(11, 45);
             this.dgvCompras.Name = "dgvCompras";
+            this.dgvCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompras.Size = new System.Drawing.Size(692, 382);
             this.dgvCompras.TabIndex = 14;
             this.dgvCompras.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellContentDoubleClick);

@@ -26,12 +26,6 @@ namespace ViewsApp
         {
 
         }
-
-        private void ProductoForm_MouseClick(object sender, MouseEventArgs e)
-        {
-            
-        }
-
         private void ProductoForm_Load(object sender, EventArgs e)
         {
             label1.Text = Descripcion;
@@ -48,6 +42,11 @@ namespace ViewsApp
             }
         }
 
+        private void ProductoForm_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -55,7 +54,7 @@ namespace ViewsApp
 
         private void imgProduct_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.OK;
         }
     }
 }
