@@ -80,12 +80,28 @@ namespace ViewsApp
                         Cantidad = 1,
                         Subtotal = i.Precio * 1
                     });
+                    i.DialogResult = DialogResult.None;
                     dgvVentaActual.DataSource = null;
                     dgvVentaActual.DataSource = list;
                 }
             }
+
+            dgvVentaActual.Columns[0].Visible = false;
+            dgvVentaActual.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvVentaActual.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvVentaActual.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvVentaActual.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
         }
-        
-        
+
+        private void dgvVentaActual_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //editar cant
+        }
+
+        private void dgvVentaActual_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

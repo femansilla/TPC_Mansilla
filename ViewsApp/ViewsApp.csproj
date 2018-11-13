@@ -83,6 +83,7 @@
     <Compile Include="CatalogoProductoForm.Designer.cs">
       <DependentUpon>CatalogoProductoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomColumForCantVenta.cs" />
     <Compile Include="DomicilioForm.cs">
       <SubType>Form</SubType>
     </Compile>

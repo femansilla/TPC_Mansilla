@@ -72,6 +72,8 @@
             this.dgvVentaActual.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVentaActual.Size = new System.Drawing.Size(355, 450);
             this.dgvVentaActual.TabIndex = 5;
+            this.dgvVentaActual.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentaActual_CellDoubleClick);
+            this.dgvVentaActual.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvVentaActual_MouseDown);
             // 
             // lblTotalOperacion
             // 
