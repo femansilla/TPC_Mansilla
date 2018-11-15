@@ -49,8 +49,7 @@ namespace ViewsApp
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            new HomeForm().Show();
-            this.Hide();
+            DialogResult = DialogResult.Cancel;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

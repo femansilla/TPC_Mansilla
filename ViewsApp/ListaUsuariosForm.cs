@@ -56,7 +56,7 @@ namespace ViewsApp
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult = DialogResult.Cancel;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -47,8 +47,7 @@ namespace ViewsApp
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
-            new HomeForm().Show();
+            DialogResult = DialogResult.Cancel;
         }
 
         private void VentasForm_Load(object sender, EventArgs e)

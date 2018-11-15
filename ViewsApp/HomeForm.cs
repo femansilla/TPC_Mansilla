@@ -67,27 +67,61 @@ namespace ViewsApp
         private void btnGestionUsuarios_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new ListaUsuariosForm().ShowDialog();
+            ListaUsuariosForm form = new ListaUsuariosForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+                this.Show();
+            }
         }
 
         private void btnGestionProductos_Click(object sender, EventArgs e)
         {
-            new ListaProductosForm().Show();
+            this.Hide();
+            ListaProductosForm form = new ListaProductosForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+                this.Show();
+            }
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            new VentasForm().Show();
+            this.Hide();
+            VentasForm form = new VentasForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+                this.Show();
+            }
         }
 
         private void btnGestionClientes_Click(object sender, EventArgs e)
         {
-            new ListaClientesForm().Show();
+            this.Hide();
+            ListaClientesForm form = new ListaClientesForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+                this.Show();
+            }
         }
 
         private void btnControlStock_Click(object sender, EventArgs e)
         {
-            new ListaComprasForm().Show();
+            this.Hide();
+            ListaComprasForm form = new ListaComprasForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+                this.Show();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -97,11 +131,25 @@ namespace ViewsApp
 
         private void btnGestionProveedores_Click(object sender, EventArgs e)
         {
-            new ListaProveedoresForm().Show();
+            this.Hide();
+            ListaProveedoresForm form = new ListaProveedoresForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+                this.Show();
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            new ProveedorTypesForm().Show();
+            this.Hide();
+            ProveedorTypesForm form = new ProveedorTypesForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+                this.Show();
+            }
         }
     }
 }

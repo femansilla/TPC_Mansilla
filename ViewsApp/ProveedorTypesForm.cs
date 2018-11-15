@@ -86,8 +86,7 @@ namespace ViewsApp
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Dispose(false);
-            new HomeForm().Show();
+            DialogResult = DialogResult.Cancel;
         }
     }
 }
