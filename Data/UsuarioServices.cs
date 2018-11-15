@@ -10,10 +10,10 @@ namespace Data
     public class UsuarioServices
     {
         private static DESA _data = new DESA();
-        public bool ExistUser(string user, string password)
+        public int ExistUser(string user, string password)
         {
-            var val = _data.SP_validateUser(user, password).FirstOrDefault();
-            return (!string.IsNullOrEmpty(val)) ? bool.Parse(_data.SP_validateUser(user, password).FirstOrDefault()) : false;
+            var val = (int)_data.SP_validateUser(user, password).FirstOrDefault();
+            return val;
         }
 
         public List<SP_Get_All_Usuarios_Result> GetAllUsuarios()
@@ -66,6 +66,12 @@ namespace Data
         public List<SP_get_all_userTypes_Result> GetAllUserTypes()
         {
             return _data.SP_get_all_userTypes().ToList();
+        }
+
+        public bool AccessModulo(string modulo, int iDUser)
+        {
+            var alga = _data.SP_Get_Access_Modulo(modulo, iDUser).FirstOrDefault();
+            return bool.Parse(alga.ToString());            
         }
     }
 }

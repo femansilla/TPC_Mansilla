@@ -28,19 +28,6 @@ namespace Data
         }
     
     
-        public virtual ObjectResult<string> SP_validateUser(string username, string password)
-        {
-            var usernameParameter = username != null ?
-                new ObjectParameter("username", username) :
-                new ObjectParameter("username", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_validateUser", usernameParameter, passwordParameter);
-        }
-    
         public virtual int SP_Delete_Producto(Nullable<int> idProducto)
         {
             var idProductoParameter = idProducto.HasValue ?
@@ -712,6 +699,32 @@ namespace Data
                 new ObjectParameter("ProductoCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<byte[]>("SP_Get_Imagen_ByProducto", productoCodeParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_validateUser(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_validateUser", usernameParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_Get_Access_Modulo(string modulo, Nullable<int> userCode)
+        {
+            var moduloParameter = modulo != null ?
+                new ObjectParameter("Modulo", modulo) :
+                new ObjectParameter("Modulo", typeof(string));
+    
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("userCode", userCode) :
+                new ObjectParameter("userCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Get_Access_Modulo", moduloParameter, userCodeParameter);
         }
     }
 }

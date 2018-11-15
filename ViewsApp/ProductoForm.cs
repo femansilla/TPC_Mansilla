@@ -21,11 +21,6 @@ namespace ViewsApp
         {
             InitializeComponent();
         }
-
-        private void ProductoForm_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
         private void ProductoForm_Load(object sender, EventArgs e)
         {
             label1.Text = Descripcion;
@@ -44,12 +39,12 @@ namespace ViewsApp
 
         private void ProductoForm_MouseClick(object sender, MouseEventArgs e)
         {
-            
+            DialogResult = DialogResult.OK;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.OK;
         }
 
         private void imgProduct_Click(object sender, EventArgs e)

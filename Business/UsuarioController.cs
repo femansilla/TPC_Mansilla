@@ -13,7 +13,7 @@ namespace Business
         private UsuarioServices _usuarioServices = new UsuarioServices();
         private DomicilioServices _direccionServices = new DomicilioServices();
 
-        public bool iniciarSesion(string username, string password)
+        public int iniciarSesion(string username, string password)
         {
             return _usuarioServices.ExistUser(username, password);
         }
@@ -78,6 +78,11 @@ namespace Business
         public void EliminarUsuario(int iDUser)
         {
             _usuarioServices.DeleteUser(iDUser);
+        }
+
+        public bool AccessToModulo(string modulo, int iDUser)
+        {
+            return _usuarioServices.AccessModulo(modulo, iDUser);
         }
     }
 }

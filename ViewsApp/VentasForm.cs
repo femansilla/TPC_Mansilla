@@ -47,7 +47,7 @@ namespace ViewsApp
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             new HomeForm().Show();
         }
 
@@ -58,7 +58,7 @@ namespace ViewsApp
 
         private void Products_MouseClick(object sender, MouseEventArgs e)
         {
-            
+                   
         }
 
         private void Products_MouseDown(object sender, MouseEventArgs e)

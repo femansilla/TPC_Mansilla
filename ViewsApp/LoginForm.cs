@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using Domain;
 
 namespace ViewsApp
 {
     public partial class LoginForm : Form
     {
-        private UsuarioController controller = new UsuarioController();
+        private UsuarioController _usuarioController = new UsuarioController();
+        public Usuario currentUser;
         public LoginForm()
         {
             InitializeComponent();
@@ -23,15 +25,15 @@ namespace ViewsApp
         {
             string usr = this.txtUserName.Text.Trim();
             string pass = this.txtPassword.Text.Trim();
-            bool val = controller.iniciarSesion(usr, pass);
-            if (!val)
-                MessageBox.Show("Usuario o clave incorrecto. \r\nVerifique por favor.");
-            else
+            int val = _usuarioController.iniciarSesion(usr, pass);
+            if (val != 0)
             {
-                this.Close();
-                //new HomeForm().Show();
-                //this.Dispose(false);
+                DialogResult = DialogResult.OK;
+                currentUser = _usuarioController.GetUsuarioById(val);
+                Close();
             }
+            else
+                MessageBox.Show("Usuario o clave incorrecto. \r\nVerifique por favor.");
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -43,6 +45,19 @@ namespace ViewsApp
         {
             if (e.KeyChar == 13)
                 LoginUser();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (currentUser.IDUser == 0)
+            {
+                Application.Exit();
+            }
         }
     }
 }
