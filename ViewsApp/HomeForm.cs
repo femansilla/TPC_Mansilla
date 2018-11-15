@@ -68,6 +68,7 @@ namespace ViewsApp
         {
             this.Hide();
             ListaUsuariosForm form = new ListaUsuariosForm();
+            form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
             {
@@ -80,6 +81,7 @@ namespace ViewsApp
         {
             this.Hide();
             ListaProductosForm form = new ListaProductosForm();
+            form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
             {
@@ -92,6 +94,7 @@ namespace ViewsApp
         {
             this.Hide();
             VentasForm form = new VentasForm();
+            form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
             {
@@ -104,6 +107,7 @@ namespace ViewsApp
         {
             this.Hide();
             ListaClientesForm form = new ListaClientesForm();
+            form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
             {
@@ -116,6 +120,7 @@ namespace ViewsApp
         {
             this.Hide();
             ListaComprasForm form = new ListaComprasForm();
+            form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
             {
@@ -133,6 +138,7 @@ namespace ViewsApp
         {
             this.Hide();
             ListaProveedoresForm form = new ListaProveedoresForm();
+            form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
             {
@@ -144,6 +150,7 @@ namespace ViewsApp
         {
             this.Hide();
             ProveedorTypesForm form = new ProveedorTypesForm();
+            form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
             {

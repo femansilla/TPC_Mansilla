@@ -105,7 +105,7 @@
             // 
             this.cmbPerfilType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPerfilType.FormattingEnabled = true;
-            this.cmbPerfilType.Location = new System.Drawing.Point(190, 370);
+            this.cmbPerfilType.Location = new System.Drawing.Point(189, 371);
             this.cmbPerfilType.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPerfilType.Name = "cmbPerfilType";
             this.cmbPerfilType.Size = new System.Drawing.Size(325, 26);
@@ -115,7 +115,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 373);
+            this.label4.Location = new System.Drawing.Point(32, 374);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 18);
@@ -163,7 +163,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(32, 338);
+            this.label7.Location = new System.Drawing.Point(31, 339);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 18);
@@ -174,7 +174,7 @@
             // 
             this.lblUsuarioID.Enabled = false;
             this.lblUsuarioID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioID.Location = new System.Drawing.Point(189, 338);
+            this.lblUsuarioID.Location = new System.Drawing.Point(188, 339);
             this.lblUsuarioID.Margin = new System.Windows.Forms.Padding(4);
             this.lblUsuarioID.Name = "lblUsuarioID";
             this.lblUsuarioID.ReadOnly = true;
@@ -193,7 +193,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(283, 404);
+            this.btnCancelar.Location = new System.Drawing.Point(282, 405);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 43);
@@ -205,7 +205,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(403, 404);
+            this.btnAceptar.Location = new System.Drawing.Point(402, 405);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(112, 43);
@@ -218,7 +218,7 @@
             // 
             this.dgvDomicilios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDomicilios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvDomicilios.Location = new System.Drawing.Point(35, 181);
+            this.dgvDomicilios.Location = new System.Drawing.Point(34, 182);
             this.dgvDomicilios.MultiSelect = false;
             this.dgvDomicilios.Name = "dgvDomicilios";
             this.dgvDomicilios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -231,7 +231,7 @@
             // 
             this.lblDomicilio.AutoSize = true;
             this.lblDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDomicilio.Location = new System.Drawing.Point(32, 160);
+            this.lblDomicilio.Location = new System.Drawing.Point(31, 161);
             this.lblDomicilio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDomicilio.Name = "lblDomicilio";
             this.lblDomicilio.Size = new System.Drawing.Size(70, 18);
@@ -241,7 +241,7 @@
             // btnAddDomicilio
             // 
             this.btnAddDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDomicilio.Location = new System.Drawing.Point(35, 304);
+            this.btnAddDomicilio.Location = new System.Drawing.Point(34, 305);
             this.btnAddDomicilio.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddDomicilio.Name = "btnAddDomicilio";
             this.btnAddDomicilio.Size = new System.Drawing.Size(88, 26);
@@ -253,7 +253,7 @@
             // btnDelDomicilio
             // 
             this.btnDelDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelDomicilio.Location = new System.Drawing.Point(131, 304);
+            this.btnDelDomicilio.Location = new System.Drawing.Point(130, 305);
             this.btnDelDomicilio.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelDomicilio.Name = "btnDelDomicilio";
             this.btnDelDomicilio.Size = new System.Drawing.Size(87, 26);
@@ -266,7 +266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 462);
+            this.ClientSize = new System.Drawing.Size(551, 477);
             this.Controls.Add(this.btnDelDomicilio);
             this.Controls.Add(this.btnAddDomicilio);
             this.Controls.Add(this.lblDomicilio);

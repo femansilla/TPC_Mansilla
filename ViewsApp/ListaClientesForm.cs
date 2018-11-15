@@ -16,6 +16,7 @@ namespace ViewsApp
     {
         private readonly ClienteController _clienteController = new ClienteController();
         private List<Cliente> listaClientes = new List<Cliente>();
+        public Usuario currentUser;
 
         public ListaClientesForm()
         {

@@ -16,6 +16,7 @@ namespace ViewsApp
     {
         private readonly ProveedorController _proveedorController = new ProveedorController();
         private List<Proveedor> listaProveedores = new List<Proveedor>();
+        public Usuario currentUser;
 
         public ListaProveedoresForm()
         {

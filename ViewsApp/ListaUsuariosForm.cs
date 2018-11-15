@@ -16,7 +16,7 @@ namespace ViewsApp
     {
         private readonly UsuarioController _usuarioController = new UsuarioController();
         private List<Usuario> listaUsuarios = new List<Usuario>();
-
+        public Usuario currentUser;
 
         public ListaUsuariosForm()
         {

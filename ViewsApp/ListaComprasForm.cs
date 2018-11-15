@@ -16,6 +16,7 @@ namespace ViewsApp
     {
         private readonly OperacionesController _operacionesController = new OperacionesController();
         private List<Compra> listaCompras = new List<Compra>();
+        public Usuario currentUser;
 
         public ListaComprasForm()
         {

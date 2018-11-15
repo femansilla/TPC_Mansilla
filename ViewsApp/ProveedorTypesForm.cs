@@ -8,6 +8,7 @@ namespace ViewsApp
     public partial class ProveedorTypesForm : Form
     {
         private readonly ProveedorController _proveedorController = new ProveedorController();
+        public Usuario currentUser;
 
         private void ProveedorTypesForm_Load(object sender, EventArgs e)
         {
