@@ -97,6 +97,15 @@
     <Compile Include="SP_Get_Compra_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Get_Domicilio_Cliente_byClienteID_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_Domicilio_Proveedor_byProveedorID_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Get_Domicilio_Usuario_byUserID_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Get_Localidad_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>

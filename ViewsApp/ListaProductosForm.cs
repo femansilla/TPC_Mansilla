@@ -30,6 +30,15 @@ namespace ViewsApp
         private void ListaProductos_Load(object sender, EventArgs e)
         {
             LoadProducts();
+            FormatDGV();
+        }
+
+        private void FormatDGV()
+        {
+            dgvProductos.Columns["IDProducto"].Visible = false;
+            dgvProductos.Columns["Imagen"].Visible = false;
+            dgvProductos.Columns["ImagenByte"].Visible = false;
+            dgvProductos.Columns["Descripcion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         public void LoadProducts()

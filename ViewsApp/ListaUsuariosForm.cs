@@ -61,14 +61,35 @@ namespace ViewsApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            new FichaUsuarioForm().ShowDialog();
+            FichaUsuarioForm form = new FichaUsuarioForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Se grabo correctamente el usuario...");
+                form.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al grabar los datos...");
+            }
+
             LoadUsuarios();
         }
 
         private void editUser()
         {
             Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
-            new FichaUsuarioForm(usuarioSelected.IDUser).ShowDialog();
+            FichaUsuarioForm form = new FichaUsuarioForm(usuarioSelected.IDUser);
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Se grabo correctamente el usuario...");
+                form.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al grabar los datos...");
+            }
             LoadUsuarios();
         }
 
@@ -85,7 +106,15 @@ namespace ViewsApp
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Usuario usuarioSelected = (Usuario)dgvListaUsr.CurrentRow.DataBoundItem;
-            _usuarioController.EliminarUsuario(usuarioSelected.IDUser);
+            try
+            {
+                _usuarioController.EliminarUsuario(usuarioSelected.IDUser);
+                MessageBox.Show("Se elimino el registro correctamente.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             LoadUsuarios();
         }
 

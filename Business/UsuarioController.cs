@@ -11,7 +11,6 @@ namespace Business
     public class UsuarioController
     {
         private UsuarioServices _usuarioServices = new UsuarioServices();
-        private DomicilioServices _direccionServices = new DomicilioServices();
 
         public int iniciarSesion(string username, string password)
         {
@@ -56,11 +55,24 @@ namespace Business
             };
         }
 
-        public object GetDomiciliosUsuario(int iDUser)
-        {
-            var domicilios = _usuarioServices.GetDomiciliosUsuario(iDUser);
-            return new List<Direccion>();
-        }
+        //public object GetDomiciliosUsuario(int iDUser)
+        //{
+        //    List<Direccion> retList = new List<Direccion>();
+        //    var domicilios = _usuarioServices.GetDomiciliosUsuario(iDUser);
+        //    if(domicilios != null)
+        //    {
+        //        foreach (var i in domicilios)
+        //            retList.Add(new Direccion()
+        //            {
+        //                ID = i.Code,
+        //                Provincia = i.Provincia,
+        //                Localidad = i.Localidad,
+        //                Calle = i.Calle,
+        //                Altura = i.AlturaCalle
+        //            });
+        //    }
+        //    return retList;
+        //}
 
         public List<UserTypes> GetAllUserTypes()
         {
@@ -72,7 +84,15 @@ namespace Business
 
         public void SaveUser(Usuario user)
         {
-            _usuarioServices.SaveRepresentative(user);
+            try
+            {
+                _usuarioServices.SaveRepresentative(user);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
 
         public void EliminarUsuario(int iDUser)

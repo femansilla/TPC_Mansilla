@@ -12,51 +12,50 @@ namespace Business
     {
         private readonly ClienteServices _clienteServices = new ClienteServices();
 
-        public void AgregarCliente(Cliente client)
+        public void GuardarCliente(Cliente client)
         {
-            _clienteServices.InsertCliente("");
+            _clienteServices.SaveCliente(client);
         }
-        public void EditarCliente(string descripcion, int id)
-        {
-            _clienteServices.ActualizarCliente(descripcion, id);
-        }
+
         public void EliminarCliente(int id)
         {
             _clienteServices.DeleteCliente(id);
         }
+
         public Cliente GetCliente(int id)
         {
-            var prd = _clienteServices.getClienteByID(id);
+            var i = _clienteServices.getClienteByID(id);
             return new Cliente()
-            /*{
-            //    IDProducto = (int)prd.Id,
-            //    Descripcion = prd.Descripcion,
-            //    ProductType = prd.ProductType,
-            //    Categoria = prd.Categoria
-            }*/;
+            {
+                ID = i.code,
+                Nombre = i.Nombre,
+                Apellido = i.Apellido,
+                CUIT = i.CUIT,
+                Sex = (i.Sexo == "M") ? true : false,
+                SexDescription = (i.Sexo == "M") ? "Masculino" : "Femenino",
+                FechaNac = i.FechaNac
+            };
         }
 
         public object GetAllClientes()
         {
-            throw new NotImplementedException();
+            List<Cliente> retList = new List<Cliente>();
+            var a = _clienteServices.GetAllClientes();
+            foreach (var i in a)
+            {
+                retList.Add(new Cliente()
+                {
+                    ID = i.code,
+                    Nombre = i.Nombre,
+                    Apellido = i.Apellido,
+                    CUIT = i.CUIT,
+                    Sex = (i.Sexo == "M") ? true : false,
+                    SexDescription = (i.Sexo == "M") ? "Masculino" : "Femenino",
+                    FechaNac = i.FechaNac
+                });
+            }
+            return retList;
         }
 
-        public List<Cliente> GetClientes()
-        {
-            var alga = _clienteServices.GetAllClientes();
-            List<Cliente> ret = new List<Cliente>();
-            foreach (var prd in alga)
-            {
-                Cliente prdRet = new Cliente()
-                /*{
-                //    IDProducto = (int)prd.Id,
-                //    Descripcion = prd.Descripcion,
-                //    ProductType = prd.ProductType,
-                //    Categoria = prd.Categoria
-                }*/;
-                ret.Add(prdRet);
-            }
-            return ret;
-        }
     }
 }

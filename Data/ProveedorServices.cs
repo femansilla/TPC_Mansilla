@@ -20,15 +20,24 @@ namespace Data
         {
             if (prv.ID != 0)
             {
-                _data.SP_Update_Proveedor(prv.ID, prv.Nombre, prv.Apellido, prv.SexDescription, prv.FechaNac, prv.CUIT);
+                var retCode = _data.SP_Update_Proveedor(prv.ID, prv.Nombre, prv.Apellido, prv.SexDescription, prv.FechaNac, prv.CUIT);
                 _data.SP_Update_TipoProveedor(prv.ID, prv.ProveedorTypeCode);
+                foreach (var direc in prv.DomicilioUser)
+                {
+                    direc.ID = (int)_data.SP_Insert_Direccion(direc.Provincia, direc.Localidad, direc.Calle, direc.Altura).FirstOrDefault();
+                    _data.SP_Insert_Direccion_Proveedor(prv.ID, direc.ID);
+                }
 
             }
             else
             {
                 var insertCode = _data.SP_Insert_Proveedor(prv.Nombre, prv.Apellido, prv.SexDescription, prv.FechaNac, prv.CUIT).FirstOrDefault();
-                _data.SP_Insert_TipoProveedor(insertCode, prv.ProveedorTypeCode);
-
+                _data.SP_Insert_TipoProveedor((int)insertCode, prv.ProveedorTypeCode);
+                foreach (var direc in prv.DomicilioUser)
+                {
+                    direc.ID = (int)_data.SP_Insert_Direccion(direc.Provincia, direc.Localidad, direc.Calle, direc.Altura).FirstOrDefault();
+                    _data.SP_Insert_Direccion_Proveedor(prv.ID, direc.ID);
+                }
             }
         }
 

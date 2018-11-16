@@ -24,5 +24,22 @@ namespace Data
         {
             return _data.SP_Get_Calle(selectedValue).ToList();
         }
+
+        public IEnumerable<SP_Get_Domicilio_Usuario_byUserID_Result> GetDomiciliosUser(int propietarioCode)
+        {
+            return _data.SP_Get_Domicilio_Usuario_byUserID(propietarioCode).ToList();
+        }
+
+        public IEnumerable<SP_Get_Domicilio_Proveedor_byProveedorID_Result> GetDomiciliosProveedor(int propietarioCode)
+        {
+            return _data.SP_Get_Domicilio_Proveedor_byProveedorID(propietarioCode).ToList();
+        }
+
+        public IEnumerable<SP_Get_Domicilio_Cliente_byClienteID_Result> GetDomiciliosCliente(int propietarioCode)
+        {
+            return _data.SP_Get_Domicilio_Cliente_byClienteID(propietarioCode).ToList();
+        }
+
+
     }
 }

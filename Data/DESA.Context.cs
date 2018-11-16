@@ -117,19 +117,6 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Representative", nombreParameter, apellidoParameter, sexoParameter, fechaNacParameter);
         }
     
-        public virtual int SP_Insert_Direccion_Usuario(Nullable<int> userCode, Nullable<int> direccionCode)
-        {
-            var userCodeParameter = userCode.HasValue ?
-                new ObjectParameter("UserCode", userCode) :
-                new ObjectParameter("UserCode", typeof(int));
-    
-            var direccionCodeParameter = direccionCode.HasValue ?
-                new ObjectParameter("DireccionCode", direccionCode) :
-                new ObjectParameter("DireccionCode", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Direccion_Usuario", userCodeParameter, direccionCodeParameter);
-        }
-    
         public virtual int SP_Insert_User(Nullable<int> repCode, Nullable<int> userTypeCode)
         {
             var repCodeParameter = repCode.HasValue ?
@@ -803,6 +790,59 @@ namespace Data
                 new ObjectParameter("DireccionCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Direccion_Proveedores", proveedorCodeParameter, direccionCodeParameter);
+        }
+    
+        public virtual int SP_Delete_Direccion_Usuario1(Nullable<int> userCode, Nullable<int> direccionCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            var direccionCodeParameter = direccionCode.HasValue ?
+                new ObjectParameter("DireccionCode", direccionCode) :
+                new ObjectParameter("DireccionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Direccion_Usuario1", userCodeParameter, direccionCodeParameter);
+        }
+    
+        public virtual int SP_Insert_Direccion_Usuario(Nullable<int> userCode, Nullable<int> direccionCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            var direccionCodeParameter = direccionCode.HasValue ?
+                new ObjectParameter("DireccionCode", direccionCode) :
+                new ObjectParameter("DireccionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Direccion_Usuario", userCodeParameter, direccionCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Domicilio_Usuario_byUserID_Result> SP_Get_Domicilio_Usuario_byUserID(Nullable<int> userCode)
+        {
+            var userCodeParameter = userCode.HasValue ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Domicilio_Usuario_byUserID_Result>("SP_Get_Domicilio_Usuario_byUserID", userCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Domicilio_Cliente_byClienteID_Result> SP_Get_Domicilio_Cliente_byClienteID(Nullable<int> clienteCode)
+        {
+            var clienteCodeParameter = clienteCode.HasValue ?
+                new ObjectParameter("ClienteCode", clienteCode) :
+                new ObjectParameter("ClienteCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Domicilio_Cliente_byClienteID_Result>("SP_Get_Domicilio_Cliente_byClienteID", clienteCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_Domicilio_Proveedor_byProveedorID_Result> SP_Get_Domicilio_Proveedor_byProveedorID(Nullable<int> proveedorCode)
+        {
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("ProveedorCode", proveedorCode) :
+                new ObjectParameter("ProveedorCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Domicilio_Proveedor_byProveedorID_Result>("SP_Get_Domicilio_Proveedor_byProveedorID", proveedorCodeParameter);
         }
     }
 }

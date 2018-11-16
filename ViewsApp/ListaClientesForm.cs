@@ -34,13 +34,23 @@ namespace ViewsApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            new FichaClienteForm().ShowDialog();
+            FichaClienteForm form = new FichaClienteForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Se grabo correctamente el usuario...");
+                form.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al grabar los datos...");
+            }
+            LoadClientes();
         }
 
         private void LoadClientes()
         {
             dgvClientes.DataSource = _clienteController.GetAllClientes();
-            dgvClientes.Columns["email"].Visible = false;
             dgvClientes.Columns["Sex"].Visible = false;
             dgvClientes.Columns["ClientType"].Visible = false;
             dgvClientes.Columns["ID"].Visible = false;
@@ -67,8 +77,18 @@ namespace ViewsApp
 
         private void editCliente()
         {
-            Cliente proveedorSelected = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-            new FichaClienteForm(proveedorSelected.ID).ShowDialog();
+            Cliente clienteSelected = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+            FichaClienteForm form = new FichaClienteForm(clienteSelected.ID);
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Se grabo correctamente el usuario...");
+                form.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al grabar los datos...");
+            }
             LoadClientes();
         }
 
@@ -86,7 +106,15 @@ namespace ViewsApp
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Cliente clienteSelected = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-            _clienteController.EliminarCliente(clienteSelected.ID);
+            try
+            {
+                _clienteController.EliminarCliente(clienteSelected.ID);
+                MessageBox.Show("Se elimino el registro correctamente.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)

@@ -17,6 +17,8 @@ namespace ViewsApp
         private int iDUser;
         private DomicilioForm formDomi;
         private readonly UsuarioController _usuarioController = new UsuarioController();
+        private readonly DomicilioController _domicilioController = new DomicilioController();
+
 
         public FichaUsuarioForm()
         {
@@ -54,7 +56,16 @@ namespace ViewsApp
                 rdFemale.Checked = true;
             lblUsuarioID.Text = u.UserName;
             cmbPerfilType.SelectedValue = u.UserTypeCode;
-            dgvDomicilios.DataSource = _usuarioController.GetDomiciliosUsuario(iDUser);
+            dgvDomicilios.DataSource = _domicilioController.GetDomiciliosByPerson("Usuario", iDUser);
+            FormatDGV();
+        }
+
+        private void FormatDGV()
+        {
+            dgvDomicilios.Columns["Provincia"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDomicilios.Columns["Localidad"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDomicilios.Columns["Calle"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             dgvDomicilios.Columns["ID"].Visible = false;
             dgvDomicilios.Columns["Piso"].Visible = false;
             dgvDomicilios.Columns["Departamento"].Visible = false;
@@ -82,9 +93,7 @@ namespace ViewsApp
             else
                 li.Add(FD.GetDomicilioIngresado());
             dgvDomicilios.DataSource = li;
-            dgvDomicilios.Columns["ID"].Visible = false;
-            dgvDomicilios.Columns["Piso"].Visible = false;
-            dgvDomicilios.Columns["Departamento"].Visible = false;
+            FormatDGV();
         }
 
         private void btnDelDomicilio_Click(object sender, EventArgs e)
@@ -100,9 +109,7 @@ namespace ViewsApp
                 }
                 dgvDomicilios.DataSource = null;
                 dgvDomicilios.DataSource = dataDGV;
-                dgvDomicilios.Columns["ID"].Visible = false;
-                dgvDomicilios.Columns["Piso"].Visible = false;
-                dgvDomicilios.Columns["Departamento"].Visible = false;
+                FormatDGV();
             }
             catch (Exception ex)
             {
@@ -119,10 +126,7 @@ namespace ViewsApp
                     li.Add(domi);
             }
             dgvDomicilios.DataSource = li;
-            dgvDomicilios.Columns["ID"].Visible = false;
-            dgvDomicilios.Columns["Piso"].Visible = false;
-            dgvDomicilios.Columns["Departamento"].Visible = false;
-
+            FormatDGV();
         }
 
         private void dgvDomicilios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -135,7 +139,7 @@ namespace ViewsApp
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult = DialogResult.Cancel;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -154,7 +158,16 @@ namespace ViewsApp
                 FechaNac = dtFechaNac.Value,
                 DomicilioUser = dgvDomicilios.DataSource as List<Direccion>
             };
-            _usuarioController.SaveUser(user);
+            try
+            {
+                _usuarioController.SaveUser(user);
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception)
+            {
+                DialogResult = DialogResult.Cancel;
+                throw;
+            }
         }
 
         private void FichaUsuarioForm_Load(object sender, EventArgs e)

@@ -3,25 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain;
 
 namespace Data
 {
     public class ClienteServices
     {
         private static DESA _data = new DESA();
-
-        public void InsertCliente(string descripcion)
+        
+        public void SaveCliente(Cliente client)
         {
-            //_data.SP_Insert_Cliente(Descripcion, 1, 2);
             throw new NotImplementedException();
         }
-
-        public void ActualizarCliente(string descripcion, int id)
-        {
-            //_data.SP_update_Descripcion_Cliente(Descripcion, idCliente);
-            throw new NotImplementedException();
-        }
-
+        
         public void DeleteCliente(int id)
         {
             //_data.SP_Delete_Cliente(id);

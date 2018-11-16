@@ -33,7 +33,17 @@ namespace ViewsApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            new FichaProveedorForm().ShowDialog();
+            FichaProveedorForm form = new FichaProveedorForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Se grabo correctamente el usuario...");
+                form.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al grabar los datos...");
+            }
             LoadProveedoores();
         }
 
@@ -70,7 +80,18 @@ namespace ViewsApp
         private void editProveedor()
         {
             Proveedor proveedorSelected = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-            new FichaProveedorForm(proveedorSelected.ID).ShowDialog();
+            FichaProveedorForm form = new FichaProveedorForm(proveedorSelected.ID);
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Se grabo correctamente el usuario...");
+                form.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al grabar los datos...");
+            }
+
             LoadProveedoores();
         }
 
@@ -88,8 +109,17 @@ namespace ViewsApp
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Proveedor proveedorSelected = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-            _proveedorController.EliminarProveedor(proveedorSelected.ID);
+            try
+            {
+                Proveedor proveedorSelected = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                _proveedorController.EliminarProveedor(proveedorSelected.ID);
+                MessageBox.Show("Se elimino el registro correctamente...");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo eliminar el registro correctamente...");
+                throw;
+            }
         }
 
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)

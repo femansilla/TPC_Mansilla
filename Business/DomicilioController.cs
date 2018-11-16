@@ -36,5 +36,58 @@ namespace Business
             return retList;
         }
 
+        public object GetDomiciliosByPerson(string tipo, int propietarioCode)
+        {
+            List<Direccion> retList = new List<Direccion>();
+            switch (tipo)
+            {
+                case "Usuario":
+                    var domiciliosU = _direccionServices.GetDomiciliosUser(propietarioCode);
+                    if (domiciliosU != null)
+                    {
+                        foreach (var i in domiciliosU)
+                            retList.Add(new Direccion()
+                            {
+                                ID = i.Code,
+                                Provincia = i.Provincia,
+                                Localidad = i.Localidad,
+                                Calle = i.Calle,
+                                Altura = i.AlturaCalle
+                            });
+                    }
+                    break;
+                case "Cliente":
+                    var domiciliosC = _direccionServices.GetDomiciliosCliente(propietarioCode);
+                    if (domiciliosC != null)
+                    {
+                        foreach (var i in domiciliosC)
+                            retList.Add(new Direccion()
+                            {
+                                ID = i.Code,
+                                Provincia = i.Provincia,
+                                Localidad = i.Localidad,
+                                Calle = i.Calle,
+                                Altura = i.AlturaCalle
+                            });
+                    }
+                    break;
+                case "Proveedor":
+                    var domiciliosP = _direccionServices.GetDomiciliosProveedor(propietarioCode);
+                    if (domiciliosP != null)
+                    {
+                        foreach (var i in domiciliosP)
+                            retList.Add(new Direccion()
+                            {
+                                ID = i.Code,
+                                Provincia = i.Provincia,
+                                Localidad = i.Localidad,
+                                Calle = i.Calle,
+                                Altura = i.AlturaCalle
+                            });
+                    }
+                    break;
+            }
+            return retList;
+        }
     }
 }

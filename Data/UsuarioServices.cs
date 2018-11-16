@@ -10,6 +10,7 @@ namespace Data
     public class UsuarioServices
     {
         private static DESA _data = new DESA();
+
         public int ExistUser(string user, string password)
         {
             var val = (int)_data.SP_validateUser(user, password).FirstOrDefault();
@@ -35,8 +36,8 @@ namespace Data
                 _data.SP_Insert_User(user.IDUser, user.UserTypeCode);
                 foreach (var direc in user.DomicilioUser)
                 {
-                    int direccionCode = int.Parse(_data.SP_Insert_Direccion(direc.Provincia, direc.Localidad, direc.Calle, direc.Altura).ToString());
-                    _data.SP_Insert_Direccion_Usuario(user.IDUser, 2);
+                    direc.ID = (int)_data.SP_Insert_Direccion(direc.Provincia, direc.Localidad, direc.Calle, direc.Altura).FirstOrDefault();
+                    _data.SP_Insert_Direccion_Usuario(user.IDUser, direc.ID);
                 }    
             }
             else
@@ -51,11 +52,10 @@ namespace Data
             }
         }
 
-        public object GetDomiciliosUsuario(int iDUser)
-        {
-            ///_data.SP_Get_DomiciliosByUser(iDUser);
-            return new object();
-        }
+        //public IEnumerable<SP_Get_Domicilio_Usuario_byUserID_Result> GetDomiciliosUsuario(int iDUser)
+        //{
+        //    return _data.SP_Get_Domicilio_Usuario_byUserID(iDUser).ToList();
+        //}
 
         public void DeleteUser(int UserCode)
         {
