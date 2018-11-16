@@ -8,6 +8,14 @@
         <Function Name="SP_Delete_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Code" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Delete_Direccion_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClienteCode" Type="int" Mode="In" />
+          <Parameter Name="DireccionCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Delete_Direccion_Proveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProveedorCode" Type="int" Mode="In" />
+          <Parameter Name="DireccionCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Delete_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserCode" Type="int" Mode="In" />
           <Parameter Name="DireccionCode" Type="int" Mode="In" />
@@ -104,6 +112,14 @@
           <Parameter Name="Calle" Type="varchar(max)" Mode="In" />
           <Parameter Name="CalleAltura" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Insert_Direccion_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClienteCode" Type="int" Mode="In" />
+          <Parameter Name="DireccionCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Insert_Direccion_Proveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProveedorCode" Type="int" Mode="In" />
+          <Parameter Name="DireccionCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Insert_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserCode" Type="int" Mode="In" />
           <Parameter Name="DireccionCode" Type="int" Mode="In" />
@@ -173,6 +189,14 @@
           <Parameter Name="Localidad" Type="varchar(max)" Mode="In" />
           <Parameter Name="Calle" Type="varchar(max)" Mode="In" />
           <Parameter Name="CalleAltura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Direccion_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClienteCode" Type="int" Mode="In" />
+          <Parameter Name="DireccionCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Direccion_Proveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProveedorCode" Type="int" Mode="In" />
+          <Parameter Name="DireccionCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Update_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserCode" Type="int" Mode="In" />
@@ -247,12 +271,6 @@
             <Parameter Name="Apellido" Mode="In" Type="String" />
             <Parameter Name="Sexo" Mode="In" Type="String" />
             <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="SP_Insert_Direccion" ReturnType="Collection(Int32)">
-            <Parameter Name="Prov" Mode="In" Type="String" />
-            <Parameter Name="Localidad" Mode="In" Type="String" />
-            <Parameter Name="Calle" Mode="In" Type="String" />
-            <Parameter Name="CalleAltura" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Insert_Direccion_Usuario">
             <Parameter Name="UserCode" Mode="In" Type="Int32" />
@@ -430,6 +448,36 @@
           <FunctionImport Name="SP_Get_Access_Modulo" ReturnType="Collection(String)">
             <Parameter Name="Modulo" Mode="In" Type="String" />
             <Parameter Name="userCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_Direccion" ReturnType="Collection(Int32)">
+            <Parameter Name="Prov" Mode="In" Type="String" />
+            <Parameter Name="Localidad" Mode="In" Type="String" />
+            <Parameter Name="Calle" Mode="In" Type="String" />
+            <Parameter Name="CalleAltura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Direccion_Cliente">
+            <Parameter Name="ClienteCode" Mode="In" Type="Int32" />
+            <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Direccion_Proveedores">
+            <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+            <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_Direccion_Cliente">
+            <Parameter Name="ClienteCode" Mode="In" Type="Int32" />
+            <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_Direccion_Proveedor">
+            <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+            <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Direccion_Cliente">
+            <Parameter Name="ClienteCode" Mode="In" Type="Int32" />
+            <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Direccion_Proveedores">
+            <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+            <Parameter Name="DireccionCode" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_get_all_userTypes_Result">
@@ -655,7 +703,6 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_Insert_Representative" FunctionName="DESAModel.Store.SP_Insert_Representative" />
-          <FunctionImportMapping FunctionImportName="SP_Insert_Direccion" FunctionName="DESAModel.Store.SP_Insert_Direccion" />
           <FunctionImportMapping FunctionImportName="SP_Insert_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Insert_Direccion_Usuario" />
           <FunctionImportMapping FunctionImportName="SP_Insert_User" FunctionName="DESAModel.Store.SP_Insert_User" />
           <FunctionImportMapping FunctionImportName="SP_Delete_Direccion_Usuario" FunctionName="DESAModel.Store.SP_Delete_Direccion_Usuario" />
@@ -885,6 +932,13 @@
           <FunctionImportMapping FunctionImportName="SP_Get_Imagen_ByProducto" FunctionName="DESAModel.Store.SP_Get_Imagen_ByProducto" />
           <FunctionImportMapping FunctionImportName="SP_validateUser" FunctionName="DESAModel.Store.SP_validateUser" />
           <FunctionImportMapping FunctionImportName="SP_Get_Access_Modulo" FunctionName="DESAModel.Store.SP_Get_Access_Modulo" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_Direccion" FunctionName="DESAModel.Store.SP_Insert_Direccion" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_Direccion_Cliente" FunctionName="DESAModel.Store.SP_Delete_Direccion_Cliente" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_Direccion_Proveedores" FunctionName="DESAModel.Store.SP_Delete_Direccion_Proveedores" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_Direccion_Cliente" FunctionName="DESAModel.Store.SP_Insert_Direccion_Cliente" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_Direccion_Proveedor" FunctionName="DESAModel.Store.SP_Insert_Direccion_Proveedor" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Direccion_Cliente" FunctionName="DESAModel.Store.SP_Update_Direccion_Cliente" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Direccion_Proveedores" FunctionName="DESAModel.Store.SP_Update_Direccion_Proveedores" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

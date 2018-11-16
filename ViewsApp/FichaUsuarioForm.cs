@@ -56,6 +56,8 @@ namespace ViewsApp
             cmbPerfilType.SelectedValue = u.UserTypeCode;
             dgvDomicilios.DataSource = _usuarioController.GetDomiciliosUsuario(iDUser);
             dgvDomicilios.Columns["ID"].Visible = false;
+            dgvDomicilios.Columns["Piso"].Visible = false;
+            dgvDomicilios.Columns["Departamento"].Visible = false;
         }
 
         private void btnAddDomicilio_Click(object sender, EventArgs e)
@@ -81,6 +83,8 @@ namespace ViewsApp
                 li.Add(FD.GetDomicilioIngresado());
             dgvDomicilios.DataSource = li;
             dgvDomicilios.Columns["ID"].Visible = false;
+            dgvDomicilios.Columns["Piso"].Visible = false;
+            dgvDomicilios.Columns["Departamento"].Visible = false;
         }
 
         private void btnDelDomicilio_Click(object sender, EventArgs e)
@@ -97,6 +101,8 @@ namespace ViewsApp
                 dgvDomicilios.DataSource = null;
                 dgvDomicilios.DataSource = dataDGV;
                 dgvDomicilios.Columns["ID"].Visible = false;
+                dgvDomicilios.Columns["Piso"].Visible = false;
+                dgvDomicilios.Columns["Departamento"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -114,6 +120,9 @@ namespace ViewsApp
             }
             dgvDomicilios.DataSource = li;
             dgvDomicilios.Columns["ID"].Visible = false;
+            dgvDomicilios.Columns["Piso"].Visible = false;
+            dgvDomicilios.Columns["Departamento"].Visible = false;
+
         }
 
         private void dgvDomicilios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

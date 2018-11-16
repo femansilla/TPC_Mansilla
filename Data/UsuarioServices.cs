@@ -45,7 +45,7 @@ namespace Data
                 _data.SP_Update_User(user.IDUser, user.UserTypeCode);
                 foreach (var direc in user.DomicilioUser)
                 {
-                    _data.SP_Update_Direccion(direc.ID, direc.Provincia, direc.Localidad, direc.Calle, direc.Altura);
+                    direc.ID = (int)_data.SP_Insert_Direccion(direc.Provincia, direc.Localidad, direc.Calle, direc.Altura).FirstOrDefault();
                     _data.SP_Update_Direccion_Usuario(user.IDUser, direc.ID);
                 }
             }

@@ -18,7 +18,7 @@ namespace ViewsApp
     {
         private readonly ProductoController controller = new ProductoController();
         public List<ProductoOperacion> list = new List<ProductoOperacion>();
-        public Usuario currentUser
+        public Usuario currentUser;
 
         public VentasForm()
         {

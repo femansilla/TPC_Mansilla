@@ -89,6 +89,7 @@
             this.label5.Size = new System.Drawing.Size(33, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Piso";
+            this.label5.Visible = false;
             // 
             // btnAceptar
             // 
@@ -116,6 +117,7 @@
             this.txtPiso.Name = "txtPiso";
             this.txtPiso.Size = new System.Drawing.Size(51, 25);
             this.txtPiso.TabIndex = 12;
+            this.txtPiso.Visible = false;
             // 
             // txtDpto
             // 
@@ -123,6 +125,7 @@
             this.txtDpto.Name = "txtDpto";
             this.txtDpto.Size = new System.Drawing.Size(51, 25);
             this.txtDpto.TabIndex = 13;
+            this.txtDpto.Visible = false;
             this.txtDpto.TextChanged += new System.EventHandler(this.txtDpto_TextChanged);
             // 
             // label6
@@ -133,6 +136,7 @@
             this.label6.Size = new System.Drawing.Size(35, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Dpto";
+            this.label6.Visible = false;
             // 
             // lblCodeDireccion
             // 
