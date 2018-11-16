@@ -61,6 +61,9 @@
     <Compile Include="SP_Get_All_Compras_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Get_All_PriceList_Result.cs">
+      <DependentUpon>DESA.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Get_All_Productos_Result.cs">
       <DependentUpon>DESA.tt</DependentUpon>
     </Compile>

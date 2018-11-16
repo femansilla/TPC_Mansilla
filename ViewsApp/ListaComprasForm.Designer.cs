@@ -38,7 +38,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(625, 434);
+            this.btnVolver.Location = new System.Drawing.Point(1113, 434);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(78, 31);
@@ -53,7 +53,7 @@
             this.dgvCompras.Location = new System.Drawing.Point(11, 45);
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCompras.Size = new System.Drawing.Size(692, 382);
+            this.dgvCompras.Size = new System.Drawing.Size(1180, 382);
             this.dgvCompras.TabIndex = 14;
             this.dgvCompras.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellContentDoubleClick);
             // 
@@ -92,7 +92,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(715, 472);
+            this.ClientSize = new System.Drawing.Size(1203, 472);
             this.ControlBox = false;
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);

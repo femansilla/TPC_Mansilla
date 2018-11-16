@@ -33,7 +33,8 @@ namespace Business
                 CUIT = i.CUIT,
                 Sex = (i.Sexo == "M") ? true : false,
                 SexDescription = (i.Sexo == "M") ? "Masculino" : "Femenino",
-                FechaNac = i.FechaNac
+                FechaNac = i.FechaNac,
+                ClientType = _clienteServices.GetPriceListByClient(i.code)
             };
         }
 
@@ -51,11 +52,21 @@ namespace Business
                     CUIT = i.CUIT,
                     Sex = (i.Sexo == "M") ? true : false,
                     SexDescription = (i.Sexo == "M") ? "Masculino" : "Femenino",
-                    FechaNac = i.FechaNac
+                    FechaNac = i.FechaNac,
+                    ClientType = _clienteServices.GetPriceListByClient(i.code),
+                    ClientTypeDescripcion = _clienteServices.GetPriceDescriptionListByClient(i.code)
                 });
             }
             return retList;
         }
 
+        public List<UserTypes> GetAllPriceList()
+        {
+            var list = _clienteServices.GetAllPriceList();
+            List<UserTypes> retlist = new List<UserTypes>();
+            foreach (var i in list)
+                retlist.Add(new UserTypes() { Code = i.Code, Descripcion = i.Descripcion });
+            return retlist;
+        }
     }
 }

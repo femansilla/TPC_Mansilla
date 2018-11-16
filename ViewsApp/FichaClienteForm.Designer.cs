@@ -60,6 +60,7 @@
             this.btnDelDomicilio.TabIndex = 62;
             this.btnDelDomicilio.Text = "Eliminar";
             this.btnDelDomicilio.UseVisualStyleBackColor = true;
+            this.btnDelDomicilio.Click += new System.EventHandler(this.btnDelDomicilio_Click);
             // 
             // btnAddDomicilio
             // 
@@ -71,6 +72,7 @@
             this.btnAddDomicilio.TabIndex = 61;
             this.btnAddDomicilio.Text = "Agregar";
             this.btnAddDomicilio.UseVisualStyleBackColor = true;
+            this.btnAddDomicilio.Click += new System.EventHandler(this.btnAddDomicilio_Click);
             // 
             // lblDomicilio
             // 
@@ -94,6 +96,7 @@
             this.dgvDomicilios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDomicilios.Size = new System.Drawing.Size(521, 178);
             this.dgvDomicilios.TabIndex = 59;
+            this.dgvDomicilios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilios_CellContentClick);
             // 
             // btnAceptar
             // 
@@ -105,6 +108,7 @@
             this.btnAceptar.TabIndex = 58;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -116,6 +120,7 @@
             this.btnCancelar.TabIndex = 57;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dtFechaNac
             // 
@@ -283,6 +288,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "FichaClienteForm";
             this.Text = "Cliente";
+            this.Load += new System.EventHandler(this.FichaClienteForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

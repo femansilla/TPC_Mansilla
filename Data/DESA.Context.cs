@@ -844,5 +844,117 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Domicilio_Proveedor_byProveedorID_Result>("SP_Get_Domicilio_Proveedor_byProveedorID", proveedorCodeParameter);
         }
+    
+        public virtual int SP_Delete_Cliente(Nullable<int> clientCode)
+        {
+            var clientCodeParameter = clientCode.HasValue ?
+                new ObjectParameter("ClientCode", clientCode) :
+                new ObjectParameter("ClientCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Cliente", clientCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_All_PriceList_Result> SP_Get_All_PriceList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_PriceList_Result>("SP_Get_All_PriceList");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Insert_Cliente(string nombre, string apellido, string sexo, string cUIT, Nullable<System.DateTime> dateNac)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("Apellido", apellido) :
+                new ObjectParameter("Apellido", typeof(string));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var cUITParameter = cUIT != null ?
+                new ObjectParameter("CUIT", cUIT) :
+                new ObjectParameter("CUIT", typeof(string));
+    
+            var dateNacParameter = dateNac.HasValue ?
+                new ObjectParameter("DateNac", dateNac) :
+                new ObjectParameter("DateNac", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Insert_Cliente", nombreParameter, apellidoParameter, sexoParameter, cUITParameter, dateNacParameter);
+        }
+    
+        public virtual int SP_Update_Cliente(Nullable<int> clientCode, string nombre, string apellido, string sexo, string cUIT, Nullable<System.DateTime> dateNac)
+        {
+            var clientCodeParameter = clientCode.HasValue ?
+                new ObjectParameter("ClientCode", clientCode) :
+                new ObjectParameter("ClientCode", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("Apellido", apellido) :
+                new ObjectParameter("Apellido", typeof(string));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var cUITParameter = cUIT != null ?
+                new ObjectParameter("CUIT", cUIT) :
+                new ObjectParameter("CUIT", typeof(string));
+    
+            var dateNacParameter = dateNac.HasValue ?
+                new ObjectParameter("DateNac", dateNac) :
+                new ObjectParameter("DateNac", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Cliente", clientCodeParameter, nombreParameter, apellidoParameter, sexoParameter, cUITParameter, dateNacParameter);
+        }
+    
+        public virtual int SP_Insert_PriceList_ByClient(Nullable<int> priceCode, Nullable<int> clientCode)
+        {
+            var priceCodeParameter = priceCode.HasValue ?
+                new ObjectParameter("PriceCode", priceCode) :
+                new ObjectParameter("PriceCode", typeof(int));
+    
+            var clientCodeParameter = clientCode.HasValue ?
+                new ObjectParameter("ClientCode", clientCode) :
+                new ObjectParameter("ClientCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_PriceList_ByClient", priceCodeParameter, clientCodeParameter);
+        }
+    
+        public virtual int SP_Update_PriceList_ByClient(Nullable<int> priceCode, Nullable<int> clientCode)
+        {
+            var priceCodeParameter = priceCode.HasValue ?
+                new ObjectParameter("PriceCode", priceCode) :
+                new ObjectParameter("PriceCode", typeof(int));
+    
+            var clientCodeParameter = clientCode.HasValue ?
+                new ObjectParameter("ClientCode", clientCode) :
+                new ObjectParameter("ClientCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_PriceList_ByClient", priceCodeParameter, clientCodeParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Get_PriceList_ByClient(Nullable<int> clientCode)
+        {
+            var clientCodeParameter = clientCode.HasValue ?
+                new ObjectParameter("ClientCode", clientCode) :
+                new ObjectParameter("ClientCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Get_PriceList_ByClient", clientCodeParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_Get_PriceListDescription_ByClient(Nullable<int> clientCode)
+        {
+            var clientCodeParameter = clientCode.HasValue ?
+                new ObjectParameter("ClientCode", clientCode) :
+                new ObjectParameter("ClientCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Get_PriceListDescription_ByClient", clientCodeParameter);
+        }
     }
 }

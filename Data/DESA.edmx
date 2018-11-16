@@ -5,6 +5,9 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DESAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="SP_Delete_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Delete_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Code" Type="int" Mode="In" />
         </Function>
@@ -49,6 +52,7 @@
         <Function Name="SP_Get_All_CategoriasProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Compras" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Get_All_PriceList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_ProductsTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Get_All_Proveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -84,6 +88,12 @@
         <Function Name="SP_Get_Localidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProvCode" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Get_PriceList_ByClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Get_PriceListDescription_ByClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Get_Producto_byID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDPRODUCTO" Type="int" Mode="In" />
         </Function>
@@ -107,6 +117,13 @@
         </Function>
         <Function Name="SP_Get_Venta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="operacionCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Insert_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Sexo" Type="char" Mode="In" />
+          <Parameter Name="CUIT" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DateNac" Type="datetime" Mode="In" />
         </Function>
         <Function Name="SP_Insert_Compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProveedorCode" Type="int" Mode="In" />
@@ -132,6 +149,10 @@
         <Function Name="SP_Insert_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserCode" Type="int" Mode="In" />
           <Parameter Name="DireccionCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Insert_PriceList_ByClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PriceCode" Type="int" Mode="In" />
+          <Parameter Name="ClientCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Insert_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
@@ -184,6 +205,14 @@
           <Parameter Name="EstadoCode" Type="int" Mode="In" />
           <Parameter Name="UserCode" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Update_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientCode" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Apellido" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Sexo" Type="char" Mode="In" />
+          <Parameter Name="CUIT" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DateNac" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="SP_Update_Compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CompraCode" Type="int" Mode="In" />
           <Parameter Name="estadoCode" Type="int" Mode="In" />
@@ -210,6 +239,10 @@
         <Function Name="SP_Update_Direccion_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserCode" Type="int" Mode="In" />
           <Parameter Name="DireccionCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_PriceList_ByClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PriceCode" Type="int" Mode="In" />
+          <Parameter Name="ClientCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Update_ProductType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="typeCode" Type="int" Mode="In" />
@@ -496,10 +529,43 @@
           <Parameter Name="UserCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_Domicilio_Cliente_byClienteID" ReturnType="Collection(DESAModel.SP_Get_Domicilio_Cliente_byClienteID_Result)">
-            <Parameter Name="ClienteCode" Mode="In" Type="Int32" />
+          <Parameter Name="ClienteCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_Domicilio_Proveedor_byProveedorID" ReturnType="Collection(DESAModel.SP_Get_Domicilio_Proveedor_byProveedorID_Result)">
-            <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+          <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Cliente">
+          <Parameter Name="ClientCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_All_PriceList" ReturnType="Collection(DESAModel.SP_Get_All_PriceList_Result)" />
+          <FunctionImport Name="SP_Insert_Cliente" ReturnType="Collection(Int32)">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido" Mode="In" Type="String" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="CUIT" Mode="In" Type="String" />
+            <Parameter Name="DateNac" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Cliente">
+            <Parameter Name="ClientCode" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido" Mode="In" Type="String" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="CUIT" Mode="In" Type="String" />
+            <Parameter Name="DateNac" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_PriceList_ByClient">
+            <Parameter Name="PriceCode" Mode="In" Type="Int32" />
+            <Parameter Name="ClientCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_PriceList_ByClient">
+            <Parameter Name="PriceCode" Mode="In" Type="Int32" />
+            <Parameter Name="ClientCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_PriceList_ByClient" ReturnType="Collection(Int32)">
+          <Parameter Name="ClientCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_PriceListDescription_ByClient" ReturnType="Collection(String)">
+            <Parameter Name="ClientCode" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_get_all_userTypes_Result">
@@ -680,6 +746,10 @@
           <Property Type="String" Name="Localidad" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Calle" Nullable="false" />
           <Property Type="Int32" Name="AlturaCalle" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_All_PriceList_Result">
+          <Property Type="Int32" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1015,6 +1085,21 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Delete_Cliente" FunctionName="DESAModel.Store.SP_Delete_Cliente" />
+          <FunctionImportMapping FunctionImportName="SP_Get_All_PriceList" FunctionName="DESAModel.Store.SP_Get_All_PriceList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_PriceList_Result">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Insert_Cliente" FunctionName="DESAModel.Store.SP_Insert_Cliente" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Cliente" FunctionName="DESAModel.Store.SP_Update_Cliente" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_PriceList_ByClient" FunctionName="DESAModel.Store.SP_Insert_PriceList_ByClient" />
+          <FunctionImportMapping FunctionImportName="SP_Update_PriceList_ByClient" FunctionName="DESAModel.Store.SP_Update_PriceList_ByClient" />
+          <FunctionImportMapping FunctionImportName="SP_Get_PriceList_ByClient" FunctionName="DESAModel.Store.SP_Get_PriceList_ByClient" />
+          <FunctionImportMapping FunctionImportName="SP_Get_PriceListDescription_ByClient" FunctionName="DESAModel.Store.SP_Get_PriceListDescription_ByClient" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

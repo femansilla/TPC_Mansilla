@@ -158,5 +158,18 @@ namespace ViewsApp
                 this.Show();
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListaComprasForm form = new ListaComprasForm();
+            form.currentUser = this.currentUser;
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+                this.Show();
+            }
+        }
     }
 }
