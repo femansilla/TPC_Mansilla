@@ -21,7 +21,7 @@ namespace Domain
         public string Categoria { get; set; }
         public string Imagen { get; set; }
         public byte[] ImagenByte { get; set; }
-        public Stock StockProduct { get; set; }
+        public int StockProduct { get; set; }
     }
 
     public class ProductoDescripcion

@@ -27,6 +27,9 @@ namespace ViewsApp
         {
             LoadCompras();
             txtSearch.Text = "Buscar...";
+            dateFrom.MaxDate = DateTime.Now;
+            dateTo.MaxDate = DateTime.Now;
+
             listaCompras = dgvCompras.DataSource as List<Compra>;
         }
 
@@ -34,19 +37,24 @@ namespace ViewsApp
         {
             dgvCompras.DataSource = _operacionesController.GetAllCompras();
 
+            dgvCompras.Columns["CodigoOperacion"].Visible = false;
             dgvCompras.Columns["ProveedorCode"].Visible = false;
             dgvCompras.Columns["EstadoCode"].Visible = false;
             dgvCompras.Columns["TipoOperacion"].Visible = false;
+            dgvCompras.Columns["Nombre"].Visible = false;
+            dgvCompras.Columns["Apellido"].Visible = false;
+            dgvCompras.Columns["CUIT"].Visible = false;
 
-            dgvCompras.Columns["CodigoOperacion"].DisplayIndex = 0;
-            dgvCompras.Columns["Proveedor"].DisplayIndex = 1;
-            dgvCompras.Columns["Referencia"].DisplayIndex = 2;
-            dgvCompras.Columns["Fecha"].DisplayIndex = 3;
-            dgvCompras.Columns["Importe"].DisplayIndex = 4;
-            dgvCompras.Columns["Estado"].DisplayIndex = 5;
+            dgvCompras.Columns["Proveedor"].DisplayIndex = 0;
+            dgvCompras.Columns["Referencia"].DisplayIndex = 1;
+            dgvCompras.Columns["Fecha"].DisplayIndex = 2;
+            dgvCompras.Columns["Importe"].DisplayIndex = 3;
+            dgvCompras.Columns["Estado"].DisplayIndex = 4;
+            dgvCompras.Columns["UsuarioRealizoAccion"].DisplayIndex = 5;
 
+            dgvCompras.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dgvCompras.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvCompras.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvCompras.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dgvCompras.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvCompras.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
@@ -92,6 +100,11 @@ namespace ViewsApp
             var selected = (Compra)dgvCompras.CurrentRow.DataBoundItem;
             OperacionForm opCompra = new OperacionForm("Compra" ,selected.CodigoOperacion);
             opCompra.ShowDialog();
+        }
+
+        private void dateFrom_ValueChanged(object sender, EventArgs e)
+        {
+            dateTo.MinDate = dateFrom.Value;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace ViewsApp
     public partial class VentasForm : Form
     {
         private readonly ProductoController controller = new ProductoController();
+        private List<Producto> listaP;
         public List<ProductoOperacion> list = new List<ProductoOperacion>();
         public Usuario currentUser;
 
@@ -25,13 +26,24 @@ namespace ViewsApp
             InitializeComponent();
         }
 
+        private void CargarComboProductType()
+        {
+            cmbProductTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            ///cmbPerfilType.Text = "Seleccione...";
+            cmbProductTypeFilter.DataSource = controller.GetAllTypes();
+            cmbProductTypeFilter.DisplayMember = "Descripcion";
+            cmbProductTypeFilter.ValueMember = "Code";
+        }
+
         private void CargarProductosEnForm()
         {
-            var a = controller.GetProductos();
-
+            listaP = controller.GetProductos();
+            var a = listaP;
             List<ProductoForm> lista = new List<ProductoForm>();
             foreach (var item in a)
             {
+                item.Precio = controller.GetPrecioPrd(item.IDProducto);
+                item.ProductType = controller.GetDescripcionTipoProducto(item.IDProducto);
                 ProductoForm frmView = new ProductoForm()
                 {
                     Code = item.IDProducto,
@@ -45,8 +57,6 @@ namespace ViewsApp
             }
         }
 
-        
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -55,16 +65,22 @@ namespace ViewsApp
         private void VentasForm_Load(object sender, EventArgs e)
         {
             CargarProductosEnForm();
+            CargarComboProductType();
         }
 
-        private void Products_MouseClick(object sender, MouseEventArgs e)
+        private void dgvVentaActual_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-                   
+            ShowDialog();
         }
 
-        private void Products_MouseDown(object sender, MouseEventArgs e)
+        private void txtCantidad_MouseClick(object sender, MouseEventArgs e)
         {
-            if(dgvVentaActual.DataSource != null)
+            txtCantidad.Text = "";
+        }
+
+        private void btnAgregarPrdADgv_Click(object sender, EventArgs e)
+        {
+            if (dgvVentaActual.DataSource != null)
             {
                 list = dgvVentaActual.DataSource as List<ProductoOperacion>;
             }
@@ -73,18 +89,29 @@ namespace ViewsApp
             {
                 if (i.DialogResult == DialogResult.OK)
                 {
+                    i.color = (!i.color) ? true : false;
+                    int cant = int.Parse(txtCantidad.Text);
                     list.Add(new ProductoOperacion()
                     {
                         IDProducto = i.Code,
                         Descripcion = i.Descripcion,
                         Precio = i.Precio,
-                        Cantidad = 1,
-                        Subtotal = i.Precio * 1
+                        Cantidad = cant,
+                        Subtotal = i.Precio * cant
                     });
                     i.DialogResult = DialogResult.None;
                     dgvVentaActual.DataSource = null;
                     dgvVentaActual.DataSource = list;
                 }
+                else
+                {
+                    MessageBox.Show("No selecciono ningun producto...");
+                }
+                if (string.IsNullOrEmpty(txtCantidad.Text))
+                {
+                    MessageBox.Show("No indico la cantidad para la operacion...");
+                }
+                i.Refresh();
             }
 
             dgvVentaActual.Columns[0].Visible = false;
@@ -92,17 +119,41 @@ namespace ViewsApp
             dgvVentaActual.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvVentaActual.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvVentaActual.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-
+            txtCantidad.Text = "Cantidad...";
         }
 
-        private void dgvVentaActual_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void cmbProductTypeFilter_SelectedValueChanged(object sender, EventArgs e)
         {
-            //editar cant
+            var selectedType = (ProveedorType)cmbProductTypeFilter.SelectedItem;
+            var ret = listaP.FindAll(p => p.ProductType == selectedType.Descripcion);
+            ReloadProducts(ret);
         }
 
-        private void dgvVentaActual_MouseDown(object sender, MouseEventArgs e)
+        private void ReloadProducts(List<Producto> ret)
         {
+            var a = ret;
+            List<ProductoForm> lista = new List<ProductoForm>();
+            Products.Controls.Clear();
+            foreach (var item in a)
+            {
+                ProductoForm frmView = new ProductoForm()
+                {
+                    Code = item.IDProducto,
+                    Descripcion = item.Descripcion,
+                    Precio = item.Precio
+                };
+                frmView.TopLevel = false;
+                frmView.SetearImagen(item.ImagenByte);
+                Products.Controls.Add(frmView);
+                frmView.Show();
+            }
+            Refresh();
+        }
 
+        private void btnDelFilterType_Click(object sender, EventArgs e)
+        {
+            var ret = listaP;
+            ReloadProducts(ret);
         }
     }
 }

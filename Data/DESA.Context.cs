@@ -956,5 +956,32 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Get_PriceListDescription_ByClient", clientCodeParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> SP_Get_Price_ByProduct(Nullable<int> productoCode)
+        {
+            var productoCodeParameter = productoCode.HasValue ?
+                new ObjectParameter("ProductoCode", productoCode) :
+                new ObjectParameter("ProductoCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("SP_Get_Price_ByProduct", productoCodeParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_Get_DescripcionType_ByProduct(Nullable<int> productoCode)
+        {
+            var productoCodeParameter = productoCode.HasValue ?
+                new ObjectParameter("ProductoCode", productoCode) :
+                new ObjectParameter("ProductoCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Get_DescripcionType_ByProduct", productoCodeParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_Get_StockDisponible_ByProduct(Nullable<int> productoCode)
+        {
+            var productoCodeParameter = productoCode.HasValue ?
+                new ObjectParameter("ProductoCode", productoCode) :
+                new ObjectParameter("ProductoCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Get_StockDisponible_ByProduct", productoCodeParameter);
+        }
     }
 }

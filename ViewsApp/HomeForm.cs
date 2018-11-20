@@ -171,5 +171,11 @@ namespace ViewsApp
                 this.Show();
             }
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            currentUser = null;
+            HomeForm_Load(sender, e);
+        }
     }
 }

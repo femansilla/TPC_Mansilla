@@ -16,6 +16,7 @@ namespace ViewsApp
         public string Descripcion { get; set; }
         public int Code { get; set; }
         public decimal Precio { get; set; }
+        public bool color = false;
 
         public ProductoForm()
         {
@@ -49,7 +50,37 @@ namespace ViewsApp
 
         private void imgProduct_Click(object sender, EventArgs e)
         {
+            if ((Color)imgProduct.Tag == Color.Yellow) { imgProduct.Tag = Color.Red; }
+            else { imgProduct.Tag = Color.White; }
+            imgProduct.Refresh();
             DialogResult = DialogResult.OK;
+        }
+
+        private void imgProduct_MouseHover(object sender, EventArgs e)
+        {
+            if ((Color)imgProduct.Tag == Color.White)
+                { imgProduct.Tag = Color.Yellow; }
+            else if ((Color)imgProduct.Tag == Color.Red)
+                { imgProduct.Tag = Color.Yellow; }
+            imgProduct.Refresh();
+        }
+
+        private void imgProduct_Paint(object sender, PaintEventArgs e)
+        {
+            if (imgProduct.Tag == null || color) { imgProduct.Tag = Color.White; } //Sets a default color
+            ControlPaint.DrawBorder(e.Graphics, imgProduct.ClientRectangle, (Color)imgProduct.Tag, ButtonBorderStyle.Solid);
+
+        }
+
+        private void imgProduct_MouseLeave(object sender, EventArgs e)
+        {
+            if ((Color)imgProduct.Tag == Color.Red)
+                { imgProduct.Tag = Color.Red; }
+            else if((Color)imgProduct.Tag == Color.Yellow)
+                { imgProduct.Tag = Color.White; }
+            else if ((Color)imgProduct.Tag == Color.White)
+                { imgProduct.Tag = Color.White; }
+            imgProduct.Refresh();
         }
     }
 }

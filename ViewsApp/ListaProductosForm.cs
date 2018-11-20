@@ -36,6 +36,7 @@ namespace ViewsApp
         private void FormatDGV()
         {
             dgvProductos.Columns["IDProducto"].Visible = false;
+            dgvProductos.Columns["Categoria"].Visible = false;
             dgvProductos.Columns["Imagen"].Visible = false;
             dgvProductos.Columns["ImagenByte"].Visible = false;
             dgvProductos.Columns["Descripcion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -43,7 +44,13 @@ namespace ViewsApp
 
         public void LoadProducts()
         {
-            dgvProductos.DataSource = _productoController.GetProductos();
+            var list = _productoController.GetProductos();
+            foreach (var i in list)
+            {
+                i.Precio = _productoController.GetPrecioPrd(i.IDProducto);
+                i.StockProduct = _productoController.GetStockPrd(i.IDProducto);
+            }
+            dgvProductos.DataSource = list;
         }
       
         private void btnVolver_Click(object sender, EventArgs e)

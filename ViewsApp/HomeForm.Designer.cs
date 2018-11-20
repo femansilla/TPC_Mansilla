@@ -38,6 +38,7 @@
             this.btnGestionTiposProveedores = new System.Windows.Forms.Button();
             this.btnGestionTiposProductos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGestionUsuarios
@@ -149,11 +150,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.Location = new System.Drawing.Point(540, 13);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(116, 44);
+            this.btnCerrarSesion.TabIndex = 11;
+            this.btnCerrarSesion.Text = "Cerrar sesion";
+            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 452);
+            this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGestionTiposProductos);
             this.Controls.Add(this.btnGestionTiposProveedores);
@@ -187,5 +200,6 @@
         private System.Windows.Forms.Button btnGestionTiposProveedores;
         private System.Windows.Forms.Button btnGestionTiposProductos;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCerrarSesion;
     }
 }

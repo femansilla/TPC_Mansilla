@@ -54,6 +54,22 @@ namespace Data
             return retlist;
         }
 
+        public int GetStockByProduct(int iDProducto)
+        {
+            return (int)_data.SP_Get_StockDisponible_ByProduct(iDProducto).FirstOrDefault();
+        }
+
+        public decimal GetPrecioPrd(int iDProducto)
+        {
+            var a = _data.SP_Get_Price_ByProduct(iDProducto).FirstOrDefault();
+            return decimal.Round((decimal)a, 2, MidpointRounding.AwayFromZero); ;
+        }
+
+        public string GetDescripcionTipoProductoByProducto(int iDProducto)
+        {
+            return _data.SP_Get_DescripcionType_ByProduct(iDProducto).FirstOrDefault();
+        }
+
         public void SaveType(ProveedorType type)
         {
             if (type.Code != 0)

@@ -51,6 +51,21 @@ namespace Business
             return retCatalog;
         }
 
+        public int GetStockPrd(int iDProducto)
+        {
+            return _productoServices.GetStockByProduct(iDProducto);
+        }
+
+        public string GetDescripcionTipoProducto(int iDProducto)
+        {
+            return _productoServices.GetDescripcionTipoProductoByProducto(iDProducto);
+        }
+
+        public decimal GetPrecioPrd(int iDProducto)
+        {
+            return _productoServices.GetPrecioPrd(iDProducto);
+        }
+
         public List<ProductoDescripcion> GetCatalogoByProveedor(int provCode)
         {
             var Catalogo = _productoServices.GetCatalogoByProveedor(provCode);

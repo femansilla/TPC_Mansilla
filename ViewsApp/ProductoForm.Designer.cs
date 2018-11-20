@@ -43,6 +43,9 @@
             this.imgProduct.TabIndex = 0;
             this.imgProduct.TabStop = false;
             this.imgProduct.Click += new System.EventHandler(this.imgProduct_Click);
+            this.imgProduct.Paint += new System.Windows.Forms.PaintEventHandler(this.imgProduct_Paint);
+            this.imgProduct.MouseLeave += new System.EventHandler(this.imgProduct_MouseLeave);
+            this.imgProduct.MouseHover += new System.EventHandler(this.imgProduct_MouseHover);
             // 
             // label1
             // 
