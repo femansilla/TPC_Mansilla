@@ -21,9 +21,9 @@ namespace Data
             return _data.SP_Get_Producto_byID(IdProducto).FirstOrDefault();
         }
 
-        public void InsertProducto(string Descripcion)
+        public void InsertProducto(string descripcion, int typeCode, string imagen)
         {
-            var code = _data.SP_Insert_Producto(Descripcion, 1, 2);
+            var code = _data.SP_Insert_Producto(descripcion, typeCode, imagen);
         }
 
         public void DeleteProducto(int id)
@@ -31,14 +31,19 @@ namespace Data
             _data.SP_Delete_Producto(id);
         }
 
-        public void ActualizarProducto(string Descripcion, int idProducto)
+        public void EditProducto(int code, string descripcion, int typeCode, string imagen)
         {
-            _data.SP_update_Descripcion_Producto(Descripcion, idProducto);
+            _data.SP_Update_Producto(code, descripcion, typeCode, imagen);
         }
 
         public List<SP_Get_All_CategoriasProducts_Result> GetAllCategorias()
         {
             return _data.SP_Get_All_CategoriasProducts().ToList();
+        }
+
+        public string GetImagenDescripcionProducto(int id)
+        {
+            return _data.SP_Get_ImageDescripton_ByProduct(id).FirstOrDefault();
         }
 
         public List<SP_Get_Catalogo_ByProveedor_Result> GetCatalogoByProveedor(int provCode)
@@ -62,6 +67,7 @@ namespace Data
         public decimal GetPrecioPrd(int iDProducto)
         {
             var a = _data.SP_Get_Price_ByProduct(iDProducto).FirstOrDefault();
+            a = (a == null) ? 0 : a;
             return decimal.Round((decimal)a, 2, MidpointRounding.AwayFromZero); ;
         }
 

@@ -37,36 +37,6 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Producto", idProductoParameter);
         }
     
-        public virtual int SP_update_Descripcion_Producto(string descripcion, Nullable<int> idProducto)
-        {
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
-    
-            var idProductoParameter = idProducto.HasValue ?
-                new ObjectParameter("idProducto", idProducto) :
-                new ObjectParameter("idProducto", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_update_Descripcion_Producto", descripcionParameter, idProductoParameter);
-        }
-    
-        public virtual int SP_Insert_Producto(string descripcion, Nullable<int> categoriaCode, Nullable<int> typeCode)
-        {
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
-    
-            var categoriaCodeParameter = categoriaCode.HasValue ?
-                new ObjectParameter("CategoriaCode", categoriaCode) :
-                new ObjectParameter("CategoriaCode", typeof(int));
-    
-            var typeCodeParameter = typeCode.HasValue ?
-                new ObjectParameter("TypeCode", typeCode) :
-                new ObjectParameter("TypeCode", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto", descripcionParameter, categoriaCodeParameter, typeCodeParameter);
-        }
-    
         public virtual ObjectResult<SP_get_all_userTypes_Result> SP_get_all_userTypes()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_get_all_userTypes_Result>("SP_get_all_userTypes");
@@ -982,6 +952,53 @@ namespace Data
                 new ObjectParameter("ProductoCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_Get_StockDisponible_ByProduct", productoCodeParameter);
+        }
+    
+        public virtual int SP_Insert_Producto(string descripcion, Nullable<int> typeCode, string imagenPath)
+        {
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("typeCode", typeCode) :
+                new ObjectParameter("typeCode", typeof(int));
+    
+            var imagenPathParameter = imagenPath != null ?
+                new ObjectParameter("ImagenPath", imagenPath) :
+                new ObjectParameter("ImagenPath", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto", descripcionParameter, typeCodeParameter, imagenPathParameter);
+        }
+    
+        public virtual int SP_Update_Producto(Nullable<int> code, string descripcion, Nullable<int> typeCode, string imagenPath)
+        {
+            var codeParameter = code.HasValue ?
+                new ObjectParameter("Code", code) :
+                new ObjectParameter("Code", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var typeCodeParameter = typeCode.HasValue ?
+                new ObjectParameter("typeCode", typeCode) :
+                new ObjectParameter("typeCode", typeof(int));
+    
+            var imagenPathParameter = imagenPath != null ?
+                new ObjectParameter("ImagenPath", imagenPath) :
+                new ObjectParameter("ImagenPath", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Update_Producto", codeParameter, descripcionParameter, typeCodeParameter, imagenPathParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_Get_ImageDescripton_ByProduct(Nullable<int> productCode)
+        {
+            var productCodeParameter = productCode.HasValue ?
+                new ObjectParameter("ProductCode", productCode) :
+                new ObjectParameter("ProductCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Get_ImageDescripton_ByProduct", productCodeParameter);
         }
     }
 }

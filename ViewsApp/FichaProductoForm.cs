@@ -10,31 +10,42 @@ using System.Windows.Forms;
 using Domain;
 using Business;
 using System.IO;
+using ViewsApp.Properties;
+using System.Reflection;
 
 namespace ViewsApp
 {
     public partial class FichaProductoForm : Form
     {
         private ProductoController _productoController = new ProductoController();
+        Producto prd = new Producto();
 
         public FichaProductoForm()
         {
             InitializeComponent();
-            CargarComboCategorias();
-            btnActualizar.Hide();
             lblIdProduct.Visible = false;
         }
 
         public FichaProductoForm(int id)
         {
             InitializeComponent();
-            btnGuardar.Hide();
             lblIdProduct.Visible = false;
             lblIdProduct.Text = id.ToString();
-            CargarComboCategorias();
-            var prd = _productoController.GetProducto(id);
+            prd = _productoController.GetProducto(id);
+        }
+
+        private void CargarDatosProducto()
+        {
             txtDescripcion.Text = prd.Descripcion;
-            cmbCategorias.SelectedValue = 3;
+            SelectTypeFromProduct(prd.ProductType);
+            txtImagen.Text = prd.Imagen;
+        }
+
+        private void SelectTypeFromProduct(string descripcion)
+        {
+            var list = cmbTypeProduct.DataSource as List<ProveedorType>;
+            var selected = list.Find(t => t.Descripcion == descripcion);
+            cmbTypeProduct.SelectedValue = selected.Code;
         }
 
         public Producto getProducto()
@@ -45,16 +56,37 @@ namespace ViewsApp
             };
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void GuardarProducto()
         {
-            Application.UseWaitCursor = true;
-            _productoController.AgregarProducto(getProducto());
-            Application.UseWaitCursor = false;
-            this.txtDescripcion.Clear();
-            MessageBox.Show("Producto agregado correctamente.");
-            this.Close();
+            //code, descripcion, tipo e imagen
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                MessageBox.Show("El Campo descripcion no puede estar vacio.");
+                return;
+            }
+            if (txtImagen.Text.Equals("GenericProduct") || string.IsNullOrEmpty(txtImagen.Text))
+            {
+                //string assmblypath = Assembly.GetEntryAssembly().Location;
+                //string appPath = Path.GetDirectoryName(assmblypath);
+                //string path = Path.GetFullPath("..\\ViewApp\\Resources\\GenericProduct.png");
+                string path = "C:\\Users\\Francisco Mansilla\\Pictures\\GenericProduct.png";
+                txtImagen.Text = path;
+            }
+            var selectedType = (ProveedorType)cmbTypeProduct.SelectedItem;
+            if (prd.IDProducto != 0)
+            {
+                _productoController.SaveProducto(prd.IDProducto, txtDescripcion.Text, selectedType.Code, txtImagen.Text);
+                MessageBox.Show("Producto modificado correctamente.");
+                Close();
+            }
+            else
+            {
+                _productoController.SaveProducto(prd.IDProducto, txtDescripcion.Text, selectedType.Code, txtImagen.Text);
+                MessageBox.Show("Producto agregado correctamente.");
+                Close();
+            }
         }
-
+        
         private void CargarComboCategorias()
         {
             cmbCategorias.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -63,14 +95,18 @@ namespace ViewsApp
             cmbCategorias.ValueMember = "Code";
         }
 
+        private void CargarComboTypes()
+        {
+            cmbTypeProduct.DropDownStyle = ComboBoxStyle.DropDownList;
+            ///cmbPerfilType.Text = "Seleccione...";
+            cmbTypeProduct.DataSource = _productoController.GetAllTypes();
+            cmbTypeProduct.DisplayMember = "Descripcion";
+            cmbTypeProduct.ValueMember = "Code";
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            _productoController.EditarProducto(txtDescripcion.Text, int.Parse(lblIdProduct.Text));
         }
 
         private void btnExaminar_MouseClick(object sender, MouseEventArgs e)
@@ -80,7 +116,30 @@ namespace ViewsApp
             file.ShowDialog();
             //Path.GetFullPath es para saber la dirección completa y poder guardarla.
             //para usarla tuve que incluir System.IO
-            txtImagen.Text = Path.GetFullPath(file.FileName);
+            if (string.IsNullOrEmpty(file.FileName))
+            {
+                txtImagen.Text = "GenericProduct";
+            }
+            else
+                txtImagen.Text = Path.GetFullPath(file.FileName);
+        }
+
+        private void FichaProductoForm_Load(object sender, EventArgs e)
+        {
+            //CargarComboCategorias();
+            CargarComboTypes();
+            if(prd.IDProducto != 0)
+                CargarDatosProducto();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            GuardarProducto();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

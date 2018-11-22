@@ -12,14 +12,17 @@ namespace Business
     {
         private readonly ProductoServices _productoServices = new ProductoServices();
 
-        public void AgregarProducto(Producto prd)
+        public void SaveProducto(int code, string descripcion, int typeCode, string imagen)
         {
-            _productoServices.InsertProducto(prd.Descripcion);
+            if(code == 0){
+                _productoServices.InsertProducto(descripcion, typeCode, imagen);
+            }
+            else
+            {
+                _productoServices.EditProducto(code, descripcion, typeCode, imagen);
+            }
         }
-        public void EditarProducto(string descripcion, int id)
-        {
-            _productoServices.ActualizarProducto(descripcion, id);
-        }
+
         public void EliminarProducto(int id)
         {
             _productoServices.DeleteProducto(id);
@@ -32,7 +35,8 @@ namespace Business
                 IDProducto = (int)prd.Id,
                 Descripcion = prd.Descripcion,
                 ProductType = prd.ProductType,
-                Categoria = prd.Categoria
+                Categoria = prd.Categoria,
+                Imagen = _productoServices.GetImagenDescripcionProducto(prd.Id)
             };
         }
 

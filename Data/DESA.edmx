@@ -85,6 +85,9 @@
         <Function Name="SP_Get_Domicilio_Usuario_byUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserCode" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Get_ImageDescripton_ByProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Get_Imagen_ByProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductoCode" Type="int" Mode="In" />
         </Function>
@@ -165,8 +168,8 @@
         </Function>
         <Function Name="SP_Insert_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
-          <Parameter Name="CategoriaCode" Type="int" Mode="In" />
-          <Parameter Name="TypeCode" Type="int" Mode="In" />
+          <Parameter Name="typeCode" Type="int" Mode="In" />
+          <Parameter Name="ImagenPath" Type="varchar(max)" Mode="In" />
         </Function>
         <Function Name="SP_Insert_Producto_ByCompra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CompraCode" Type="int" Mode="In" />
@@ -226,10 +229,6 @@
           <Parameter Name="CompraCode" Type="int" Mode="In" />
           <Parameter Name="estadoCode" Type="int" Mode="In" />
         </Function>
-        <Function Name="SP_update_Descripcion_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="idProducto" Type="int" Mode="In" />
-        </Function>
         <Function Name="SP_Update_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Code" Type="int" Mode="In" />
           <Parameter Name="Prov" Type="varchar(max)" Mode="In" />
@@ -252,6 +251,12 @@
         <Function Name="SP_Update_PriceList_ByClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PriceCode" Type="int" Mode="In" />
           <Parameter Name="ClientCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Update_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Code" Type="int" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="typeCode" Type="int" Mode="In" />
+          <Parameter Name="ImagenPath" Type="varchar(max)" Mode="In" />
         </Function>
         <Function Name="SP_Update_ProductType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="typeCode" Type="int" Mode="In" />
@@ -300,15 +305,6 @@
         <EntityContainer Name="DESA" annotation:LazyLoadingEnabled="true" >
           <FunctionImport Name="SP_Delete_Producto">
           <Parameter Name="idProducto" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="SP_update_Descripcion_Producto">
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
-            <Parameter Name="idProducto" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="SP_Insert_Producto">
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
-            <Parameter Name="CategoriaCode" Mode="In" Type="Int32" />
-            <Parameter Name="TypeCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_get_all_userTypes" ReturnType="Collection(DESAModel.SP_get_all_userTypes_Result)" />
           <FunctionImport Name="SP_Get_All_Clientes" ReturnType="Collection(DESAModel.SP_Get_All_Clientes_Result)" />
@@ -583,7 +579,21 @@
           <Parameter Name="ProductoCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_StockDisponible_ByProduct" ReturnType="Collection(Int32)">
-            <Parameter Name="ProductoCode" Mode="In" Type="Int32" />
+          <Parameter Name="ProductoCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_Producto">
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="typeCode" Mode="In" Type="Int32" />
+            <Parameter Name="ImagenPath" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Update_Producto">
+            <Parameter Name="Code" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="typeCode" Mode="In" Type="Int32" />
+            <Parameter Name="ImagenPath" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_ImageDescripton_ByProduct" ReturnType="Collection(String)">
+            <Parameter Name="ProductCode" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_get_all_userTypes_Result">
@@ -776,8 +786,6 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DESAModelStoreContainer" CdmEntityContainer="DESA" >
           <FunctionImportMapping FunctionImportName="SP_Delete_Producto" FunctionName="DESAModel.Store.SP_Delete_Producto" />
-          <FunctionImportMapping FunctionImportName="SP_update_Descripcion_Producto" FunctionName="DESAModel.Store.SP_update_Descripcion_Producto" />
-          <FunctionImportMapping FunctionImportName="SP_Insert_Producto" FunctionName="DESAModel.Store.SP_Insert_Producto" />
           <FunctionImportMapping FunctionImportName="SP_get_all_userTypes" FunctionName="DESAModel.Store.sp_get_all_userTypes">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DESAModel.SP_get_all_userTypes_Result">
@@ -1121,6 +1129,9 @@
           <FunctionImportMapping FunctionImportName="SP_Get_Price_ByProduct" FunctionName="DESAModel.Store.SP_Get_Price_ByProduct" />
           <FunctionImportMapping FunctionImportName="SP_Get_DescripcionType_ByProduct" FunctionName="DESAModel.Store.SP_Get_DescripcionType_ByProduct" />
           <FunctionImportMapping FunctionImportName="SP_Get_StockDisponible_ByProduct" FunctionName="DESAModel.Store.SP_Get_StockDisponible_ByProduct" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_Producto" FunctionName="DESAModel.Store.SP_Insert_Producto" />
+          <FunctionImportMapping FunctionImportName="SP_Update_Producto" FunctionName="DESAModel.Store.SP_Update_Producto" />
+          <FunctionImportMapping FunctionImportName="SP_Get_ImageDescripton_ByProduct" FunctionName="DESAModel.Store.SP_Get_ImageDescripton_ByProduct" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -14,11 +14,11 @@ namespace Business
 
         public void AgregarProducto(Producto prd)
         {
-            _stockServices.InsertProducto(prd.Descripcion);
+            //_stockServices.InsertProducto(prd.Descripcion);
         }
         public void EditarStock(string descripcion, int id)
         {
-            _stockServices.ActualizarProducto(descripcion, id);
+            //_stockServices.ActualizarProducto(descripcion, id);
         }
         public void EliminarProducto(int id)
         {

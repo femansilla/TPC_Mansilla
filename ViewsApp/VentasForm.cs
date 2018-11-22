@@ -30,7 +30,11 @@ namespace ViewsApp
         {
             cmbProductTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             ///cmbPerfilType.Text = "Seleccione...";
-            cmbProductTypeFilter.DataSource = controller.GetAllTypes();
+            var todo = new ProveedorType() { Code = 0, Descripcion = "Todo" };
+            var listCmb = controller.GetAllTypes();
+            listCmb.Add(todo);
+            listCmb = listCmb.OrderBy(x => x.Code).ToList();
+            cmbProductTypeFilter.DataSource = listCmb;
             cmbProductTypeFilter.DisplayMember = "Descripcion";
             cmbProductTypeFilter.ValueMember = "Code";
         }
@@ -66,6 +70,7 @@ namespace ViewsApp
         {
             CargarProductosEnForm();
             CargarComboProductType();
+            btnDelFilterType_Click(sender, e);
         }
 
         private void dgvVentaActual_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -106,10 +111,12 @@ namespace ViewsApp
                 else
                 {
                     MessageBox.Show("No selecciono ningun producto...");
+                    return;
                 }
                 if (string.IsNullOrEmpty(txtCantidad.Text))
                 {
                     MessageBox.Show("No indico la cantidad para la operacion...");
+                    return;
                 }
                 i.Refresh();
             }
@@ -125,7 +132,9 @@ namespace ViewsApp
         private void cmbProductTypeFilter_SelectedValueChanged(object sender, EventArgs e)
         {
             var selectedType = (ProveedorType)cmbProductTypeFilter.SelectedItem;
-            var ret = listaP.FindAll(p => p.ProductType == selectedType.Descripcion);
+            List<Producto> ret = new List<Producto>();
+            if (selectedType.Code != 0)
+                ret = listaP.FindAll(p => p.ProductType == selectedType.Descripcion);
             ReloadProducts(ret);
         }
 
@@ -153,6 +162,7 @@ namespace ViewsApp
         private void btnDelFilterType_Click(object sender, EventArgs e)
         {
             var ret = listaP;
+            cmbProductTypeFilter.SelectedValue = 0;
             ReloadProducts(ret);
         }
     }

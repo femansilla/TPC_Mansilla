@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.lblIdProduct = new System.Windows.Forms.Label();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,11 +57,10 @@
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnExaminar
             // 
-            this.btnExaminar.Location = new System.Drawing.Point(392, 214);
+            this.btnExaminar.Location = new System.Drawing.Point(392, 115);
             this.btnExaminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(106, 30);
@@ -84,7 +82,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 221);
+            this.label2.Location = new System.Drawing.Point(17, 122);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 17);
@@ -110,17 +108,6 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(739, 531);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(100, 30);
-            this.btnActualizar.TabIndex = 6;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // lblIdProduct
             // 
             this.lblIdProduct.AutoSize = true;
@@ -134,26 +121,28 @@
             // cmbCategorias
             // 
             this.cmbCategorias.FormattingEnabled = true;
-            this.cmbCategorias.Location = new System.Drawing.Point(129, 82);
+            this.cmbCategorias.Location = new System.Drawing.Point(67, 4);
             this.cmbCategorias.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategorias.Name = "cmbCategorias";
-            this.cmbCategorias.Size = new System.Drawing.Size(369, 25);
+            this.cmbCategorias.Size = new System.Drawing.Size(86, 25);
             this.cmbCategorias.TabIndex = 8;
+            this.cmbCategorias.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 85);
+            this.label3.Location = new System.Drawing.Point(-1, 7);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "Categoria";
+            this.label3.Visible = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 118);
+            this.label4.Location = new System.Drawing.Point(17, 85);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 17);
@@ -163,7 +152,7 @@
             // cmbTypeProduct
             // 
             this.cmbTypeProduct.FormattingEnabled = true;
-            this.cmbTypeProduct.Location = new System.Drawing.Point(129, 115);
+            this.cmbTypeProduct.Location = new System.Drawing.Point(129, 82);
             this.cmbTypeProduct.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTypeProduct.Name = "cmbTypeProduct";
             this.cmbTypeProduct.Size = new System.Drawing.Size(369, 25);
@@ -172,60 +161,66 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 151);
+            this.label5.Location = new System.Drawing.Point(323, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 17);
             this.label5.TabIndex = 12;
             this.label5.Text = "Stock";
+            this.label5.Visible = false;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(129, 181);
+            this.textBox2.Location = new System.Drawing.Point(224, 6);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(369, 25);
+            this.textBox2.Size = new System.Drawing.Size(86, 25);
             this.textBox2.TabIndex = 14;
+            this.textBox2.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 184);
+            this.label6.Location = new System.Drawing.Point(157, 9);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 15;
             this.label6.Text = "Precio U.";
+            this.label6.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(392, 261);
+            this.button1.Location = new System.Drawing.Point(392, 162);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 36);
             this.button1.TabIndex = 16;
-            this.button1.Text = "Eliminar";
+            this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(280, 261);
+            this.btnAceptar.Location = new System.Drawing.Point(280, 162);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(106, 36);
             this.btnAceptar.TabIndex = 17;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(129, 148);
+            this.textBox1.Location = new System.Drawing.Point(366, 6);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(369, 25);
+            this.textBox1.Size = new System.Drawing.Size(86, 25);
             this.textBox1.TabIndex = 13;
+            this.textBox1.Visible = false;
             // 
             // txtImagen
             // 
-            this.txtImagen.Location = new System.Drawing.Point(129, 219);
+            this.txtImagen.Location = new System.Drawing.Point(129, 120);
             this.txtImagen.Margin = new System.Windows.Forms.Padding(4);
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.ReadOnly = true;
@@ -236,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 317);
+            this.ClientSize = new System.Drawing.Size(523, 220);
             this.Controls.Add(this.txtImagen);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.button1);
@@ -249,7 +244,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbCategorias);
             this.Controls.Add(this.lblIdProduct);
-            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label2);
@@ -260,6 +254,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FichaProductoForm";
             this.Text = "FormAgregarProducto";
+            this.Load += new System.EventHandler(this.FichaProductoForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,7 +268,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label lblIdProduct;
         private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.Label label3;
