@@ -212,6 +212,12 @@
     <Compile Include="ListaComprasForm.Designer.cs">
       <DependentUpon>ListaComprasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectionVentaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectionVentaForm.Designer.cs">
+      <DependentUpon>SelectionVentaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ValidarSalidaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaComprasForm.resx">
       <DependentUpon>ListaComprasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectionVentaForm.resx">
+      <DependentUpon>SelectionVentaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ValidarSalidaForm.resx">
       <DependentUpon>ValidarSalidaForm.cs</DependentUpon>
