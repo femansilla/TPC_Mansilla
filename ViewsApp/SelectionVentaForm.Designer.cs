@@ -42,6 +42,7 @@
             this.dgvAllClients.Name = "dgvAllClients";
             this.dgvAllClients.Size = new System.Drawing.Size(255, 416);
             this.dgvAllClients.TabIndex = 27;
+            this.dgvAllClients.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllClients_CellDoubleClick);
             // 
             // btnVolver
             // 
@@ -53,6 +54,7 @@
             this.btnVolver.TabIndex = 26;
             this.btnVolver.Text = "Cancelar";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // txtSearch
             // 
@@ -87,6 +89,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "SelectionVentaForm";
             this.Text = "SelectionVentaForm";
+            this.Load += new System.EventHandler(this.SelectionVentaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

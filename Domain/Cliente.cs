@@ -18,4 +18,13 @@ namespace Domain
         [DisplayName("Email")]
         public List<string> email { get; set; }
     }
+
+    public class ClienteVM
+    {
+        public int Code { get; set; }
+        [DisplayName("Cliente")]
+        public string Descripcion { get; set; }
+        public int ListPriceCode { get; set; }
+        public string ListPrice { get; set; }
+    }
 }

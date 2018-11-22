@@ -1000,5 +1000,18 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Get_ImageDescripton_ByProduct", productCodeParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> SP_Get_Price_Product_ByList(Nullable<int> productCode, Nullable<int> listCode)
+        {
+            var productCodeParameter = productCode.HasValue ?
+                new ObjectParameter("ProductCode", productCode) :
+                new ObjectParameter("ProductCode", typeof(int));
+    
+            var listCodeParameter = listCode.HasValue ?
+                new ObjectParameter("ListCode", listCode) :
+                new ObjectParameter("ListCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("SP_Get_Price_Product_ByList", productCodeParameter, listCodeParameter);
+        }
     }
 }

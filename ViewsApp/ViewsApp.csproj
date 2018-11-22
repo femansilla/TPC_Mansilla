@@ -132,6 +132,12 @@
     <Compile Include="ListaProveedoresForm.Designer.cs">
       <DependentUpon>ListaProveedoresForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarCantPrdVentaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarCantPrdVentaForm.Designer.cs">
+      <DependentUpon>ModificarCantPrdVentaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OperacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaProveedoresForm.resx">
       <DependentUpon>ListaProveedoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarCantPrdVentaForm.resx">
+      <DependentUpon>ModificarCantPrdVentaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OperacionForm.resx">
       <DependentUpon>OperacionForm.cs</DependentUpon>

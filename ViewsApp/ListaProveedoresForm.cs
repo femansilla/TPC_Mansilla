@@ -40,7 +40,7 @@ namespace ViewsApp
                 MessageBox.Show("Se grabo correctamente el usuario...");
                 form.Close();
             }
-            else
+            else if (form.DialogResult != DialogResult.Ignore)
             {
                 MessageBox.Show("Ocurrio un error al grabar los datos...");
             }
@@ -87,7 +87,7 @@ namespace ViewsApp
                 MessageBox.Show("Se grabo correctamente el usuario...");
                 form.Close();
             }
-            else
+            else if(form.DialogResult != DialogResult.Ignore)
             {
                 MessageBox.Show("Ocurrio un error al grabar los datos...");
             }

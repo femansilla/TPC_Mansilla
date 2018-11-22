@@ -50,6 +50,7 @@
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -68,14 +69,14 @@
             this.dgvVentaActual.AllowUserToDeleteRows = false;
             this.dgvVentaActual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentaActual.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvVentaActual.Location = new System.Drawing.Point(803, 13);
+            this.dgvVentaActual.Location = new System.Drawing.Point(839, 13);
             this.dgvVentaActual.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVentaActual.MultiSelect = false;
             this.dgvVentaActual.Name = "dgvVentaActual";
             this.dgvVentaActual.ReadOnly = true;
             this.dgvVentaActual.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvVentaActual.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVentaActual.Size = new System.Drawing.Size(434, 450);
+            this.dgvVentaActual.Size = new System.Drawing.Size(398, 450);
             this.dgvVentaActual.TabIndex = 5;
             this.dgvVentaActual.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentaActual_CellDoubleClick);
             // 
@@ -83,7 +84,7 @@
             // 
             this.lblTotalOperacion.AutoSize = true;
             this.lblTotalOperacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalOperacion.Location = new System.Drawing.Point(811, 469);
+            this.lblTotalOperacion.Location = new System.Drawing.Point(834, 469);
             this.lblTotalOperacion.Name = "lblTotalOperacion";
             this.lblTotalOperacion.Size = new System.Drawing.Size(66, 25);
             this.lblTotalOperacion.TabIndex = 76;
@@ -93,12 +94,12 @@
             // 
             this.Products.Location = new System.Drawing.Point(12, 13);
             this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(784, 450);
+            this.Products.Size = new System.Drawing.Size(820, 450);
             this.Products.TabIndex = 77;
             // 
             // btnAgregarPrdADgv
             // 
-            this.btnAgregarPrdADgv.Location = new System.Drawing.Point(713, 467);
+            this.btnAgregarPrdADgv.Location = new System.Drawing.Point(747, 467);
             this.btnAgregarPrdADgv.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarPrdADgv.Name = "btnAgregarPrdADgv";
             this.btnAgregarPrdADgv.Size = new System.Drawing.Size(85, 33);
@@ -109,7 +110,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(606, 472);
+            this.txtCantidad.Location = new System.Drawing.Point(640, 472);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(100, 25);
             this.txtCantidad.TabIndex = 79;

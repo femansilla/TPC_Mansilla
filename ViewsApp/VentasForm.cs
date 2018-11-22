@@ -16,10 +16,13 @@ namespace ViewsApp
 {
     public partial class VentasForm : Form
     {
-        private readonly ProductoController controller = new ProductoController();
+        private readonly ProductoController _productoController = new ProductoController();
+        private readonly OperacionesController _operacionesController = new OperacionesController();
         private List<Producto> listaP;
         public List<ProductoOperacion> list = new List<ProductoOperacion>();
         public Usuario currentUser;
+        public int clienteCde;
+
 
         public VentasForm()
         {
@@ -31,7 +34,7 @@ namespace ViewsApp
             cmbProductTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             ///cmbPerfilType.Text = "Seleccione...";
             var todo = new ProveedorType() { Code = 0, Descripcion = "Todo" };
-            var listCmb = controller.GetAllTypes();
+            var listCmb = _productoController.GetAllTypes();
             listCmb.Add(todo);
             listCmb = listCmb.OrderBy(x => x.Code).ToList();
             cmbProductTypeFilter.DataSource = listCmb;
@@ -41,13 +44,13 @@ namespace ViewsApp
 
         private void CargarProductosEnForm()
         {
-            listaP = controller.GetProductos();
+            listaP = _productoController.GetProductos();
             var a = listaP;
             List<ProductoForm> lista = new List<ProductoForm>();
             foreach (var item in a)
             {
-                item.Precio = controller.GetPrecioPrd(item.IDProducto);
-                item.ProductType = controller.GetDescripcionTipoProducto(item.IDProducto);
+                item.Precio = _productoController.GetPrecioPrd(item.IDProducto);
+                item.ProductType = _productoController.GetDescripcionTipoProducto(item.IDProducto);
                 ProductoForm frmView = new ProductoForm()
                 {
                     Code = item.IDProducto,
@@ -63,19 +66,82 @@ namespace ViewsApp
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            var DR = MessageBox.Show("Perdera los datos de la venta, esta seguro que desea continuar");
+            DialogResult = (DR == DialogResult.OK) ? DialogResult.Cancel : DialogResult.OK;
         }
 
         private void VentasForm_Load(object sender, EventArgs e)
         {
-            CargarProductosEnForm();
+            CargarCliente();
             CargarComboProductType();
             btnDelFilterType_Click(sender, e);
         }
 
+        private void CargarCliente()
+        {
+            try
+            {
+                SelectionVentaForm selectClient = new SelectionVentaForm();
+                selectClient.ShowDialog();
+                if (selectClient.DialogResult == DialogResult.OK)
+                {
+                    clienteCde = selectClient.clienteCode;
+                    CargarProductosEnForm(selectClient.ListCode);
+                    selectClient.Close();
+                }
+                else
+                {
+                    selectClient.Close();
+                    DialogResult = DialogResult.Cancel;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void CargarProductosEnForm(int listCode)
+        {
+            listaP = _productoController.GetProductos();
+            var a = listaP;
+            List<ProductoForm> lista = new List<ProductoForm>();
+            foreach (var item in a)
+            {
+                item.Precio = _productoController.GetPrecioPrdByListPrice(item.IDProducto, listCode);
+                item.ProductType = _productoController.GetDescripcionTipoProducto(item.IDProducto);
+                ProductoForm frmView = new ProductoForm()
+                {
+                    Code = item.IDProducto,
+                    Descripcion = item.Descripcion,
+                    Precio = item.Precio
+                };
+                frmView.TopLevel = false;
+                frmView.SetearImagen(item.ImagenByte);
+                Products.Controls.Add(frmView);
+                frmView.Show();
+            }
+        }
+
         private void dgvVentaActual_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ShowDialog();
+            var selectedItem = (ProductoOperacion)dgvVentaActual.CurrentRow.DataBoundItem;
+            try
+            {
+                ModificarCantPrdVentaForm frm = new ModificarCantPrdVentaForm();
+                frm.cant = selectedItem.Cantidad;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    selectedItem.Cantidad = frm.cant;
+                    selectedItem.Subtotal = selectedItem.Precio * selectedItem.Cantidad;
+                    dgvVentaActual.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void txtCantidad_MouseClick(object sender, MouseEventArgs e)
@@ -89,11 +155,17 @@ namespace ViewsApp
             {
                 list = dgvVentaActual.DataSource as List<ProductoOperacion>;
             }
-
+            bool selecPrd = false;
+            if (string.IsNullOrEmpty(txtCantidad.Text))
+            {
+                MessageBox.Show("No indico la cantidad para la operacion...");
+                return;
+            }
             foreach (ProductoForm i in Products.Controls)
             {
                 if (i.DialogResult == DialogResult.OK)
                 {
+                    selecPrd = true;
                     i.color = (!i.color) ? true : false;
                     int cant = int.Parse(txtCantidad.Text);
                     list.Add(new ProductoOperacion()
@@ -108,17 +180,12 @@ namespace ViewsApp
                     dgvVentaActual.DataSource = null;
                     dgvVentaActual.DataSource = list;
                 }
-                else
-                {
-                    MessageBox.Show("No selecciono ningun producto...");
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtCantidad.Text))
-                {
-                    MessageBox.Show("No indico la cantidad para la operacion...");
-                    return;
-                }
                 i.Refresh();
+            }
+            if(!selecPrd)
+            {
+                MessageBox.Show("No selecciono ningun producto...");
+                return;
             }
 
             dgvVentaActual.Columns[0].Visible = false;
@@ -161,9 +228,26 @@ namespace ViewsApp
 
         private void btnDelFilterType_Click(object sender, EventArgs e)
         {
-            var ret = listaP;
-            cmbProductTypeFilter.SelectedValue = 0;
-            ReloadProducts(ret);
+            if(listaP != null)
+            {
+                var ret = listaP;
+                cmbProductTypeFilter.SelectedValue = 0;
+                ReloadProducts(ret);
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            var a = _operacionesController.SaveVenta(new Venta()
+            {
+                ClienteCode = this.clienteCde,
+                EstadoCode = 3,
+                Fecha = DateTime.Now,
+                ProductosVenta = dgvVentaActual.DataSource as List<ProductoOperacion>,
+                UsuarioRealizoAccionCode = currentUser.IDUser
+            });
+            if (a) MessageBox.Show("Se guardo la venta correctamente");
+            else MessageBox.Show("Ocurrieron errores al guardar la venta");
         }
     }
 }

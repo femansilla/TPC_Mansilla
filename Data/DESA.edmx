@@ -97,6 +97,10 @@
         <Function Name="SP_Get_Price_ByProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductoCode" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Get_Price_Product_ByList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="int" Mode="In" />
+          <Parameter Name="ListCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Get_PriceList_ByClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ClientCode" Type="int" Mode="In" />
         </Function>
@@ -593,7 +597,11 @@
             <Parameter Name="ImagenPath" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_ImageDescripton_ByProduct" ReturnType="Collection(String)">
+          <Parameter Name="ProductCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_Price_Product_ByList" ReturnType="Collection(Decimal)">
             <Parameter Name="ProductCode" Mode="In" Type="Int32" />
+            <Parameter Name="ListCode" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_get_all_userTypes_Result">
@@ -1132,6 +1140,7 @@
           <FunctionImportMapping FunctionImportName="SP_Insert_Producto" FunctionName="DESAModel.Store.SP_Insert_Producto" />
           <FunctionImportMapping FunctionImportName="SP_Update_Producto" FunctionName="DESAModel.Store.SP_Update_Producto" />
           <FunctionImportMapping FunctionImportName="SP_Get_ImageDescripton_ByProduct" FunctionName="DESAModel.Store.SP_Get_ImageDescripton_ByProduct" />
+          <FunctionImportMapping FunctionImportName="SP_Get_Price_Product_ByList" FunctionName="DESAModel.Store.SP_Get_Price_Product_ByList" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -38,7 +38,7 @@ namespace Business
             };
         }
 
-        public object GetAllClientes()
+        public List<Cliente> GetAllClientes()
         {
             List<Cliente> retList = new List<Cliente>();
             var a = _clienteServices.GetAllClientes();

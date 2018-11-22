@@ -14,6 +14,7 @@ namespace Domain
         public int EstadoCode { get; set; }
         public string Estado { get; set; }
         public List<ProductoOperacion> ProductosVenta { get; set; }
+        public int UsuarioRealizoAccionCode { get; set; }
         public string UsuarioRealizoAccion { get; set; }
     }
 }

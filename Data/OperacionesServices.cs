@@ -74,7 +74,7 @@ namespace Data
 
         public void SaveVenta(Venta vts)
         {
-            vts.CodigoOperacion = _data.SP_Insert_Venta(vts.ClienteCode, vts.Fecha, vts.Referencia, vts.EstadoCode, 1).FirstOrDefault().Value;
+            vts.CodigoOperacion = _data.SP_Insert_Venta(vts.ClienteCode, vts.Fecha, vts.Referencia, vts.EstadoCode, vts.UsuarioRealizoAccionCode).FirstOrDefault().Value;
             CargarProductosEnOperacion(vts.TipoOperacion, vts.CodigoOperacion, vts.ProductosVenta);
         }
 

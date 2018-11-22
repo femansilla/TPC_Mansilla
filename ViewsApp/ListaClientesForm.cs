@@ -21,7 +21,6 @@ namespace ViewsApp
         public ListaClientesForm()
         {
             InitializeComponent();
-            LoadClientes();
             txtSearch.Text = "Buscar...";
             listaClientes = dgvClientes.DataSource as List<Cliente>;
 
@@ -41,7 +40,7 @@ namespace ViewsApp
                 MessageBox.Show("Se grabo correctamente el usuario...");
                 form.Close();
             }
-            else
+            else if(form.DialogResult != DialogResult.Ignore)
             {
                 MessageBox.Show("Ocurrio un error al grabar los datos...");
             }
@@ -72,7 +71,7 @@ namespace ViewsApp
 
         private void ListaClientesForm_Load(object sender, EventArgs e)
         {
-
+            LoadClientes();
         }
 
         private void editCliente()
@@ -85,7 +84,7 @@ namespace ViewsApp
                 MessageBox.Show("Se grabo correctamente el usuario...");
                 form.Close();
             }
-            else
+            else if (form.DialogResult != DialogResult.Ignore)
             {
                 MessageBox.Show("Ocurrio un error al grabar los datos...");
             }
@@ -101,7 +100,6 @@ namespace ViewsApp
         {
             editCliente();
         }
-
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {

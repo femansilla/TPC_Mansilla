@@ -116,6 +116,12 @@ namespace Business
             return retList;
         }
 
+        public decimal GetPrecioPrdByListPrice(int iDProducto, int listCode)
+        {
+            return _productoServices.GetPrecioPrdByList(iDProducto, listCode);
+            
+        }
+
         public List<ProveedorType> GetAllTypes()
         {
             List<ProveedorType> retList = new List<ProveedorType>();

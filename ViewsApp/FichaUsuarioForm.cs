@@ -139,7 +139,7 @@ namespace ViewsApp
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Ignore;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

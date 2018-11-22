@@ -68,7 +68,7 @@ namespace Data
         {
             var a = _data.SP_Get_Price_ByProduct(iDProducto).FirstOrDefault();
             a = (a == null) ? 0 : a;
-            return decimal.Round((decimal)a, 2, MidpointRounding.AwayFromZero); ;
+            return decimal.Round((decimal)a, 2, MidpointRounding.AwayFromZero);
         }
 
         public string GetDescripcionTipoProductoByProducto(int iDProducto)
@@ -92,6 +92,13 @@ namespace Data
         public byte[] GetImagenProducto(int code)
         {
             return _data.SP_Get_Imagen_ByProducto(code).FirstOrDefault();
+        }
+
+        public decimal GetPrecioPrdByList(int iDProducto, int listCode)
+        {
+            var a = _data.SP_Get_Price_Product_ByList(iDProducto, listCode).FirstOrDefault();
+            a = (a == null) ? 0 : a;
+            return decimal.Round((decimal)a, 2, MidpointRounding.AwayFromZero);
         }
     }
 }
