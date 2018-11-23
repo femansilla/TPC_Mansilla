@@ -15,6 +15,7 @@ namespace ViewsApp
     public partial class ListaProductosForm : Form
     {
         private readonly ProductoController _productoController = new ProductoController();
+        private List<Producto> listProducts;
         public Usuario currentUser;
         public ListaProductosForm()
         {
@@ -44,13 +45,13 @@ namespace ViewsApp
 
         public void LoadProducts()
         {
-            var list = _productoController.GetProductos();
-            foreach (var i in list)
+            listProducts = _productoController.GetProductos();
+            foreach (var i in listProducts)
             {
                 i.Precio = _productoController.GetPrecioPrd(i.IDProducto);
                 i.StockProduct = _productoController.GetStockPrd(i.IDProducto);
             }
-            dgvProductos.DataSource = list;
+            dgvProductos.DataSource = listProducts;
         }
       
         private void btnVolver_Click(object sender, EventArgs e)
@@ -72,6 +73,19 @@ namespace ViewsApp
             FichaProductoForm editProduct = new FichaProductoForm(productoSelected.IDProducto);
             editProduct.ShowDialog();
             LoadProducts();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "")
+                dgvProductos.DataSource = listProducts;
+            else if (txtSearch.Text != "Buscar...")
+            {
+                List<Producto> lista;
+                lista = listProducts.FindAll(m => m.Descripcion.ToLower().Contains(txtSearch.Text.ToLower()));
+                dgvProductos.DataSource = lista;
+                FormatDGV();
+            }
         }
     }
 }
