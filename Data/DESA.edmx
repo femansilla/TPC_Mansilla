@@ -132,6 +132,12 @@
         <Function Name="SP_Get_StockDisponible_ByProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductoCode" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Get_UserActionCompra_ByCompraCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompraCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Get_UserActionVenta_ByVentaCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VentaCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Get_Usuario_byID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserCode" Type="int" Mode="In" />
         </Function>
@@ -446,7 +452,6 @@
             <Parameter Name="Descripcion" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_All_Compras" ReturnType="Collection(DESAModel.SP_Get_All_Compras_Result)" />
-          <FunctionImport Name="SP_Get_All_Ventas" ReturnType="Collection(DESAModel.SP_Get_All_Ventas_Result)" />
           <FunctionImport Name="SP_Insert_Compra" ReturnType="Collection(Int32)">
             <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
             <Parameter Name="Date" Mode="In" Type="DateTime" />
@@ -488,9 +493,6 @@
             <Parameter Name="estadoCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_Compra" ReturnType="Collection(DESAModel.SP_Get_Compra_Result)">
-          <Parameter Name="operacionCode" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="SP_Get_Venta" ReturnType="Collection(DESAModel.SP_Get_Venta_Result)">
           <Parameter Name="operacionCode" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_Get_Imagen_ByProducto" ReturnType="Collection(Binary)">
@@ -619,6 +621,16 @@
             <Parameter Name="ProductoCode" Mode="In" Type="Int32" />
             <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="SP_Get_All_Ventas" ReturnType="Collection(DESAModel.SP_Get_All_Ventas_Result)" />
+          <FunctionImport Name="SP_Get_Venta" ReturnType="Collection(DESAModel.SP_Get_Venta_Result)">
+          <Parameter Name="operacionCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_UserActionVenta_ByVentaCode" ReturnType="Collection(String)">
+          <Parameter Name="VentaCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Get_UserActionCompra_ByCompraCode" ReturnType="Collection(String)">
+            <Parameter Name="CompraCode" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_get_all_userTypes_Result">
           <Property Type="Int32" Name="Code" Nullable="false" />
@@ -738,18 +750,7 @@
           <Property Type="String" Name="Referencia" Nullable="false" MaxLength="27" />
           <Property Type="String" Name="Nombre" Nullable="false" />
           <Property Type="String" Name="Apellido" Nullable="false" />
-          <Property Type="Int32" Name="TotalCompra" Nullable="false" />
-          <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
-        </ComplexType>
-        <ComplexType Name="SP_Get_All_Ventas_Result">
-          <Property Type="Int32" Name="Code" Nullable="false" />
-          <Property Type="DateTime" Name="DateCompra" Nullable="false" Precision="23" />
-          <Property Type="String" Name="Referencia" Nullable="false" MaxLength="28" />
-          <Property Type="Int32" Name="ClienteCode" Nullable="true" />
-          <Property Type="Decimal" Name="ImporteTotal" Nullable="false" Precision="19" />
-          <Property Type="String" Name="CUIT" Nullable="false" MaxLength="10" />
-          <Property Type="String" Name="Nombre" Nullable="false" />
-          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="Decimal" Name="TotalCompra" Nullable="false" />
           <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
         </ComplexType>
         <ComplexType Name="SP_Get_ProductosCompra_ByID_Result">
@@ -769,13 +770,6 @@
           <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
           <Property Type="String" Name="referencia" Nullable="true" />
           <Property Type="Int32" Name="estado" Nullable="true" />
-          <Property Type="String" Name="user" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SP_Get_Venta_Result">
-          <Property Type="Int32" Name="clientCode" Nullable="true" />
-          <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
-          <Property Type="String" Name="referencia" Nullable="true" />
-          <Property Type="Int32" Name="estado" Nullable="false" />
           <Property Type="String" Name="user" Nullable="false" />
         </ComplexType>
         <ComplexType Name="SP_Get_Domicilio_Usuario_byUserID_Result">
@@ -802,6 +796,21 @@
         <ComplexType Name="SP_Get_All_PriceList_Result">
           <Property Type="Int32" Name="Code" Nullable="false" />
           <Property Type="String" Name="Descripcion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_All_Ventas_Result">
+          <Property Type="Int32" Name="Code" Nullable="false" />
+          <Property Type="DateTime" Name="DateCompra" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Referencia" Nullable="true" />
+          <Property Type="Int32" Name="ClienteCode" Nullable="false" />
+          <Property Type="Decimal" Name="ImporteTotal" Nullable="true" Precision="19" />
+          <Property Type="String" Name="Estado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_Get_Venta_Result">
+          <Property Type="Int32" Name="clientCode" Nullable="false" />
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="referencia" Nullable="true" />
+          <Property Type="Int32" Name="estado" Nullable="false" />
+          <Property Type="String" Name="user" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1027,21 +1036,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Get_All_Ventas" FunctionName="DESAModel.Store.SP_Get_All_Ventas">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Ventas_Result">
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="DateCompra" ColumnName="DateCompra" />
-                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
-                <ScalarProperty Name="ClienteCode" ColumnName="ClienteCode" />
-                <ScalarProperty Name="ImporteTotal" ColumnName="ImporteTotal" />
-                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_Insert_Compra" FunctionName="DESAModel.Store.SP_Insert_Compra" />
           <FunctionImportMapping FunctionImportName="SP_Insert_Producto_ByCompra" FunctionName="DESAModel.Store.SP_Insert_Producto_ByCompra" />
           <FunctionImportMapping FunctionImportName="SP_Insert_Producto_ByVenta" FunctionName="DESAModel.Store.SP_Insert_Producto_ByVenta" />
@@ -1072,17 +1066,6 @@
             <ResultMapping>
               <ComplexTypeMapping TypeName="DESAModel.SP_Get_Compra_Result">
                 <ScalarProperty Name="proveedorCode" ColumnName="proveedorCode" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="referencia" ColumnName="referencia" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="user" ColumnName="user" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Get_Venta" FunctionName="DESAModel.Store.SP_Get_Venta">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DESAModel.SP_Get_Venta_Result">
-                <ScalarProperty Name="clientCode" ColumnName="clientCode" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="referencia" ColumnName="referencia" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
@@ -1159,6 +1142,31 @@
           <FunctionImportMapping FunctionImportName="SP_Get_Price_Product_ByList" FunctionName="DESAModel.Store.SP_Get_Price_Product_ByList" />
           <FunctionImportMapping FunctionImportName="SP_Delete_Producto_ByProveedor" FunctionName="DESAModel.Store.SP_Delete_Producto_ByProveedor" />
           <FunctionImportMapping FunctionImportName="SP_Insert_Producto_ByProveedor" FunctionName="DESAModel.Store.SP_Insert_Producto_ByProveedor" />
+          <FunctionImportMapping FunctionImportName="SP_Get_All_Ventas" FunctionName="DESAModel.Store.SP_Get_All_Ventas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_All_Ventas_Result">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DateCompra" ColumnName="DateCompra" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="ClienteCode" ColumnName="ClienteCode" />
+                <ScalarProperty Name="ImporteTotal" ColumnName="ImporteTotal" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_Venta" FunctionName="DESAModel.Store.SP_Get_Venta">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DESAModel.SP_Get_Venta_Result">
+                <ScalarProperty Name="clientCode" ColumnName="clientCode" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="user" ColumnName="user" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Get_UserActionVenta_ByVentaCode" FunctionName="DESAModel.Store.SP_Get_UserActionVenta_ByVentaCode" />
+          <FunctionImportMapping FunctionImportName="SP_Get_UserActionCompra_ByCompraCode" FunctionName="DESAModel.Store.SP_Get_UserActionCompra_ByCompraCode" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

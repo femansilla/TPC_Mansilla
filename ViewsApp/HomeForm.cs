@@ -153,7 +153,7 @@ namespace ViewsApp
         private void btnControlStock_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ListaComprasForm form = new ListaComprasForm();
+            ListaComprasForm form = new ListaComprasForm("Compra");
             form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
@@ -170,7 +170,7 @@ namespace ViewsApp
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            ListaComprasForm form = new ListaComprasForm();
+            ListaComprasForm form = new ListaComprasForm("Venta");
             form.currentUser = this.currentUser;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)

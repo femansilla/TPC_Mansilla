@@ -469,11 +469,6 @@ namespace Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Compras_Result>("SP_Get_All_Compras");
         }
     
-        public virtual ObjectResult<SP_Get_All_Ventas_Result> SP_Get_All_Ventas()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Ventas_Result>("SP_Get_All_Ventas");
-        }
-    
         public virtual ObjectResult<Nullable<int>> SP_Insert_Compra(Nullable<int> proveedorCode, Nullable<System.DateTime> date, string referencia, Nullable<int> estadoCode, Nullable<int> userCode)
         {
             var proveedorCodeParameter = proveedorCode.HasValue ?
@@ -617,15 +612,6 @@ namespace Data
                 new ObjectParameter("operacionCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Compra_Result>("SP_Get_Compra", operacionCodeParameter);
-        }
-    
-        public virtual ObjectResult<SP_Get_Venta_Result> SP_Get_Venta(Nullable<int> operacionCode)
-        {
-            var operacionCodeParameter = operacionCode.HasValue ?
-                new ObjectParameter("operacionCode", operacionCode) :
-                new ObjectParameter("operacionCode", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Venta_Result>("SP_Get_Venta", operacionCodeParameter);
         }
     
         public virtual ObjectResult<byte[]> SP_Get_Imagen_ByProducto(Nullable<int> productoCode)
@@ -1038,6 +1024,38 @@ namespace Data
                 new ObjectParameter("ProveedorCode", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto_ByProveedor", productoCodeParameter, proveedorCodeParameter);
+        }
+    
+        public virtual ObjectResult<SP_Get_All_Ventas_Result> SP_Get_All_Ventas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_All_Ventas_Result>("SP_Get_All_Ventas");
+        }
+    
+        public virtual ObjectResult<SP_Get_Venta_Result> SP_Get_Venta(Nullable<int> operacionCode)
+        {
+            var operacionCodeParameter = operacionCode.HasValue ?
+                new ObjectParameter("operacionCode", operacionCode) :
+                new ObjectParameter("operacionCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Get_Venta_Result>("SP_Get_Venta", operacionCodeParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_Get_UserActionVenta_ByVentaCode(Nullable<int> ventaCode)
+        {
+            var ventaCodeParameter = ventaCode.HasValue ?
+                new ObjectParameter("VentaCode", ventaCode) :
+                new ObjectParameter("VentaCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Get_UserActionVenta_ByVentaCode", ventaCodeParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_Get_UserActionCompra_ByCompraCode(Nullable<int> compraCode)
+        {
+            var compraCodeParameter = compraCode.HasValue ?
+                new ObjectParameter("CompraCode", compraCode) :
+                new ObjectParameter("CompraCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Get_UserActionCompra_ByCompraCode", compraCodeParameter);
         }
     }
 }

@@ -74,6 +74,7 @@ namespace ViewsApp
         {
             CargarCliente();
             CargarComboProductType();
+            dgvVentaActual.DataSource = list;
             btnDelFilterType_Click(sender, e);
         }
 
@@ -246,7 +247,10 @@ namespace ViewsApp
                 ProductosVenta = dgvVentaActual.DataSource as List<ProductoOperacion>,
                 UsuarioRealizoAccionCode = currentUser.IDUser
             });
-            if (a) MessageBox.Show("Se guardo la venta correctamente");
+            if (a) {
+                MessageBox.Show("Se guardo la venta correctamente");
+                dgvVentaActual.DataSource = new List<ProductoOperacion>();
+            }
             else MessageBox.Show("Ocurrieron errores al guardar la venta");
         }
     }

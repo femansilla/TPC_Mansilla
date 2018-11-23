@@ -8,8 +8,9 @@ namespace Domain
 {
     public class Venta : Operacion
     {
-        public float Total { get; set; }
+        public decimal Total { get; set; }
         public int ClienteCode { get; set; }
+        public string Cliente { get; set; }
         public string Referencia { get; set; }
         public int EstadoCode { get; set; }
         public string Estado { get; set; }

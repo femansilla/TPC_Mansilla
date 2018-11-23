@@ -16,11 +16,8 @@ namespace Data
         public int Code { get; set; }
         public System.DateTime DateCompra { get; set; }
         public string Referencia { get; set; }
-        public Nullable<int> ClienteCode { get; set; }
-        public decimal ImporteTotal { get; set; }
-        public string CUIT { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
+        public int ClienteCode { get; set; }
+        public Nullable<decimal> ImporteTotal { get; set; }
         public string Estado { get; set; }
     }
 }

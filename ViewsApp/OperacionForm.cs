@@ -52,7 +52,7 @@ namespace ViewsApp
             }
             else
             {
-                Venta op = _operacionController.GetOperacion("Compra", code) as Venta;
+                Venta op = _operacionController.GetOperacion("Venta", code) as Venta;
                 txtReferencia.Text = op.Referencia;
                 cmbByType.SelectedValue = op.ClienteCode;
                 dtFecha.Value = op.Fecha;
@@ -114,6 +114,7 @@ namespace ViewsApp
                     UsuarioRealizoAccionCode = currentUser.IDUser
                 };
                 _operacionController.SaveCompra(cmp);
+                DialogResult = DialogResult.OK;
             }
         }
 

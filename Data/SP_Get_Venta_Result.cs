@@ -13,7 +13,7 @@ namespace Data
     
     public partial class SP_Get_Venta_Result
     {
-        public Nullable<int> clientCode { get; set; }
+        public int clientCode { get; set; }
         public System.DateTime date { get; set; }
         public string referencia { get; set; }
         public int estado { get; set; }

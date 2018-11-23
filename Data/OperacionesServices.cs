@@ -57,6 +57,11 @@ namespace Data
             return retList;
         }
 
+        public string GetUserAccionByCompra(int code)
+        {
+            return _data.SP_Get_UserActionCompra_ByCompraCode(code).FirstOrDefault();
+        }
+
         public object GetOperacion(string tipo, int code)
         {
             if(tipo != "Compra")
@@ -74,8 +79,15 @@ namespace Data
 
         public void SaveVenta(Venta vts)
         {
-            vts.CodigoOperacion = _data.SP_Insert_Venta(vts.ClienteCode, vts.Fecha, vts.Referencia, vts.EstadoCode, vts.UsuarioRealizoAccionCode).FirstOrDefault().Value;
-            CargarProductosEnOperacion(vts.TipoOperacion, vts.CodigoOperacion, vts.ProductosVenta);
+            try
+            {
+                vts.CodigoOperacion = _data.SP_Insert_Venta(vts.ClienteCode, vts.Fecha, vts.Referencia, vts.EstadoCode, vts.UsuarioRealizoAccionCode).FirstOrDefault().Value;
+                CargarProductosEnOperacion(vts.TipoOperacion, vts.CodigoOperacion, vts.ProductosVenta);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public void UpdateOperacion(string tipo, int operacionCode, int estadoCode)
@@ -100,6 +112,11 @@ namespace Data
                     _data.SP_Insert_Producto_ByCompra(CodeOperacion, prd.IDProducto, prd.Precio, prd.Cantidad);
 
 
+        }
+
+        public string GetUsertAccionByVenta(int code)
+        {
+            return _data.SP_Get_UserActionVenta_ByVentaCode(code).FirstOrDefault();
         }
 
         public List<ProveedorType> GetAllEstadosForOperacion()

@@ -19,7 +19,7 @@ namespace Data
         public string Referencia { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public int TotalCompra { get; set; }
+        public decimal TotalCompra { get; set; }
         public string Estado { get; set; }
     }
 }

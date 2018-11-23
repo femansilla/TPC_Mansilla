@@ -11,6 +11,7 @@ namespace Business
     public class OperacionesController
     {
         private readonly OperacionesServices _operacionesServices = new OperacionesServices();
+        private readonly ClienteServices _clienteServices = new ClienteServices();
 
         public bool SaveCompra(Compra cmp)
         {
@@ -33,13 +34,14 @@ namespace Business
                 retList.Add(new Compra()
                 {
                     CodigoOperacion = i.Code,
-                    Fecha = i.DateCompra,
+                    Fecha = i.DateCompra.Date,
                     Nombre = i.Nombre,
                     Apellido = i.Apellido,
                     CUIT = i.CUIT,
                     Referencia = i.Referencia,
                     Importe = i.TotalCompra,
                     Estado = i.Estado,
+                    UsuarioRealizoAccion = _operacionesServices.GetUserAccionByCompra(i.Code),
                     ProductosCompra = _operacionesServices.GetProductoByOperacion("Compra", i.Code),
                 });
             }
@@ -82,13 +84,17 @@ namespace Business
             var list = _operacionesServices.GetAllVentas();
             foreach (var i in list)
             {
+                var client = _clienteServices.getClienteByID((int)i.ClienteCode);
                 retList.Add(new Venta() {
                     CodigoOperacion = i.Code,
-                    Fecha = i.DateCompra,
+                    Fecha = i.DateCompra.Date,
                     ClienteCode = (int)i.ClienteCode,
+                    Cliente = (client == null) ? "Mostrador" : client.Apellido + ", " + client.Nombre,
                     Referencia = i.Referencia,
                     Estado = i.Estado,
-                    ProductosVenta = _operacionesServices.GetProductoByOperacion("Venta", i.Code)
+                    ProductosVenta = _operacionesServices.GetProductoByOperacion("Venta", i.Code),
+                    Total = (i.ImporteTotal != null) ? (decimal)i.ImporteTotal : 0,
+                    UsuarioRealizoAccion = _operacionesServices.GetUsertAccionByVenta(i.Code)
                 });
             }
             return retList;
