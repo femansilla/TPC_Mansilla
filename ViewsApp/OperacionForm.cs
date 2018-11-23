@@ -17,6 +17,7 @@ namespace ViewsApp
         private OperacionesController _operacionController = new OperacionesController();
         private ProveedorController _proveedorController = new ProveedorController();
         List<ProductoOperacion> listProducts = new List<ProductoOperacion>();
+        public Usuario currentUser;
         int code;
         string tipo;
 
@@ -46,6 +47,7 @@ namespace ViewsApp
                 dtFecha.Value = op.Fecha;
                 dgvProductos.DataSource = op.ProductosCompra;
                 CalcularTotalOperacion();
+                FormatDGV();
                 cmbStatusOp.SelectedValue = op.EstadoCode;
             }
             else
@@ -56,13 +58,22 @@ namespace ViewsApp
                 dtFecha.Value = op.Fecha;
                 dgvProductos.DataSource = op.ProductosVenta;
                 CalcularTotalOperacion();
+                FormatDGV();
                 cmbStatusOp.SelectedValue = op.EstadoCode;
             }
+        }
+
+        private void FormatDGV()
+        {
+           dgvProductos.Columns["IDProducto"].Visible = false;
+           dgvProductos.Columns["Descripcion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
 
         private void OperacionForm_Load(object sender, EventArgs e)
         {
             CargarCombos();
+            dtFecha.MaxDate = DateTime.Now;
         }
 
         private void CargarCombos()
@@ -100,6 +111,7 @@ namespace ViewsApp
                     Referencia = txtReferencia.Text,
                     Importe = decimal.Parse(total.Substring(7)),
                     ProductosCompra = listProducts,
+                    UsuarioRealizoAccionCode = currentUser.IDUser
                 };
                 _operacionController.SaveCompra(cmp);
             }
@@ -115,7 +127,7 @@ namespace ViewsApp
                 listProducts.Add(frm.prdCmp);
                 dgvProductos.DataSource = null;
                 dgvProductos.DataSource = listProducts;
-                dgvProductos.Columns["IDProducto"].Visible = false;
+                FormatDGV();
                 CalcularTotalOperacion();
             }
             else if (dr == DialogResult.Cancel)
@@ -148,7 +160,7 @@ namespace ViewsApp
                 }
                 dgvProductos.DataSource = null;
                 dgvProductos.DataSource = dataDGV;
-                dgvProductos.Columns["IDProducto"].Visible = false;
+                FormatDGV();
                 CalcularTotalOperacion();
             }
             catch (Exception ex)

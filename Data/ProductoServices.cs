@@ -46,6 +46,16 @@ namespace Data
             return _data.SP_Get_ImageDescripton_ByProduct(id).FirstOrDefault();
         }
 
+        public void CreateRelationProductProveedor(int productCode, int provCode)
+        {
+            _data.SP_Insert_Producto_ByProveedor(productCode, provCode);
+        }
+
+        public void DeleteRelationProductoProveedor(int code, int provCode)
+        {
+            _data.SP_Delete_Producto_ByProveedor(code, provCode);
+        }
+
         public List<SP_Get_Catalogo_ByProveedor_Result> GetCatalogoByProveedor(int provCode)
         {
             return _data.SP_Get_Catalogo_ByProveedor(provCode).ToList();

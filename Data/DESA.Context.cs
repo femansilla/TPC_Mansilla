@@ -1013,5 +1013,31 @@ namespace Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("SP_Get_Price_Product_ByList", productCodeParameter, listCodeParameter);
         }
+    
+        public virtual int SP_Delete_Producto_ByProveedor(Nullable<int> productoCode, Nullable<int> proveedorCode)
+        {
+            var productoCodeParameter = productoCode.HasValue ?
+                new ObjectParameter("ProductoCode", productoCode) :
+                new ObjectParameter("ProductoCode", typeof(int));
+    
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("ProveedorCode", proveedorCode) :
+                new ObjectParameter("ProveedorCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Producto_ByProveedor", productoCodeParameter, proveedorCodeParameter);
+        }
+    
+        public virtual int SP_Insert_Producto_ByProveedor(Nullable<int> productoCode, Nullable<int> proveedorCode)
+        {
+            var productoCodeParameter = productoCode.HasValue ?
+                new ObjectParameter("ProductoCode", productoCode) :
+                new ObjectParameter("ProductoCode", typeof(int));
+    
+            var proveedorCodeParameter = proveedorCode.HasValue ?
+                new ObjectParameter("ProveedorCode", proveedorCode) :
+                new ObjectParameter("ProveedorCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Insert_Producto_ByProveedor", productoCodeParameter, proveedorCodeParameter);
+        }
     }
 }

@@ -26,6 +26,10 @@
         <Function Name="SP_Delete_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idProducto" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_Delete_Producto_ByProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductoCode" Type="int" Mode="In" />
+          <Parameter Name="ProveedorCode" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Delete_ProductType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="typeCode" Type="int" Mode="In" />
         </Function>
@@ -180,6 +184,10 @@
           <Parameter Name="ProductoCode" Type="int" Mode="In" />
           <Parameter Name="ImporteUnidad" Type="money" Mode="In" />
           <Parameter Name="Cantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Insert_Producto_ByProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductoCode" Type="int" Mode="In" />
+          <Parameter Name="ProveedorCode" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_Insert_Producto_ByVenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="VentaCode" Type="int" Mode="In" />
@@ -602,6 +610,14 @@
           <FunctionImport Name="SP_Get_Price_Product_ByList" ReturnType="Collection(Decimal)">
             <Parameter Name="ProductCode" Mode="In" Type="Int32" />
             <Parameter Name="ListCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Delete_Producto_ByProveedor">
+            <Parameter Name="ProductoCode" Mode="In" Type="Int32" />
+            <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Insert_Producto_ByProveedor">
+            <Parameter Name="ProductoCode" Mode="In" Type="Int32" />
+            <Parameter Name="ProveedorCode" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_get_all_userTypes_Result">
@@ -1141,6 +1157,8 @@
           <FunctionImportMapping FunctionImportName="SP_Update_Producto" FunctionName="DESAModel.Store.SP_Update_Producto" />
           <FunctionImportMapping FunctionImportName="SP_Get_ImageDescripton_ByProduct" FunctionName="DESAModel.Store.SP_Get_ImageDescripton_ByProduct" />
           <FunctionImportMapping FunctionImportName="SP_Get_Price_Product_ByList" FunctionName="DESAModel.Store.SP_Get_Price_Product_ByList" />
+          <FunctionImportMapping FunctionImportName="SP_Delete_Producto_ByProveedor" FunctionName="DESAModel.Store.SP_Delete_Producto_ByProveedor" />
+          <FunctionImportMapping FunctionImportName="SP_Insert_Producto_ByProveedor" FunctionName="DESAModel.Store.SP_Insert_Producto_ByProveedor" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

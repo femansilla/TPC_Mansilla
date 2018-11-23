@@ -28,7 +28,7 @@ namespace Business
                     IDUser = u.UserId,
                     Apellido = u.Apellido,
                     Nombre = u.Nombre,
-                    FechaNac = u.FechaNac,
+                    FechaNac = u.FechaNac.Date,
                     Sex = (u.Sexo == "M") ? true : false,
                     SexDescription = (u.Sexo == "M") ? "Masculino" : "Femenino",
                     UserName = u.userName,

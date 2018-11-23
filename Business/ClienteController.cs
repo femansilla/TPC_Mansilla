@@ -52,7 +52,7 @@ namespace Business
                     CUIT = i.CUIT,
                     Sex = (i.Sexo == "M") ? true : false,
                     SexDescription = (i.Sexo == "M") ? "Masculino" : "Femenino",
-                    FechaNac = i.FechaNac,
+                    FechaNac = i.FechaNac.Date,
                     ClientType = _clienteServices.GetPriceListByClient(i.code),
                     ClientTypeDescripcion = _clienteServices.GetPriceDescriptionListByClient(i.code)
                 });

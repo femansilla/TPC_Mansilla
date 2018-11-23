@@ -102,9 +102,30 @@ namespace ViewsApp
             else if (txtSearch.Text != "Buscar...")
             {
                 List<Proveedor> lista;
-                lista = listaProveedores.FindAll(m => m.Apellido.ToLower().Contains(txtSearch.Text.ToLower()));
+                lista = listaProveedores.FindAll(m => m.CUIT.ToLower().Contains(txtSearch.Text.ToLower()));
                 dgvProveedores.DataSource = lista;
             }
+            if(dgvProveedores.DataSource != null)
+                FormatDGV();
+        }
+
+        private void FormatDGV()
+        {
+            dgvProveedores.Columns["ID"].Visible = false;
+            dgvProveedores.Columns["Sex"].Visible = false;
+            dgvProveedores.Columns["ProveedorTypeCode"].Visible = false;
+            //dgvProveedores.Columns["email"].Visible = false;
+
+            dgvProveedores.Columns["CUIT"].DisplayIndex = 0;
+            dgvProveedores.Columns["Nombre"].DisplayIndex = 1;
+            dgvProveedores.Columns["Apellido"].DisplayIndex = 2;
+            dgvProveedores.Columns["SexDescription"].DisplayIndex = 3;
+            dgvProveedores.Columns["FechaNac"].DisplayIndex = 4;
+            dgvProveedores.Columns["ProveedorTypeDescripcion"].DisplayIndex = 5;
+
+            dgvProveedores.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProveedores.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProveedores.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

@@ -33,24 +33,35 @@ namespace ViewsApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            ABMProductosProveedorForm form = new ABMProductosProveedorForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                _productoController.CreateRelationProductoProveedor(ProvCode, form.productCode);
+                form.Close();
+                LoadProductos();
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            var selectedProducto = (ProductoDescripcion)dgvDescripcion.CurrentRow.DataBoundItem;
+            _productoController.DeleteRelationProductoProveedor(selectedProducto.Code, ProvCode);
+            LoadProductos();
         }
 
         public void LoadProductos()
         {
+            dgvDescripcion.DataSource = null;
             dgvDescripcion.DataSource = _productoController.GetCatalogoByProveedor(ProvCode);
             dgvDescripcion.Columns[0].Visible = false;
             dgvDescripcion.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDescripcion.Refresh();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult = DialogResult.Cancel;
         }   
     }
 }

@@ -182,7 +182,12 @@ namespace ViewsApp
 
         private void btnVerCatalogo_Click(object sender, EventArgs e)
         {
-            new CatalogoProductoForm(this.iD).Show();
+            CatalogoProductoForm form = new CatalogoProductoForm(this.iD);
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                form.Close();
+            }
         }
     }
 }

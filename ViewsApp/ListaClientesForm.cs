@@ -22,8 +22,6 @@ namespace ViewsApp
         {
             InitializeComponent();
             txtSearch.Text = "Buscar...";
-            listaClientes = dgvClientes.DataSource as List<Cliente>;
-
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -72,6 +70,7 @@ namespace ViewsApp
         private void ListaClientesForm_Load(object sender, EventArgs e)
         {
             LoadClientes();
+            listaClientes = dgvClientes.DataSource as List<Cliente>;
         }
 
         private void editCliente()
@@ -127,9 +126,30 @@ namespace ViewsApp
             else if (txtSearch.Text != "Buscar...")
             {
                 List<Cliente> lista;
-                lista = listaClientes.FindAll(m => m.Apellido.ToLower().Contains(txtSearch.Text.ToLower()));
+                lista = listaClientes.FindAll(m => m.Nombre.ToLower().Contains(txtSearch.Text.ToLower()));
                 dgvClientes.DataSource = lista;
+                FormatDGV();
             }
+        }
+
+        private void FormatDGV()
+        {
+            dgvClientes.Columns["Sex"].Visible = false;
+            dgvClientes.Columns["ClientType"].Visible = false;
+            dgvClientes.Columns["ID"].Visible = false;
+
+            dgvClientes.Columns["Nombre"].DisplayIndex = 0;
+            dgvClientes.Columns["Apellido"].DisplayIndex = 1;
+            dgvClientes.Columns["CUIT"].DisplayIndex = 2;
+            dgvClientes.Columns["SexDescription"].DisplayIndex = 3;
+            dgvClientes.Columns["FechaNac"].DisplayIndex = 4;
+            dgvClientes.Columns["SexDescription"].DisplayIndex = 5;
+            dgvClientes.Columns["ClientTypeDescripcion"].DisplayIndex = 6;
+
+            dgvClientes.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvClientes.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvClientes.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvClientes.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

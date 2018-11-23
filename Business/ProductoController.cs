@@ -40,6 +40,16 @@ namespace Business
             };
         }
 
+        public void CreateRelationProductoProveedor(int provCode, int productCode)
+        {
+            _productoServices.CreateRelationProductProveedor(productCode, provCode);
+        }
+
+        public void DeleteRelationProductoProveedor(int code, int provCode)
+        {
+            _productoServices.DeleteRelationProductoProveedor(code, provCode);
+        }
+
         public object GetAllProductosView(int provCode)
         {
             var Catalogo = _productoServices.GetCatalogoByProveedor(provCode);

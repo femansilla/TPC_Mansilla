@@ -15,7 +15,7 @@ namespace ViewsApp
     public partial class LoginForm : Form
     {
         private UsuarioController _usuarioController = new UsuarioController();
-        public Usuario currentUser;
+        public Usuario currentUser = new Usuario();
         public LoginForm()
         {
             InitializeComponent();
@@ -49,14 +49,14 @@ namespace ViewsApp
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult = DialogResult.Cancel;
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (currentUser.IDUser == 0)
             {
-                Application.Exit();
+                DialogResult = DialogResult.Cancel;
             }
         }
     }

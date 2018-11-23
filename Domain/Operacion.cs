@@ -14,5 +14,6 @@ namespace Domain
         public DateTime Fecha { get; set; }
         [DisplayName("Usuario")]
         public string UsuarioRealizoAccion { get; set; }
+        public int UsuarioRealizoAccionCode { get; set; }
     }
 }
