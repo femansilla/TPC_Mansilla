@@ -58,12 +58,6 @@
     <Compile Include="Proveedor.cs" />
     <Compile Include="ProveedorType.cs" />
     <Compile Include="Provincia.cs" />
-    <Compile Include="Report_Compas.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Report_Compas.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Stock.cs" />
     <Compile Include="UserTypes.cs" />
     <Compile Include="Usuario.cs" />
@@ -71,12 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Report_Compas.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Report_Compas.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
