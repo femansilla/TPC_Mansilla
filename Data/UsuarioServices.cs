@@ -29,7 +29,7 @@ namespace Data
 
         public void SaveRepresentative(Usuario user)
         {
-            if (user.IDUser == 0 || user.IDUser == null)
+            if (user.IDUser == 0)
             {
                 var retCode = _data.SP_Insert_Representative(user.Nombre, user.Apellido, user.SexDescription, user.FechaNac).FirstOrDefault();
                 user.IDUser = int.Parse(retCode.ToString());

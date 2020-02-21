@@ -33,13 +33,13 @@ namespace ViewsApp
 
         private void ProductoOperacionForm_Load(object sender, EventArgs e)
         {
-            DataGridViewTextBoxColumn txtCode;
-            DataGridViewCheckBoxColumn columCheck;
-            DataGridViewTextBoxColumn txtDescripcion;
-            DataGridViewButtonColumn btnBajarCant;
-            DataGridViewTextBoxColumn txtCant;
-            DataGridViewButtonColumn btnMasCant;
-            DataGridViewTextBoxColumn txtImporte;
+            //DataGridViewTextBoxColumn txtCode;
+            //DataGridViewCheckBoxColumn columCheck;
+            //DataGridViewTextBoxColumn txtDescripcion;
+            //DataGridViewButtonColumn btnBajarCant;
+            //DataGridViewTextBoxColumn txtCant;
+            //DataGridViewButtonColumn btnMasCant;
+            //DataGridViewTextBoxColumn txtImporte;
         }
     }
 }

@@ -39,7 +39,6 @@ namespace Business
         {
             var alga = _stockServices.GetAllProductos();
             List<Producto> ret = new List<Producto>();
-            int i = 1;
             foreach (var prd in alga)
             {
                 Producto prdRet = new Producto()
