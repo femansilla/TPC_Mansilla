@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Busine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "Data\DAO.csproj", "{6CB37587-AAED-4004-A960-E68A09501600}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "API\WebApi.csproj", "{8C116B47-E4EF-49AF-9A51-B788111B8225}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{81154907-D480-443C-9669-953038983335}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{6CB37587-AAED-4004-A960-E68A09501600}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CB37587-AAED-4004-A960-E68A09501600}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CB37587-AAED-4004-A960-E68A09501600}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C116B47-E4EF-49AF-9A51-B788111B8225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C116B47-E4EF-49AF-9A51-B788111B8225}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C116B47-E4EF-49AF-9A51-B788111B8225}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C116B47-E4EF-49AF-9A51-B788111B8225}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81154907-D480-443C-9669-953038983335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81154907-D480-443C-9669-953038983335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81154907-D480-443C-9669-953038983335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81154907-D480-443C-9669-953038983335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

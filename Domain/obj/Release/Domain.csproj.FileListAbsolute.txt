@@ -3,3 +3,9 @@ C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Domain\bin\Release\Domain.pdb
 C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Domain\obj\Release\Domain.csproj.CoreCompileInputs.cache
 C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Domain\obj\Release\Domain.dll
 C:\Users\Francisco Mansilla\Source\Repos\TP_PROG3\Domain\obj\Release\Domain.pdb
+C:\Users\Francisco\Source\Repos\TPC_Mansilla\Domain\bin\Release\Domain.dll
+C:\Users\Francisco\Source\Repos\TPC_Mansilla\Domain\bin\Release\Domain.pdb
+C:\Users\Francisco\Source\Repos\TPC_Mansilla\Domain\obj\Release\Domain.csprojAssemblyReference.cache
+C:\Users\Francisco\Source\Repos\TPC_Mansilla\Domain\obj\Release\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Francisco\Source\Repos\TPC_Mansilla\Domain\obj\Release\Domain.dll
+C:\Users\Francisco\Source\Repos\TPC_Mansilla\Domain\obj\Release\Domain.pdb
