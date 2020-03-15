@@ -9,6 +9,8 @@ using System.Web.Http;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
+    [RoutePrefix("api/producto")]
     public class ProductoController : ApiController
     {
 
@@ -65,7 +67,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        //[Route("api/Producto/All")]
+        [Route("All")]
         public IEnumerable<Producto> All()
         {
             try
